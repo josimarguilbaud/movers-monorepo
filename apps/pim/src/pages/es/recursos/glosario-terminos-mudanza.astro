@@ -1,0 +1,68 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Recursos', url: 'https://panamainternationalmovers.com/es/recursos/' },
+  { name: 'Glosario', url: 'https://panamainternationalmovers.com/es/recursos/glosario-terminos-mudanza/' },
+]);
+
+const terms = [
+  { t: 'FCL (Full Container Load)', d: 'Contenedor completo contratado para una sola mudanza. Ofrece privacidad, rapidez y menos manipulación. Ideal para casas completas.' },
+  { t: 'LCL (Less than Container Load)', d: 'Carga consolidada o groupage: se comparte contenedor con otros clientes y se paga solo por el volumen ocupado. Ideal para envíos pequeños.' },
+  { t: 'CBM (Metro Cúbico)', d: 'Unidad de volumen (metro cúbico) con la que se mide la carga de una mudanza. Es la base para calcular el espacio y el costo.' },
+  { t: 'Bill of Lading (B/L)', d: 'Conocimiento de embarque: documento que emite la naviera y funciona como contrato de transporte y recibo de la carga.' },
+  { t: 'Ro-Ro (Roll-on/Roll-off)', d: 'Sistema para transportar vehículos que suben y bajan del buque rodando por sus propios medios. Más económico que el contenedor.' },
+  { t: 'Door-to-Door (Puerta a Puerta)', d: 'Servicio llave en mano: desde el empaque en el origen hasta la entrega y el desembalaje en el destino, con aduanas incluidas.' },
+  { t: 'Port-to-Port (Puerto a Puerto)', d: 'Servicio que cubre solo el tramo entre puertos; el cliente gestiona el empaque, la aduana de destino y el transporte final.' },
+  { t: 'Groupage', d: 'Otro nombre para la carga consolidada (LCL): agrupar mercancía de varios clientes en un mismo contenedor.' },
+  { t: 'Menaje de Casa', d: 'Conjunto de bienes de uso doméstico y personal (muebles, ropa, enseres) que se trasladan en una mudanza. Muchos países dan beneficios al menaje usado.' },
+  { t: 'Desaduanización', d: 'Proceso de trámites y pagos ante la aduana para liberar la mercancía y permitir su ingreso legal al país de destino.' },
+  { t: 'Transit Time (Tiempo de Tránsito)', d: 'Tiempo que tarda la carga en llegar de un puerto a otro. No incluye los procesos de empaque, aduana y entrega final.' },
+  { t: 'High Cube (HC)', d: 'Variante del contenedor de 40 pies con mayor altura, para ganar volumen o transportar muebles altos.' },
+  { t: 'ToR (Transfer of Residence)', d: 'Mecanismo del Reino Unido que permite importar el menaje libre de impuestos al trasladar la residencia, cumpliendo ciertas condiciones.' },
+  { t: 'CITES', d: 'Convención internacional que regula el traslado de especies protegidas. Relevante para el transporte de aves y animales exóticos.' },
+  { t: 'IATA (guacal)', d: 'Normas de la Asociación de Transporte Aéreo Internacional que definen los requisitos del guacal para transportar mascotas por avión.' },
+  { t: 'Inventario', d: 'Listado detallado y numerado de todos los bienes que se mudan. Es la base del despacho aduanero y del seguro.' },
+];
+---
+
+<Base
+  title="Glosario de Términos de Mudanzas Internacionales | PIM"
+  description="FCL, LCL, CBM, Bill of Lading, Ro-Ro, Door-to-Door… el lenguaje de las mudanzas internacionales explicado en palabras sencillas. Glosario de PIM Panamá."
+  lang="es"
+  altPaths={{ es: '/es/recursos/glosario-terminos-mudanza/', en: '/en/resources/moving-glossary/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><a href="/es/recursos/" class="hover:text-accent-400">Recursos</a><span>/</span><span class="text-accent-400">Glosario</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Glosario de Términos de Mudanzas</h1>
+      <p class="text-brand-200 text-lg">El mundo de las mudanzas internacionales tiene su propio lenguaje. Aquí lo traducimos a palabras sencillas.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <dl class="space-y-6">
+        {terms.map((term) => (
+          <div class="bg-brand-50 rounded-2xl p-6 border border-brand-100">
+            <dt class="text-lg font-black text-brand-900 mb-2 flex items-center gap-2"><Icon name="fa6-solid:bookmark" class="text-accent-500 text-sm" /> {term.t}</dt>
+            <dd class="text-brand-600 leading-relaxed">{term.d}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

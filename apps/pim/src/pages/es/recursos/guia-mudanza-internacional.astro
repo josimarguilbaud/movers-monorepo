@@ -1,0 +1,72 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Recursos', url: 'https://panamainternationalmovers.com/es/recursos/' },
+  { name: 'Guía de Mudanzas Internacionales', url: 'https://panamainternationalmovers.com/es/recursos/guia-mudanza-internacional/' },
+]);
+
+const steps = [
+  { h: '1. Empiece con tiempo', p: 'Una mudanza internacional se planifica con semanas —idealmente meses— de anticipación. Esto permite comparar opciones, reservar espacio en navieras a buenas tarifas, tramitar seguros y preparar la documentación sin prisas. La regla práctica: contacte a su empresa de mudanzas entre 4 y 6 semanas antes de la fecha deseada.' },
+  { h: '2. Elija la vía: marítima o aérea', p: 'La vía marítima es la más económica y la preferida para casas completas; la aérea es más cara pero mucho más rápida, ideal para envíos pequeños o urgentes. Muchas familias combinan ambas: por avión lo indispensable para las primeras semanas, por barco el resto.' },
+  { h: '3. Contenedor exclusivo (FCL) o compartido (LCL)', p: 'Si mueve una casa entera, el contenedor exclusivo ofrece privacidad, rapidez y menos manipulación. Si solo lleva algunos muebles o cajas, el contenedor compartido le permite pagar únicamente por el espacio que ocupa.' },
+  { h: '4. Puerta a puerta o puerto a puerto', p: 'El servicio puerta a puerta lo cubre todo, de su casa actual a la nueva, sin que usted gestione aduanas ni transporte. El puerto a puerto es más económico pero le deja a cargo de esos trámites. Elija según su tiempo, experiencia y presupuesto.' },
+  { h: '5. Entienda la aduana y el menaje', p: 'Cada país regula la importación de menaje de casa. Muchos permiten traer el menaje usado con exención de impuestos al trasladar la residencia, bajo ciertas condiciones. Su coordinador le indicará los requisitos, la documentación y qué artículos están restringidos en su destino.' },
+  { h: '6. Contrate un buen seguro', p: 'Ningún transporte internacional está exento de imprevistos. Un seguro a todo riesgo puerta a puerta protege el valor de su menaje. La clave es declarar correctamente el valor de sus bienes: ni de más ni de menos.' },
+  { h: '7. Embalaje profesional e inventario', p: 'El 90 % de la protección de su mudanza está en el embalaje. Para mudanzas internacionales, el empaque profesional suele ser obligatorio por aduanas y aseguradoras. Todo se inventaría y etiqueta, lo que agiliza la aduana y facilita la reinstalación.' },
+  { h: '8. El día de la mudanza y la llegada', p: 'El día del traslado, el equipo empaca (si no se hizo antes), carga e inventaría. En destino, tras la desaduanización, se entrega, se desembala lo básico y se retira el material. Tenga a mano sus documentos personales —que viajan siempre con usted, nunca en el contenedor—.' },
+];
+---
+
+<Base
+  title="Guía Definitiva de Mudanzas Internacionales 2026 | PIM"
+  description="La guía completa para mudarse al extranjero: cómo elegir la vía, entender aduanas y menaje, contratar seguro, empacar y planificar cada paso. Por PIM Panamá."
+  lang="es"
+  altPaths={{ es: '/es/recursos/guia-mudanza-internacional/', en: '/en/resources/international-moving-guide/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=2000&auto=format&fit=crop" alt="Mudanza internacional" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.9), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><a href="/es/recursos/" class="hover:text-accent-400">Recursos</a><span>/</span><span class="text-accent-400">Guía</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Guía Definitiva de Mudanzas Internacionales</h1>
+      <p class="text-brand-200 text-lg">Ocho pasos para trasladar su hogar a otro país con orden, seguridad y sin sorpresas.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-brand-600 text-lg leading-relaxed mb-10">Mudarse a otro país es uno de los proyectos más grandes que una familia puede emprender. La diferencia entre una experiencia fluida y un dolor de cabeza casi siempre está en la planificación. Esta guía resume, paso a paso, todo lo que necesita saber.</p>
+
+      <div class="space-y-8">
+        {steps.map((s) => (
+          <div class="border-l-2 border-accent-500 pl-6">
+            <h2 class="text-2xl font-black text-brand-900 mb-3">{s.h}</h2>
+            <p class="text-brand-600 leading-relaxed">{s.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14 rounded-3xl bg-brand-900 p-8 md:p-10 text-center">
+        <h3 class="text-2xl font-black text-white mb-3">¿Listo para dar el paso?</h3>
+        <p class="text-brand-300 mb-6">Una cotización basada en una inspección real de su carga le dará el panorama exacto de tiempos y costos.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/es/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Solicitar Cotización</a>
+          <a href="/es/recursos/checklist-mudanza-internacional/" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all">Ver el Checklist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

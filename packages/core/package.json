@@ -1,0 +1,10 @@
+{
+  "name": "@movers/core",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./types": "./src/types/index.ts",
+    "./i18n": "./src/i18n/index.ts",
+    "./schema": "./src/schema/index.ts"
+  }
+}

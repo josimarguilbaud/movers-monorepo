@@ -1,0 +1,84 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { faqPage, breadcrumb } from '@movers/core/schema';
+
+const faqs = [
+  { q: '¿Con cuánta anticipación debo contratar mi mudanza internacional?', a: 'Recomendamos entre 4 y 6 semanas antes de la fecha deseada. Esto permite coordinar la inspección, tramitar el seguro y reservar espacio en navieras o aerolíneas con las mejores tarifas.' },
+  { q: '¿Cómo se calcula el costo de una mudanza internacional?', a: 'Depende principalmente del volumen (metros cúbicos), la ruta origen-destino, el tipo de servicio (marítimo/aéreo, contenedor exclusivo o compartido, puerta a puerta) y los complementos como embalaje, seguro o almacenaje. Una inspección de su carga permite una cotización exacta.' },
+  { q: '¿Cuánto tarda una mudanza internacional?', a: 'El tiempo total combina el tránsito (marítimo o aéreo) con los procesos de origen y destino: empaque, consolidación, aduanas y entrega. Varía según la ruta; le confirmamos el estimado exacto de su corredor en la cotización.' },
+  { q: '¿Ustedes empacan todo o debo hacerlo yo?', a: 'Para mudanzas internacionales, el empaque profesional de nuestro equipo suele ser obligatorio, porque aduanas y aseguradoras exigen que el contenido coincida con el inventario y esté correctamente protegido. En mudanzas locales puede combinar su empaque con el nuestro.' },
+  { q: '¿Puedo importar mi menaje sin pagar impuestos?', a: 'Muchos países permiten importar el menaje de casa usado con exención total o parcial al trasladar la residencia, bajo ciertas condiciones (a menudo ligadas al tipo de visa). Verificamos qué aplica en su destino y gestionamos la documentación.' },
+  { q: '¿Qué artículos no puedo incluir en la mudanza?', a: 'Por normativas internacionales no se transportan artículos peligrosos (inflamables, explosivos, corrosivos), perecederos, plantas, semillas, armas, municiones, joyas de alto valor no declaradas ni efectivo. Cada país tiene restricciones específicas que su coordinador le explicará.' },
+  { q: '¿Ofrecen seguro de carga?', a: 'Sí, pólizas a todo riesgo puerta a puerta a través de aseguradoras internacionales reconocidas. El seguro se dimensiona sobre el valor declarado de su menaje; le asesoramos para declararlo correctamente.' },
+  { q: '¿Puedo enviar mi auto junto con mi mudanza?', a: 'Sí. En un contenedor de 40 pies es habitual combinar el menaje de casa con un vehículo, optimizando costos. También enviamos vehículos por separado, en contenedor o Ro-Ro.' },
+  { q: '¿Trasladan mascotas?', a: 'Sí, coordinamos la reubicación internacional de mascotas: requisitos veterinarios, guacal IATA, certificados y gestión aduanal, cuidando su bienestar en todo momento.' },
+  { q: '¿Qué pasa si mis cosas se dañan durante el traslado?', a: 'Si contrató seguro, reporte el daño de inmediato al recibir su carga y active la póliza a través de su coordinador. Por eso recomendamos documentar el estado de los bienes y contar siempre con cobertura a todo riesgo.' },
+];
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Recursos', url: 'https://panamainternationalmovers.com/es/recursos/' },
+  { name: 'Preguntas Frecuentes', url: 'https://panamainternationalmovers.com/es/recursos/preguntas-frecuentes/' },
+]);
+---
+
+<Base
+  title="Preguntas Frecuentes sobre Mudanzas Internacionales | PIM"
+  description="Resolvemos las dudas más comunes sobre mudanzas internacionales: costos, tiempos, aduanas, seguros, empaque, vehículos y mascotas. FAQ de Panamá International Movers."
+  lang="es"
+  altPaths={{ es: '/es/recursos/preguntas-frecuentes/', en: '/en/resources/faq/' }}
+  jsonld={[crumbs, faqPage(faqs.map((f) => ({ question: f.q, answer: f.a })))]}
+>
+  <Header locale="es" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><a href="/es/recursos/" class="hover:text-accent-400">Recursos</a><span>/</span><span class="text-accent-400">Preguntas Frecuentes</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Preguntas Frecuentes</h1>
+      <p class="text-brand-200 text-lg">Las dudas más comunes sobre mudanzas internacionales, resueltas por nuestros expertos.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="border border-brand-100 rounded-2xl overflow-hidden bg-brand-50/50">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center gap-4 focus:outline-none">
+              <span class="font-bold text-brand-900">{f.q}</span>
+              <Icon name="fa6-solid:chevron-down" class="text-brand-400 accordion-icon transition-transform shrink-0" />
+            </button>
+            <div class="accordion-content px-6 bg-white"><p class="text-brand-600 py-4 text-sm leading-relaxed">{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>
+
+<style>
+  .accordion-content { transition: max-height .3s ease-out, opacity .3s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
+  .accordion-content.active { max-height: 400px; opacity: 1; }
+  .accordion-icon.active { transform: rotate(180deg); }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
+    btn.addEventListener('click', function (this: HTMLElement) {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+      document.querySelectorAll('.accordion-content').forEach((c) => { if (c !== content) c.classList.remove('active'); });
+      document.querySelectorAll('.accordion-icon').forEach((i) => { if (i !== icon) i.classList.remove('active'); });
+      content?.classList.toggle('active');
+      icon?.classList.toggle('active');
+    });
+  });
+</script>

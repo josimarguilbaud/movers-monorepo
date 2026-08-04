@@ -1,0 +1,172 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { site, wa, yearsInBusiness } from '../../data/site';
+import { imgFor } from '../../data/images';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Nosotros', url: 'https://panamainternationalmovers.com/es/nosotros/' },
+]);
+
+const values = [
+  { icon: 'fa6-solid:handshake', title: 'Trato familiar', text: 'Atención directa y personal de quienes conocen su caso. Aquí usted es una familia, no un número.' },
+  { icon: 'fa6-solid:shield-halved', title: 'Responsabilidad', text: 'Cuidamos su patrimonio como si fuera nuestro, con embalaje profesional y seguro a todo riesgo.' },
+  { icon: 'fa6-solid:earth-americas', title: 'Estándar global', text: 'Una red de agentes en los cinco continentes para garantizar excelencia también en el destino.' },
+  { icon: 'fa6-solid:heart', title: 'Cercanía', text: 'Un coordinador personal lo acompaña de principio a fin, resolviendo cada duda con transparencia.' },
+];
+
+const stats = [
+  { value: `${yearsInBusiness}+`, label: 'Años de experiencia' },
+  { value: 'Global', label: 'Cobertura mundial' },
+  { value: '1990', label: 'Año de fundación' },
+  { value: '100%', label: 'Compromiso familiar' },
+];
+
+// ⚠️ Reemplazar por certificaciones/afiliaciones REALES de PIM (con sus logos).
+const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
+---
+
+<Base
+  title="Nosotros | Panamá International Movers S.A. — Desde 1990"
+  description="Conozca a Panamá International Movers: empresa familiar panameña fundada en 1990, con más de 30 años moviendo hogares por el mundo. Nuestra historia, valores y compromiso."
+  lang="es"
+  altPaths={{ es: '/es/nosotros/', en: '/en/about/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
+    <img src={imgFor('nosotros-hero', 0)} alt="Panamá International Movers" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><span class="text-accent-400">Nosotros</span></nav>
+      <span class="inline-flex items-center gap-2 text-xs font-bold text-accent-500 uppercase tracking-widest bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-6">Empresa familiar desde 1990</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Más de {yearsInBusiness} años <span class="text-accent-500">moviendo vidas</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">Somos la empresa familiar panameña de confianza para mudanzas internacionales. Detrás de cada mudanza hay un hogar, un sueño y una nueva etapa. Ese es nuestro propósito.</p>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-50 transform skew-x-12 translate-x-20 z-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative h-[560px]">
+          <div class="absolute top-0 left-0 w-4/5 h-4/5 rounded-3xl overflow-hidden shadow-2xl">
+            <img src={imgFor('nosotros-1', 5)} alt="Equipo PIM" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+            <img src={imgFor('nosotros-2', 11)} alt="Logística de mudanzas" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute top-1/2 right-8 -translate-y-1/2 bg-brand-900 text-white rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-xl border-4 border-white z-20">
+            <span class="text-sm font-bold text-accent-500 uppercase">Desde</span><span class="text-3xl font-black">1990</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Nuestra Historia</h2></div>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-900 mb-6 leading-tight">Una tradición familiar de confianza</h3>
+          <p class="text-brand-600 mb-5 text-lg leading-relaxed">Fundada en <strong>1990</strong> con valores familiares y una visión global, <strong>Panamá International Movers S.A.</strong> nació para hacer algo más que transportar muebles: para acompañar a las personas en uno de los momentos más importantes de su vida.</p>
+          <p class="text-brand-600 mb-5 leading-relaxed">A lo largo de más de tres décadas nos hemos consolidado como un referente en la logística de mudanzas internacionales en Panamá, evolucionando constantemente para ofrecer los estándares más altos, sin perder nunca el trato cercano y personal que nos define.</p>
+          <p class="text-brand-600 leading-relaxed">Aprovechamos la posición de Panamá como hub logístico de las Américas para llevar el hogar de nuestros clientes a cualquier rincón del mundo, con seguridad, planificación y acompañamiento profesional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-3xl p-10 border border-brand-100 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6"><Icon name="fa6-solid:bullseye" /></div>
+        <h3 class="text-2xl font-black text-brand-900 mb-3">Nuestra Misión</h3>
+        <p class="text-brand-600 leading-relaxed">Hacer que cada mudanza —local o al otro lado del mundo— sea una experiencia segura, fluida y sin estrés, cuidando el patrimonio y la tranquilidad de cada familia y empresa como si fueran propios.</p>
+      </div>
+      <div class="bg-white rounded-3xl p-10 border border-brand-100 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6"><Icon name="fa6-solid:eye" /></div>
+        <h3 class="text-2xl font-black text-brand-900 mb-3">Nuestra Visión</h3>
+        <p class="text-brand-600 leading-relaxed">Ser la empresa de mudanzas internacionales más confiable de Panamá, reconocida por combinar el estándar global de la industria con la calidez y el compromiso de una empresa familiar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Lo que nos define</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900">Nuestros valores</h3>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v) => (
+          <div class="bg-brand-50 p-8 rounded-3xl border border-brand-100">
+            <div class="w-14 h-14 rounded-2xl bg-white text-accent-600 flex items-center justify-center text-2xl mb-5 shadow-sm"><Icon name={v.icon} /></div>
+            <h4 class="text-lg font-bold text-brand-900 mb-2">{v.title}</h4>
+            <p class="text-brand-500 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="bg-accent-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-brand-900/10">
+      {stats.map((s) => (
+        <div class="text-center"><div class="text-4xl md:text-5xl font-black text-brand-900 mb-2">{s.value}</div><div class="text-sm font-bold uppercase tracking-wider text-brand-800">{s.label}</div></div>
+      ))}
+    </div>
+  </div>
+
+  <!-- EQUIPO (placeholder para fotos reales) -->
+  <section class="py-24 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-2">Nuestro Equipo</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">Las personas detrás de cada mudanza</h3>
+        <p class="text-brand-500">Coordinadores, embaladores y agentes aduanales que hacen posible su tranquilidad.</p>
+      </div>
+      {/* ⚠️ Reemplazar por fotos reales del equipo/coordinadores/flota de PIM */}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[1, 2, 3, 4].map(() => (
+          <div class="bg-white rounded-3xl overflow-hidden border border-dashed border-brand-200 text-center">
+            <div class="h-56 bg-brand-100 flex items-center justify-center text-brand-300 text-5xl"><Icon name="fa6-solid:user" /></div>
+            <div class="p-5"><h4 class="font-bold text-brand-400">[Nombre]</h4><p class="text-xs text-brand-300">[Cargo]</p></div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-brand-400 mt-6">Fotos reales del equipo pendientes.</p>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <section class="py-20 bg-white border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-3">Certificaciones y Afiliaciones</h2>
+      <h3 class="text-2xl md:text-3xl font-black text-brand-900 mb-8">Respaldados por los estándares de la industria</h3>
+      {/* ⚠️ Reemplazar por los logos reales de las certificaciones/afiliaciones de PIM */}
+      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5">
+        {certifications.map((c) => <span class="text-xl font-black text-brand-300 tracking-wide">{c}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-900 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">¿Listo para mudarse con quienes saben?</h3>
+      <p class="text-brand-300 mb-8">Ponga su mudanza en manos de una empresa familiar con más de {yearsInBusiness} años de experiencia.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/es/contacto/" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Solicitar Cotización</a>
+        <a href={wa()} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

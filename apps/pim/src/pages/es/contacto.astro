@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { Icon } from 'astro-icon/components';
+import { site, wa } from '../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Contacto', url: 'https://panamainternationalmovers.com/es/contacto/' },
+]);
+
+const departments = [
+  { icon: 'fa6-solid:headset', title: 'Cotizaciones / General', text: 'Para su mudanza y consultas generales.', contact: site.email },
+  { icon: 'fa6-solid:building', title: 'Corporativo (B2B)', text: 'Traslado de oficinas y relocation de ejecutivos.', contact: site.email },
+  { icon: 'fa6-solid:paw', title: 'Mascotas', text: 'Reubicación internacional de mascotas.', contact: site.email },
+  { icon: 'fa6-solid:circle-info', title: 'Atención al Cliente', text: 'Seguimiento y postventa.', contact: site.email },
+];
+---
+
+<Base
+  title="Contacto | Panamá International Movers S.A. — Cotización Gratis"
+  description="Contacte a Panamá International Movers. Solicite su cotización de mudanza internacional gratis, escríbanos por WhatsApp o visítenos en Vía Transístmica, Ciudad de Panamá."
+  lang="es"
+  altPaths={{ es: '/es/contacto/', en: '/en/contact/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><span class="text-accent-400">Contacto</span></nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Hablemos de su <span class="text-accent-500">mudanza</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto">Complete el formulario y un experto en logística internacional le responderá en menos de 24 horas. O escríbanos ahora mismo por WhatsApp.</p>
+    </div>
+  </section>
+
+  <!-- FORM + INFO -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+        <!-- Info -->
+        <div class="lg:w-2/5 bg-brand-950 p-10 md:p-14 text-white relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-accent-500 rounded-full mix-blend-screen filter blur-3xl opacity-20"></div>
+          <div class="relative z-10">
+            <h2 class="text-3xl font-black mb-4">Estamos para ayudarle</h2>
+            <p class="text-brand-300 mb-12 text-sm leading-relaxed">Elija el canal que prefiera. Respondemos rápido y sin compromiso.</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:location-dot" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Oficina Principal</h4><p class="text-white">{site.address.street}<br />{site.address.locality}, Panamá</p></div></div>
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:phone" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Teléfonos</h4><p class="text-white">{site.phones.join(' | ')}</p></div></div>
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:envelope" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Email</h4><p class="text-white text-sm">{site.email}</p></div></div>
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:clock" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Horario</h4><p class="text-white">Lun - Vie: 8:00 AM - 5:00 PM</p></div></div>
+            </div>
+            <a href={wa()} target="_blank" rel="noopener" class="mt-10 inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3.5 rounded-tr-xl rounded-bl-xl font-bold hover:bg-green-600 transition-all"><Icon name="fa6-brands:whatsapp" class="text-xl" /> Escríbanos por WhatsApp</a>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="lg:w-3/5 p-10 md:p-14 bg-white">
+          <h2 class="text-2xl font-black text-brand-900 mb-8">Solicitar Cotización Gratuita</h2>
+          <QuoteForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTAMENTOS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-2">¿Con quién desea hablar?</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900">Contacto por departamento</h3>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {departments.map((d) => (
+          <a href={`mailto:${d.contact}`} class="group bg-brand-50 p-7 rounded-3xl border border-brand-100 hover:border-accent-500 hover:bg-white hover:shadow-xl transition-all">
+            <div class="w-12 h-12 rounded-xl bg-brand-900 text-accent-400 flex items-center justify-center text-xl mb-4 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name={d.icon} /></div>
+            <h4 class="font-bold text-brand-900 mb-1">{d.title}</h4>
+            <p class="text-brand-500 text-xs leading-relaxed mb-3">{d.text}</p>
+            <span class="text-accent-600 text-xs font-bold break-all">{d.contact}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA (placeholder) -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ⚠️ Reemplazar por el mapa real de Google Maps embebido de la oficina de PIM */}
+      <div class="rounded-3xl overflow-hidden border border-brand-100 h-80 bg-brand-100 flex flex-col items-center justify-center text-brand-400">
+        <Icon name="fa6-solid:map-location-dot" class="text-5xl mb-3" />
+        <p class="font-bold">{site.address.street}</p>
+        <p class="text-sm">{site.address.locality}, Panamá</p>
+        <p class="text-xs mt-2 text-brand-300">(Mapa de Google pendiente de embeber)</p>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

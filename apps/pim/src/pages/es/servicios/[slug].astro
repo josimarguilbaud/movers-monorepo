@@ -1,0 +1,179 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { services, categoryById } from '../../../data/services';
+import { site, wa } from '../../../data/site';
+import { imgFor } from '../../../data/images';
+import { faqPage, breadcrumb } from '@movers/core/schema';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+const hero = imgFor(service.id, 0);
+const cat = categoryById(service.categoryId);
+const related = service.related
+  .map((id) => services.find((s) => s.id === id))
+  .filter((s): s is (typeof services)[number] => Boolean(s));
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: new URL('/es/', site.domain).href },
+  { name: 'Servicios', url: new URL('/es/servicios/', site.domain).href },
+  { name: service.title, url: new URL(`/es/servicios/${service.slug}/`, site.domain).href },
+]);
+---
+
+<Base
+  title={service.metaTitle}
+  description={service.metaDescription}
+  lang="es"
+  image={hero}
+  jsonld={[crumbs, faqPage(service.faqs.map((f) => ({ question: f.q, answer: f.a })))]}
+>
+  <Header locale="es" />
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
+    <img src={hero} alt={service.title} class="absolute inset-0 w-full h-full object-cover opacity-30" />
+    <div class="absolute inset-0" style="background:linear-gradient(120deg, rgba(10,25,47,0.95) 0%, rgba(10,25,47,0.75) 60%, rgba(10,25,47,0.4) 100%);"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap">
+        <a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span>
+        <a href="/es/servicios/" class="hover:text-accent-400">Servicios</a><span>/</span>
+        <span class="text-accent-400">{service.title}</span>
+      </nav>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+        <div class="w-6 h-6 rounded-md bg-accent-500 text-brand-900 flex items-center justify-center text-xs"><Icon name={service.icon} /></div>
+        <span class="text-xs font-bold text-white uppercase tracking-widest">{cat?.title}</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">{service.title}</h1>
+      <p class="text-xl text-brand-200 max-w-2xl font-light leading-relaxed">{service.heroTagline}</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-10">
+        <a href="/es/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-center hover:bg-accent-400 transition-all flex items-center justify-center gap-2">Cotizar este servicio <Icon name="fa6-solid:arrow-right" /></a>
+        <a href={wa(`Hola, me interesa el servicio de ${service.title}.`)} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {service.intro.map((p) => <p class="text-brand-600 text-lg leading-relaxed mb-6">{p}</p>)}
+    </div>
+  </section>
+
+  <!-- SECCIONES -->
+  {service.sections.map((sec, i) => (
+    <section class={`py-16 ${i % 2 === 0 ? 'bg-brand-50' : 'bg-white'}`}>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class={`grid ${sec.image ? 'lg:grid-cols-2' : ''} gap-12 items-center`}>
+          <div class={sec.image && i % 2 === 1 ? 'lg:order-2' : ''}>
+            <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-6 leading-tight">{sec.heading}</h2>
+            {sec.body.map((p) => <p class="text-brand-600 leading-relaxed mb-4">{p}</p>)}
+          </div>
+          {sec.image && (
+            <div class={`rounded-3xl overflow-hidden shadow-xl h-80 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <img src={imgFor(service.id, i + 1)} alt={sec.heading} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- BENEFICIOS -->
+  <section class="py-20 bg-brand-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest mb-3">Por qué con PIM</h2>
+        <h3 class="text-3xl md:text-4xl font-black">Ventajas de este servicio</h3>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {service.benefits.map((b) => (
+          <div class="bg-brand-800/50 border border-brand-700/50 p-6 rounded-2xl">
+            <div class="w-12 h-12 bg-brand-900 border border-brand-700 rounded-xl flex items-center justify-center text-accent-400 text-xl mb-4"><Icon name={b.icon} /></div>
+            <h4 class="font-bold text-lg mb-2">{b.title}</h4>
+            <p class="text-brand-300 text-sm leading-relaxed">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">Preguntas Frecuentes</h2>
+        <p class="text-brand-500">Sobre {service.title.toLowerCase()}.</p>
+      </div>
+      <div class="space-y-4">
+        {service.faqs.map((f) => (
+          <div class="border border-brand-100 rounded-2xl overflow-hidden bg-brand-50/50">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+              <span class="font-bold text-brand-900">{f.q}</span>
+              <Icon name="fa6-solid:chevron-down" class="text-brand-400 accordion-icon transition-transform" />
+            </button>
+            <div class="accordion-content px-6 bg-white"><p class="text-brand-600 py-4 text-sm leading-relaxed">{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RELACIONADOS -->
+  {related.length > 0 && (
+    <section class="py-16 bg-brand-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 class="text-2xl font-black text-brand-900 mb-8">Servicios relacionados</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {related.map((r) => (
+            <a href={`/es/servicios/${r.slug}/`} class="group bg-white p-6 rounded-2xl border border-brand-100 hover:shadow-xl transition-all flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-50 text-brand-900 flex items-center justify-center text-xl group-hover:bg-accent-500 group-hover:text-white transition-colors shrink-0"><Icon name={r.icon} /></div>
+              <div>
+                <h4 class="font-bold text-brand-900 mb-1 group-hover:text-accent-600 transition-colors">{r.title}</h4>
+                <span class="text-accent-600 text-sm font-bold flex items-center gap-1">Ver servicio <Icon name="fa6-solid:chevron-right" class="text-[10px]" /></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-950 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">¿Listo para su mudanza?</h3>
+      <p class="text-brand-300 mb-8">Solicite una cotización gratuita y sin compromiso. Le respondemos en menos de 24 horas.</p>
+      <a href="/es/#contacto" class="inline-block bg-accent-500 text-brand-900 px-10 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Cotizar mi Mudanza</a>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp">
+    <Icon name="fa6-brands:whatsapp" class="text-white text-3xl" />
+  </a>
+</Base>
+
+<style>
+  .accordion-content { transition: max-height .3s ease-out, opacity .3s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
+  .accordion-content.active { max-height: 600px; opacity: 1; }
+  .accordion-icon.active { transform: rotate(180deg); }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
+    btn.addEventListener('click', function (this: HTMLElement) {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+      document.querySelectorAll('.accordion-content').forEach((c) => { if (c !== content) c.classList.remove('active'); });
+      document.querySelectorAll('.accordion-icon').forEach((i) => { if (i !== icon) i.classList.remove('active'); });
+      content?.classList.toggle('active');
+      icon?.classList.toggle('active');
+    });
+  });
+</script>

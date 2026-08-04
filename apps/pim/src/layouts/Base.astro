@@ -1,0 +1,66 @@
+---
+import '@fontsource-variable/plus-jakarta-sans';
+import '../styles/global.css';
+import { site } from '../data/site';
+import { movingCompany } from '@movers/core/schema';
+import { alternates } from '@movers/core/i18n';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: 'es' | 'en';
+  /** Rutas alternas por idioma para hreflang recíproco, ej { es:'/es/', en:'/en/' } */
+  altPaths?: { es: string; en: string };
+  jsonld?: Record<string, any> | Record<string, any>[];
+  image?: string;
+}
+const { title, description, lang = 'es', altPaths, jsonld, image } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.domain).href;
+const alts = altPaths ? alternates(site.domain, altPaths) : [];
+const xDefault = altPaths ? new URL(altPaths.es, site.domain).href : canonical;
+
+const org = movingCompany({
+  name: site.name,
+  url: site.domain,
+  telephone: site.phones[0],
+  email: site.email,
+  streetAddress: site.address.street,
+  addressLocality: site.address.locality,
+  addressCountry: site.address.country,
+  foundingDate: String(site.foundingYear),
+});
+const extra = jsonld ? (Array.isArray(jsonld) ? jsonld : [jsonld]) : [];
+const schemas = [org, ...extra];
+const ogImage = image ? new URL(image, site.domain).href : undefined;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alts.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    {altPaths && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+    <meta http-equiv="content-language" content={lang === 'es' ? 'es-PA' : 'en-US'} />
+    <meta name="robots" content={import.meta.env.PUBLIC_NOINDEX === 'true' ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_PA' : 'en_US'} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>

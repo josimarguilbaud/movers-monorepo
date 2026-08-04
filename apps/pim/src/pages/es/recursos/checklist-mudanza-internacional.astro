@@ -1,0 +1,119 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Recursos', url: 'https://panamainternationalmovers.com/es/recursos/' },
+  { name: 'Checklist de Mudanza', url: 'https://panamainternationalmovers.com/es/recursos/checklist-mudanza-internacional/' },
+]);
+
+const phases = [
+  {
+    when: '2–3 meses antes',
+    icon: 'fa6-solid:calendar-days',
+    items: [
+      'Solicite cotizaciones y elija su empresa de mudanzas.',
+      'Agende la inspección de volumen (presencial o por videollamada).',
+      'Revise los requisitos de aduana y de residencia de su país de destino.',
+      'Decida qué se lleva, qué se vende, qué se dona y qué se desecha.',
+      'Verifique la vigencia de pasaportes y visas de toda la familia.',
+    ],
+  },
+  {
+    when: '1 mes antes',
+    icon: 'fa6-solid:calendar-check',
+    items: [
+      'Confirme la fecha de mudanza y el tipo de servicio (marítimo/aéreo, FCL/LCL).',
+      'Contrate el seguro y defina el valor a declarar de su menaje.',
+      'Reúna la documentación: inventario, títulos de propiedad, certificados.',
+      'Notifique cambios de dirección (bancos, servicios, suscripciones).',
+      'Gestione el traslado de mascotas si aplica (vacunas, certificados).',
+    ],
+  },
+  {
+    when: '1 semana antes',
+    icon: 'fa6-solid:box',
+    items: [
+      'Prepare una maleta con lo esencial para las primeras semanas.',
+      'Separe los documentos personales que viajarán con usted (nunca en el contenedor).',
+      'Vacíe, descongele y seque el refrigerador y electrodomésticos.',
+      'Confirme accesos, ascensores y horarios en origen y destino.',
+      'Respalde archivos digitales importantes.',
+    ],
+  },
+  {
+    when: 'El día de la mudanza',
+    icon: 'fa6-solid:truck-fast',
+    items: [
+      'Acompañe el inventario mientras el equipo empaca y carga.',
+      'Revise que cada caja quede etiquetada por contenido y área.',
+      'Guarde consigo documentos, joyas, medicinas y objetos de máximo valor.',
+      'Haga una última revisión de la vivienda vacía antes de cerrar.',
+    ],
+  },
+  {
+    when: 'Al llegar a destino',
+    icon: 'fa6-solid:house-chimney-window',
+    items: [
+      'Coordine la desaduanización con su agente (la gestiona su coordinador).',
+      'Verifique el inventario contra lo que se entrega.',
+      'Reporte cualquier daño de inmediato para activar el seguro.',
+      'Disfrute la instalación: entregamos, desembalamos lo básico y retiramos el material.',
+    ],
+  },
+];
+---
+
+<Base
+  title="Checklist de Mudanza Internacional (Descargable) | PIM Panamá"
+  description="Checklist paso a paso para tu mudanza internacional: qué hacer 3 meses, 1 mes y 1 semana antes, el día de la mudanza y al llegar. Organiza tu traslado sin olvidos."
+  lang="es"
+  altPaths={{ es: '/es/recursos/checklist-mudanza-internacional/', en: '/en/resources/international-moving-checklist/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><a href="/es/recursos/" class="hover:text-accent-400">Recursos</a><span>/</span><span class="text-accent-400">Checklist</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Checklist de Mudanza Internacional</h1>
+      <p class="text-brand-200 text-lg">La lista completa para no olvidar nada, desde tres meses antes hasta el día en que se instala en su nuevo hogar.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {phases.map((phase) => (
+        <div class="bg-white rounded-3xl p-8 border border-brand-100 shadow-sm">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-900 text-accent-400 flex items-center justify-center text-xl"><Icon name={phase.icon} /></div>
+            <h2 class="text-2xl font-black text-brand-900">{phase.when}</h2>
+          </div>
+          <ul class="space-y-3">
+            {phase.items.map((item) => (
+              <li class="flex items-start gap-3 text-brand-600">
+                <Icon name="fa6-solid:square-check" class="text-accent-500 text-lg mt-0.5 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="rounded-3xl bg-brand-900 p-8 md:p-10 text-center">
+        <h3 class="text-2xl font-black text-white mb-3">Deje que nosotros llevemos la lista</h3>
+        <p class="text-brand-300 mb-6">Con un coordinador personal, cada punto de este checklist queda cubierto por nuestro equipo.</p>
+        <a href="/es/#contacto" class="inline-block bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Solicitar Cotización</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

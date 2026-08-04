@@ -1,0 +1,10 @@
+{
+  "name": "movers-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev:pim": "pnpm --filter pim dev",
+    "build:pim": "pnpm --filter pim build",
+    "preview:pim": "pnpm --filter pim preview"
+  }
+}

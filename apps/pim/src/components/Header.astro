@@ -1,0 +1,209 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site, wa } from '../data/site';
+import { categories, servicesByCategory } from '../data/services';
+import { regions, destinationsByRegion } from '../data/destinations';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+
+const L = {
+  es: {
+    hours: 'Lunes - Viernes: 8:00 AM - 5:00 PM',
+    inicio: 'Inicio', nosotros: 'Nosotros', servicios: 'Servicios', destinos: 'Destinos',
+    recursos: 'Recursos', blog: 'Blog', cotizar: 'Cotizar', llamenos: 'Llámenos',
+    solicitar: 'Solicitar Cotización', verTodos: 'Ver todos los servicios', verDestinos: 'Ver todos los destinos',
+  },
+  en: {
+    hours: 'Mon - Fri: 8:00 AM - 5:00 PM',
+    inicio: 'Home', nosotros: 'About', servicios: 'Services', destinos: 'Destinations',
+    recursos: 'Resources', blog: 'Blog', cotizar: 'Quote', llamenos: 'Call us',
+    solicitar: 'Request a Quote', verTodos: 'See all services', verDestinos: 'See all destinations',
+  },
+}[locale];
+
+const other = locale === 'es' ? { href: '/en/', label: 'EN' } : { href: '/es/', label: 'ES' };
+const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar una mudanza con PIM.' : 'Hi, I would like a moving quote from PIM.');
+const base = `/${locale}/`;
+const svc = `${base}servicios/`;
+const dest = `${base}destinos/`;
+const rec = `${base}recursos/`;
+const blog = `${base}blog/`;
+
+// Etiquetas cortas para el mega-menú (los títulos SEO completos quedan en las páginas).
+const catShort: Record<string, string> = {
+  internacionales: 'Internacionales', vehiculos: 'Vehículos', mascotas: 'Mascotas',
+  contenedores: 'Contenedores', locales: 'Locales y Nacionales', cliente: 'Por Tipo de Cliente',
+  especiales: 'Artículos Especiales', complementarios: 'Complementarios', casillero: 'Casillero y Courier',
+};
+const menuShort: Record<string, string> = {
+  maritimas: 'Marítimas', fcl: 'Contenedor Exclusivo (FCL)', lcl: 'Contenedor Compartido (LCL)',
+  aereas: 'Aéreas', 'puerta-a-puerta': 'Puerta a Puerta',
+  'auto-contenedor': 'Autos en Contenedor', 'auto-roro': 'Autos Ro-Ro', motos: 'Motocicletas', clasicos: 'Autos Clásicos',
+  'mascotas-internacional': 'Transporte Internacional', 'mascotas-perros': 'Perros', 'mascotas-gatos': 'Gatos', 'mascotas-exoticos': 'Aves y Exóticos',
+  'contenedor-20': 'Contenedor 20 pies', 'contenedor-40': 'Contenedor 40 pies', 'contenedor-almacenamiento': 'Para Obra o Storage', 'drop-off': 'Servicio Drop-Off',
+  locales: 'Locales (Cd. Panamá)', nacionales: 'Nacionales', express: 'Express / Última Hora',
+  'cliente-residenciales': 'Residenciales', 'cliente-corporativas': 'Corporativas / Oficinas', 'cliente-expatriados': 'Ejecutivos (Expats)', 'cliente-estudiantes': 'Estudiantes', 'cliente-jubilados': 'Jubilados',
+  'especiales-arte': 'Obras de Arte', 'especiales-pianos': 'Pianos e Instrumentos', 'especiales-vinos': 'Bodegas y Vinos', 'especiales-deportivo': 'Equipaje Deportivo',
+  'complementarios-embalaje': 'Embalaje Profesional', 'complementarios-seguros': 'Seguros', 'complementarios-almacenaje': 'Almacenaje (Storage)', 'complementarios-aduanas': 'Gestión Aduanera', 'complementarios-limpieza': 'Limpieza Final',
+  'casillero-miami': 'Casillero en Miami', 'courier-internacional': 'Courier Internacional',
+};
+---
+
+<!-- Top Contact Bar -->
+<div class="bg-brand-950 text-brand-200 py-2.5 text-xs font-medium tracking-wide hidden lg:block relative z-[60]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+    <div class="flex items-center space-x-8">
+      <span class="flex items-center gap-2"><Icon name="fa6-solid:clock" class="text-accent-500" /> {L.hours}</span>
+      <span class="flex items-center gap-2"><Icon name="fa6-solid:location-dot" class="text-accent-500" /> {site.address.street}</span>
+    </div>
+    <div class="flex items-center space-x-6">
+      <a href={`mailto:${site.email}`} class="hover:text-white transition-colors flex items-center gap-2"><Icon name="fa6-solid:envelope" class="text-accent-500" /> {site.email}</a>
+      <div class="h-3 w-px bg-brand-800"></div>
+      <div class="flex gap-3">
+        <a href={site.socials.linkedin} class="hover:text-accent-500 transition-colors" aria-label="LinkedIn"><Icon name="fa6-brands:linkedin-in" /></a>
+        <a href={site.socials.instagram} class="hover:text-accent-500 transition-colors" aria-label="Instagram"><Icon name="fa6-brands:instagram" /></a>
+        <a href={site.socials.facebook} class="hover:text-accent-500 transition-colors" aria-label="Facebook"><Icon name="fa6-brands:facebook-f" /></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-500 nav-transparent top-0 lg:top-[40px]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-24">
+      <a href={base} class="flex items-center gap-3 group shrink-0">
+        <div class="w-12 h-12 bg-accent-500 rounded-br-2xl rounded-tl-2xl flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:bg-accent-400 transition-all">PIM</div>
+        <div class="flex flex-col">
+          <span id="nav-logo-text" class="font-bold text-2xl text-white tracking-tight leading-none transition-colors duration-300">Panamá International</span>
+          <span class="text-xs text-accent-500 font-bold uppercase tracking-[0.2em] mt-1">Movers S.A.</span>
+        </div>
+      </a>
+
+      <div class="hidden xl:flex items-center gap-1">
+        <a href={base} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.inicio}</a>
+        <a href={`${base}nosotros/`} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.nosotros}</a>
+
+        <!-- Mega: Servicios -->
+        <div class="group relative">
+          <a href={svc} class="nav-link px-3 py-2 flex items-center gap-1.5 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">
+            {L.servicios} <Icon name="fa6-solid:chevron-down" class="text-[9px] transition-transform group-hover:rotate-180" />
+          </a>
+          <div class="mega invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[62rem] max-w-[92vw]">
+            <div class="bg-white rounded-2xl shadow-2xl border border-brand-100 p-6 grid grid-cols-4 gap-x-6 gap-y-5">
+              {categories.map((cat) => (
+                <div>
+                  <div class="flex items-center gap-2 mb-2 pb-2 border-b border-brand-100">
+                    <span class="w-6 h-6 rounded-md bg-brand-50 text-accent-600 flex items-center justify-center text-xs"><Icon name={cat.icon} /></span>
+                    <span class="text-[11px] font-black text-brand-900 uppercase tracking-wide leading-tight">{catShort[cat.id] ?? cat.title}</span>
+                  </div>
+                  <ul class="space-y-1">
+                    {servicesByCategory(cat.id).map((s) => (
+                      <li><a href={`/es/servicios/${s.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors block leading-snug whitespace-nowrap">{menuShort[s.id] ?? s.title}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <div class="col-span-4 pt-3 border-t border-brand-100">
+                <a href={svc} class="text-sm font-bold text-accent-600 hover:text-accent-700 flex items-center gap-2">{L.verTodos} <Icon name="fa6-solid:arrow-right" class="text-[10px]" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mega: Destinos -->
+        <div class="group relative">
+          <a href={dest} class="nav-link px-3 py-2 flex items-center gap-1.5 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">
+            {L.destinos} <Icon name="fa6-solid:chevron-down" class="text-[9px] transition-transform group-hover:rotate-180" />
+          </a>
+          <div class="mega invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[42rem] max-w-[92vw]">
+            <div class="bg-white rounded-2xl shadow-2xl border border-brand-100 p-6 grid grid-cols-3 gap-6">
+              {regions.map((region) => (
+                <div>
+                  <p class="text-[11px] font-black text-brand-900 uppercase tracking-wide mb-2 pb-2 border-b border-brand-100">{region.title}</p>
+                  <ul class="space-y-1.5">
+                    {destinationsByRegion(region.id).map((d) => (
+                      <li><a href={`/es/destinos/${d.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors flex items-center gap-2"><span>{d.flag}</span> {d.country}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <div class="col-span-3 pt-3 border-t border-brand-100">
+                <a href={dest} class="text-sm font-bold text-accent-600 hover:text-accent-700 flex items-center gap-2">{L.verDestinos} <Icon name="fa6-solid:arrow-right" class="text-[10px]" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href={rec} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.recursos}</a>
+        <a href={blog} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.blog}</a>
+        <a href={other.href} class="nav-link px-2 py-1 text-white hover:text-accent-500 font-bold text-sm uppercase transition-colors border border-white/30 rounded-md ml-1">{other.label}</a>
+
+        <a href={`${base}contacto/`} class="ml-2 bg-accent-500 text-brand-900 px-6 py-3 rounded-tr-xl rounded-bl-xl font-bold text-sm uppercase tracking-wide shadow-lg hover:bg-accent-400 transition-all transform hover:-translate-y-0.5">{L.cotizar}</a>
+      </div>
+
+      <div class="xl:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-white focus:outline-none p-2" aria-label="Menu">
+          <Icon id="mobile-icon" name="fa6-solid:bars" class="text-3xl" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
+    <div class="flex flex-col space-y-4 text-center mt-6">
+      <a href={base} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.inicio}</a>
+      <a href={`${base}nosotros/`} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.nosotros}</a>
+      <a href={svc} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.servicios}</a>
+      <a href={dest} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.destinos}</a>
+      <a href={rec} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.recursos}</a>
+      <a href={blog} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.blog}</a>
+      <a href={other.href} class="text-xl font-bold text-accent-500">{other.label}</a>
+    </div>
+    <div class="mt-auto flex flex-col gap-4 pt-8">
+      <a href={waHref} target="_blank" rel="noopener" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold text-center flex justify-center items-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-xl" /> WhatsApp</a>
+      <a href={`${base}contacto/`} class="mobile-link w-full bg-accent-500 text-brand-900 py-4 rounded-xl font-bold text-center">{L.solicitar}</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+  .nav-transparent { background: transparent; border-bottom: 1px solid rgba(255,255,255,0.1); }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const logoText = document.getElementById('nav-logo-text');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileIcon = document.getElementById('mobile-icon');
+
+  const setScrolled = (on: boolean) => {
+    if (!navbar) return;
+    if (on) {
+      navbar.classList.add('nav-scrolled');
+      navbar.classList.remove('nav-transparent', 'lg:top-[40px]');
+      navbar.classList.add('top-0');
+      logoText?.classList.replace('text-white', 'text-brand-900');
+      mobileIcon?.classList.replace('text-white', 'text-brand-900');
+      navLinks.forEach((l) => l.classList.replace('text-white', 'text-brand-700'));
+    } else {
+      navbar.classList.remove('nav-scrolled', 'top-0');
+      navbar.classList.add('nav-transparent', 'lg:top-[40px]');
+      logoText?.classList.replace('text-brand-900', 'text-white');
+      mobileIcon?.classList.replace('text-brand-900', 'text-white');
+      navLinks.forEach((l) => l.classList.replace('text-brand-700', 'text-white'));
+    }
+  };
+  window.addEventListener('scroll', () => setScrolled(window.scrollY > 50), { passive: true });
+  setScrolled(window.scrollY > 50);
+
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => menu?.classList.add('translate-x-full')));
+  btn?.addEventListener('click', () => menu?.classList.toggle('translate-x-full'));
+</script>

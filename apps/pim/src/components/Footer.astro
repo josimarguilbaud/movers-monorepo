@@ -1,0 +1,146 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site, wa, yearsInBusiness } from '../data/site';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+const base = `/${locale}/`;
+
+const L = {
+  es: {
+    blurb: `Empresa familiar panameña con más de ${yearsInBusiness} años de experiencia en mudanzas internacionales, locales y corporativas. Llevamos su hogar a cualquier parte del mundo con seguridad y confianza.`,
+    servicios: 'Servicios', destinos: 'Destinos', recursos: 'Recursos', empresa: 'Empresa', contacto: 'Contacto',
+    verTodos: 'Ver todos',
+    rights: 'Todos los derechos reservados.', privacy: 'Política de Privacidad', terms: 'Términos de Servicio',
+    madeWith: 'Desarrollado con tecnología de',
+    hoursLabel: 'Horario', hours: 'Lun - Vie: 8:00 AM - 5:00 PM',
+    cta: 'Cotiza tu mudanza',
+  },
+  en: {
+    blurb: `Panamanian family business with over ${yearsInBusiness} years of experience in international, local and corporate moving. We carry your home anywhere in the world with safety and trust.`,
+    servicios: 'Services', destinos: 'Destinations', recursos: 'Resources', empresa: 'Company', contacto: 'Contact',
+    verTodos: 'See all',
+    rights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Service',
+    madeWith: 'Built with technology by',
+    hoursLabel: 'Hours', hours: 'Mon - Fri: 8:00 AM - 5:00 PM',
+    cta: 'Get a moving quote',
+  },
+}[locale];
+
+const servicios = [
+  { label: 'Mudanzas Marítimas', href: '/es/servicios/mudanzas-internacionales-maritimas/' },
+  { label: 'Contenedor Exclusivo (FCL)', href: '/es/servicios/contenedor-exclusivo-fcl/' },
+  { label: 'Mudanzas Aéreas', href: '/es/servicios/mudanzas-internacionales-aereas/' },
+  { label: 'Traslado de Vehículos', href: '/es/servicios/envio-de-autos-en-contenedor/' },
+  { label: 'Traslado de Mascotas', href: '/es/servicios/transporte-de-mascotas-internacional/' },
+  { label: 'Mudanzas Corporativas', href: '/es/servicios/mudanzas-corporativas-de-oficinas/' },
+  { label: 'Almacenaje (Storage)', href: '/es/servicios/almacenamiento-storage-panama/' },
+  { label: 'Embalaje Profesional', href: '/es/servicios/servicio-de-embalaje-profesional/' },
+];
+const destinos = [
+  { label: 'Mudanzas a España', href: '/es/destinos/mudanzas-de-panama-a-espana/' },
+  { label: 'Mudanzas a Estados Unidos', href: '/es/destinos/mudanzas-de-panama-a-estados-unidos/' },
+  { label: 'Mudanzas a Canadá', href: '/es/destinos/mudanzas-de-panama-a-canada/' },
+  { label: 'Mudanzas a México', href: '/es/destinos/mudanzas-de-panama-a-mexico/' },
+  { label: 'Mudanzas a Reino Unido', href: '/es/destinos/mudanzas-de-panama-a-reino-unido/' },
+  { label: 'Mudanzas a Alemania', href: '/es/destinos/mudanzas-de-panama-a-alemania/' },
+  { label: 'Mudanzas a Italia', href: '/es/destinos/mudanzas-de-panama-a-italia/' },
+  { label: 'Mudanzas a Australia', href: '/es/destinos/mudanzas-de-panama-a-australia/' },
+];
+const recursos = [
+  { label: 'Guía de Mudanzas', href: '/es/recursos/guia-mudanza-internacional/' },
+  { label: 'Checklist de Mudanza', href: '/es/recursos/checklist-mudanza-internacional/' },
+  { label: 'Glosario de Términos', href: '/es/recursos/glosario-terminos-mudanza/' },
+  { label: 'Preguntas Frecuentes', href: '/es/recursos/preguntas-frecuentes/' },
+  { label: 'Blog', href: '/es/blog/' },
+];
+---
+
+<!-- CTA band -->
+<section class="bg-accent-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div>
+      <h2 class="text-2xl md:text-3xl font-black text-brand-900">{L.cta}</h2>
+      <p class="text-brand-800 font-medium mt-1">{L.hours} · {site.phones.join(' · ')}</p>
+    </div>
+    <div class="flex gap-3 shrink-0">
+      <a href={`${base}contacto/`} class="bg-brand-900 text-white px-7 py-3.5 rounded-tr-xl rounded-bl-xl font-bold hover:bg-brand-800 transition-all">{L.contacto}</a>
+      <a href={wa()} target="_blank" rel="noopener" class="bg-white text-brand-900 px-7 py-3.5 rounded-tr-xl rounded-bl-xl font-bold hover:bg-brand-50 transition-all flex items-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-600 text-xl" /> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-brand-950 text-brand-400 pt-16 pb-8">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-14">
+      <!-- Brand + NAP -->
+      <div class="lg:col-span-2">
+        <a href={base} class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 bg-accent-500 rounded-br-xl rounded-tl-xl flex items-center justify-center text-white font-black text-lg">PIM</div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg text-white leading-none">Panamá International</span>
+            <span class="text-[10px] text-accent-500 font-bold uppercase tracking-[0.2em] mt-1">Movers S.A.</span>
+          </div>
+        </a>
+        <p class="text-sm text-brand-400 leading-relaxed mb-6 max-w-sm">{L.blurb}</p>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-3"><Icon name="fa6-solid:location-dot" class="mt-1 text-accent-500 shrink-0" /><span>{site.address.street}<br />{site.address.locality}, {locale === 'es' ? 'Panamá' : 'Panama'}</span></li>
+          <li class="flex items-center gap-3"><Icon name="fa6-solid:phone" class="text-accent-500" /><a href={`tel:${site.phones[0].replace(/\s/g, '')}`} class="hover:text-white transition-colors">{site.phones.join(' · ')}</a></li>
+          <li class="flex items-center gap-3"><Icon name="fa6-solid:envelope" class="text-accent-500" /><a href={`mailto:${site.email}`} class="hover:text-white transition-colors break-all">{site.email}</a></li>
+          <li class="flex items-center gap-3"><Icon name="fa6-solid:clock" class="text-accent-500" /><span>{L.hours}</span></li>
+        </ul>
+        <div class="flex gap-3 mt-6">
+          <a href={site.socials.facebook} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="Facebook"><Icon name="fa6-brands:facebook-f" /></a>
+          <a href={site.socials.instagram} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="Instagram"><Icon name="fa6-brands:instagram" /></a>
+          <a href={site.socials.linkedin} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="LinkedIn"><Icon name="fa6-brands:linkedin-in" /></a>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">{L.servicios}</h3>
+        <ul class="space-y-2.5 text-sm">
+          {servicios.map((s) => <li><a href={s.href} class="hover:text-accent-400 transition-colors lg:whitespace-nowrap">{s.label}</a></li>)}
+          <li><a href={`${base}servicios/`} class="text-accent-500 font-semibold hover:text-accent-400 transition-colors">{L.verTodos} →</a></li>
+        </ul>
+      </div>
+
+      <!-- Destinos -->
+      <div>
+        <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">{L.destinos}</h3>
+        <ul class="space-y-2.5 text-sm">
+          {destinos.map((d) => <li><a href={d.href} class="hover:text-accent-400 transition-colors lg:whitespace-nowrap">{d.label}</a></li>)}
+          <li><a href={`${base}destinos/`} class="text-accent-500 font-semibold hover:text-accent-400 transition-colors">{L.verTodos} →</a></li>
+        </ul>
+      </div>
+
+      <!-- Recursos + Empresa -->
+      <div>
+        <h3 class="text-white font-bold mb-5 text-sm uppercase tracking-wider">{L.recursos}</h3>
+        <ul class="space-y-2.5 text-sm mb-6">
+          {recursos.map((r) => <li><a href={r.href} class="hover:text-accent-400 transition-colors lg:whitespace-nowrap">{r.label}</a></li>)}
+        </ul>
+        <h3 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">{L.empresa}</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href={`${base}nosotros/`} class="hover:text-accent-400 transition-colors lg:whitespace-nowrap">{L.empresa}</a></li>
+          <li><a href={`${base}contacto/`} class="hover:text-accent-400 transition-colors lg:whitespace-nowrap">{L.contacto}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs gap-3">
+      <p>&copy; 2026 {site.name} · {L.rights}</p>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-white transition-colors">{L.privacy}</a>
+        <a href="#" class="hover:text-white transition-colors">{L.terms}</a>
+      </div>
+    </div>
+
+    <p class="text-center text-[11px] text-brand-500 mt-6">
+      {L.madeWith}
+      <a href="https://elementoweb.com" target="_blank" rel="noopener" class="text-brand-400 hover:text-accent-400 font-semibold transition-colors">Elemento Web</a>
+    </p>
+  </div>
+</footer>

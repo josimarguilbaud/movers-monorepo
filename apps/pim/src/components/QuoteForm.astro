@@ -1,0 +1,155 @@
+---
+import { Icon } from 'astro-icon/components';
+import { contactForm } from '../data/site';
+
+const inputCls =
+  'w-full px-5 py-4 rounded-xl border border-brand-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all bg-brand-50 focus:bg-white text-brand-900';
+const labelCls = 'block text-xs font-bold text-brand-600 uppercase tracking-wide mb-2';
+const optCls =
+  'block text-center px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-brand-700 font-semibold text-sm peer-checked:bg-brand-900 peer-checked:text-white peer-checked:border-brand-900 hover:border-accent-500 transition-all';
+---
+
+<div class="quote-form-wrap">
+  <form id="quote-form" data-key={contactForm.web3formsKey} class="space-y-5">
+    <input type="hidden" name="subject" value="Nueva solicitud de cotización — Panamá International Movers" />
+    <input type="hidden" name="from_name" value="Sitio web PIM" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    <!-- Nombre -->
+    <div>
+      <label class={labelCls}>Nombre Completo <span class="text-accent-500">*</span></label>
+      <input name="Nombre" type="text" class={inputCls} placeholder="Ej. Juan Pérez" required />
+    </div>
+
+    <!-- Tipo de Mudanza -->
+    <div>
+      <label class={labelCls}>Tipo de Mudanza <span class="text-accent-500">*</span></label>
+      <div class="flex gap-3">
+        <label class="flex-1 cursor-pointer">
+          <input type="radio" name="Tipo de Mudanza" value="Local" class="peer sr-only" required />
+          <span class={optCls}>Local</span>
+        </label>
+        <label class="flex-1 cursor-pointer">
+          <input type="radio" name="Tipo de Mudanza" value="Internacional" class="peer sr-only" />
+          <span class={optCls}>Internacional</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- Correo -->
+      <div>
+        <label class={labelCls}>Correo electrónico <span class="text-accent-500">*</span></label>
+        <input name="email" type="email" class={inputCls} placeholder="correo@ejemplo.com" required />
+      </div>
+      <!-- Fecha -->
+      <div>
+        <label class={labelCls}>Fecha Aproximada de Mudanza <span class="text-accent-500">*</span></label>
+        <input name="Fecha aproximada" type="date" class={inputCls} required />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- Teléfono -->
+      <div>
+        <label class={labelCls}>Teléfono (WhatsApp) <span class="text-accent-500">*</span></label>
+        <input name="Teléfono" type="tel" class={inputCls} placeholder="+507 0000-0000" required />
+      </div>
+      <!-- Empaque -->
+      <div>
+        <label class={labelCls}>¿Necesita Servicio de Empaque?</label>
+        <div class="flex gap-3">
+          <label class="flex-1 cursor-pointer">
+            <input type="radio" name="Servicio de empaque" value="Sí" class="peer sr-only" />
+            <span class={optCls}>Sí</span>
+          </label>
+          <label class="flex-1 cursor-pointer">
+            <input type="radio" name="Servicio de empaque" value="No" class="peer sr-only" />
+            <span class={optCls}>No</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <!-- Origen -->
+      <div>
+        <label class={labelCls}>Ciudad y País de Origen <span class="text-accent-500">*</span></label>
+        <input name="Origen" type="text" class={inputCls} placeholder="Ej. Ciudad de Panamá, Panamá" required />
+      </div>
+      <!-- Destino -->
+      <div>
+        <label class={labelCls}>Ciudad y País de Destino <span class="text-accent-500">*</span></label>
+        <input name="Destino" type="text" class={inputCls} placeholder="Ej. Madrid, España" required />
+      </div>
+    </div>
+
+    <!-- Detalles -->
+    <div>
+      <label class={labelCls}>Detalles</label>
+      <textarea name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder="Háganos cualquier consulta… Volumen aproximado (casa de X recámaras), si incluye vehículo, etc."></textarea>
+    </div>
+
+    <button type="submit" id="quote-submit" class="w-full bg-accent-500 text-brand-900 font-bold py-4 rounded-xl shadow-lg hover:bg-accent-400 transition-colors flex justify-center items-center gap-2 mt-2 text-lg disabled:opacity-70">
+      Enviar Solicitud <Icon name="fa6-solid:paper-plane" />
+    </button>
+    <p id="form-error" class="hidden text-sm text-red-600 text-center"></p>
+    <p class="text-[11px] text-brand-400 text-center">Al enviar acepta ser contactado por PIM. No compartimos sus datos.</p>
+  </form>
+
+  <div id="form-success" class="hidden text-center py-16">
+    <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 text-4xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
+    <h4 class="text-3xl font-black text-brand-900 mb-3">¡Solicitud Recibida!</h4>
+    <p class="text-brand-600 mb-8 max-w-md mx-auto">Gracias por confiar en PIM. Nuestro equipo revisará su solicitud y le contactaremos en menos de 24 horas.</p>
+    <button id="reset-form-btn" class="text-accent-600 font-bold hover:text-accent-700 transition-colors">Enviar otra solicitud</button>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  const submitBtn = document.getElementById('quote-submit') as HTMLButtonElement | null;
+  const resetBtn = document.getElementById('reset-form-btn');
+  const key = form?.dataset.key || '';
+
+  const showError = (msg: string) => { if (errorMsg) { errorMsg.textContent = msg; errorMsg.classList.remove('hidden'); } };
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg?.classList.add('hidden');
+
+    if (!key) {
+      showError('El formulario está en configuración. Escríbanos por WhatsApp mientras tanto.');
+      return;
+    }
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Enviando…'; }
+
+    try {
+      const payload = Object.fromEntries(new FormData(form) as any);
+      payload.access_key = key;
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (json.success) {
+        form.classList.add('hidden');
+        successMsg?.classList.remove('hidden');
+      } else {
+        showError(json.message || 'No se pudo enviar. Intente de nuevo o escríbanos por WhatsApp.');
+      }
+    } catch {
+      showError('Error de conexión. Intente de nuevo o escríbanos por WhatsApp.');
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = 'Enviar Solicitud'; }
+    }
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    form?.reset();
+    successMsg?.classList.add('hidden');
+    form?.classList.remove('hidden');
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const resources = [
+  { icon: 'fa6-solid:book', title: 'Guía Definitiva de Mudanzas Internacionales', desc: 'Todo lo que necesita saber para mudarse al extranjero, de principio a fin.', href: '/es/recursos/guia-mudanza-internacional/' },
+  { icon: 'fa6-solid:list-check', title: 'Checklist de Mudanza', desc: 'Qué hacer 3 meses antes, 1 mes antes y el día de su mudanza.', href: '/es/recursos/checklist-mudanza-internacional/' },
+  { icon: 'fa6-solid:book-open', title: 'Glosario de Términos', desc: 'FCL, LCL, Bill of Lading, CBM… el lenguaje de las mudanzas, explicado.', href: '/es/recursos/glosario-terminos-mudanza/' },
+  { icon: 'fa6-solid:circle-question', title: 'Preguntas Frecuentes', desc: 'Las dudas más comunes sobre mudanzas internacionales, resueltas.', href: '/es/recursos/preguntas-frecuentes/' },
+  { icon: 'fa6-solid:earth-americas', title: 'Guías de Aduanas por País', desc: 'Restricciones y beneficios de menaje en cada destino.', href: '/es/destinos/' },
+  { icon: 'fa6-solid:newspaper', title: 'Blog', desc: 'Consejos de empaque, vida expat, logística y mascotas.', href: '/es/blog/' },
+];
+
+const crumbs = breadcrumb([
+  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
+  { name: 'Recursos', url: 'https://panamainternationalmovers.com/es/recursos/' },
+]);
+---
+
+<Base
+  title="Recursos y Guías de Mudanzas Internacionales | PIM Panamá"
+  description="Guías, checklists, glosario y preguntas frecuentes sobre mudanzas internacionales. Todo el conocimiento de Panamá International Movers a su disposición, gratis."
+  lang="es"
+  altPaths={{ es: '/es/recursos/', en: '/en/resources/' }}
+  jsonld={crumbs}
+>
+  <Header locale="es" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,25,47,0.9), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><span class="text-accent-400">Recursos</span></nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Recursos y <span class="text-accent-500">Guías</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto">Mudarse al extranjero es más fácil cuando se sabe qué esperar. Reunimos aquí todo nuestro conocimiento para que planifique su mudanza con confianza.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map((r) => (
+          <a href={r.href} class="group bg-brand-50 p-8 rounded-3xl border border-brand-100 hover:border-accent-500 hover:bg-white hover:shadow-xl transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name={r.icon} /></div>
+            <h2 class="text-xl font-black text-brand-900 mb-2 group-hover:text-accent-600 transition-colors">{r.title}</h2>
+            <p class="text-brand-500 text-sm leading-relaxed mb-4">{r.desc}</p>
+            <span class="text-accent-600 text-sm font-bold flex items-center gap-1">Abrir <Icon name="fa6-solid:arrow-right" class="text-[10px] group-hover:translate-x-1 transition-transform" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

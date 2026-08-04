@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* ===== Tokens de marca PIM (navy + dorado) — Tailwind v4 @theme ===== */
+@theme {
+  --color-brand-50: #f4f6f8;
+  --color-brand-100: #e3e8ee;
+  --color-brand-200: #cbd4e1;
+  --color-brand-300: #a3b6c7;
+  --color-brand-400: #7590a9;
+  --color-brand-500: #54728f;
+  --color-brand-600: #405973;
+  --color-brand-700: #34485d;
+  --color-brand-800: #2d3d4f;
+  --color-brand-900: #0a192f;
+  --color-brand-950: #061020;
+
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-50);
+    color: var(--color-brand-700);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: var(--color-accent-500); color: #fff; }
+}
