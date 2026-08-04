@@ -35,6 +35,6 @@ export const wa = (text = 'Hola, quiero cotizar una mudanza con PIM.') =>
    Para el correo con diseño de marca: usa la plantilla HTML personalizada
    de Web3Forms (plan Pro) o enruta por n8n/ChatMantis. */
 export const contactForm = {
-  web3formsKey: '', // ⚠️ pega aquí tu Web3Forms access key
+  web3formsKey: 'b3599d31-e3a7-4696-a159-124bf8e00668', // PRUEBAS → josimarguilbaud@gmail.com (luego regenerar con info@ y reemplazar)
   toEmail: 'info@panamainternationalmovers.com',
 };
