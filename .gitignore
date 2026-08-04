@@ -6,3 +6,4 @@ dist/
 .env
 .env.*
 !.env.example
+pim-lead-workflow.json

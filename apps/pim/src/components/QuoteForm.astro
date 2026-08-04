@@ -62,7 +62,7 @@ const optCls =
 <div class="quote-form-wrap">
   <form
     id="quote-form"
-    data-key={contactForm.web3formsKey}
+    data-endpoint={contactForm.leadWebhook}
     data-send={T.send}
     data-err-config={T.errConfig}
     data-err-send={T.errSend}
@@ -169,7 +169,7 @@ const optCls =
   const errorMsg = document.getElementById('form-error');
   const submitBtn = document.getElementById('quote-submit') as HTMLButtonElement | null;
   const resetBtn = document.getElementById('reset-form-btn');
-  const key = form?.dataset.key || '';
+  const endpoint = form?.dataset.endpoint || '';
   const sendLabel = form?.dataset.send || 'Enviar';
   const msgConfig = form?.dataset.errConfig || '';
   const msgSend = form?.dataset.errSend || '';
@@ -181,26 +181,27 @@ const optCls =
     e.preventDefault();
     errorMsg?.classList.add('hidden');
 
-    if (!key) {
+    if (!endpoint) {
       showError(msgConfig);
       return;
     }
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '…'; }
 
     try {
-      const payload = Object.fromEntries(new FormData(form) as any);
-      payload.access_key = key;
-      const res = await fetch('https://api.web3forms.com/submit', {
+      // urlencoded = "simple request": el navegador no manda preflight CORS.
+      const body = new URLSearchParams(new FormData(form) as any).toString();
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
       });
-      const json = await res.json();
-      if (json.success) {
+      let ok = res.ok;
+      try { const j = await res.json(); ok = ok && (j.success !== false); } catch {}
+      if (ok) {
         form.classList.add('hidden');
         successMsg?.classList.remove('hidden');
       } else {
-        showError(json.message || msgSend);
+        showError(msgSend);
       }
     } catch {
       showError(msgNet);

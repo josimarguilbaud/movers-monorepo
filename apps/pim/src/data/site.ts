@@ -35,6 +35,8 @@ export const wa = (text = 'Hola, quiero cotizar una mudanza con PIM.') =>
    Para el correo con diseño de marca: usa la plantilla HTML personalizada
    de Web3Forms (plan Pro) o enruta por n8n/ChatMantis. */
 export const contactForm = {
-  web3formsKey: 'b3599d31-e3a7-4696-a159-124bf8e00668', // PRUEBAS → josimarguilbaud@gmail.com (luego regenerar con info@ y reemplazar)
+  // El formulario envía el lead a este webhook de n8n → correo con diseño de
+  // marca (SMTP) + listo para CRM/WhatsApp. Ver flujo "PIM - Lead Formulario Web".
+  leadWebhook: 'https://n8n.aiwebstudio.co/webhook/pim-lead',
   toEmail: 'info@panamainternationalmovers.com',
 };
