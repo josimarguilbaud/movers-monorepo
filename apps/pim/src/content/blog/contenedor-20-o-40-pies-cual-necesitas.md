@@ -3,7 +3,7 @@ title: "Contenedor de 20 o 40 pies: ¿cuál necesitas para tu mudanza internacio
 description: "Guía clara para elegir entre un contenedor de 20 o 40 pies (y el 40 High Cube) en tu mudanza internacional: capacidad, qué cabe en cada uno y cómo no pagar de más."
 pubDate: 2026-03-05
 category: "Aduanas y Logística"
-heroImage: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2000&auto=format&fit=crop"
+heroImage: "/img/pim-yard.jpg"
 ---
 
 Una de las decisiones que más influye en el costo de una mudanza marítima es el tamaño del contenedor. Elegir bien evita dos errores caros: contratar un contenedor que se queda corto (y obliga a un segundo envío) o uno demasiado grande (por el que paga espacio vacío). Aquí le explicamos cómo acertar.

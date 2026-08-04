@@ -3,7 +3,7 @@ title: "¿Cuánto cuesta una mudanza internacional? Guía completa de precios 20
 description: "Descubre en detalle qué determina el costo de una mudanza internacional: volumen, ruta, marítimo vs aéreo, FCL vs LCL, recargos ocultos y cómo ahorrar. Guía por PIM."
 pubDate: 2026-01-15
 category: "Aduanas y Logística"
-heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop"
+heroImage: "/img/pim-ship.jpg"
 ---
 
 Una de las primeras preguntas —y de las más lógicas— de quien planea trasladarse a otro país es cuánto costará mover su hogar. La respuesta honesta es: **depende**. Pero no de factores misteriosos, sino de variables concretas que, una vez las entiende, puede anticipar e incluso controlar en parte. En esta guía desglosamos, con el mayor detalle posible, cómo se construye el precio de una mudanza internacional y qué puede hacer para optimizarlo.

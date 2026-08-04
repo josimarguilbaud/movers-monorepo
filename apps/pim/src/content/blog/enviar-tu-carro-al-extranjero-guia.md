@@ -3,7 +3,7 @@ title: "Enviar tu carro al extranjero: contenedor vs Ro-Ro y todo lo que debes s
 description: "Guía para enviar tu auto al extranjero desde Panamá: diferencias entre contenedor y Ro-Ro, documentación, seguro y cómo combinar el vehículo con tu mudanza."
 pubDate: 2026-04-15
 category: "Vehículos"
-heroImage: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2000&auto=format&fit=crop"
+heroImage: "/img/pim-truck.jpg"
 ---
 
 Mudarse a otro país a menudo plantea una pregunta: ¿me llevo el carro o lo vendo y compro allá? Si decide llevarlo, hay dos formas principales de enviarlo por mar, cada una con sus ventajas. Le explicamos cómo elegir y qué necesita.

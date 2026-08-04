@@ -4,8 +4,13 @@
    ⚠️ Placeholders profesionales — reemplazar por fotos reales de PIM.
    Las plantillas no cambian: siguen llamando imgFor(key, variant). */
 
-/* Pool verificado (11 fotos, todas de logística/mudanza real). */
+/* Pool verificado. Las 3 primeras son FOTOS REALES de PIM (auto-hospedadas,
+   optimizadas) rescatadas del sitio anterior; el resto es stock de logística
+   verificado visualmente. */
 const POOL: Record<string, string> = {
+  shipReal: '/img/pim-ship.jpg',    // REAL PIM — buque portacontenedores en puerto
+  truckReal: '/img/pim-truck.jpg',  // REAL PIM — camión con contenedor + buque
+  yardReal: '/img/pim-yard.jpg',    // REAL PIM — patio de contenedores con operario
   ship: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec',      // barco portacontenedores en puerto
   terminal: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3',  // terminal de contenedores (aérea)
   truck: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7',     // camión de carga
@@ -19,20 +24,21 @@ const POOL: Record<string, string> = {
   home: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace',      // interior de hogar (residencial)
 };
 
-/* Orden global del pool para rotar sin repetir dentro de una misma página. */
-const ALL = ['ship', 'terminal', 'truck', 'highway', 'warehouse', 'parcels', 'shelves', 'boxes', 'plane', 'docs', 'home'];
+/* Orden global del pool para rotar sin repetir dentro de una misma página.
+   Las fotos reales de PIM van primero (aparecen también en las secciones). */
+const ALL = ['shipReal', 'truckReal', 'yardReal', 'ship', 'terminal', 'truck', 'highway', 'warehouse', 'parcels', 'shelves', 'boxes', 'plane', 'docs', 'home'];
 
 /* Hero temático por clave (la foto principal más acorde al servicio/sección).
    Las secciones rotan por el resto del pool → fotos distintas por página. */
 const HERO: Record<string, string> = {
   /* Internacionales / carga */
-  maritimas: 'ship', fcl: 'terminal', lcl: 'warehouse', aereas: 'plane', 'puerta-a-puerta': 'truck',
+  maritimas: 'shipReal', fcl: 'yardReal', lcl: 'warehouse', aereas: 'plane', 'puerta-a-puerta': 'truckReal',
   /* Vehículos */
-  'auto-contenedor': 'terminal', 'auto-roro': 'ship', motos: 'truck', clasicos: 'highway',
+  'auto-contenedor': 'truckReal', 'auto-roro': 'shipReal', motos: 'truck', clasicos: 'highway',
   /* Mascotas (sin foto de mascota verificada → contexto de mudanza/hogar) */
   'mascotas-internacional': 'plane', 'mascotas-perros': 'home', 'mascotas-gatos': 'home', 'mascotas-exoticos': 'boxes',
   /* Contenedores */
-  'contenedor-20': 'terminal', 'contenedor-40': 'ship', 'contenedor-almacenamiento': 'warehouse', 'drop-off': 'truck',
+  'contenedor-20': 'yardReal', 'contenedor-40': 'yardReal', 'contenedor-almacenamiento': 'warehouse', 'drop-off': 'truck',
   /* Locales / nacionales */
   locales: 'truck', nacionales: 'highway', express: 'boxes',
   /* Por tipo de cliente */
@@ -44,10 +50,10 @@ const HERO: Record<string, string> = {
   /* Casillero y courier */
   'casillero-miami': 'parcels', 'courier-internacional': 'plane',
   /* Categorías (hub) */
-  internacionales: 'ship', vehiculos: 'truck', mascotas: 'home', contenedores: 'terminal', cliente: 'boxes', especiales: 'boxes', complementarios: 'warehouse', casillero: 'parcels',
+  internacionales: 'shipReal', vehiculos: 'truckReal', mascotas: 'home', contenedores: 'yardReal', cliente: 'boxes', especiales: 'boxes', complementarios: 'warehouse', casillero: 'parcels',
   /* Home y secciones */
-  'home-hero': 'ship', 'home-destinos': 'plane', 'home-about-1': 'warehouse', 'home-about-2': 'terminal',
-  'servicios-hub': 'ship', 'nosotros-hero': 'warehouse', 'nosotros-1': 'truck', 'nosotros-2': 'terminal',
+  'home-hero': 'shipReal', 'home-destinos': 'plane', 'home-about-1': 'warehouse', 'home-about-2': 'yardReal',
+  'servicios-hub': 'shipReal', 'nosotros-hero': 'yardReal', 'nosotros-1': 'truckReal', 'nosotros-2': 'terminal',
 };
 
 function hashStr(s: string): number {
@@ -71,6 +77,8 @@ function orderFor(key: string): string[] {
 export function imgFor(key: string, variant = 0, w = 1600): string {
   const order = orderFor(key);
   const name = order[Math.abs(variant) % order.length];
-  const base = POOL[name] ?? POOL.ship;
+  const base = POOL[name] ?? POOL.shipReal;
+  // Fotos locales (reales de PIM) ya optimizadas → sin params de Unsplash.
+  if (base.startsWith('/')) return base;
   return `${base}?q=70&w=${w}&auto=format&fit=crop`;
 }
