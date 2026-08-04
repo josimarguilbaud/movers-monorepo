@@ -1,0 +1,84 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { regionsEn, destinationsByRegionEn } from '../../../data/en/destinations';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Destinations', url: 'https://panamainternationalmovers.com/en/destinations/' },
+]);
+---
+
+<Base
+  title="Destinations: International Moves from Panama | PIM"
+  description="Moves from Panama to anywhere in the world: Spain, the United States, Canada, the United Kingdom, Germany, Italy, Australia, and more. Sea and air corridors with customs handling included."
+  lang="en"
+  altPaths={{ es: '/es/destinos/', en: '/en/destinations/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,25,47,0.9), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2">
+        <a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><span class="text-accent-400">Destinations</span>
+      </nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Moving from Panama to <span class="text-accent-500">anywhere in the world</span></h1>
+      <p class="text-lg text-brand-200 max-w-3xl mx-auto leading-relaxed">
+        Panama is the logistics hub of the Americas, and from here we take your home to any continent. Choose your destination and see how we coordinate your door-to-door move, with customs handled on both ends.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {regionsEn.map((region) => {
+        const dests = destinationsByRegionEn(region.id);
+        return (
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <div class="h-px w-12 bg-accent-500"></div>
+              <h2 class="text-2xl md:text-3xl font-black text-brand-900">{region.title}</h2>
+            </div>
+            <p class="text-brand-500 mb-8 max-w-3xl">{region.blurb}</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {dests.map((d) => (
+                <a href={`/en/destinations/${d.slug}/`} class="group bg-brand-50 rounded-2xl p-6 border border-brand-100 hover:border-accent-500 hover:bg-white hover:shadow-xl transition-all">
+                  <div class="text-4xl mb-3">{d.flag}</div>
+                  <h3 class="font-black text-brand-900 text-lg mb-1 group-hover:text-accent-600 transition-colors">{d.country}</h3>
+                  <p class="text-brand-400 text-xs mb-4">Moves from Panama to {d.country}</p>
+                  <span class="text-accent-600 text-sm font-bold flex items-center gap-1">View corridor <Icon name="fa6-solid:chevron-right" class="text-[10px] group-hover:translate-x-1 transition-transform" /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="py-16 bg-brand-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-brand-600 text-lg">Don't see your destination on the list? We work with a global network of agents and reach all five continents. <a href="/en/#contacto" class="text-accent-600 font-bold underline">Ask us about your route</a>.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-900 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Get a quote for your international move</h3>
+      <p class="text-brand-300 mb-8">Tell us where you're moving and what you'd like to bring. We'll send you a tailored quote in less than 24 hours.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Request a Quote</a>
+        <a href={wa()} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

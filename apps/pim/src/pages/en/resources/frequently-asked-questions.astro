@@ -1,0 +1,84 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { faqPage, breadcrumb } from '@movers/core/schema';
+
+const faqs = [
+  { q: 'How far in advance should I book my international move?', a: 'We recommend 4 to 6 weeks before your target date. This gives us time to coordinate the survey, arrange insurance, and book space with shipping lines or airlines at the best rates.' },
+  { q: 'How is the cost of an international move calculated?', a: 'It depends mainly on volume (cubic meters), the origin-destination route, the type of service (sea/air, exclusive or shared container, door-to-door), and add-ons like packing, insurance, or storage. A survey of your shipment lets us give you an exact quote.' },
+  { q: 'How long does an international move take?', a: 'Total time combines transit (sea or air) with the origin and destination processes: packing, consolidation, customs, and delivery. It varies by route; we will confirm the exact estimate for your corridor in your quote.' },
+  { q: 'Do you pack everything, or do I have to do it myself?', a: 'For international moves, professional packing by our team is usually required, because customs and insurers require that the contents match the inventory and are properly protected. For local moves, you can combine your own packing with ours.' },
+  { q: 'Can I import my household goods without paying taxes?', a: 'Many countries allow used household goods to enter with full or partial tax exemption when you are relocating your residence, under certain conditions (often tied to visa type). We check what applies at your destination and handle the documentation.' },
+  { q: 'What items can I not include in my move?', a: 'International regulations prohibit shipping hazardous items (flammable, explosive, corrosive), perishables, plants, seeds, weapons, ammunition, undeclared high-value jewelry, and cash. Every country has specific restrictions your coordinator will explain.' },
+  { q: 'Do you offer cargo insurance?', a: 'Yes, all-risk door-to-door policies through recognized international insurers. Coverage is based on the declared value of your household goods; we help you declare it correctly.' },
+  { q: 'Can I ship my car along with my move?', a: 'Yes. In a 40-foot container, it is common to combine household goods with a vehicle, optimizing costs. We also ship vehicles separately, in a container or Ro-Ro.' },
+  { q: 'Do you relocate pets?', a: 'Yes, we coordinate international pet relocation: veterinary requirements, IATA-approved crates, certificates, and customs handling, always looking out for their wellbeing.' },
+  { q: 'What happens if my belongings are damaged during the move?', a: 'If you purchased insurance, report the damage immediately upon receiving your shipment and file the claim through your coordinator. That is why we recommend documenting the condition of your goods and always carrying all-risk coverage.' },
+];
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Resources', url: 'https://panamainternationalmovers.com/en/resources/' },
+  { name: 'Frequently Asked Questions', url: 'https://panamainternationalmovers.com/en/resources/frequently-asked-questions/' },
+]);
+---
+
+<Base
+  title="Frequently Asked Questions About International Moving | PIM"
+  description="We answer the most common questions about international moves: costs, timelines, customs, insurance, packing, vehicles, and pets. FAQ from Panama International Movers."
+  lang="en"
+  altPaths={{ es: '/es/recursos/preguntas-frecuentes/', en: '/en/resources/frequently-asked-questions/' }}
+  jsonld={[crumbs, faqPage(faqs.map((f) => ({ question: f.q, answer: f.a })))]}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><a href="/en/resources/" class="hover:text-accent-400">Resources</a><span>/</span><span class="text-accent-400">Frequently Asked Questions</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Frequently Asked Questions</h1>
+      <p class="text-brand-200 text-lg">The most common questions about international moves, answered by our experts.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="border border-brand-100 rounded-2xl overflow-hidden bg-brand-50/50">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center gap-4 focus:outline-none">
+              <span class="font-bold text-brand-900">{f.q}</span>
+              <Icon name="fa6-solid:chevron-down" class="text-brand-400 accordion-icon transition-transform shrink-0" />
+            </button>
+            <div class="accordion-content px-6 bg-white"><p class="text-brand-600 py-4 text-sm leading-relaxed">{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>
+
+<style>
+  .accordion-content { transition: max-height .3s ease-out, opacity .3s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
+  .accordion-content.active { max-height: 400px; opacity: 1; }
+  .accordion-icon.active { transform: rotate(180deg); }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
+    btn.addEventListener('click', function (this: HTMLElement) {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+      document.querySelectorAll('.accordion-content').forEach((c) => { if (c !== content) c.classList.remove('active'); });
+      document.querySelectorAll('.accordion-icon').forEach((i) => { if (i !== icon) i.classList.remove('active'); });
+      content?.classList.toggle('active');
+      icon?.classList.toggle('active');
+    });
+  });
+</script>

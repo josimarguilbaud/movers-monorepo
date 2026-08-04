@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components';
 import { site, wa } from '../data/site';
 import { categories, servicesByCategory } from '../data/services';
 import { regions, destinationsByRegion } from '../data/destinations';
+import { categoriesEn, servicesByCategoryEn } from '../data/en/services';
+import { regionsEn, destinationsByRegionEn } from '../data/en/destinations';
 
 interface Props {
   locale: 'es' | 'en';
@@ -27,10 +29,19 @@ const L = {
 const other = locale === 'es' ? { href: '/en/', label: 'EN' } : { href: '/es/', label: 'ES' };
 const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar una mudanza con PIM.' : 'Hi, I would like a moving quote from PIM.');
 const base = `/${locale}/`;
-const svc = `${base}servicios/`;
-const dest = `${base}destinos/`;
-const rec = `${base}recursos/`;
-const blog = `${base}blog/`;
+// Segmentos de URL por idioma (slugs de sección localizados).
+const seg = locale === 'es'
+  ? { servicios: 'servicios', destinos: 'destinos', recursos: 'recursos', blog: 'blog', nosotros: 'nosotros', contacto: 'contacto' }
+  : { servicios: 'services', destinos: 'destinations', recursos: 'resources', blog: 'blog', nosotros: 'about', contacto: 'contact' };
+const svc = `${base}${seg.servicios}/`;
+const dest = `${base}${seg.destinos}/`;
+const rec = `${base}${seg.recursos}/`;
+const blog = `${base}${seg.blog}/`;
+// Data por idioma para el mega-menú.
+const navCats = locale === 'es' ? categories : categoriesEn;
+const navSvcByCat = locale === 'es' ? servicesByCategory : servicesByCategoryEn;
+const navRegions = locale === 'es' ? regions : regionsEn;
+const navDestByRegion = locale === 'es' ? destinationsByRegion : destinationsByRegionEn;
 
 // Etiquetas cortas para el mega-menú (los títulos SEO completos quedan en las páginas).
 const catShort: Record<string, string> = {
@@ -85,7 +96,7 @@ const menuShort: Record<string, string> = {
 
       <div class="hidden xl:flex items-center gap-1">
         <a href={base} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.inicio}</a>
-        <a href={`${base}nosotros/`} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.nosotros}</a>
+        <a href={`${base}${seg.nosotros}/`} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.nosotros}</a>
 
         <!-- Mega: Servicios -->
         <div class="group relative">
@@ -94,15 +105,15 @@ const menuShort: Record<string, string> = {
           </a>
           <div class="mega invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[62rem] max-w-[92vw]">
             <div class="bg-white rounded-2xl shadow-2xl border border-brand-100 p-6 grid grid-cols-4 gap-x-6 gap-y-5">
-              {categories.map((cat) => (
+              {navCats.map((cat) => (
                 <div>
                   <div class="flex items-center gap-2 mb-2 pb-2 border-b border-brand-100">
                     <span class="w-6 h-6 rounded-md bg-brand-50 text-accent-600 flex items-center justify-center text-xs"><Icon name={cat.icon} /></span>
-                    <span class="text-[11px] font-black text-brand-900 uppercase tracking-wide leading-tight">{catShort[cat.id] ?? cat.title}</span>
+                    <span class="text-[11px] font-black text-brand-900 uppercase tracking-wide leading-tight">{locale === 'es' ? (catShort[cat.id] ?? cat.title) : cat.title}</span>
                   </div>
                   <ul class="space-y-1">
-                    {servicesByCategory(cat.id).map((s) => (
-                      <li><a href={`/es/servicios/${s.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors block leading-snug whitespace-nowrap">{menuShort[s.id] ?? s.title}</a></li>
+                    {navSvcByCat(cat.id).map((s) => (
+                      <li><a href={`/${locale}/${seg.servicios}/${s.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors block leading-snug whitespace-nowrap">{locale === 'es' ? (menuShort[s.id] ?? s.title) : s.title}</a></li>
                     ))}
                   </ul>
                 </div>
@@ -121,12 +132,12 @@ const menuShort: Record<string, string> = {
           </a>
           <div class="mega invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[42rem] max-w-[92vw]">
             <div class="bg-white rounded-2xl shadow-2xl border border-brand-100 p-6 grid grid-cols-3 gap-6">
-              {regions.map((region) => (
+              {navRegions.map((region) => (
                 <div>
                   <p class="text-[11px] font-black text-brand-900 uppercase tracking-wide mb-2 pb-2 border-b border-brand-100">{region.title}</p>
                   <ul class="space-y-1.5">
-                    {destinationsByRegion(region.id).map((d) => (
-                      <li><a href={`/es/destinos/${d.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors flex items-center gap-2"><span>{d.flag}</span> {d.country}</a></li>
+                    {navDestByRegion(region.id).map((d) => (
+                      <li><a href={`/${locale}/${seg.destinos}/${d.slug}/`} class="text-[13px] text-brand-600 hover:text-accent-600 transition-colors flex items-center gap-2"><span>{d.flag}</span> {d.country}</a></li>
                     ))}
                   </ul>
                 </div>
@@ -139,10 +150,12 @@ const menuShort: Record<string, string> = {
         </div>
 
         <a href={rec} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.recursos}</a>
-        <a href={blog} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.blog}</a>
+        {locale === 'es' && (
+          <a href={blog} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.blog}</a>
+        )}
         <a href={other.href} class="nav-link px-2 py-1 text-white hover:text-accent-500 font-bold text-sm uppercase transition-colors border border-white/30 rounded-md ml-1">{other.label}</a>
 
-        <a href={`${base}contacto/`} class="ml-2 bg-accent-500 text-brand-900 px-6 py-3 rounded-tr-xl rounded-bl-xl font-bold text-sm uppercase tracking-wide shadow-lg hover:bg-accent-400 transition-all transform hover:-translate-y-0.5">{L.cotizar}</a>
+        <a href={`${base}${seg.contacto}/`} class="ml-2 bg-accent-500 text-brand-900 px-6 py-3 rounded-tr-xl rounded-bl-xl font-bold text-sm uppercase tracking-wide shadow-lg hover:bg-accent-400 transition-all transform hover:-translate-y-0.5">{L.cotizar}</a>
       </div>
 
       <div class="xl:hidden flex items-center">
@@ -157,16 +170,18 @@ const menuShort: Record<string, string> = {
   <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
     <div class="flex flex-col space-y-4 text-center mt-6">
       <a href={base} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.inicio}</a>
-      <a href={`${base}nosotros/`} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.nosotros}</a>
+      <a href={`${base}${seg.nosotros}/`} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.nosotros}</a>
       <a href={svc} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.servicios}</a>
       <a href={dest} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.destinos}</a>
       <a href={rec} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.recursos}</a>
-      <a href={blog} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.blog}</a>
+      {locale === 'es' && (
+        <a href={blog} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.blog}</a>
+      )}
       <a href={other.href} class="text-xl font-bold text-accent-500">{other.label}</a>
     </div>
     <div class="mt-auto flex flex-col gap-4 pt-8">
       <a href={waHref} target="_blank" rel="noopener" class="w-full bg-green-500 text-white py-4 rounded-xl font-bold text-center flex justify-center items-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-xl" /> WhatsApp</a>
-      <a href={`${base}contacto/`} class="mobile-link w-full bg-accent-500 text-brand-900 py-4 rounded-xl font-bold text-center">{L.solicitar}</a>
+      <a href={`${base}${seg.contacto}/`} class="mobile-link w-full bg-accent-500 text-brand-900 py-4 rounded-xl font-bold text-center">{L.solicitar}</a>
     </div>
   </div>
 </nav>

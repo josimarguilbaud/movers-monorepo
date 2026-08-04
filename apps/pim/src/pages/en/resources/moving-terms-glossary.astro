@@ -1,0 +1,68 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Resources', url: 'https://panamainternationalmovers.com/en/resources/' },
+  { name: 'Glossary', url: 'https://panamainternationalmovers.com/en/resources/moving-terms-glossary/' },
+]);
+
+const terms = [
+  { t: 'FCL (Full Container Load)', d: 'A full container booked exclusively for a single move. Offers privacy, speed, and less handling. Ideal for full households.' },
+  { t: 'LCL (Less than Container Load)', d: 'Consolidated cargo, or groupage: the container is shared with other clients and you pay only for the volume you use. Ideal for small shipments.' },
+  { t: 'CBM (Cubic Meter)', d: 'The unit of volume (cubic meter) used to measure a shipment. It is the basis for calculating space and cost.' },
+  { t: 'Bill of Lading (B/L)', d: 'The document issued by the shipping line that serves as both a contract of carriage and a receipt for the cargo.' },
+  { t: 'Ro-Ro (Roll-on/Roll-off)', d: 'A system for transporting vehicles that are driven on and off the vessel under their own power. More economical than a container.' },
+  { t: 'Door-to-Door', d: 'A turnkey service: from packing at origin to delivery and unpacking at destination, customs included.' },
+  { t: 'Port-to-Port', d: 'A service that covers only the leg between ports; the client handles packing, destination customs, and final transport.' },
+  { t: 'Groupage', d: 'Another term for consolidated cargo (LCL): grouping shipments from several clients into the same container.' },
+  { t: 'Household Goods', d: 'The set of domestic and personal belongings (furniture, clothing, household items) shipped in a move. Many countries offer benefits for used household goods.' },
+  { t: 'Customs Clearance', d: 'The process of paperwork and payments with customs to release the cargo and allow it to legally enter the destination country.' },
+  { t: 'Transit Time', d: 'The time it takes for cargo to travel from one port to another. It does not include packing, customs, or final delivery.' },
+  { t: 'High Cube (HC)', d: 'A taller variant of the 40-foot container, used to gain extra volume or ship tall furniture.' },
+  { t: 'ToR (Transfer of Residence)', d: 'A UK mechanism that allows household goods to be imported duty-free when relocating your residence, subject to certain conditions.' },
+  { t: 'CITES', d: 'An international convention regulating the transport of protected species. Relevant when shipping birds and exotic animals.' },
+  { t: 'IATA (Crate)', d: 'International Air Transport Association standards that define the crate requirements for shipping pets by air.' },
+  { t: 'Inventory', d: 'A detailed, numbered list of every item being moved. It is the basis for customs clearance and insurance.' },
+];
+---
+
+<Base
+  title="Glossary of International Moving Terms | PIM"
+  description="FCL, LCL, CBM, Bill of Lading, Ro-Ro, Door-to-Door… the language of international moving, explained in plain terms. Glossary from PIM Panama."
+  lang="en"
+  altPaths={{ es: '/es/recursos/glosario-terminos-mudanza/', en: '/en/resources/moving-terms-glossary/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><a href="/en/resources/" class="hover:text-accent-400">Resources</a><span>/</span><span class="text-accent-400">Glossary</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">Glossary of Moving Terms</h1>
+      <p class="text-brand-200 text-lg">International moving has its own language. Here, we translate it into plain words.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <dl class="space-y-6">
+        {terms.map((term) => (
+          <div class="bg-brand-50 rounded-2xl p-6 border border-brand-100">
+            <dt class="text-lg font-black text-brand-900 mb-2 flex items-center gap-2"><Icon name="fa6-solid:bookmark" class="text-accent-500 text-sm" /> {term.t}</dt>
+            <dd class="text-brand-600 leading-relaxed">{term.d}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { testimonialsEn } from '../../data/en/testimonials';
+import { wa } from '../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Testimonials', url: 'https://panamainternationalmovers.com/en/testimonials/' },
+]);
+---
+
+<Base
+  title="Customer Testimonials | Panamá International Movers S.A."
+  description="What our clients say about Panamá International Movers: real reviews of international, local and corporate moves. Stories of successful relocations."
+  lang="en"
+  altPaths={{ es: '/es/testimonios/', en: '/en/testimonials/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><span class="text-accent-400">Testimonials</span></nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Stories of <span class="text-accent-500">successful moves</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto mb-6">Our clients' trust is our best endorsement. Here are some of their experiences.</p>
+      <div class="inline-flex items-center gap-3 bg-white/10 border border-white/15 rounded-full px-5 py-2.5">
+        <span class="flex text-accent-400 text-sm"><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /></span>
+        <span class="text-white font-bold text-sm">Satisfied clients on every move</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonialsEn.map((t) => (
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 relative flex flex-col">
+            <Icon name="fa6-solid:quote-right" class="absolute top-8 right-8 text-4xl text-brand-50" />
+            <div class="flex text-accent-400 text-sm mb-4">{Array.from({ length: t.rating }).map(() => <Icon name="fa6-solid:star" />)}</div>
+            <h3 class="font-bold text-brand-900 mb-2">{t.title}</h3>
+            <p class="text-brand-600 italic mb-6 text-sm leading-relaxed flex-1">“{t.quote}”</p>
+            <div class="flex items-center gap-4 border-t border-brand-100 pt-5">
+              <div class="w-12 h-12 bg-brand-900 rounded-full flex items-center justify-center font-bold text-accent-400">{t.author.charAt(0)}</div>
+              <div><h4 class="font-bold text-brand-900">{t.author}</h4><p class="text-xs text-brand-400">{t.context}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-900 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Be our next success story</h2>
+      <p class="text-brand-300 mb-8">Join the hundreds of families and businesses who trusted PIM with their move.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/contact/" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Request a Quote</a>
+        <a href={wa('Hi, I would like a moving quote from PIM.')} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa('Hi, I would like a moving quote from PIM.')} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

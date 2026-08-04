@@ -3,64 +3,64 @@ import Base from '../../../layouts/Base.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { Icon } from 'astro-icon/components';
-import { destinations, regionById } from '../../../data/destinations';
-import { destinationsEn } from '../../../data/en/destinations';
+import { destinationsEn, regionByIdEn } from '../../../data/en/destinations';
+import { destinations as destinationsEs } from '../../../data/destinations';
 import { wa } from '../../../data/site';
 import { imgFor } from '../../../data/images';
 import { faqPage, breadcrumb } from '@movers/core/schema';
 
 export function getStaticPaths() {
-  return destinations.map((d) => ({ params: { slug: d.slug }, props: { dest: d } }));
+  return destinationsEn.map((d) => ({ params: { slug: d.slug }, props: { destination: d } }));
 }
-const { dest } = Astro.props;
-const hero = imgFor(dest.id, 0);
-const region = regionById(dest.regionId);
-const related = dest.related
-  .map((id) => destinations.find((d) => d.id === id))
-  .filter((d): d is (typeof destinations)[number] => Boolean(d));
+const { destination } = Astro.props;
+const hero = imgFor(destination.id, 0);
+const region = regionByIdEn(destination.regionId);
+const related = destination.related
+  .map((id) => destinationsEn.find((d) => d.id === id))
+  .filter((d): d is (typeof destinationsEn)[number] => Boolean(d));
+
+const esSlug = destinationsEs.find((d) => d.id === destination.id)?.slug ?? destination.slug;
 
 const crumbs = breadcrumb([
-  { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
-  { name: 'Destinos', url: 'https://panamainternationalmovers.com/es/destinos/' },
-  { name: dest.country, url: `https://panamainternationalmovers.com/es/destinos/${dest.slug}/` },
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Destinations', url: 'https://panamainternationalmovers.com/en/destinations/' },
+  { name: destination.country, url: `https://panamainternationalmovers.com/en/destinations/${destination.slug}/` },
 ]);
 
-const enSlug = destinationsEn.find((d) => d.id === dest.id)?.slug ?? dest.slug;
-
 const corridorRows = [
-  { icon: 'fa6-solid:clock', label: 'Tiempo de tránsito', value: dest.corridor.transitTime },
-  { icon: 'fa6-solid:sack-dollar', label: 'Costo estimado', value: dest.corridor.cost },
-  { icon: 'fa6-solid:file-contract', label: 'Aduana / restricciones', value: dest.corridor.customs },
-  { icon: 'fa6-solid:percent', label: 'Impuestos', value: dest.corridor.taxes },
+  { icon: 'fa6-solid:clock', label: 'Transit time', value: destination.corridor.transitTime },
+  { icon: 'fa6-solid:sack-dollar', label: 'Estimated cost', value: destination.corridor.cost },
+  { icon: 'fa6-solid:file-contract', label: 'Customs / restrictions', value: destination.corridor.customs },
+  { icon: 'fa6-solid:percent', label: 'Taxes', value: destination.corridor.taxes },
 ];
 ---
 
 <Base
-  title={dest.metaTitle}
-  description={dest.metaDescription}
-  lang="es"
+  title={destination.metaTitle}
+  description={destination.metaDescription}
+  lang="en"
   image={hero}
-  altPaths={{ es: `/es/destinos/${dest.slug}/`, en: `/en/destinations/${enSlug}/` }}
-  jsonld={[crumbs, faqPage(dest.faqs.map((f) => ({ question: f.q, answer: f.a })))]}
+  altPaths={{ es: `/es/destinos/${esSlug}/`, en: `/en/destinations/${destination.slug}/` }}
+  jsonld={[crumbs, faqPage(destination.faqs.map((f) => ({ question: f.q, answer: f.a })))]}
 >
-  <Header locale="es" />
+  <Header locale="en" />
 
   <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
-    <img src={hero} alt={`Mudanza a ${dest.country}`} class="absolute inset-0 w-full h-full object-cover opacity-30" />
+    <img src={hero} alt={`Move to ${destination.country}`} class="absolute inset-0 w-full h-full object-cover opacity-30" />
     <div class="absolute inset-0" style="background:linear-gradient(120deg, rgba(10,25,47,0.95) 0%, rgba(10,25,47,0.75) 60%, rgba(10,25,47,0.4) 100%);"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap">
-        <a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span>
-        <a href="/es/destinos/" class="hover:text-accent-400">Destinos</a><span>/</span>
-        <span class="text-accent-400">{dest.country}</span>
+        <a href="/en/" class="hover:text-accent-400">Home</a><span>/</span>
+        <a href="/en/destinations/" class="hover:text-accent-400">Destinations</a><span>/</span>
+        <span class="text-accent-400">{destination.country}</span>
       </nav>
-      <div class="text-6xl mb-4">{dest.flag}</div>
+      <div class="text-6xl mb-4">{destination.flag}</div>
       <p class="text-sm font-bold text-accent-500 uppercase tracking-widest mb-3">{region?.title}</p>
-      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Mudanzas de Panamá a {dest.country}</h1>
-      <p class="text-xl text-brand-200 max-w-2xl font-light leading-relaxed">{dest.heroTagline}</p>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Moving from Panama to {destination.country}</h1>
+      <p class="text-xl text-brand-200 max-w-2xl font-light leading-relaxed">{destination.heroTagline}</p>
       <div class="flex flex-col sm:flex-row gap-4 mt-10">
-        <a href="/es/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-center hover:bg-accent-400 transition-all flex items-center justify-center gap-2">Cotizar a {dest.country} <Icon name="fa6-solid:arrow-right" /></a>
-        <a href={wa(`Hola, quiero cotizar una mudanza de Panamá a ${dest.country}.`)} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> Consultar</a>
+        <a href="/en/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-center hover:bg-accent-400 transition-all flex items-center justify-center gap-2">Get a quote for {destination.country} <Icon name="fa6-solid:arrow-right" /></a>
+        <a href={wa(`Hi, I'd like a quote for a move from Panama to ${destination.country}.`)} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> Ask us</a>
       </div>
     </div>
   </section>
@@ -68,12 +68,12 @@ const corridorRows = [
   <!-- INTRO -->
   <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      {dest.intro.map((p) => <p class="text-brand-600 text-lg leading-relaxed mb-6">{p}</p>)}
+      {destination.intro.map((p) => <p class="text-brand-600 text-lg leading-relaxed mb-6">{p}</p>)}
     </div>
   </section>
 
-  <!-- SECCIONES -->
-  {dest.sections.map((sec, i) => (
+  <!-- SECTIONS -->
+  {destination.sections.map((sec, i) => (
     <section class={`py-16 ${i % 2 === 0 ? 'bg-brand-50' : 'bg-white'}`}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class={`grid ${sec.image ? 'lg:grid-cols-2' : ''} gap-12 items-center`}>
@@ -83,7 +83,7 @@ const corridorRows = [
           </div>
           {sec.image && (
             <div class={`rounded-3xl overflow-hidden shadow-xl h-80 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-              <img src={imgFor(dest.id, i + 1)} alt={sec.heading} class="w-full h-full object-cover" loading="lazy" />
+              <img src={imgFor(destination.id, i + 1)} alt={sec.heading} class="w-full h-full object-cover" loading="lazy" />
             </div>
           )}
         </div>
@@ -91,12 +91,12 @@ const corridorRows = [
     </section>
   ))}
 
-  <!-- FICHA DEL CORREDOR -->
+  <!-- CORRIDOR SNAPSHOT -->
   <section class="py-20 bg-brand-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
-        <h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest mb-2">Ficha del corredor</h2>
-        <h3 class="text-3xl md:text-4xl font-black text-white">Panamá → {dest.country}</h3>
+        <h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest mb-2">Corridor snapshot</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-white">Panama → {destination.country}</h3>
       </div>
       <div class="bg-brand-800/50 border border-brand-700/50 rounded-3xl overflow-hidden">
         {corridorRows.map((row) => (
@@ -109,7 +109,7 @@ const corridorRows = [
           </div>
         ))}
       </div>
-      <p class="text-brand-400 text-xs mt-4 text-center">Los datos exactos de tránsito, costo e impuestos dependen de su volumen y de la normativa vigente. Solicite su cotización para cifras confirmadas.</p>
+      <p class="text-brand-400 text-xs mt-4 text-center">Exact transit times, costs, and taxes depend on your volume and current regulations. Request a quote for confirmed figures.</p>
     </div>
   </section>
 
@@ -117,11 +117,11 @@ const corridorRows = [
   <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">Preguntas Frecuentes</h2>
-        <p class="text-brand-500">Mudanzas de Panamá a {dest.country}.</p>
+        <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">Frequently Asked Questions</h2>
+        <p class="text-brand-500">Moving from Panama to {destination.country}.</p>
       </div>
       <div class="space-y-4">
-        {dest.faqs.map((f) => (
+        {destination.faqs.map((f) => (
           <div class="border border-brand-100 rounded-2xl overflow-hidden bg-brand-50/50">
             <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
               <span class="font-bold text-brand-900">{f.q}</span>
@@ -134,18 +134,18 @@ const corridorRows = [
     </div>
   </section>
 
-  <!-- RELACIONADOS -->
+  <!-- RELATED -->
   {related.length > 0 && (
     <section class="py-16 bg-brand-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h3 class="text-2xl font-black text-brand-900 mb-8">Otros destinos</h3>
+        <h3 class="text-2xl font-black text-brand-900 mb-8">Other destinations</h3>
         <div class="grid sm:grid-cols-3 gap-6">
           {related.map((r) => (
-            <a href={`/es/destinos/${r.slug}/`} class="group bg-white p-6 rounded-2xl border border-brand-100 hover:shadow-xl transition-all flex items-center gap-4">
+            <a href={`/en/destinations/${r.slug}/`} class="group bg-white p-6 rounded-2xl border border-brand-100 hover:shadow-xl transition-all flex items-center gap-4">
               <div class="text-4xl">{r.flag}</div>
               <div>
                 <h4 class="font-bold text-brand-900 group-hover:text-accent-600 transition-colors">{r.country}</h4>
-                <span class="text-accent-600 text-sm font-bold flex items-center gap-1">Ver corredor <Icon name="fa6-solid:chevron-right" class="text-[10px]" /></span>
+                <span class="text-accent-600 text-sm font-bold flex items-center gap-1">View corridor <Icon name="fa6-solid:chevron-right" class="text-[10px]" /></span>
               </div>
             </a>
           ))}
@@ -157,13 +157,13 @@ const corridorRows = [
   <!-- CTA -->
   <section class="py-20 bg-brand-950 text-center">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">¿Se muda a {dest.country}?</h3>
-      <p class="text-brand-300 mb-8">Solicite una cotización gratuita y sin compromiso para su mudanza de Panamá a {dest.country}.</p>
-      <a href="/es/#contacto" class="inline-block bg-accent-500 text-brand-900 px-10 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Cotizar mi Mudanza</a>
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Moving to {destination.country}?</h3>
+      <p class="text-brand-300 mb-8">Request a free, no-obligation quote for your move from Panama to {destination.country}.</p>
+      <a href="/en/#contacto" class="inline-block bg-accent-500 text-brand-900 px-10 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Get My Quote</a>
     </div>
   </section>
 
-  <Footer locale="es" />
+  <Footer locale="en" />
   <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
 </Base>
 

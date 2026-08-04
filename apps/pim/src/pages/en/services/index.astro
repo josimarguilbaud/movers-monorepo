@@ -1,0 +1,112 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { categoriesEn, servicesByCategoryEn } from '../../../data/en/services';
+import { site, wa } from '../../../data/site';
+import { imgFor } from '../../../data/images';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: new URL('/en/', site.domain).href },
+  { name: 'Services', url: new URL('/en/services/', site.domain).href },
+]);
+---
+
+<Base
+  title="International and Local Moving Services | PIM Panama"
+  description="All Panama International Movers services: international sea and air moves, vehicle and pet relocation, containers, local moves, corporate relocations, and high-value items."
+  lang="en"
+  altPaths={{ es: '/es/servicios/', en: '/en/services/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
+    <img src={imgFor('servicios-hub', 0)} alt="Moving services" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,25,47,0.85), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2">
+        <a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><span class="text-accent-400">Services</span>
+      </nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Moving Solutions for <span class="text-accent-500">Every Need</span></h1>
+      <p class="text-lg text-brand-200 max-w-3xl mx-auto leading-relaxed">
+        Relocating an entire life — or just part of one — takes more than a truck and boxes. It takes logistics, customs expertise, and a trustworthy global network. At Panama International Movers, we structure every service independently to give you exactly what your move needs, no more and no less.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex justify-center items-center gap-3 mb-4">
+        <div class="h-px w-12 bg-accent-500"></div>
+        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">What We Offer</h2>
+        <div class="h-px w-12 bg-accent-500"></div>
+      </div>
+      <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-6">Eight categories, one standard of excellence</h3>
+      <p class="text-brand-600 text-lg leading-relaxed">
+        Whether you're moving an entire household between continents, a single vehicle, your pet, or your office furniture, every service rests on the same foundation: a personal coordinator with you from start to finish, export-quality materials, and full customs handling. Explore our solutions and request a no-obligation quote.
+      </p>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="pb-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {categoriesEn.map((cat) => {
+        const items = servicesByCategoryEn(cat.id);
+        return (
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 relative rounded-3xl overflow-hidden h-72 shadow-xl">
+              <img src={imgFor(cat.id, 2)} alt={cat.title} class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0" style="background:linear-gradient(120deg, rgba(10,25,47,0.75), rgba(10,25,47,0.2));"></div>
+              <div class="absolute bottom-6 left-6 flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-accent-500 text-brand-900 flex items-center justify-center text-xl"><Icon name={cat.icon} /></div>
+                <h4 class="text-2xl font-black text-white">{cat.title}</h4>
+              </div>
+            </div>
+            <div class="lg:col-span-7">
+              <p class="text-brand-600 text-lg mb-6 leading-relaxed">{cat.blurb}</p>
+              {items.length > 0 ? (
+                <div class="grid sm:grid-cols-2 gap-3">
+                  {items.map((s) => (
+                    <a href={`/en/services/${s.slug}/`} class="group flex items-center gap-3 p-4 rounded-xl border border-brand-100 hover:border-accent-500 hover:bg-brand-50 transition-all">
+                      <div class="w-10 h-10 rounded-lg bg-brand-50 text-brand-900 flex items-center justify-center group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name={s.icon} /></div>
+                      <span class="font-bold text-brand-900 text-sm flex-1">{s.title}</span>
+                      <Icon name="fa6-solid:chevron-right" class="text-brand-300 text-xs group-hover:text-accent-500" />
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <span class="inline-flex items-center gap-2 text-sm font-bold text-brand-500 bg-brand-50 border border-brand-100 rounded-full px-4 py-2">
+                  <Icon name="fa6-solid:hammer" /> Pages coming soon
+                </span>
+              )}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-900 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Not sure which service you need?</h3>
+      <p class="text-brand-300 mb-8">Tell us where you're moving and what you'd like to bring. Our coordinator will recommend the best option and send you a tailored quote.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Request a Quote</a>
+        <a href={wa()} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp">
+    <Icon name="fa6-brands:whatsapp" class="text-white text-3xl" />
+  </a>
+</Base>

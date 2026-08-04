@@ -1,0 +1,172 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { site, wa, yearsInBusiness } from '../../data/site';
+import { imgFor } from '../../data/images';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'About', url: 'https://panamainternationalmovers.com/en/about/' },
+]);
+
+const values = [
+  { icon: 'fa6-solid:handshake', title: 'Family Touch', text: 'Direct, personal attention from people who know your case. Here, you are family, not a number.' },
+  { icon: 'fa6-solid:shield-halved', title: 'Responsibility', text: 'We care for your belongings as if they were our own, with professional packing and all-risk insurance.' },
+  { icon: 'fa6-solid:earth-americas', title: 'Global Standard', text: 'A network of agents on five continents to guarantee excellence at your destination as well.' },
+  { icon: 'fa6-solid:heart', title: 'Closeness', text: 'A personal coordinator is with you from start to finish, resolving every question with full transparency.' },
+];
+
+const stats = [
+  { value: `${yearsInBusiness}+`, label: 'Years of Experience' },
+  { value: 'Global', label: 'Worldwide Coverage' },
+  { value: '1990', label: 'Year Founded' },
+  { value: '100%', label: 'Family Commitment' },
+];
+
+// ⚠️ Replace with PIM's REAL certifications/affiliations (with their logos).
+const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
+---
+
+<Base
+  title="About Us | Panamá International Movers S.A. — Since 1990"
+  description="Meet Panamá International Movers: a Panamanian family business founded in 1990, with over 30 years moving homes around the world. Our history, values and commitment."
+  lang="en"
+  altPaths={{ es: '/es/nosotros/', en: '/en/about/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-24 bg-brand-900 overflow-hidden">
+    <img src={imgFor('nosotros-hero', 0)} alt="Panamá International Movers" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><span class="text-accent-400">About</span></nav>
+      <span class="inline-flex items-center gap-2 text-xs font-bold text-accent-500 uppercase tracking-widest bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-6">A family business since 1990</span>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Over {yearsInBusiness} years <span class="text-accent-500">moving lives</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto leading-relaxed">We are Panama's trusted family-owned international moving company. Behind every move is a home, a dream and a new chapter. That is our purpose.</p>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-50 transform skew-x-12 translate-x-20 z-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative h-[560px]">
+          <div class="absolute top-0 left-0 w-4/5 h-4/5 rounded-3xl overflow-hidden shadow-2xl">
+            <img src={imgFor('nosotros-1', 5)} alt="PIM team" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+            <img src={imgFor('nosotros-2', 11)} alt="Moving logistics" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute top-1/2 right-8 -translate-y-1/2 bg-brand-900 text-white rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-xl border-4 border-white z-20">
+            <span class="text-sm font-bold text-accent-500 uppercase">Since</span><span class="text-3xl font-black">1990</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Our Story</h2></div>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-900 mb-6 leading-tight">A family tradition of trust</h3>
+          <p class="text-brand-600 mb-5 text-lg leading-relaxed">Founded in <strong>1990</strong> with family values and a global vision, <strong>Panamá International Movers S.A.</strong> was created to do more than move furniture: to walk alongside people through one of the most important moments of their lives.</p>
+          <p class="text-brand-600 mb-5 leading-relaxed">Over more than three decades we have become a benchmark in international moving logistics in Panama, constantly evolving to offer the highest standards while never losing the close, personal touch that defines us.</p>
+          <p class="text-brand-600 leading-relaxed">We leverage Panama's position as the logistics hub of the Americas to carry our clients' homes anywhere in the world, with safety, planning and professional support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION -->
+  <section class="py-20 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-3xl p-10 border border-brand-100 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6"><Icon name="fa6-solid:bullseye" /></div>
+        <h3 class="text-2xl font-black text-brand-900 mb-3">Our Mission</h3>
+        <p class="text-brand-600 leading-relaxed">To make every move — local or across the world — a safe, seamless and stress-free experience, protecting the belongings and peace of mind of every family and business as if they were our own.</p>
+      </div>
+      <div class="bg-white rounded-3xl p-10 border border-brand-100 shadow-sm">
+        <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6"><Icon name="fa6-solid:eye" /></div>
+        <h3 class="text-2xl font-black text-brand-900 mb-3">Our Vision</h3>
+        <p class="text-brand-600 leading-relaxed">To be Panama's most trusted international moving company, recognized for combining the industry's global standards with the warmth and commitment of a family business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">What defines us</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900">Our Values</h3>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {values.map((v) => (
+          <div class="bg-brand-50 p-8 rounded-3xl border border-brand-100">
+            <div class="w-14 h-14 rounded-2xl bg-white text-accent-600 flex items-center justify-center text-2xl mb-5 shadow-sm"><Icon name={v.icon} /></div>
+            <h4 class="text-lg font-bold text-brand-900 mb-2">{v.title}</h4>
+            <p class="text-brand-500 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="bg-accent-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-brand-900/10">
+      {stats.map((s) => (
+        <div class="text-center"><div class="text-4xl md:text-5xl font-black text-brand-900 mb-2">{s.value}</div><div class="text-sm font-bold uppercase tracking-wider text-brand-800">{s.label}</div></div>
+      ))}
+    </div>
+  </div>
+
+  <!-- TEAM (placeholder for real photos) -->
+  <section class="py-24 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-2">Our Team</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">The people behind every move</h3>
+        <p class="text-brand-500">Coordinators, packers and customs agents who make your peace of mind possible.</p>
+      </div>
+      {/* ⚠️ Replace with real photos of PIM's team/coordinators/fleet */}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[1, 2, 3, 4].map(() => (
+          <div class="bg-white rounded-3xl overflow-hidden border border-dashed border-brand-200 text-center">
+            <div class="h-56 bg-brand-100 flex items-center justify-center text-brand-300 text-5xl"><Icon name="fa6-solid:user" /></div>
+            <div class="p-5"><h4 class="font-bold text-brand-400">[Name]</h4><p class="text-xs text-brand-300">[Title]</p></div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-xs text-brand-400 mt-6">Real team photos pending.</p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="py-20 bg-white border-t border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-3">Certifications & Affiliations</h2>
+      <h3 class="text-2xl md:text-3xl font-black text-brand-900 mb-8">Backed by the industry's standards</h3>
+      {/* ⚠️ Replace with PIM's real certification/affiliation logos */}
+      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5">
+        {certifications.map((c) => <span class="text-xl font-black text-brand-300 tracking-wide">{c}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-900 text-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl md:text-4xl font-black text-white mb-4">Ready to move with people who know how?</h3>
+      <p class="text-brand-300 mb-8">Put your move in the hands of a family business with over {yearsInBusiness} years of experience.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/en/contact/" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Request a Quote</a>
+        <a href={wa('Hi, I would like a moving quote from PIM.')} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa('Hi, I would like a moving quote from PIM.')} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

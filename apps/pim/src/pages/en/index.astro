@@ -1,22 +1,400 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
 import { Icon } from 'astro-icon/components';
+import { site, wa, yearsInBusiness } from '../../data/site';
+import { servicesEn } from '../../data/en/services';
+import { destinationsEn } from '../../data/en/destinations';
+import { imgFor } from '../../data/images';
+import { testimonialsEn } from '../../data/en/testimonials';
+import { faqPage } from '@movers/core/schema';
+
+const pick = (ids: string[]) => ids.map((id) => servicesEn.find((s) => s.id === id)!).filter(Boolean);
+const featured = pick([
+  'maritimas', 'fcl', 'aereas', 'auto-contenedor',
+  'mascotas-internacional', 'cliente-corporativas', 'complementarios-almacenaje', 'complementarios-embalaje',
+]);
+const destPick = destinationsEn; // all corridors
+const homeReviews = [1, 3, 11, 8, 7, 10].map((id) => testimonialsEn.find((t) => t.id === id)).filter(Boolean);
+
+const stats = [
+  { value: `${yearsInBusiness}+`, label: 'Years of Experience' },
+  { value: 'Global', label: 'Worldwide Coverage' },
+  { value: 'Door', label: 'to Door' },
+  { value: '100%', label: 'All-Risk Insurance' },
+];
+
+// ⚠️ Placeholder — replace with PIM's REAL certifications/affiliations (with their logos).
+const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
+
+const steps = [
+  { n: '01.', icon: 'fa6-solid:clipboard-list', title: 'Survey & Consultation', desc: 'We assess your shipment volume at your home or by video call for an accurate, no-surprise quote.' },
+  { n: '02.', icon: 'fa6-solid:box', title: 'Professional Packing', desc: 'We pack with export-quality materials and inventory everything in detail.' },
+  { n: '03.', icon: 'fa6-solid:ship', title: 'Transit & Customs', desc: 'We handle sea or air freight and all documentation at origin and destination.' },
+  { n: '04.', icon: 'fa6-solid:house-chimney-window', title: 'Final Delivery', desc: 'Unloading, basic unpacking, and removal of packing material at your new home, ready to enjoy.' },
+];
+
+const faqs = [
+  { q: 'How far in advance should I contact you?', a: 'We recommend 4 to 6 weeks before your target date. This lets us coordinate the survey, arrange insurance, and secure space with shipping lines or airlines at the best rates.' },
+  { q: 'Do you pack everything, or do I have to do it myself?', a: 'For international moves, professional packing by our team is usually required by customs and insurance rules, which demand that the contents match the inventory and are properly protected.' },
+  { q: 'What items can I not include in my move?', a: 'International regulations prohibit hazardous items (flammable, explosive, corrosive), perishables, plants, seeds, weapons, ammunition, undeclared high-value jewelry, and cash. Your coordinator will explain the restrictions for your destination.' },
+  { q: 'Do you offer cargo insurance?', a: 'Yes, all-risk door-to-door policies through recognized international insurers. We advise you on the value to declare and the coverage available.' },
+];
 ---
 
 <Base
-  title="Panama International Movers S.A. | International Moving"
-  description="International and local moving from Panama with over 30 years of experience."
+  title="International Movers in Panama | Panama International Movers S.A."
+  description="Panama International Movers S.A.: a family-owned company with over 30 years of experience in international, local, and corporate moving from Panama. Door-to-door, customs, and insurance. Get a free quote."
   lang="en"
+  altPaths={{ es: '/es/', en: '/en/' }}
+  jsonld={faqPage(faqs.map((f) => ({ question: f.q, answer: f.a })))}
 >
-  <section class="min-h-screen bg-brand-900 text-white flex items-center justify-center px-6">
-    <div class="text-center">
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
-        Panama International <span class="text-accent-500">Movers</span>
-      </h1>
-      <p class="text-brand-200 max-w-md mx-auto">English skeleton page.</p>
-      <div class="mt-8 flex justify-center gap-6 text-accent-500 text-3xl">
-        <Icon name="fa6-solid:ship" />
+  <Header locale="en" />
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-900">
+    <div class="absolute inset-0 z-0">
+      <img src={imgFor('home-hero', 0)} alt="International moving from Panama" class="w-full h-full object-cover object-center opacity-60" />
+      <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(10,25,47,0.96) 0%, rgba(10,25,47,0.75) 50%, rgba(10,25,47,0.35) 100%);"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pb-20 pt-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+            <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-white tracking-widest uppercase">Panamanian family business since 1990</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
+            International Movers in Panama,<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-amber-200">safely to anywhere in the world.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-brand-200 mb-10 max-w-2xl font-light leading-relaxed">
+            With over {yearsInBusiness} years of experience, we coordinate your international, local, or corporate move door to door: packing, customs, and insurance included. Your transition, safe, smooth, and stress-free.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-5">
+            <a href="#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-center shadow-lg hover:bg-accent-400 transition-all transform hover:-translate-y-1 flex justify-center items-center gap-3 text-lg">
+              Get My Moving Quote <Icon name="fa6-solid:arrow-right" />
+            </a>
+            <a href={wa('Hi, I would like to get a quote for a move with PIM.')} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 backdrop-blur-sm transition-all flex justify-center items-center gap-3 text-lg">
+              <Icon name="fa6-brands:whatsapp" class="text-2xl text-green-400" /> Talk to Us Now
+            </a>
+          </div>
+          <!-- trust chips -->
+          <div class="flex flex-wrap gap-x-8 gap-y-3 mt-10 text-sm text-brand-200">
+            <span class="flex items-center gap-2"><Icon name="fa6-solid:shield-halved" class="text-accent-500" /> All-risk insurance</span>
+            <span class="flex items-center gap-2"><Icon name="fa6-solid:earth-americas" class="text-accent-500" /> Global agent network</span>
+            <span class="flex items-center gap-2"><Icon name="fa6-solid:user-tie" class="text-accent-500" /> Personal coordinator</span>
+          </div>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-5 relative h-full min-h-[480px]">
+          <div class="absolute top-6 right-0 bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-2xl w-72 shadow-2xl">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-500/20 rounded-full flex items-center justify-center text-accent-400 text-xl"><Icon name="fa6-solid:ship" /></div>
+              <div><h3 class="text-white font-bold text-lg">Global Routes</h3><p class="text-brand-300 text-sm">Sea and air freight</p></div>
+            </div>
+          </div>
+          <div class="absolute top-44 right-24 bg-white p-6 rounded-2xl w-72 shadow-2xl">
+            <div class="w-12 h-12 bg-brand-50 rounded-full flex items-center justify-center text-accent-600 text-xl mb-3"><Icon name="fa6-solid:handshake" /></div>
+            <p class="text-brand-900 font-bold mb-1">Family-Owned Business</p>
+            <p class="text-brand-500 text-sm">Founded in 1990 · direct, personal service</p>
+          </div>
+          <div class="absolute bottom-6 right-8 bg-brand-800/80 backdrop-blur-xl border border-brand-700 p-6 rounded-2xl w-64 shadow-2xl">
+            <div class="flex justify-between items-end">
+              <div><p class="text-brand-300 text-sm mb-1">Coverage</p><p class="text-white font-bold text-xl">Worldwide</p></div>
+              <div class="text-green-400 text-3xl"><Icon name="fa6-solid:earth-americas" /></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- STATS BAR -->
+  <div class="bg-accent-500 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-brand-900/10">
+        {stats.map((s) => (
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-black text-brand-900 mb-2">{s.value}</div>
+            <div class="text-sm font-bold uppercase tracking-wider text-brand-800">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS (ready for real logos) -->
+  <section class="bg-white border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <p class="text-center text-xs font-bold text-brand-400 uppercase tracking-widest mb-5">Backed by industry standards</p>
+      <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
+        {/* ⚠️ Replace with PIM's real certification/affiliation logos */}
+        {certifications.map((c) => (
+          <span class="text-lg font-black text-brand-300 tracking-wide">{c}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SERVICES -->
+  <section id="servicios" class="py-24 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-600"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Our Services</h2></div>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-900">Complete solutions for your move</h3>
+        </div>
+        <a href="/en/services/" class="hidden md:inline-flex items-center gap-2 text-brand-600 font-bold hover:text-accent-600 transition-colors shrink-0">See all 34 services <Icon name="fa6-solid:arrow-right-long" /></a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {featured.map((s) => (
+          <a href={`/en/services/${s.slug}/`} class="bg-white p-7 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-brand-100 hover:-translate-y-1">
+            <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-900 text-2xl mb-5 group-hover:bg-accent-500 group-hover:text-white transition-colors duration-300"><Icon name={s.icon} /></div>
+            <h4 class="text-lg font-bold text-brand-900 mb-2 group-hover:text-accent-600 transition-colors leading-tight">{s.title}</h4>
+            <p class="text-brand-500 text-sm leading-relaxed mb-4 line-clamp-2">{s.heroTagline}</p>
+            <span class="text-accent-600 font-bold text-sm flex items-center gap-1">Learn more <Icon name="fa6-solid:chevron-right" class="text-[10px] group-hover:translate-x-1 transition-transform" /></span>
+          </a>
+        ))}
+      </div>
+      <a href="/en/services/" class="md:hidden mt-8 inline-flex items-center gap-2 text-accent-600 font-bold">See all 34 services <Icon name="fa6-solid:arrow-right-long" /></a>
+    </div>
+  </section>
+
+  <!-- POPULAR DESTINATIONS -->
+  <section class="py-24 bg-brand-900 relative overflow-hidden">
+    <img src={imgFor('home-destinos', 3)} alt="" class="absolute inset-0 w-full h-full object-cover opacity-15" />
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,25,47,0.92), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest">Destinations</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-5xl font-black text-white mb-4">Moving from Panama to anywhere in the world</h3>
+        <p class="text-brand-300 text-lg">Sea and air corridors with customs handled at both origin and destination.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {destPick.map((d) => (
+          <a href={`/en/destinations/${d.slug}/`} class="group bg-brand-800/50 border border-brand-700/50 rounded-2xl p-5 hover:bg-brand-800 hover:border-accent-500 transition-all text-center">
+            <div class="text-4xl mb-2">{d.flag}</div>
+            <h4 class="font-bold text-white text-sm group-hover:text-accent-400 transition-colors">{d.country}</h4>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-10"><a href="/en/destinations/" class="inline-flex items-center gap-2 text-accent-500 font-bold hover:text-accent-400">See all destinations <Icon name="fa6-solid:arrow-right" /></a></div>
+    </div>
+  </section>
+
+  <!-- ABOUT US -->
+  <section id="nosotros" class="py-24 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-50 transform skew-x-12 translate-x-20 z-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative h-[560px]">
+          <div class="absolute top-0 left-0 w-4/5 h-4/5 rounded-3xl overflow-hidden shadow-2xl">
+            <img src={imgFor('home-about-1', 5)} alt="PIM packing team" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+            <img src={imgFor('home-about-2', 9)} alt="Moving logistics" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="absolute top-1/2 right-8 -translate-y-1/2 bg-brand-900 text-white rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-xl border-4 border-white z-20">
+            <span class="text-sm font-bold text-accent-500 uppercase">Since</span>
+            <span class="text-3xl font-black">1990</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Our Story</h2></div>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-900 mb-6 leading-tight">A family business that has <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-900">moved lives</span> for {yearsInBusiness} years.</h3>
+          <p class="text-brand-600 mb-6 text-lg leading-relaxed">Founded in 1990 with family values and a global vision, <strong>Panama International Movers S.A.</strong> is a benchmark in international moving logistics from Panama. We don't just move furniture: we move memories, dreams, and the start of a new chapter.</p>
+          <div class="flex flex-col sm:flex-row gap-6 mt-10 border-t border-brand-100 pt-8">
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shrink-0"><Icon name="fa6-solid:handshake" class="text-xl" /></div>
+              <div><h4 class="font-bold text-brand-900 mb-1">Direct, personal service</h4><p class="text-sm text-brand-500">Attentive care from people who know your case.</p></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shrink-0"><Icon name="fa6-solid:earth-americas" class="text-xl" /></div>
+              <div><h4 class="font-bold text-brand-900 mb-1">Global agent network</h4><p class="text-sm text-brand-500">Excellence at destination, across five continents.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="py-24 bg-brand-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest">Competitive Advantage</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-5xl font-black mb-6">Why trust us with your move?</h3>
+        <p class="text-brand-300 text-lg">An international move demands precision, experience, and a reliable network. We bring all three.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-brand-900/60 border border-brand-800 p-8 rounded-3xl hover:bg-brand-900 transition-colors">
+          <div class="w-16 h-16 bg-brand-950 border border-brand-800 rounded-2xl flex items-center justify-center text-accent-400 text-2xl mb-6"><Icon name="fa6-solid:user-tie" /></div>
+          <h4 class="text-xl font-bold mb-3">VIP Personal Coordinator</h4>
+          <p class="text-brand-300 text-sm leading-relaxed">A single point of contact who guides you through every step, from the quote to unpacking the last box at destination.</p>
+        </div>
+        <div class="bg-brand-900/60 border border-brand-800 p-8 rounded-3xl hover:bg-brand-900 transition-colors">
+          <div class="w-16 h-16 bg-brand-950 border border-brand-800 rounded-2xl flex items-center justify-center text-accent-400 text-2xl mb-6"><Icon name="fa6-solid:file-contract" /></div>
+          <h4 class="text-xl font-bold mb-3">Full Customs Handling</h4>
+          <p class="text-brand-300 text-sm leading-relaxed">We navigate the paperwork for you, at origin and destination, taking advantage of applicable household-goods exemptions and avoiding delays.</p>
+        </div>
+        <div class="bg-brand-900/60 border border-brand-800 p-8 rounded-3xl hover:bg-brand-900 transition-colors">
+          <div class="w-16 h-16 bg-brand-950 border border-brand-800 rounded-2xl flex items-center justify-center text-accent-400 text-2xl mb-6"><Icon name="fa6-solid:shield-halved" /></div>
+          <h4 class="text-xl font-bold mb-3">All-Risk Insurance Policies</h4>
+          <p class="text-brand-300 text-sm leading-relaxed">Door-to-door international coverage. Your belongings protected against any eventuality by sea, air, or land.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proceso" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Methodology</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-5xl font-black text-brand-900">Your move in 4 steps</h3>
+      </div>
+      <div class="grid md:grid-cols-4 gap-8">
+        {steps.map((st) => (
+          <div class="text-center group">
+            <div class="w-20 h-20 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-brand-100 group-hover:border-accent-500 transition-colors"><Icon name={st.icon} class="text-2xl text-accent-600" /></div>
+            <div class="text-accent-500 font-black text-xl mb-2">{st.n}</div>
+            <h4 class="font-bold text-lg mb-3 text-brand-900">{st.title}</h4>
+            <p class="text-brand-500 text-sm leading-relaxed">{st.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS (ready for real Google reviews) -->
+  <section id="testimonios" class="py-24 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-2">What our clients say</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-4">Stories of successful moves</h3>
+        <div class="inline-flex items-center gap-3 bg-white rounded-full px-5 py-2.5 shadow-sm border border-brand-100">
+          <span class="flex text-accent-400 text-sm"><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /><Icon name="fa6-solid:star" /></span>
+          <span class="text-brand-900 font-bold text-sm">Satisfied clients on every move</span>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {homeReviews.map((t) => (
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 relative flex flex-col">
+            <Icon name="fa6-solid:quote-right" class="absolute top-8 right-8 text-4xl text-brand-50" />
+            <div class="flex text-accent-400 text-sm mb-4">{Array.from({ length: t.rating }).map(() => <Icon name="fa6-solid:star" />)}</div>
+            <h4 class="font-bold text-brand-900 mb-2">{t.title}</h4>
+            <p class="text-brand-600 italic mb-6 text-sm leading-relaxed flex-1">“{t.quote}”</p>
+            <div class="flex items-center gap-4 border-t border-brand-100 pt-5">
+              <div class="w-12 h-12 bg-brand-900 rounded-full flex items-center justify-center font-bold text-accent-400">{t.author.charAt(0)}</div>
+              <div><h5 class="font-bold text-brand-900">{t.author}</h5><p class="text-xs text-brand-400">{t.context}</p></div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10"><a href="/en/testimonials/" class="inline-flex items-center gap-2 text-accent-600 font-bold hover:text-accent-700">See all reviews <Icon name="fa6-solid:arrow-right" /></a></div>
+    </div>
+  </section>
+
+  <!-- RESOURCES / GUIDES -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-600"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Resources</h2></div>
+          <h3 class="text-4xl md:text-5xl font-black text-brand-900">Plan your move like an expert</h3>
+        </div>
+        <a href="/en/resources/" class="hidden md:inline-flex items-center gap-2 text-brand-600 font-bold hover:text-accent-600 transition-colors shrink-0">Explore our guides <Icon name="fa6-solid:arrow-right-long" /></a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/en/resources/international-moving-guide/" class="group bg-brand-50 p-8 rounded-3xl border border-brand-100 hover:shadow-xl hover:border-accent-500 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-5 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name="fa6-solid:book" /></div>
+          <h4 class="text-xl font-black text-brand-900 mb-2 group-hover:text-accent-600 transition-colors">The Definitive Moving Guide</h4>
+          <p class="text-brand-500 text-sm">8 steps to moving abroad without surprises.</p>
+        </a>
+        <a href="/en/resources/international-moving-checklist/" class="group bg-brand-50 p-8 rounded-3xl border border-brand-100 hover:shadow-xl hover:border-accent-500 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-5 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name="fa6-solid:list-check" /></div>
+          <h4 class="text-xl font-black text-brand-900 mb-2 group-hover:text-accent-600 transition-colors">Moving Checklist</h4>
+          <p class="text-brand-500 text-sm">What to do 3 months, 1 month, and on moving day.</p>
+        </a>
+        <a href="/en/resources/frequently-asked-questions/" class="group bg-brand-50 p-8 rounded-3xl border border-brand-100 hover:shadow-xl hover:border-accent-500 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-5 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name="fa6-solid:circle-question" /></div>
+          <h4 class="text-xl font-black text-brand-900 mb-2 group-hover:text-accent-600 transition-colors">Frequently Asked Questions</h4>
+          <p class="text-brand-500 text-sm">Costs, timelines, customs, and insurance, answered.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-4">Frequently Asked Questions</h2>
+        <p class="text-brand-500">Clear up your questions before starting the process.</p>
+      </div>
+      <div class="space-y-4">
+        {faqs.map((f) => (
+          <div class="border border-brand-100 rounded-2xl overflow-hidden bg-white">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center gap-4 focus:outline-none">
+              <span class="font-bold text-brand-900">{f.q}</span>
+              <Icon name="fa6-solid:chevron-down" class="text-brand-400 accordion-icon transition-transform shrink-0" />
+            </button>
+            <div class="accordion-content px-6"><p class="text-brand-600 py-4 text-sm leading-relaxed">{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="py-24 bg-brand-900 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+        <div class="lg:w-2/5 bg-brand-950 p-10 md:p-14 text-white relative overflow-hidden flex flex-col justify-between">
+          <div class="relative z-10">
+            <h3 class="text-3xl font-black mb-4">Start Your Journey</h3>
+            <p class="text-brand-300 mb-12 text-sm leading-relaxed">Fill out the form and an international logistics expert will reach out to you within 24 hours.</p>
+            <div class="space-y-8">
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:location-dot" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Main Office</h4><p class="text-white">{site.address.street}<br />{site.address.locality}</p></div></div>
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:phone" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Direct Contact</h4><p class="text-white">{site.phones.join(' | ')}</p></div></div>
+              <div class="flex items-start gap-5"><div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-accent-500 shrink-0"><Icon name="fa6-solid:envelope" /></div><div><h4 class="font-bold mb-1 text-sm text-brand-200 uppercase tracking-widest">Email</h4><p class="text-white text-sm">{site.email}</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-3/5 p-10 md:p-14 bg-white">
+          <h3 class="text-2xl font-black text-brand-900 mb-8">Request a Free Quote</h3>
+          <QuoteForm locale="en" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+
+  <a href={wa('Hi, I would like to get a quote for a move with PIM.')} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp">
+    <Icon name="fa6-brands:whatsapp" class="text-white text-3xl" />
+  </a>
 </Base>
+
+<style>
+  .accordion-content { transition: max-height .3s ease-out, opacity .3s ease-out; max-height: 0; opacity: 0; overflow: hidden; }
+  .accordion-content.active { max-height: 500px; opacity: 1; }
+  .accordion-icon.active { transform: rotate(180deg); }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach((btn) => {
+    btn.addEventListener('click', function (this: HTMLElement) {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('.accordion-icon');
+      document.querySelectorAll('.accordion-content').forEach((c) => { if (c !== content) c.classList.remove('active'); });
+      document.querySelectorAll('.accordion-icon').forEach((i) => { if (i !== icon) i.classList.remove('active'); });
+      content?.classList.toggle('active');
+      icon?.classList.toggle('active');
+    });
+  });
+</script>

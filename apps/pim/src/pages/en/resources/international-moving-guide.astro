@@ -1,0 +1,72 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Resources', url: 'https://panamainternationalmovers.com/en/resources/' },
+  { name: 'International Moving Guide', url: 'https://panamainternationalmovers.com/en/resources/international-moving-guide/' },
+]);
+
+const steps = [
+  { h: '1. Start early', p: 'An international move is planned weeks — ideally months — in advance. This gives you room to compare options, book shipping-line space at good rates, arrange insurance, and prepare documentation without rushing. Rule of thumb: contact your moving company 4 to 6 weeks before your target date.' },
+  { h: '2. Choose your route: sea or air', p: 'Ocean freight is the most economical option and the go-to choice for full households; air freight costs more but is much faster, ideal for small or urgent shipments. Many families combine both: flying in the essentials for the first few weeks and shipping the rest by sea.' },
+  { h: '3. Exclusive container (FCL) or shared (LCL)', p: 'If you’re moving an entire household, an exclusive container offers privacy, speed, and less handling. If you’re only shipping a few pieces of furniture or boxes, a shared container lets you pay only for the space you use.' },
+  { h: '4. Door-to-door or port-to-port', p: 'Door-to-door service covers everything, from your current home to the new one, without you having to manage customs or transport. Port-to-port is cheaper but leaves those tasks to you. Choose based on your time, experience, and budget.' },
+  { h: '5. Understand customs and household goods', p: 'Every country regulates the import of household goods. Many allow used household goods to enter duty-free when you’re relocating your residence, under certain conditions. Your coordinator will walk you through the requirements, the documentation, and which items are restricted at your destination.' },
+  { h: '6. Get good insurance', p: 'No international shipment is immune to the unexpected. All-risk door-to-door insurance protects the value of your belongings. The key is declaring the value of your goods accurately: not too high, not too low.' },
+  { h: '7. Professional packing and inventory', p: '90% of your move’s protection comes from packing. For international moves, professional packing is usually required by customs and insurers. Everything is inventoried and labeled, which speeds up customs clearance and makes settling in easier.' },
+  { h: '8. Moving day and arrival', p: 'On moving day, the crew packs (if it wasn’t done beforehand), loads, and inventories everything. At destination, after customs clearance, your goods are delivered, the basics are unpacked, and packing materials are removed. Keep your personal documents on hand — they should always travel with you, never in the container.' },
+];
+---
+
+<Base
+  title="The Definitive International Moving Guide 2026 | PIM"
+  description="The complete guide to moving abroad: how to choose your route, understand customs and household goods, get insurance, pack, and plan every step. By PIM Panama."
+  lang="en"
+  altPaths={{ es: '/es/recursos/guia-mudanza-internacional/', en: '/en/resources/international-moving-guide/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=2000&auto=format&fit=crop" alt="International move" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.9), rgba(10,25,47,0.97));"></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><a href="/en/resources/" class="hover:text-accent-400">Resources</a><span>/</span><span class="text-accent-400">Guide</span></nav>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">The Definitive International Moving Guide</h1>
+      <p class="text-brand-200 text-lg">Eight steps to relocating your home to another country with order, security, and no surprises.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-brand-600 text-lg leading-relaxed mb-10">Moving to another country is one of the biggest projects a family can take on. The difference between a smooth experience and a headache almost always comes down to planning. This guide sums up, step by step, everything you need to know.</p>
+
+      <div class="space-y-8">
+        {steps.map((s) => (
+          <div class="border-l-2 border-accent-500 pl-6">
+            <h2 class="text-2xl font-black text-brand-900 mb-3">{s.h}</h2>
+            <p class="text-brand-600 leading-relaxed">{s.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14 rounded-3xl bg-brand-900 p-8 md:p-10 text-center">
+        <h3 class="text-2xl font-black text-white mb-3">Ready to take the next step?</h3>
+        <p class="text-brand-300 mb-6">A quote based on a real inspection of your shipment gives you the exact picture of timing and costs.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/en/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Request a Quote</a>
+          <a href="/en/resources/international-moving-checklist/" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all">View the Checklist</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>

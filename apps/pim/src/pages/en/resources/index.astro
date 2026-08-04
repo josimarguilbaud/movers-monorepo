@@ -1,0 +1,58 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { Icon } from 'astro-icon/components';
+import { wa } from '../../../data/site';
+import { breadcrumb } from '@movers/core/schema';
+
+const resources = [
+  { icon: 'fa6-solid:book', title: 'The Definitive International Moving Guide', desc: 'Everything you need to know about moving abroad, from start to finish.', href: '/en/resources/international-moving-guide/' },
+  { icon: 'fa6-solid:list-check', title: 'Moving Checklist', desc: 'What to do 3 months before, 1 month before, and on moving day.', href: '/en/resources/international-moving-checklist/' },
+  { icon: 'fa6-solid:book-open', title: 'Glossary of Terms', desc: 'FCL, LCL, Bill of Lading, CBM… the language of moving, explained.', href: '/en/resources/moving-terms-glossary/' },
+  { icon: 'fa6-solid:circle-question', title: 'Frequently Asked Questions', desc: 'The most common questions about international moves, answered.', href: '/en/resources/frequently-asked-questions/' },
+  { icon: 'fa6-solid:earth-americas', title: 'Customs Guides by Country', desc: 'Restrictions and benefits for household goods in each destination.', href: '/en/destinations/' },
+];
+
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Resources', url: 'https://panamainternationalmovers.com/en/resources/' },
+]);
+---
+
+<Base
+  title="International Moving Resources & Guides | PIM Panama"
+  description="Guides, checklists, glossary, and frequently asked questions about international moving. All the knowledge from Panama International Movers, free."
+  lang="en"
+  altPaths={{ es: '/es/recursos/', en: '/en/resources/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+
+  <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,25,47,0.9), rgba(10,25,47,0.98));"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <nav class="text-sm text-brand-300 mb-6 flex justify-center gap-2"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><span class="text-accent-400">Resources</span></nav>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6">Resources & <span class="text-accent-500">Guides</span></h1>
+      <p class="text-lg text-brand-200 max-w-2xl mx-auto">Moving abroad is easier when you know what to expect. We've gathered everything we know here so you can plan your move with confidence.</p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map((r) => (
+          <a href={r.href} class="group bg-brand-50 p-8 rounded-3xl border border-brand-100 hover:border-accent-500 hover:bg-white hover:shadow-xl transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-brand-900 text-accent-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-accent-500 group-hover:text-white transition-colors"><Icon name={r.icon} /></div>
+            <h2 class="text-xl font-black text-brand-900 mb-2 group-hover:text-accent-600 transition-colors">{r.title}</h2>
+            <p class="text-brand-500 text-sm leading-relaxed mb-4">{r.desc}</p>
+            <span class="text-accent-600 text-sm font-bold flex items-center gap-1">Open <Icon name="fa6-solid:arrow-right" class="text-[10px] group-hover:translate-x-1 transition-transform" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+  <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
+</Base>
