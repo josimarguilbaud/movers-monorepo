@@ -3,7 +3,7 @@ title: "Cómo empacar platos y vajilla para una mudanza sin roturas: guía profe
 description: "Guía paso a paso para empacar platos, copas, vasos y vajilla frágil en una mudanza. Materiales, técnica profesional, errores comunes y trucos para viajes largos."
 pubDate: 2026-01-28
 category: "Consejos de Empaque"
-heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2000&auto=format&fit=crop"
 ---
 
 La vajilla es, junto con los cuadros y los electrónicos, lo que más preocupa en una mudanza. Y con razón: un mal empaque puede convertir la vajilla de la familia —a veces heredada— en un montón de fragmentos. La buena noticia es que, con la técnica correcta y los materiales adecuados, los platos y las copas viajan perfectamente, incluso al otro lado del mundo. Aquí le explicamos, paso a paso, cómo lo hacen los profesionales.

@@ -3,7 +3,7 @@ title: "Comprar en Amazon y USA y recibir en Panamá: la guía del casillero en 
 description: "Cómo comprar en Amazon y tiendas de Estados Unidos y recibir en Panamá usando un casillero en Miami: cómo funciona, cómo ahorrar consolidando y qué pasa con la aduana."
 pubDate: 2026-03-18
 category: "Aduanas y Logística"
-heroImage: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2000&auto=format&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop"
 ---
 
 ¿Alguna vez encontró justo lo que buscaba en una tienda de Estados Unidos, pero al pagar descubrió que "no envían a Panamá"? Es una de las frustraciones más comunes del comprador online. La solución tiene nombre: un **casillero en Miami**. En esta guía le explicamos cómo funciona y cómo aprovecharlo al máximo.

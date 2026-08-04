@@ -3,7 +3,7 @@ title: "Qué llevar y qué dejar: cómo decidir tu menaje en una mudanza interna
 description: "Mudarse al extranjero obliga a decidir qué vale la pena mover. Guía completa para elegir tu menaje con criterio, ahorrar en el flete, evitar problemas de aduana y empezar ligero."
 pubDate: 2026-02-22
 category: "Vida Expat"
-heroImage: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?q=80&w=2000&auto=format&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2000&auto=format&fit=crop"
 ---
 
 Una mudanza internacional es, sin proponérselo, una de las mejores oportunidades para **empezar ligero**. Como el costo depende en gran medida del volumen, cada objeto que decide llevar tiene un precio de flete asociado. La pregunta clave, entonces, no es "¿me lo llevo?", sino **"¿vale la pena mover esto a la distancia y el costo que implica?"**. Esta guía le ayuda a decidir con criterio.

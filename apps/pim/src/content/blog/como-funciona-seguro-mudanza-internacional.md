@@ -3,7 +3,7 @@ title: "Cómo funciona el seguro de una mudanza internacional (y por qué lo nec
 description: "Todo sobre el seguro de mudanza internacional: qué cubre una póliza a todo riesgo, cómo declarar el valor de tu menaje y qué hacer si algo llega dañado. Guía de PIM."
 pubDate: 2026-04-02
 category: "Aduanas y Logística"
-heroImage: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=2000&auto=format&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=2000&auto=format&fit=crop"
 ---
 
 Por más cuidado que se ponga, ningún transporte internacional está completamente libre de imprevistos: la manipulación en puertos, las condiciones del mar o un retraso pueden afectar la carga. Un buen seguro convierte esa incertidumbre en tranquilidad. Le explicamos cómo funciona.

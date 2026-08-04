@@ -1,100 +1,76 @@
-/* Imágenes CURADAS de logística/mudanza (pool fijo y seguro, servido por el
-   CDN de Unsplash con WebP automático → rápido). NO usa fotos aleatorias.
+/* Imágenes CURADAS de logística/mudanza — VERIFICADAS visualmente una a una
+   (cada URL fue descargada y revisada). Servidas por el CDN de Unsplash con
+   WebP automático (auto=format) → rápido y cacheado.
    ⚠️ Placeholders profesionales — reemplazar por fotos reales de PIM.
-   Las plantillas no cambian: siguen llamando imgFor(key, variant).
+   Las plantillas no cambian: siguen llamando imgFor(key, variant). */
 
-   Motivo del cambio: la versión anterior usaba LoremFlickr (foto aleatoria por
-   keyword), que devolvía imágenes irrelevantes/inapropiadas y cargaba lento.
-   Ahora cada clave apunta SIEMPRE a fotos de logística revisadas. */
-
-/* Pool curado (todas relacionadas con mudanza/carga/logística). */
+/* Pool verificado (11 fotos, todas de logística/mudanza real). */
 const POOL: Record<string, string> = {
-  port: 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166',
-  containers: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7',
-  boxes: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea',
-  packing: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-  team: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0',
-  plane: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05',
-  warehouse: 'https://images.unsplash.com/photo-1553413077-190dd305871c',
-  truck: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7',
+  ship: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec',      // barco portacontenedores en puerto
+  terminal: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3',  // terminal de contenedores (aérea)
+  truck: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7',     // camión de carga
+  highway: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c',   // camión en carretera
+  warehouse: 'https://images.unsplash.com/photo-1553413077-190dd305871c',    // almacén / bodega
+  parcels: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d',   // almacén de paquetería
+  shelves: 'https://images.unsplash.com/photo-1590247813693-5541d1c609fd',   // estantería de cajas (storage)
+  boxes: 'https://images.unsplash.com/photo-1580674285054-bed31e145f59',     // cajas de mudanza apiladas
+  plane: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05',     // avión (carga aérea)
+  docs: 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f',      // firma de documentos (aduana/seguro)
+  home: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace',      // interior de hogar (residencial)
 };
 
-/* Cada clave → subconjunto temático del pool. `variant` rota dentro del
-   subconjunto para que hero y secciones no repitan la misma foto. */
-const MAP: Record<string, string[]> = {
+/* Orden global del pool para rotar sin repetir dentro de una misma página. */
+const ALL = ['ship', 'terminal', 'truck', 'highway', 'warehouse', 'parcels', 'shelves', 'boxes', 'plane', 'docs', 'home'];
+
+/* Hero temático por clave (la foto principal más acorde al servicio/sección).
+   Las secciones rotan por el resto del pool → fotos distintas por página. */
+const HERO: Record<string, string> = {
   /* Internacionales / carga */
-  maritimas: ['port', 'containers', 'warehouse'],
-  fcl: ['containers', 'port', 'warehouse'],
-  lcl: ['warehouse', 'containers', 'boxes'],
-  aereas: ['plane', 'port', 'warehouse'],
-  'puerta-a-puerta': ['boxes', 'packing', 'team'],
+  maritimas: 'ship', fcl: 'terminal', lcl: 'warehouse', aereas: 'plane', 'puerta-a-puerta': 'truck',
   /* Vehículos */
-  'auto-contenedor': ['containers', 'port'],
-  'auto-roro': ['port', 'containers'],
-  motos: ['containers', 'warehouse'],
-  clasicos: ['containers', 'port'],
-  /* Mascotas (sin foto de mascota verificada → contexto de mudanza cuidada) */
-  'mascotas-internacional': ['packing', 'team'],
-  'mascotas-perros': ['packing', 'team'],
-  'mascotas-gatos': ['packing', 'boxes'],
-  'mascotas-exoticos': ['packing', 'boxes'],
+  'auto-contenedor': 'terminal', 'auto-roro': 'ship', motos: 'truck', clasicos: 'highway',
+  /* Mascotas (sin foto de mascota verificada → contexto de mudanza/hogar) */
+  'mascotas-internacional': 'plane', 'mascotas-perros': 'home', 'mascotas-gatos': 'home', 'mascotas-exoticos': 'boxes',
   /* Contenedores */
-  'contenedor-20': ['containers', 'port'],
-  'contenedor-40': ['containers', 'port'],
-  'contenedor-almacenamiento': ['warehouse', 'containers'],
-  'drop-off': ['containers', 'boxes'],
+  'contenedor-20': 'terminal', 'contenedor-40': 'ship', 'contenedor-almacenamiento': 'warehouse', 'drop-off': 'truck',
   /* Locales / nacionales */
-  locales: ['boxes', 'team', 'packing'],
-  nacionales: ['boxes', 'team'],
-  express: ['boxes', 'packing'],
+  locales: 'truck', nacionales: 'highway', express: 'boxes',
   /* Por tipo de cliente */
-  'cliente-residenciales': ['packing', 'boxes', 'team'],
-  'cliente-corporativas': ['team', 'warehouse'],
-  'cliente-expatriados': ['plane', 'team'],
-  'cliente-estudiantes': ['boxes', 'packing'],
-  'cliente-jubilados': ['packing', 'boxes'],
-  /* Especiales / alto valor (embalaje a medida) */
-  'especiales-arte': ['packing', 'boxes'],
-  'especiales-pianos': ['packing', 'boxes'],
-  'especiales-vinos': ['packing', 'boxes'],
-  'especiales-deportivo': ['packing', 'boxes'],
+  'cliente-residenciales': 'home', 'cliente-corporativas': 'warehouse', 'cliente-expatriados': 'plane', 'cliente-estudiantes': 'boxes', 'cliente-jubilados': 'home',
+  /* Especiales / alto valor */
+  'especiales-arte': 'boxes', 'especiales-pianos': 'boxes', 'especiales-vinos': 'shelves', 'especiales-deportivo': 'boxes',
   /* Complementarios */
-  'complementarios-embalaje': ['packing', 'boxes'],
-  'complementarios-seguros': ['team', 'packing'],
-  'complementarios-almacenaje': ['warehouse', 'containers'],
-  'complementarios-aduanas': ['port', 'containers', 'team'],
-  'complementarios-limpieza': ['packing', 'team'],
+  'complementarios-embalaje': 'boxes', 'complementarios-seguros': 'docs', 'complementarios-almacenaje': 'warehouse', 'complementarios-aduanas': 'docs', 'complementarios-limpieza': 'home',
   /* Casillero y courier */
-  'casillero-miami': ['boxes', 'warehouse'],
-  'courier-internacional': ['plane', 'boxes'],
+  'casillero-miami': 'parcels', 'courier-internacional': 'plane',
   /* Categorías (hub) */
-  internacionales: ['port', 'containers', 'plane'],
-  vehiculos: ['containers', 'port'],
-  mascotas: ['packing', 'team'],
-  contenedores: ['containers', 'port', 'warehouse'],
-  cliente: ['team', 'packing', 'boxes'],
-  especiales: ['packing', 'boxes'],
-  complementarios: ['packing', 'warehouse', 'boxes'],
-  casillero: ['boxes', 'plane'],
+  internacionales: 'ship', vehiculos: 'truck', mascotas: 'home', contenedores: 'terminal', cliente: 'boxes', especiales: 'boxes', complementarios: 'warehouse', casillero: 'parcels',
   /* Home y secciones */
-  'home-hero': ['port', 'containers', 'warehouse'],
-  'home-destinos': ['plane', 'port'],
-  'home-about-1': ['team', 'packing'],
-  'home-about-2': ['warehouse', 'containers'],
-  'servicios-hub': ['port', 'containers', 'warehouse'],
-  'nosotros-hero': ['team', 'warehouse'],
-  'nosotros-1': ['team', 'packing'],
-  'nosotros-2': ['port', 'warehouse'],
+  'home-hero': 'ship', 'home-destinos': 'plane', 'home-about-1': 'warehouse', 'home-about-2': 'terminal',
+  'servicios-hub': 'ship', 'nosotros-hero': 'warehouse', 'nosotros-1': 'truck', 'nosotros-2': 'terminal',
 };
 
-/* Destinos y cualquier clave no listada → logística internacional. */
-const DEFAULT = ['port', 'plane', 'containers'];
+function hashStr(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  return h;
+}
 
-/** Foto temática curada para la clave dada. `variant` rota dentro del
-    subconjunto (hero vs secciones). Servida por Unsplash con WebP (auto=format). */
+/* Orden de fotos para una clave: hero temático + el resto del pool en rotación
+   dependiente de la clave → hasta 11 fotos DISTINTAS por página, sin repetir. */
+function orderFor(key: string): string[] {
+  const hero = HERO[key] || 'plane'; // destinos y claves sueltas → carga aérea internacional
+  const rest = ALL.filter((n) => n !== hero);
+  const off = hashStr(key) % rest.length;
+  return [hero, ...rest.slice(off), ...rest.slice(0, off)];
+}
+
+/** Foto curada para la clave dada. `variant` avanza por el orden de la clave,
+    de modo que hero y cada sección muestran fotos distintas.
+    Servida por Unsplash con WebP (auto=format) → rápido. */
 export function imgFor(key: string, variant = 0, w = 1600): string {
-  const arr = MAP[key] ?? DEFAULT;
-  const name = arr[Math.abs(variant) % arr.length];
-  const base = POOL[name] ?? POOL.port;
+  const order = orderFor(key);
+  const name = order[Math.abs(variant) % order.length];
+  const base = POOL[name] ?? POOL.ship;
   return `${base}?q=70&w=${w}&auto=format&fit=crop`;
 }

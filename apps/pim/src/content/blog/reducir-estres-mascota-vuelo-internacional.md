@@ -3,7 +3,7 @@ title: "Cómo reducir el estrés de tu mascota en un vuelo internacional: guía 
 description: "Guía detallada para que tu perro o gato viaje tranquilo en una mudanza internacional: preparación del guacal IATA, rutina, alimentación, mitos sobre la sedación y documentación."
 pubDate: 2026-02-10
 category: "Mascotas"
-heroImage: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=2000&auto=format&fit=crop"
+heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop"
 ---
 
 Mudarse a otro país con una mascota es totalmente posible y, cada vez, más común. Pero para nuestro perro o gato, un vuelo internacional puede ser una experiencia estresante si no lo preparamos bien: sonidos nuevos, un guacal desconocido, horas de viaje y la ausencia de su familia. La buena noticia es que, con antelación y algunos cuidados, ese estrés se reduce enormemente. Esta guía reúne todo lo que necesita saber.
