@@ -167,7 +167,10 @@ const menuShort: Record<string, string> = {
   </div>
 
   <!-- Mobile Menu Panel -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-[70] transform translate-x-full transition-transform duration-300 flex flex-col pt-24 pb-8 px-6 overflow-y-auto">
+    <button id="mobile-menu-close" class="absolute top-5 right-4 text-white p-2 focus:outline-none" aria-label="Cerrar menú">
+      <Icon name="fa6-solid:xmark" class="text-3xl" />
+    </button>
     <div class="flex flex-col space-y-4 text-center mt-6">
       <a href={base} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.inicio}</a>
       <a href={`${base}${seg.nosotros}/`} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.nosotros}</a>
@@ -219,6 +222,24 @@ const menuShort: Record<string, string> = {
 
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-  document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => menu?.classList.add('translate-x-full')));
-  btn?.addEventListener('click', () => menu?.classList.toggle('translate-x-full'));
+  const closeBtn = document.getElementById('mobile-menu-close');
+
+  const openMenu = () => {
+    menu?.classList.remove('translate-x-full');
+    btn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeMenu = () => {
+    menu?.classList.add('translate-x-full');
+    btn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  btn?.addEventListener('click', () => {
+    if (menu?.classList.contains('translate-x-full')) openMenu();
+    else closeMenu();
+  });
+  closeBtn?.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 </script>
