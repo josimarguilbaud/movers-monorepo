@@ -5,12 +5,12 @@ import Footer from '../../components/Footer.astro';
 import { wa } from '../../data/site';
 
 const services = [
-  { n: '01', ic: '🚚', t: 'National Moving', d: 'Between provinces, from the capital to the countryside and back, with clear routes and timelines.' },
-  { n: '02', ic: '🏙️', t: 'Local Moving', d: 'Within Panama City and metro areas — including last-minute express service.' },
-  { n: '03', ic: '🏢', t: 'Corporate / Office', d: 'We relocate your company over the weekend so you operate without interruption on Monday.' },
-  { n: '04', ic: '📦', t: 'Cargo & Logistics', d: 'Air, sea and land freight — consolidated or exclusive, door to door.' },
-  { n: '05', ic: '🏬', t: 'Storage', d: 'Secure, monitored warehouses to store your goods or inventory for as long as you need.' },
-  { n: '06', ic: '🌎', t: 'International Outbound', d: 'From Panama to the United States, Spain and Latin America, with full customs handling.' },
+  { n: '01', ic: '🌎', t: 'International Moving', d: 'To and from Panama — sea, air and door to door, with full customs handling.' },
+  { n: '02', ic: '🚚', t: 'National Moving', d: 'Between provinces, from the capital to the countryside and back, with clear routes and timelines.' },
+  { n: '03', ic: '🏙️', t: 'Local Moving', d: 'Within Panama City and metro areas — including last-minute express service.' },
+  { n: '04', ic: '🏢', t: 'Corporate / Office', d: 'We relocate your company over the weekend so you operate without interruption on Monday.' },
+  { n: '05', ic: '📦', t: 'Cargo & Logistics', d: 'Air, sea and land freight — consolidated or exclusive, door to door.' },
+  { n: '06', ic: '🏬', t: 'Storage', d: 'Secure, monitored warehouses to store your goods or inventory for as long as you need.' },
 ];
 const cities = ['Panama City', 'David · Chiriquí', 'Colón', 'Coronado', 'Santiago', 'Chitré', 'Boquete', 'Bocas del Toro'];
 const corridors = [
@@ -44,9 +44,9 @@ const posts = [
       <div class="grid lg:grid-cols-[1.05fr_.95fr] min-h-[560px]">
         <div class="flex flex-col justify-center py-16 lg:py-20 relative z-20">
           <div class="max-w-[560px] lg:pr-10">
-            <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">National · Corporate · Cargo</span>
-            <h1 class="text-4xl md:text-6xl font-black leading-[1.04] tracking-tight my-5">The engine that <span class="text-accent-500">moves Panama</span>, end to end.</h1>
-            <p class="text-lg text-brand-300 max-w-[480px]">National moves, office relocations and cargo across the country — and from Panama to the world. Fast, coordinated and hassle-free.</p>
+            <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">International · National · Corporate · Cargo</span>
+            <h1 class="text-4xl md:text-6xl font-black leading-[1.04] tracking-tight my-5">Moving & logistics that <span class="text-accent-500">move Panama</span> and the world.</h1>
+            <p class="text-lg text-brand-300 max-w-[480px]">International, national, corporate and cargo moving — to and from Panama, to any destination. Fast, coordinated and hassle-free.</p>
             <div class="flex flex-wrap gap-3.5 mt-8">
               <a href="/en/contact/" class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors flex items-center gap-2">Get a quote in 2 minutes <span class="font-black">→</span></a>
               <a href="/en/services/" class="border-2 border-white/25 text-white font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">See services</a>
@@ -79,6 +79,29 @@ const posts = [
       <div><div class="text-3xl md:text-4xl font-black tracking-tight text-brand-900">100<span class="text-accent-500">%</span></div><div class="text-[13px] text-brand-400 font-semibold mt-0.5">Insured cargo</div></div>
     </div>
   </div>
+
+  <!-- FEATURED: INTERNATIONAL -->
+  <section class="pt-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="grid lg:grid-cols-2 border border-brand-200 bg-white overflow-hidden">
+        <div class="relative min-h-[300px] lg:min-h-full">
+          <img src="/img/yard.jpg" alt="PWE international moving" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <span class="absolute top-0 left-0 bg-accent-500 text-white text-[11px] font-black uppercase tracking-[0.14em] px-4 py-2">Featured service</span>
+        </div>
+        <div class="p-8 lg:p-12">
+          <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">International Moving</span>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brand-900 mt-3 mb-4">Your international move, to and from Panama</h2>
+          <p class="text-brand-500 text-base mb-6">We coordinate the whole move: exclusive or shared sea container, air freight, customs handling and door-to-door delivery — to the United States, Spain, Latin America and any destination in the world.</p>
+          <div class="grid grid-cols-2 gap-3 mb-7">
+            {['Sea container (FCL/LCL)', 'Air freight', 'Customs handling', 'Door to door'].map((f) => (
+              <div class="flex items-center gap-2.5 text-sm font-bold text-brand-800"><span class="text-accent-500 font-black">✓</span> {f}</div>
+            ))}
+          </div>
+          <a href="/en/services/" class="inline-flex bg-brand-900 text-white font-extrabold px-6 py-3.5 hover:bg-brand-800 transition-colors">Get an international quote →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SERVICES -->
   <section class="py-20">

@@ -5,12 +5,12 @@ import Footer from '../../components/Footer.astro';
 import { wa } from '../../data/site';
 
 const services = [
-  { n: '01', ic: '🚚', t: 'Mudanzas Nacionales', d: 'Entre provincias, de la capital al interior y viceversa, con ruta y tiempos claros.' },
-  { n: '02', ic: '🏙️', t: 'Mudanzas Locales', d: 'Dentro de Ciudad de Panamá y áreas metro, incluso servicio express de última hora.' },
-  { n: '03', ic: '🏢', t: 'Corporativas / Oficinas', d: 'Reubicamos tu empresa en fin de semana para que el lunes operes sin interrupción.' },
-  { n: '04', ic: '📦', t: 'Carga y Logística', d: 'Carga aérea, marítima y terrestre, consolidada o exclusiva, puerta a puerta.' },
-  { n: '05', ic: '🏬', t: 'Almacenaje / Storage', d: 'Bodegas seguras y monitoreadas para guardar tu menaje o inventario el tiempo que necesites.' },
-  { n: '06', ic: '🌎', t: 'Salida Internacional', d: 'De Panamá a Estados Unidos, España y Latinoamérica, con toda la gestión aduanera.' },
+  { n: '01', ic: '🌎', t: 'Mudanzas Internacionales', d: 'Desde y hacia Panamá — marítimo, aéreo y puerta a puerta, con toda la gestión aduanera.' },
+  { n: '02', ic: '🚚', t: 'Mudanzas Nacionales', d: 'Entre provincias, de la capital al interior y viceversa, con ruta y tiempos claros.' },
+  { n: '03', ic: '🏙️', t: 'Mudanzas Locales', d: 'Dentro de Ciudad de Panamá y áreas metro, incluso servicio express de última hora.' },
+  { n: '04', ic: '🏢', t: 'Corporativas / Oficinas', d: 'Reubicamos tu empresa en fin de semana para que el lunes operes sin interrupción.' },
+  { n: '05', ic: '📦', t: 'Carga y Logística', d: 'Carga aérea, marítima y terrestre, consolidada o exclusiva, puerta a puerta.' },
+  { n: '06', ic: '🏬', t: 'Almacenaje / Storage', d: 'Bodegas seguras y monitoreadas para guardar tu menaje o inventario el tiempo que necesites.' },
 ];
 const cities = ['Ciudad de Panamá', 'David · Chiriquí', 'Colón', 'Coronado', 'Santiago', 'Chitré', 'Boquete', 'Bocas del Toro'];
 const corridors = [
@@ -44,9 +44,9 @@ const posts = [
       <div class="grid lg:grid-cols-[1.05fr_.95fr] min-h-[560px]">
         <div class="flex flex-col justify-center py-16 lg:py-20 relative z-20">
           <div class="max-w-[560px] lg:pr-10">
-            <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Nacional · Corporativo · Carga</span>
-            <h1 class="text-4xl md:text-6xl font-black leading-[1.04] tracking-tight my-5">El motor que <span class="text-accent-500">mueve a Panamá</span>, de punta a punta.</h1>
-            <p class="text-lg text-brand-300 max-w-[480px]">Mudanzas nacionales, reubicación de oficinas y carga a todo el país — y de Panamá al mundo. Rápido, coordinado y sin complicaciones.</p>
+            <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Internacional · Nacional · Corporativo · Carga</span>
+            <h1 class="text-4xl md:text-6xl font-black leading-[1.04] tracking-tight my-5">Mudanzas y logística que <span class="text-accent-500">mueven a Panamá</span> y al mundo.</h1>
+            <p class="text-lg text-brand-300 max-w-[480px]">Mudanzas internacionales, nacionales, corporativas y carga — desde y hacia Panamá, a cualquier destino. Rápido, coordinado y sin complicaciones.</p>
             <div class="flex flex-wrap gap-3.5 mt-8">
               <a href="/es/contacto/" class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors flex items-center gap-2">Cotiza en 2 minutos <span class="font-black">→</span></a>
               <a href="/es/servicios/" class="border-2 border-white/25 text-white font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">Ver servicios</a>
@@ -79,6 +79,29 @@ const posts = [
       <div><div class="text-3xl md:text-4xl font-black tracking-tight text-brand-900">100<span class="text-accent-500">%</span></div><div class="text-[13px] text-brand-400 font-semibold mt-0.5">Carga asegurada</div></div>
     </div>
   </div>
+
+  <!-- FEATURED: INTERNACIONAL -->
+  <section class="pt-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="grid lg:grid-cols-2 border border-brand-200 bg-white overflow-hidden">
+        <div class="relative min-h-[300px] lg:min-h-full">
+          <img src="/img/yard.jpg" alt="Mudanzas internacionales PWE" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <span class="absolute top-0 left-0 bg-accent-500 text-white text-[11px] font-black uppercase tracking-[0.14em] px-4 py-2">Servicio destacado</span>
+        </div>
+        <div class="p-8 lg:p-12">
+          <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Mudanzas Internacionales</span>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brand-900 mt-3 mb-4">Tu mudanza internacional, desde y hacia Panamá</h2>
+          <p class="text-brand-500 text-base mb-6">Coordinamos todo el traslado: contenedor marítimo exclusivo o compartido, envío aéreo, gestión aduanera y entrega puerta a puerta — a Estados Unidos, España, Latinoamérica y cualquier destino del mundo.</p>
+          <div class="grid grid-cols-2 gap-3 mb-7">
+            {['Contenedor marítimo (FCL/LCL)', 'Envío aéreo', 'Gestión aduanera', 'Puerta a puerta'].map((f) => (
+              <div class="flex items-center gap-2.5 text-sm font-bold text-brand-800"><span class="text-accent-500 font-black">✓</span> {f}</div>
+            ))}
+          </div>
+          <a href="/es/servicios/" class="inline-flex bg-brand-900 text-white font-extrabold px-6 py-3.5 hover:bg-brand-800 transition-colors">Cotiza tu mudanza internacional →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SERVICES -->
   <section class="py-20">
