@@ -241,7 +241,7 @@ export const services: Record<Locale, Service[]> = {
       title: 'Transporte de mascotas',
       h1: 'Transporte de mascotas desde Panamá',
       tagline: 'Tu perro o tu gato viaja contigo, no se queda atrás',
-      metaTitle: 'Transporte de Mascotas desde Panamá | Mudanza con Perro o Gato | PWE',
+      metaTitle: 'Transporte de Mascotas desde Panamá | Perros y Gatos | PWE',
       metaDescription: 'Traslado internacional de mascotas desde Panamá. Documentación veterinaria, transportín y coordinación con tu mudanza. Cotiza gratis.',
       intro: 'Es lo que más preocupa a la gente cuando se muda de país, y con razón: es el único miembro de la familia que viaja como carga. Lo coordinamos junto con el resto de tu mudanza para que no tengas que contratar aparte ni cuadrar fechas con dos proveedores.',
       sections: [
