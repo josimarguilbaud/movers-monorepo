@@ -4,7 +4,7 @@ export const site = {
   name: 'Panamá Worldwide Express',
   shortName: 'PWE',
   domain: 'https://panamaworldwideexpress.com',
-  email: 'info@panamaworldwideexpress.com', // TBD confirmar
+  email: 'info@panamaworldwideexpress.com',
   phones: ['+507 300-0000', '+507 6000-0000'], // TBD confirmar
   whatsapp: '50760000000', // TBD confirmar
   address: {

@@ -86,12 +86,12 @@ Todo en el nodo **`Config`** de cada workflow:
 |---|---|---|
 | `fromEmail` | `avisos@mailweb.site` | `avisos@mailweb.site` |
 | `fromName` | Panamá International Movers | Panamá Worldwide Express |
-| `toEmail` | `info@panamainternationalmovers.com` | `josimarguilbaud@gmail.com` ⚠️ |
-| `ccEmail` | `josimarguilbaud@gmail.com` | (vacío) |
+| `toEmail` | `info@panamainternationalmovers.com` | `info@panamaworldwideexpress.com` |
+| `bccEmail` | `josimarguilbaud@gmail.com` | `josimarguilbaud@gmail.com` |
 
-⚠️ **PWE apunta al Gmail a propósito.** `info@panamaworldwideexpress.com` todavía
-no existe; si se apunta ahí, los correos rebotan y se pierden leads. Cambiarlo
-cuando el buzón esté activo.
+La copia a Josimar va en **BCC, no en CC**: el buzón del cliente recibe su lead y
+no ve que existe una copia. Si se moviera a `ccEmail`, esa dirección aparecería
+visible en la cabecera del correo.
 
 ## Pendiente cuando se pueda
 
@@ -103,8 +103,8 @@ un dominio que no reconoce. Con el dominio propio verificado, es cambiar
 
 ## Pendiente en PWE antes de producción
 
-- NAP real en `apps/pwe/src/data/site.ts` (teléfonos, WhatsApp, dirección, email y
-  año de fundación son placeholder).
+- NAP real en `apps/pwe/src/data/site.ts` (teléfonos, WhatsApp, dirección y año de
+  fundación siguen siendo placeholder; el correo ya está confirmado).
 - Actualizar `phone` y `whatsappUrl` en el nodo `Config` del workflow de PWE, que
   hoy copian esos mismos placeholder.
 - Quitar `PUBLIC_NOINDEX=true` cuando el sitio esté listo para indexarse.
