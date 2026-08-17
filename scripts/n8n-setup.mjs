@@ -122,11 +122,41 @@ if (API_KEY.split('.').length !== 3) {
 
 let USUARIO = SMTP_USER;
 let CLAVE = SMTP_PASSWORD;
+let HOST = SMTP_HOST;
+let PUERTO = Number(SMTP_PORT);
+
 if (!CRED_ID_ARG) {
-  log(`\n${c.dim}  Los dos siguientes salen de Brevo -> SMTP & API -> pestaña SMTP.`);
-  log(`  Ojo: el usuario SMTP no es el correo de tu cuenta de Brevo.${c.x}`);
-  USUARIO = await obtener('SMTP_USER', SMTP_USER, '\n  Usuario SMTP de Brevo: ');
-  CLAVE = await obtener('SMTP_PASSWORD', SMTP_PASSWORD, '  Clave SMTP de Brevo (no se verá): ', true);
+  /* Dos caminos posibles y hay que elegir uno a conciencia:
+
+     A) Brevo como relay. Firma con el DKIM del dominio verificado en Brevo,
+        que es lo que saca los correos del spam. Usuario y clave salen de
+        Brevo -> SMTP & API -> pestaña SMTP, y NO son el correo y contraseña
+        de la cuenta de Brevo, ni la API key xkeysib-...
+
+     B) El SMTP del propio hosting donde vive el buzón. Funciona, pero el
+        correo deja de pasar por Brevo, así que se pierde su DKIM y la
+        entregabilidad queda atada a la reputación del servidor del hosting,
+        normalmente compartido. Es el problema que teníamos al principio. */
+  log(`\n${c.b}  ¿Por dónde salen los correos?${c.x}`);
+  log(`${c.dim}    1) Brevo   (recomendado: usa el DKIM del dominio ya verificado)`);
+  log(`    2) El SMTP de tu hosting  (pierde el DKIM de Brevo)${c.x}`);
+  const via = (await preguntar('\n  Elige 1 o 2 [1]: ')) || '1';
+
+  if (via === '2') {
+    log(`\n${c.dim}  Datos del servidor de correo de tu hosting. Suelen estar en el panel,`);
+    log(`  en la sección de cuentas de correo, como "configurar cliente".${c.x}`);
+    HOST = await obtener('SMTP_HOST', null, '\n  Servidor SMTP (ej. mail.mailweb.site): ');
+    PUERTO = Number((await preguntar('  Puerto [587]: ')) || '587');
+    USUARIO = await obtener('SMTP_USER', null, '  Usuario (normalmente el correo completo): ');
+    CLAVE = await obtener('SMTP_PASSWORD', null, '  Contraseña del buzón (no se verá): ', true);
+    log(`\n  ${c.no}Aviso${c.x}: enviando por el hosting no se aplica el DKIM de Brevo.`);
+    log(`  Si los correos empiezan a caer en spam, esta es la causa a revisar primero.`);
+  } else {
+    log(`\n${c.dim}  Los dos siguientes salen de Brevo -> SMTP & API -> pestaña SMTP.`);
+    log(`  No son el correo y contraseña de tu cuenta de Brevo, ni la API key.${c.x}`);
+    USUARIO = await obtener('SMTP_USER', SMTP_USER, '\n  Usuario SMTP de Brevo: ');
+    CLAVE = await obtener('SMTP_PASSWORD', SMTP_PASSWORD, '  Clave SMTP de Brevo (no se verá): ', true);
+  }
 }
 
 async function api(ruta, opciones = {}) {
@@ -170,7 +200,7 @@ let credId = CRED_ID_ARG;
 if (credId) {
   ok(`Usando la credencial que indicaste: ${credId}`);
 } else if (!APPLY) {
-  info(`Se crearía la credencial "${CRED_NOMBRE}" (${SMTP_HOST}:${SMTP_PORT}, usuario ${USUARIO})`);
+  info(`Se crearía la credencial "${CRED_NOMBRE}" (${HOST}:${PUERTO}, usuario ${USUARIO})`);
   credId = '<pendiente>';
 } else {
   try {
@@ -182,8 +212,10 @@ if (credId) {
         data: {
           user: USUARIO,
           password: CLAVE,
-          host: SMTP_HOST,
-          port: Number(SMTP_PORT),
+          host: HOST,
+          port: PUERTO,
+          /* 587 usa STARTTLS, no SSL directo. 465 sí es SSL. */
+          secure: PUERTO === 465,
           secure: false,
           disableStartTls: false,
         },
