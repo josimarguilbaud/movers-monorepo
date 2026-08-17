@@ -6,3 +6,7 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Preferencias personales de Claude Code. launch.json sí se versiona: define
+# los dev servers de las dos apps y le sirve a cualquiera que clone el repo.
+.claude/settings.local.json

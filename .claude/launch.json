@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pwe",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev:pwe"],
+      "port": 4321
+    },
+    {
+      "name": "pim",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev:pim"],
+      "port": 4322
+    }
+  ]
+}
