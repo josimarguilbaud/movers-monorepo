@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { site, wa } from '../../data/site';
+
+const waHref = wa('Hi, I would like a quote from PWE.');
+
+const channels = [
+  { ic: '💬', t: 'WhatsApp', d: 'The fastest way to reach us during business hours.', v: site.phones[1], href: waHref },
+  { ic: '📞', t: 'Phone', d: 'Monday to Friday, 8:00 a.m. to 5:00 p.m.', v: site.phones[0], href: `tel:${site.phones[0].replace(/\s/g, '')}` },
+  { ic: '✉️', t: 'Email', d: 'For formal quotes and documentation.', v: site.email, href: `mailto:${site.email}` },
+];
+---
+
+<Base
+  title="Contact and quote | Panamá Worldwide Express"
+  description="Get a quote for your move or cargo shipment with PWE. We reply within 24 hours. Reach us on WhatsApp, by phone, or through the form."
+  lang="en"
+  altPaths={{ es: '/es/contacto/', en: '/en/contact/' }}
+>
+  <Header locale="en" />
+
+  <!-- HERO -->
+  <section class="bg-brand-900 text-white">
+    <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+      <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">Contact</span>
+      <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">
+        Tell us what you need moved<span class="text-accent-500">.</span>
+      </h1>
+      <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">
+        Fill in the form and we will send you a quote within 24 hours. No commitment, no fine print.
+      </p>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="bg-brand-100 border-b border-brand-200">
+    <div class="max-w-[1180px] mx-auto px-6 grid md:grid-cols-3">
+      {channels.map((c, i) => (
+        <a
+          href={c.href}
+          target={c.href.startsWith('http') ? '_blank' : undefined}
+          rel={c.href.startsWith('http') ? 'noopener' : undefined}
+          class={`group block py-8 px-6 md:px-8 hover:bg-white transition-colors ${i > 0 ? 'md:border-l border-brand-200' : ''}`}
+        >
+          <span class="text-2xl">{c.ic}</span>
+          <h2 class="mt-3 font-black text-brand-900 text-lg tracking-tight">{c.t}</h2>
+          <p class="mt-1 text-sm text-brand-500 leading-relaxed">{c.d}</p>
+          <span class="mt-3 inline-block font-extrabold text-accent-500 group-hover:text-accent-600 transition-colors">{c.v}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
+      <div>
+        <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+          Request your quote
+        </h2>
+        <p class="mt-4 text-brand-500 leading-relaxed">
+          The more detail you give us, the more accurate the quote. If you would rather talk it through, message us on WhatsApp.
+        </p>
+
+        <ul class="mt-8 space-y-4 text-sm">
+          <li class="flex gap-3"><span class="text-accent-500 font-black">01</span><span class="text-brand-600">We receive your request and email you a confirmation.</span></li>
+          <li class="flex gap-3"><span class="text-accent-500 font-black">02</span><span class="text-brand-600">A coordinator reviews the volume and the route.</span></li>
+          <li class="flex gap-3"><span class="text-accent-500 font-black">03</span><span class="text-brand-600">We get back to you with the quote within 24 hours.</span></li>
+        </ul>
+
+        <div class="mt-10 border-l-2 border-accent-500 pl-5">
+          <p class="text-sm text-brand-500 leading-relaxed">
+            <b class="text-brand-900">{site.name}</b><br />
+            {site.address.street}<br />
+            {site.address.locality}, Panama
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-brand-200 p-6 sm:p-9">
+        <QuoteForm locale="en" />
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+</Base>

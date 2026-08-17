@@ -5,6 +5,10 @@
   "scripts": {
     "dev:pim": "pnpm --filter pim dev",
     "build:pim": "pnpm --filter pim build",
-    "preview:pim": "pnpm --filter pim preview"
+    "preview:pim": "pnpm --filter pim preview",
+    "dev:pwe": "pnpm --filter pwe dev",
+    "build:pwe": "pnpm --filter pwe build",
+    "preview:pwe": "pnpm --filter pwe preview",
+    "build": "pnpm build:pim && pnpm build:pwe"
   }
 }

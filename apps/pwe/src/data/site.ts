@@ -22,9 +22,11 @@ export const yearsInBusiness = new Date('2026-01-01').getFullYear() - site.found
 export const wa = (msg = 'Hola, quiero cotizar una mudanza con PWE.') =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
 
-/* Formulario de leads — se conectará a un webhook de n8n propio de PWE
-   (mismo patrón que PIM). Pendiente de montar. */
+/* Formulario de leads — webhook de n8n propio de PWE (mismo patrón que PIM).
+   El flujo vive en "PWE - Lead Formulario Web" (ver pwe-lead-workflow.json en
+   la raíz del monorepo). Importarlo en n8n antes de que el sitio salga a
+   producción, o el formulario responderá 404. */
 export const contactForm = {
-  leadWebhook: '', // TBD: https://n8n.aiwebstudio.co/webhook/pwe-lead
+  leadWebhook: 'https://n8n.aiwebstudio.co/webhook/pwe-lead',
   toEmail: 'info@panamaworldwideexpress.com',
 };

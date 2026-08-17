@@ -9,42 +9,44 @@ const { locale = 'es' } = Astro.props;
 
 const T = {
   es: {
-    subject: 'Nueva solicitud de cotización — Panamá International Movers',
-    fromName: 'Sitio web PIM',
-    name: 'Nombre Completo', namePh: 'Ej. Juan Pérez',
-    type: 'Tipo de Mudanza', local: 'Local', intl: 'Internacional',
+    subject: 'Nueva solicitud de cotización — Panamá Worldwide Express',
+    fromName: 'Sitio web PWE',
+    name: 'Nombre completo', namePh: 'Ej. Juan Pérez',
+    type: 'Tipo de servicio',
+    local: 'Local', national: 'Nacional', intl: 'Internacional', cargo: 'Carga',
     email: 'Correo electrónico', emailPh: 'correo@ejemplo.com',
-    date: 'Fecha Aproximada de Mudanza',
+    date: 'Fecha aproximada',
     phone: 'Teléfono (WhatsApp)', phonePh: '+507 0000-0000',
-    packing: '¿Necesita Servicio de Empaque?', yes: 'Sí', no: 'No',
-    origin: 'Ciudad y País de Origen', originPh: 'Ej. Ciudad de Panamá, Panamá',
-    dest: 'Ciudad y País de Destino', destPh: 'Ej. Madrid, España',
-    details: 'Detalles', detailsPh: 'Háganos cualquier consulta… Volumen aproximado (casa de X recámaras), si incluye vehículo, etc.',
-    send: 'Enviar Solicitud', sending: 'Enviando…',
-    consent: 'Al enviar acepta ser contactado por PIM. No compartimos sus datos.',
-    okTitle: '¡Solicitud Recibida!',
-    okText: 'Gracias por confiar en PIM. Nuestro equipo revisará su solicitud y le contactaremos en menos de 24 horas.',
+    packing: '¿Necesita servicio de empaque?', yes: 'Sí', no: 'No',
+    origin: 'Origen', originPh: 'Ej. Ciudad de Panamá',
+    dest: 'Destino', destPh: 'Ej. David, Chiriquí',
+    details: 'Detalles', detailsPh: 'Volumen aproximado, si incluye vehículo, fechas críticas, etc.',
+    send: 'Solicitar cotización', sending: 'Enviando…',
+    consent: 'Al enviar acepta ser contactado por PWE. No compartimos sus datos.',
+    okTitle: '¡Solicitud recibida!',
+    okText: 'Gracias por escribir a PWE. Revisamos su solicitud y le contactamos en menos de 24 horas.',
     another: 'Enviar otra solicitud',
     errConfig: 'El formulario está en configuración. Escríbanos por WhatsApp mientras tanto.',
     errSend: 'No se pudo enviar. Intente de nuevo o escríbanos por WhatsApp.',
     errNet: 'Error de conexión. Intente de nuevo o escríbanos por WhatsApp.',
   },
   en: {
-    subject: 'New quote request — Panamá International Movers',
-    fromName: 'PIM website',
-    name: 'Full Name', namePh: 'e.g. John Smith',
-    type: 'Type of Move', local: 'Local', intl: 'International',
+    subject: 'New quote request — Panamá Worldwide Express',
+    fromName: 'PWE website',
+    name: 'Full name', namePh: 'e.g. John Smith',
+    type: 'Type of service',
+    local: 'Local', national: 'National', intl: 'International', cargo: 'Cargo',
     email: 'Email address', emailPh: 'you@example.com',
-    date: 'Approximate Moving Date',
+    date: 'Approximate date',
     phone: 'Phone (WhatsApp)', phonePh: '+507 0000-0000',
     packing: 'Do you need packing service?', yes: 'Yes', no: 'No',
-    origin: 'Origin City and Country', originPh: 'e.g. Panama City, Panama',
-    dest: 'Destination City and Country', destPh: 'e.g. Madrid, Spain',
-    details: 'Details', detailsPh: 'Ask us anything… approximate volume (X-bedroom home), whether a vehicle is included, etc.',
-    send: 'Send Request', sending: 'Sending…',
-    consent: 'By submitting you agree to be contacted by PIM. We never share your data.',
-    okTitle: 'Request Received!',
-    okText: 'Thank you for trusting PIM. Our team will review your request and get back to you within 24 hours.',
+    origin: 'Origin', originPh: 'e.g. Panama City',
+    dest: 'Destination', destPh: 'e.g. David, Chiriquí',
+    details: 'Details', detailsPh: 'Approximate volume, whether a vehicle is included, critical dates, etc.',
+    send: 'Request a quote', sending: 'Sending…',
+    consent: 'By submitting you agree to be contacted by PWE. We never share your data.',
+    okTitle: 'Request received!',
+    okText: 'Thanks for reaching out to PWE. We are reviewing your request and will get back to you within 24 hours.',
     another: 'Send another request',
     errConfig: 'The form is being set up. Please reach us on WhatsApp in the meantime.',
     errSend: 'Could not send. Please try again or reach us on WhatsApp.',
@@ -52,11 +54,12 @@ const T = {
   },
 }[locale];
 
+/* Marca PWE: angular, sin esquinas redondeadas, acento rojo. */
 const inputCls =
-  'w-full px-5 py-4 rounded-xl border border-brand-200 focus:ring-2 focus:ring-accent-500 outline-none transition-all bg-brand-50 focus:bg-white text-brand-900';
-const labelCls = 'block text-xs font-bold text-brand-600 uppercase tracking-wide mb-2';
+  'w-full px-4 py-3.5 border border-brand-200 bg-white text-brand-900 placeholder:text-brand-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/25 outline-none transition-colors';
+const labelCls = 'block text-[11px] font-extrabold text-brand-500 uppercase tracking-[0.14em] mb-2';
 const optCls =
-  'block text-center px-4 py-3 rounded-xl border border-brand-200 bg-brand-50 text-brand-700 font-semibold text-sm peer-checked:bg-brand-900 peer-checked:text-white peer-checked:border-brand-900 hover:border-accent-500 transition-all';
+  'block text-center px-3 py-3 border border-brand-200 bg-white text-brand-600 font-extrabold text-[13px] cursor-pointer peer-checked:bg-brand-900 peer-checked:text-white peer-checked:border-brand-900 hover:border-accent-500 transition-colors';
 ---
 
 <div class="quote-form-wrap">
@@ -77,21 +80,29 @@ const optCls =
 
     <!-- Nombre -->
     <div>
-      <label class={labelCls}>{T.name} <span class="text-accent-500">*</span></label>
-      <input name="Nombre" type="text" class={inputCls} placeholder={T.namePh} required />
+      <label class={labelCls} for="pwe-nombre">{T.name} <span class="text-accent-500">*</span></label>
+      <input id="pwe-nombre" name="Nombre" type="text" class={inputCls} placeholder={T.namePh} required />
     </div>
 
-    <!-- Tipo de Mudanza -->
+    <!-- Tipo de servicio -->
     <div>
       <label class={labelCls}>{T.type} <span class="text-accent-500">*</span></label>
-      <div class="flex gap-3">
-        <label class="flex-1 cursor-pointer">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        <label>
           <input type="radio" name="Tipo de Mudanza" value="Local" class="peer sr-only" required />
           <span class={optCls}>{T.local}</span>
         </label>
-        <label class="flex-1 cursor-pointer">
+        <label>
+          <input type="radio" name="Tipo de Mudanza" value="Nacional" class="peer sr-only" />
+          <span class={optCls}>{T.national}</span>
+        </label>
+        <label>
           <input type="radio" name="Tipo de Mudanza" value="Internacional" class="peer sr-only" />
           <span class={optCls}>{T.intl}</span>
+        </label>
+        <label>
+          <input type="radio" name="Tipo de Mudanza" value="Carga" class="peer sr-only" />
+          <span class={optCls}>{T.cargo}</span>
         </label>
       </div>
     </div>
@@ -99,31 +110,31 @@ const optCls =
     <div class="grid md:grid-cols-2 gap-5">
       <!-- Correo -->
       <div>
-        <label class={labelCls}>{T.email} <span class="text-accent-500">*</span></label>
-        <input name="email" type="email" class={inputCls} placeholder={T.emailPh} required />
+        <label class={labelCls} for="pwe-email">{T.email} <span class="text-accent-500">*</span></label>
+        <input id="pwe-email" name="email" type="email" class={inputCls} placeholder={T.emailPh} required />
       </div>
       <!-- Fecha -->
       <div>
-        <label class={labelCls}>{T.date} <span class="text-accent-500">*</span></label>
-        <input name="Fecha aproximada" type="date" class={inputCls} required />
+        <label class={labelCls} for="pwe-fecha">{T.date} <span class="text-accent-500">*</span></label>
+        <input id="pwe-fecha" name="Fecha aproximada" type="date" class={inputCls} required />
       </div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-5">
       <!-- Teléfono -->
       <div>
-        <label class={labelCls}>{T.phone} <span class="text-accent-500">*</span></label>
-        <input name="Teléfono" type="tel" class={inputCls} placeholder={T.phonePh} required />
+        <label class={labelCls} for="pwe-tel">{T.phone} <span class="text-accent-500">*</span></label>
+        <input id="pwe-tel" name="Teléfono" type="tel" class={inputCls} placeholder={T.phonePh} required />
       </div>
       <!-- Empaque -->
       <div>
         <label class={labelCls}>{T.packing}</label>
-        <div class="flex gap-3">
-          <label class="flex-1 cursor-pointer">
+        <div class="grid grid-cols-2 gap-2.5">
+          <label>
             <input type="radio" name="Servicio de empaque" value="Sí" class="peer sr-only" />
             <span class={optCls}>{T.yes}</span>
           </label>
-          <label class="flex-1 cursor-pointer">
+          <label>
             <input type="radio" name="Servicio de empaque" value="No" class="peer sr-only" />
             <span class={optCls}>{T.no}</span>
           </label>
@@ -134,34 +145,34 @@ const optCls =
     <div class="grid md:grid-cols-2 gap-5">
       <!-- Origen -->
       <div>
-        <label class={labelCls}>{T.origin} <span class="text-accent-500">*</span></label>
-        <input name="Origen" type="text" class={inputCls} placeholder={T.originPh} required />
+        <label class={labelCls} for="pwe-origen">{T.origin} <span class="text-accent-500">*</span></label>
+        <input id="pwe-origen" name="Origen" type="text" class={inputCls} placeholder={T.originPh} required />
       </div>
       <!-- Destino -->
       <div>
-        <label class={labelCls}>{T.dest} <span class="text-accent-500">*</span></label>
-        <input name="Destino" type="text" class={inputCls} placeholder={T.destPh} required />
+        <label class={labelCls} for="pwe-destino">{T.dest} <span class="text-accent-500">*</span></label>
+        <input id="pwe-destino" name="Destino" type="text" class={inputCls} placeholder={T.destPh} required />
       </div>
     </div>
 
     <!-- Detalles -->
     <div>
-      <label class={labelCls}>{T.details}</label>
-      <textarea name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder={T.detailsPh}></textarea>
+      <label class={labelCls} for="pwe-detalles">{T.details}</label>
+      <textarea id="pwe-detalles" name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder={T.detailsPh}></textarea>
     </div>
 
-    <button type="submit" id="quote-submit" class="w-full bg-accent-500 text-brand-900 font-bold py-4 rounded-xl shadow-lg hover:bg-accent-400 transition-colors flex justify-center items-center gap-2 mt-2 text-lg disabled:opacity-70">
-      {T.send} <Icon name="fa6-solid:paper-plane" />
+    <button type="submit" id="quote-submit" class="w-full bg-accent-500 text-white font-extrabold py-4 hover:bg-accent-600 transition-colors flex justify-center items-center gap-2.5 mt-1 text-[15px] uppercase tracking-wide disabled:opacity-70">
+      {T.send} <Icon name="fa6-solid:arrow-right" />
     </button>
-    <p id="form-error" class="hidden text-sm text-red-600 text-center"></p>
+    <p id="form-error" class="hidden text-sm text-accent-600 text-center font-semibold"></p>
     <p class="text-[11px] text-brand-400 text-center">{T.consent}</p>
   </form>
 
   <div id="form-success" class="hidden text-center py-16">
-    <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center text-green-500 text-4xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
-    <h4 class="text-3xl font-black text-brand-900 mb-3">{T.okTitle}</h4>
-    <p class="text-brand-600 mb-8 max-w-md mx-auto">{T.okText}</p>
-    <button id="reset-form-btn" class="text-accent-600 font-bold hover:text-accent-700 transition-colors">{T.another}</button>
+    <div class="w-16 h-16 bg-brand-900 text-white grid place-items-center text-2xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
+    <h4 class="text-3xl font-black text-brand-900 mb-3 tracking-tight">{T.okTitle}</h4>
+    <p class="text-brand-500 mb-8 max-w-md mx-auto">{T.okText}</p>
+    <button id="reset-form-btn" class="text-accent-500 font-extrabold uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">{T.another}</button>
   </div>
 </div>
 
