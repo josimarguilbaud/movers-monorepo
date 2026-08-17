@@ -84,6 +84,28 @@ if (faltan.length) {
   process.exit(1);
 }
 
+/* Error nº1 al copiar el comando de ejemplo: pegar los marcadores <...> tal
+   cual. n8n devuelve un 401 seco y parece que el token está vencido, cuando en
+   realidad nunca se sustituyó. Se detecta antes de llamar a la API. */
+const sinSustituir = Object.entries({ N8N_API_KEY, SMTP_USER, SMTP_PASSWORD })
+  .filter(([, v]) => v && /[<>]/.test(v))
+  .map(([k]) => k);
+if (sinSustituir.length) {
+  err(`Estas variables todavía tienen el texto de ejemplo: ${sinSustituir.join(', ')}`);
+  log(`\n  Los <corchetes> del ejemplo hay que reemplazarlos por el valor real,`);
+  log(`  corchetes incluidos. Por ejemplo:`);
+  log(`\n    ${c.no}mal${c.x}   $env:N8N_API_KEY="<tu token>"`);
+  log(`    ${c.ok}bien${c.x}  $env:N8N_API_KEY="eyJhbGciOi..."\n`);
+  process.exit(1);
+}
+
+/* El token de la API de n8n es un JWT: tres bloques separados por puntos. */
+if (!CRED_ID_ARG && N8N_API_KEY.split('.').length !== 3) {
+  err('N8N_API_KEY no tiene forma de token de n8n (debería ser un JWT con dos puntos).');
+  log(`\n  Genéralo en n8n -> Settings -> API -> Create an API key.\n`);
+  process.exit(1);
+}
+
 async function api(ruta, opciones = {}) {
   const r = await fetch(`${N8N_URL}/api/v1${ruta}`, {
     ...opciones,
