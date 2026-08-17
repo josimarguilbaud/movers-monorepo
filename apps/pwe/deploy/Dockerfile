@@ -7,6 +7,11 @@ RUN corepack enable
 WORKDIR /repo
 COPY . .
 RUN pnpm install --frozen-lockfile
+# Controla el <meta name="robots"> del sitio. Se inyecta como Build Argument
+# desde Coolify, NO desde el repo:
+#   PUBLIC_NOINDEX=true  -> noindex, nofollow (staging, o contenido sin validar)
+#   sin definir o "false" -> index, follow      (producción)
+# Para publicar en Google: borrar el Build Argument en Coolify y redesplegar.
 ARG PUBLIC_NOINDEX
 ENV PUBLIC_NOINDEX=$PUBLIC_NOINDEX
 RUN pnpm --filter pwe build
