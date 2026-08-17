@@ -9,18 +9,21 @@ const { locale } = Astro.props;
 
 const L = {
   es: {
-    servicios: 'Servicios', cobertura: 'Cobertura', carga: 'Carga', empresa: 'Empresa', blog: 'Blog',
+    servicios: 'Servicios', destinos: 'Destinos', empresa: 'Empresa',
     cotizar: 'Cotizar', recursos: 'Recursos',
   },
   en: {
-    servicios: 'Services', cobertura: 'Coverage', carga: 'Cargo', empresa: 'Company', blog: 'Blog',
+    servicios: 'Services', destinos: 'Destinations', empresa: 'Company',
     cotizar: 'Get a quote', recursos: 'Resources',
   },
 }[locale];
 
+/* El blog quedó fuera del nav a propósito: la sección no existe todavía y un
+   enlace a 404 en producción es peor que no tener el enlace. Volver a añadirlo
+   cuando haya artículos. */
 const seg = locale === 'es'
-  ? { servicios: 'servicios', cobertura: 'cobertura', nosotros: 'nosotros', blog: 'blog', contacto: 'contacto', recursos: 'recursos' }
-  : { servicios: 'services', cobertura: 'coverage', nosotros: 'about', blog: 'blog', contacto: 'contact', recursos: 'resources' };
+  ? { servicios: 'servicios', destinos: 'destinos', nosotros: 'nosotros', contacto: 'contacto', recursos: 'recursos' }
+  : { servicios: 'services', destinos: 'destinations', nosotros: 'about', contacto: 'contact', recursos: 'resources' };
 
 const base = `/${locale}/`;
 const other = locale === 'es' ? { href: '/en/', label: 'EN' } : { href: '/es/', label: 'ES' };
@@ -41,10 +44,9 @@ const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar con PWE.' : 'Hi, I wou
 
     <nav class="hidden lg:flex items-center gap-7">
       <a href={`${base}${seg.servicios}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.servicios}</a>
-      <a href={`${base}${seg.cobertura}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.cobertura}</a>
+      <a href={`${base}${seg.destinos}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.destinos}</a>
       <a href={`${base}${seg.nosotros}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.empresa}</a>
       <a href={`${base}${seg.recursos}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.recursos}</a>
-      <a href={`${base}${seg.blog}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.blog}</a>
       <a href={other.href} class="text-xs font-extrabold border border-brand-200 px-2.5 py-[5px] rounded-sm text-brand-700 hover:border-accent-500">{other.label}</a>
       <a href={`${base}${seg.contacto}/`} class="bg-accent-500 text-white font-extrabold text-sm px-5 py-3 hover:bg-accent-600 transition-colors">{L.cotizar}</a>
     </nav>
@@ -59,10 +61,9 @@ const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar con PWE.' : 'Hi, I wou
     <button id="pwe-menu-close" class="absolute top-6 right-5 text-white p-2" aria-label="Cerrar"><Icon name="fa6-solid:xmark" class="text-3xl" /></button>
     <div class="flex flex-col gap-1 mt-12 text-center">
       <a href={`${base}${seg.servicios}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.servicios}</a>
-      <a href={`${base}${seg.cobertura}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.cobertura}</a>
+      <a href={`${base}${seg.destinos}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.destinos}</a>
       <a href={`${base}${seg.nosotros}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.empresa}</a>
       <a href={`${base}${seg.recursos}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.recursos}</a>
-      <a href={`${base}${seg.blog}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.blog}</a>
       <a href={other.href} class="text-xl font-extrabold py-3 text-accent-400">{other.label}</a>
     </div>
     <div class="mt-auto flex flex-col gap-3 pt-8">

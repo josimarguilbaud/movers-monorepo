@@ -1,0 +1,124 @@
+---
+/* Cuerpo de "Recursos". Compartido ES/EN.
+   Es conocimiento del oficio, no depende de datos del cliente, así que es la
+   sección publicable tal cual sin esperar confirmación. */
+import { resources } from '../data/content';
+import { destinations } from '../data/destinations';
+import { wa } from '../data/site';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+const R = resources[locale];
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+const destBase = locale === 'es' ? '/es/destinos/' : '/en/destinations/';
+const servicesBase = locale === 'es' ? '/es/servicios/' : '/en/services/';
+const waHref = wa();
+const featured = destinations.filter((d) => d.featured);
+
+const T = {
+  es: {
+    kicker: 'Recursos',
+    h1: 'Lo que conviene saber antes de mudarte',
+    lead: 'Guías cortas de cosas que la gente descubre tarde. Están escritas desde lo que vemos fallar en mudanzas reales, no desde un manual.',
+    destTitle: '¿A dónde te mudas?',
+    destLead: 'Cada país pide cosas distintas en la aduana. Mira los requisitos de tu destino.',
+    ctaTitle: '¿Tienes una duda que no está aquí?',
+    ctaText: 'Escríbenos. Contestamos aunque todavía no hayas decidido mudarte.',
+    ctaBtn: 'Escribir a PWE',
+    seeService: 'Ver el servicio',
+  },
+  en: {
+    kicker: 'Resources',
+    h1: 'What is worth knowing before you move',
+    lead: 'Short guides on things people find out too late. Written from what we see go wrong on real moves, not from a manual.',
+    destTitle: 'Where are you moving?',
+    destLead: 'Every country asks for different things at customs. Check the requirements for your destination.',
+    ctaTitle: 'Got a question that is not here?',
+    ctaText: 'Write to us. We answer even if you have not decided to move yet.',
+    ctaBtn: 'Message PWE',
+    seeService: 'See the service',
+  },
+}[locale];
+
+/* Enlaces del recurso hacia el servicio relacionado, para no dejar las guías
+   como callejón sin salida. */
+const relatedSlug = locale === 'es'
+  ? ['mudanzas-internacionales', 'embalaje', 'mudanzas-internacionales', 'transporte-de-mascotas']
+  : ['international-moving', 'packing', 'international-moving', 'pet-relocation'];
+---
+
+<!-- HERO -->
+<section class="bg-brand-900 text-white">
+  <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+    <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">{T.kicker}</span>
+    <h1 class="text-4xl lg:text-[52px] font-black leading-[1.05] tracking-tight max-w-3xl">{T.h1}<span class="text-accent-500">.</span></h1>
+    <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">{T.lead}</p>
+  </div>
+</section>
+
+<!-- GUÍAS -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6 grid md:grid-cols-2 gap-8">
+    {R.map((r, i) => (
+      <article class="border border-brand-200 bg-white p-7 flex flex-col">
+        <div class="flex items-start gap-4">
+          <span class="w-12 h-12 bg-brand-900 text-white grid place-items-center text-2xl shrink-0">{r.ic}</span>
+          <div>
+            <h2 class="text-xl font-black text-brand-900 tracking-tight leading-tight">{r.t}</h2>
+            <p class="text-brand-400 text-[14.5px] mt-1.5 leading-relaxed">{r.d}</p>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-2.5 flex-1">
+          {r.items.map((item) => (
+            <li class="flex gap-2.5 text-[15px] text-brand-700 leading-relaxed">
+              <span class="text-accent-500 font-black shrink-0">·</span>{item}
+            </li>
+          ))}
+        </ul>
+        <a href={`${servicesBase}${relatedSlug[i]}/`} class="mt-6 pt-5 border-t border-brand-200 inline-flex items-center gap-2 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">
+          {T.seeService} →
+        </a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<!-- DESTINOS -->
+<section class="bg-brand-100 border-y border-brand-200 py-16">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-8">
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brand-900">{T.destTitle}</h2>
+      <p class="text-brand-500 mt-2.5">{T.destLead}</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6">
+      {featured.map((d) => (
+        <a href={`${destBase}${d.slug[locale]}/`} class="group bg-white border border-brand-200 p-6 hover:border-accent-500 transition-colors">
+          <span class="text-3xl">{d.flag}</span>
+          <h3 class="font-black text-brand-900 text-lg mt-2.5">{d.country[locale]}</h3>
+          <span class="mt-2 inline-flex items-center gap-1.5 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide">
+            {locale === 'es' ? 'Requisitos' : 'Requirements'} <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+    <a href={destBase} class="inline-block mt-6 text-sm font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">
+      {locale === 'es' ? 'Ver todos los destinos →' : 'See all destinations →'}
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-brand-900 text-white py-14">
+  <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+    <div>
+      <h2 class="text-3xl lg:text-4xl font-black tracking-tight">{T.ctaTitle}</h2>
+      <p class="text-brand-300 mt-2.5 max-w-xl">{T.ctaText}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 shrink-0">
+      <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">{T.ctaBtn}</a>
+      <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+    </div>
+  </div>
+</section>

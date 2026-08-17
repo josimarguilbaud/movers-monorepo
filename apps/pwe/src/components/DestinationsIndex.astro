@@ -1,0 +1,82 @@
+---
+/* Cuerpo del índice de destinos. Se usa desde /es/destinos/ y /en/destinations/
+   para no duplicar el markup entre idiomas. */
+import { destinations, destinationsCopy } from '../data/destinations';
+import { wa } from '../data/site';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+const C = destinationsCopy[locale];
+const base = locale === 'es' ? '/es/destinos/' : '/en/destinations/';
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+const featured = destinations.filter((d) => d.featured);
+const rest = destinations.filter((d) => !d.featured);
+const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar una mudanza internacional con PWE.' : 'Hi, I would like a quote for an international move with PWE.');
+---
+
+<section class="bg-brand-900 text-white">
+  <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+    <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">{C.kicker}</span>
+    <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">{C.h1}<span class="text-accent-500">.</span></h1>
+    <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">{C.lead}</p>
+  </div>
+</section>
+
+<!-- CORREDORES PRINCIPALES -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-6">{C.featured}</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      {featured.map((d) => (
+        <a href={`${base}${d.slug[locale]}/`} class="group border border-brand-200 bg-white p-7 hover:border-accent-500 transition-colors relative block">
+          <div class="text-4xl">{d.flag}</div>
+          <h3 class="text-2xl font-black text-brand-900 tracking-tight mt-3 mb-2">{d.country[locale]}</h3>
+          <p class="text-brand-400 text-[14.5px] leading-relaxed">{d.intro[locale].split('.')[0]}.</p>
+          <div class="flex gap-5 mt-5 pt-5 border-t border-brand-200 text-[13px]">
+            <div><span class="block text-brand-400 font-semibold">{C.sea}</span><b class="text-brand-900">{d.seaWeeks} {C.weeks}</b></div>
+            <div><span class="block text-brand-400 font-semibold">{C.air}</span><b class="text-brand-900">{d.airDays} {C.days}</b></div>
+          </div>
+          <span class="absolute left-0 bottom-0 h-[3px] w-0 bg-accent-500 group-hover:w-full transition-all duration-200"></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- TODOS -->
+<section class="bg-brand-100 border-y border-brand-200 py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-6">{C.all}</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
+      {[...featured, ...rest].map((d) => (
+        <a href={`${base}${d.slug[locale]}/`} class="group bg-white px-6 py-5 flex items-center gap-4 hover:bg-brand-50 transition-colors">
+          <span class="text-2xl shrink-0">{d.flag}</span>
+          <span class="min-w-0">
+            <span class="block font-extrabold text-brand-900 truncate">{d.country[locale]}</span>
+            <span class="block text-[12.5px] text-brand-400 font-semibold">{d.gateways[0]} · {d.seaWeeks} {C.weeks}</span>
+          </span>
+          <span class="ml-auto text-accent-500 font-black group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      ))}
+    </div>
+    <p class="mt-5 text-[13px] text-brand-400">{C.estimate}</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-brand-900 text-white py-16">
+  <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+    <div>
+      <h2 class="text-3xl lg:text-4xl font-black tracking-tight">{C.notListed}</h2>
+      <p class="text-brand-300 mt-2.5 max-w-xl">{C.notListedText}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 shrink-0">
+      <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">
+        {locale === 'es' ? 'Cotizar gratis' : 'Get a free quote'}
+      </a>
+      <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+    </div>
+  </div>
+</section>

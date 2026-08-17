@@ -1,0 +1,32 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import DestinationsIndex from '../../../components/DestinationsIndex.astro';
+import { destinations, destinationsCopy } from '../../../data/destinations';
+
+const C = destinationsCopy.en;
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'International moving destinations from Panama',
+  itemListElement: destinations.map((d, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `Moving from Panama to ${d.country.en}`,
+    url: `https://panamaworldwideexpress.com/en/destinations/${d.slug.en}/`,
+  })),
+};
+---
+
+<Base
+  title={C.metaTitle}
+  description={C.metaDescription}
+  lang="en"
+  altPaths={{ es: '/es/destinos/', en: '/en/destinations/' }}
+  jsonld={jsonld}
+>
+  <Header locale="en" />
+  <DestinationsIndex locale="en" />
+  <Footer locale="en" />
+</Base>

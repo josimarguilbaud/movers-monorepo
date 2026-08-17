@@ -12,8 +12,11 @@ const T = {
     subject: 'Nueva solicitud de cotización — Panamá Worldwide Express',
     fromName: 'Sitio web PWE',
     name: 'Nombre completo', namePh: 'Ej. Juan Pérez',
-    type: 'Tipo de servicio',
-    local: 'Local', national: 'Nacional', intl: 'Internacional', cargo: 'Carga',
+    /* Tipos alineados con los servicios que el cliente presta de verdad
+       (ver panamaworldwideexpress.com). El sitio publicado usa solo Local e
+       Internacional; se añade Oficinas porque cambia mucho la cotización. */
+    type: 'Tipo de mudanza',
+    local: 'Local', intl: 'Internacional', office: 'Oficina',
     email: 'Correo electrónico', emailPh: 'correo@ejemplo.com',
     date: 'Fecha aproximada',
     phone: 'Teléfono (WhatsApp)', phonePh: '+507 0000-0000',
@@ -34,8 +37,8 @@ const T = {
     subject: 'New quote request — Panamá Worldwide Express',
     fromName: 'PWE website',
     name: 'Full name', namePh: 'e.g. John Smith',
-    type: 'Type of service',
-    local: 'Local', national: 'National', intl: 'International', cargo: 'Cargo',
+    type: 'Type of move',
+    local: 'Local', intl: 'International', office: 'Office',
     email: 'Email address', emailPh: 'you@example.com',
     date: 'Approximate date',
     phone: 'Phone (WhatsApp)', phonePh: '+507 0000-0000',
@@ -72,8 +75,6 @@ const optCls =
     data-err-net={T.errNet}
     class="space-y-5"
   >
-    <input type="hidden" name="subject" value={T.subject} />
-    <input type="hidden" name="from_name" value={T.fromName} />
     <!-- n8n usa esto para responderle al cliente en su idioma. -->
     <input type="hidden" name="lang" value={locale} />
     <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -87,22 +88,18 @@ const optCls =
     <!-- Tipo de servicio -->
     <div>
       <label class={labelCls}>{T.type} <span class="text-accent-500">*</span></label>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      <div class="grid grid-cols-3 gap-2.5">
         <label>
           <input type="radio" name="Tipo de Mudanza" value="Local" class="peer sr-only" required />
           <span class={optCls}>{T.local}</span>
-        </label>
-        <label>
-          <input type="radio" name="Tipo de Mudanza" value="Nacional" class="peer sr-only" />
-          <span class={optCls}>{T.national}</span>
         </label>
         <label>
           <input type="radio" name="Tipo de Mudanza" value="Internacional" class="peer sr-only" />
           <span class={optCls}>{T.intl}</span>
         </label>
         <label>
-          <input type="radio" name="Tipo de Mudanza" value="Carga" class="peer sr-only" />
-          <span class={optCls}>{T.cargo}</span>
+          <input type="radio" name="Tipo de Mudanza" value="Oficina" class="peer sr-only" />
+          <span class={optCls}>{T.office}</span>
         </label>
       </div>
     </div>

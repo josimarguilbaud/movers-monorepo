@@ -1,37 +1,53 @@
 ---
-import { site } from '../data/site';
+import { site, wa } from '../data/site';
+import { services } from '../data/services';
+import { destinations } from '../data/destinations';
 
 interface Props {
   locale: 'es' | 'en';
 }
 const { locale } = Astro.props;
 const base = `/${locale}/`;
+
+/* El blog no está en el footer por la misma razón que no está en el nav:
+   la sección todavía no existe. */
 const seg = locale === 'es'
-  ? { servicios: 'servicios', cobertura: 'cobertura', nosotros: 'nosotros', blog: 'blog', contacto: 'contacto', recursos: 'recursos' }
-  : { servicios: 'services', cobertura: 'coverage', nosotros: 'about', blog: 'blog', contacto: 'contact', resources: 'resources', recursos: 'resources' };
+  ? { servicios: 'servicios', destinos: 'destinos', nosotros: 'nosotros', contacto: 'contacto', recursos: 'recursos' }
+  : { servicios: 'services', destinos: 'destinations', nosotros: 'about', contacto: 'contact', recursos: 'resources' };
 
 const L = {
   es: {
-    blurb: 'Mudanzas y logística en todo Panamá, y salida al mundo. Rápido, seguro y con equipo propio.',
-    servicios: 'Servicios', cobertura: 'Cobertura', empresa: 'Empresa',
-    s: ['Nacionales', 'Locales', 'Corporativas', 'Carga', 'Almacenaje'],
-    c: ['Ciudad de Panamá', 'Chiriquí', 'Colón', 'Interior', 'Salida internacional'],
-    e: ['Nosotros', 'Blog', 'Contacto', 'Cotizar'],
+    blurb: 'Mudanzas internacionales, locales y de oficina desde Panamá. Más de 25 años moviendo casas y empresas.',
+    servicios: 'Servicios', destinos: 'Destinos', empresa: 'Empresa', contacto: 'Contacto',
+    e: [
+      { t: 'Nosotros', h: `${base}${seg.nosotros}/` },
+      { t: 'Recursos', h: `${base}${seg.recursos}/` },
+      { t: 'Contacto', h: `${base}${seg.contacto}/` },
+      { t: 'Cotizar gratis', h: `${base}${seg.contacto}/` },
+    ],
+    verTodos: 'Ver todos los servicios',
+    verDestinos: 'Ver todos los destinos',
     rights: 'Todos los derechos reservados.', madeWith: 'Desarrollado por',
   },
   en: {
-    blurb: 'Moving and logistics across Panama, and out to the world. Fast, safe, and with our own team.',
-    servicios: 'Services', cobertura: 'Coverage', empresa: 'Company',
-    s: ['National', 'Local', 'Corporate', 'Cargo', 'Storage'],
-    c: ['Panama City', 'Chiriquí', 'Colón', 'Countryside', 'International outbound'],
-    e: ['About', 'Blog', 'Contact', 'Get a quote'],
+    blurb: 'International, local, and office moving from Panama. Over 25 years moving homes and businesses.',
+    servicios: 'Services', destinos: 'Destinations', empresa: 'Company', contacto: 'Contact',
+    e: [
+      { t: 'About', h: `${base}${seg.nosotros}/` },
+      { t: 'Resources', h: `${base}${seg.recursos}/` },
+      { t: 'Contact', h: `${base}${seg.contacto}/` },
+      { t: 'Get a free quote', h: `${base}${seg.contacto}/` },
+    ],
+    verTodos: 'See all services',
+    verDestinos: 'See all destinations',
     rights: 'All rights reserved.', madeWith: 'Built by',
   },
 }[locale];
 
-const sHref = [`${base}${seg.servicios}/`, `${base}${seg.servicios}/`, `${base}${seg.servicios}/`, `${base}${seg.servicios}/`, `${base}${seg.servicios}/`];
-const cHref = [`${base}${seg.cobertura}/`, `${base}${seg.cobertura}/`, `${base}${seg.cobertura}/`, `${base}${seg.cobertura}/`, `${base}${seg.cobertura}/`];
-const eHref = [`${base}${seg.nosotros}/`, `${base}${seg.blog}/`, `${base}${seg.contacto}/`, `${base}${seg.contacto}/`];
+const topServices = services[locale].slice(0, 6);
+const topDestinations = destinations.slice(0, 6);
+const waHref = wa();
+const linkCls = 'block text-sm py-[5px] hover:text-accent-400 transition-colors';
 ---
 
 <footer class="bg-brand-900 text-brand-400 pt-14 pb-7">
@@ -47,21 +63,38 @@ const eHref = [`${base}${seg.nosotros}/`, `${base}${seg.blog}/`, `${base}${seg.c
             <span class="block text-[9px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mt-[3px]">Express · Logística</span>
           </span>
         </a>
-        <p class="text-sm max-w-[260px] text-brand-400">{L.blurb}</p>
+        <p class="text-sm max-w-[280px] text-brand-400 leading-relaxed">{L.blurb}</p>
+
+        <div class="mt-5 space-y-1.5 text-sm">
+          <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} class="block hover:text-accent-400 transition-colors font-bold text-white">{site.phones[0]}</a>
+          <a href={waHref} target="_blank" rel="noopener" class="block hover:text-accent-400 transition-colors">{site.phones[1]} · WhatsApp</a>
+          <a href={`mailto:${site.email}`} class="block hover:text-accent-400 transition-colors break-all">{site.email}</a>
+          <address class="not-italic text-brand-400 pt-1">{site.address.street}<br />{site.address.locality}, Panamá</address>
+        </div>
       </div>
+
       <div>
-        <h4 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.servicios}</h4>
-        {L.s.map((label, i) => <a href={sHref[i]} class="block text-sm py-[5px] hover:text-accent-400 transition-colors">{label}</a>)}
+        <h2 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.servicios}</h2>
+        {topServices.map((s) => (
+          <a href={`${base}${seg.servicios}/${s.slug[locale]}/`} class={linkCls}>{s.title}</a>
+        ))}
+        <a href={`${base}${seg.servicios}/`} class="inline-block mt-2.5 text-[13px] font-extrabold text-accent-500 hover:text-accent-400 transition-colors">{L.verTodos} →</a>
       </div>
+
       <div>
-        <h4 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.cobertura}</h4>
-        {L.c.map((label, i) => <a href={cHref[i]} class="block text-sm py-[5px] hover:text-accent-400 transition-colors">{label}</a>)}
+        <h2 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.destinos}</h2>
+        {topDestinations.map((d) => (
+          <a href={`${base}${seg.destinos}/${d.slug[locale]}/`} class={linkCls}>{d.flag} {d.country[locale]}</a>
+        ))}
+        <a href={`${base}${seg.destinos}/`} class="inline-block mt-2.5 text-[13px] font-extrabold text-accent-500 hover:text-accent-400 transition-colors">{L.verDestinos} →</a>
       </div>
+
       <div>
-        <h4 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.empresa}</h4>
-        {L.e.map((label, i) => <a href={eHref[i]} class="block text-sm py-[5px] hover:text-accent-400 transition-colors">{label}</a>)}
+        <h2 class="text-white text-[13px] font-extrabold uppercase tracking-wider mb-3.5">{L.empresa}</h2>
+        {L.e.map((i) => <a href={i.h} class={linkCls}>{i.t}</a>)}
       </div>
     </div>
+
     <div class="pt-5 flex flex-wrap justify-between gap-2 text-[13px]">
       <span>&copy; 2026 {site.name} · {L.rights}</span>
       <span>{L.madeWith} <a href="https://elementoweb.com" target="_blank" rel="noopener" class="text-brand-400 hover:text-accent-400 font-bold">Elemento Web</a></span>

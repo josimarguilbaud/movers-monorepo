@@ -1,0 +1,175 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import QuoteForm from '../../../components/QuoteForm.astro';
+import { services } from '../../../data/services';
+import { wa } from '../../../data/site';
+
+export function getStaticPaths() {
+  return services.en.map((s) => ({ params: { slug: s.slug.en }, props: { s } }));
+}
+
+const { s } = Astro.props;
+const others = services.en.filter((x) => x.slug.en !== s.slug.en).slice(0, 4);
+const waHref = wa(`Hi, I would like a quote for ${s.title.toLowerCase()} with PWE.`);
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: s.title,
+    description: s.metaDescription,
+    serviceType: s.title,
+    areaServed: { '@type': 'Country', name: 'Panama' },
+    provider: { '@type': 'MovingCompany', name: 'Panamá Worldwide Express' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: s.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://panamaworldwideexpress.com/en/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://panamaworldwideexpress.com/en/services/' },
+      { '@type': 'ListItem', position: 3, name: s.title },
+    ],
+  },
+];
+---
+
+<Base
+  title={s.metaTitle}
+  description={s.metaDescription}
+  lang="en"
+  altPaths={{ es: `/es/servicios/${s.slug.es}/`, en: `/en/services/${s.slug.en}/` }}
+  jsonld={jsonld}
+>
+  <Header locale="en" />
+
+  <!-- HERO -->
+  <section class="bg-brand-900 text-white">
+    <div class="max-w-[1180px] mx-auto px-6 py-14 lg:py-18">
+      <nav class="text-[13px] text-brand-400 font-semibold mb-6" aria-label="Breadcrumb">
+        <a href="/en/" class="hover:text-accent-400 transition-colors">Home</a>
+        <span class="mx-2 opacity-50">/</span>
+        <a href="/en/services/" class="hover:text-accent-400 transition-colors">Services</a>
+        <span class="mx-2 opacity-50">/</span>
+        <span class="text-brand-300">{s.title}</span>
+      </nav>
+      <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-end">
+        <div>
+          <div class="flex items-center gap-3.5 mb-4">
+            <span class="w-12 h-12 bg-accent-500 grid place-items-center text-2xl">{s.ic}</span>
+            <span class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500">Service {s.n}</span>
+          </div>
+          <h1 class="text-4xl lg:text-[50px] font-black leading-[1.05] tracking-tight">{s.h1}</h1>
+          <p class="mt-4 text-brand-300 text-lg leading-relaxed max-w-2xl">{s.tagline}</p>
+        </div>
+        <div class="flex flex-wrap gap-3 lg:justify-end">
+          <a href="/en/contact/" class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors">Get a free quote</a>
+          <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-14 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_360px] gap-12 lg:gap-16">
+      <div>
+        <p class="text-xl text-brand-700 leading-relaxed font-medium">{s.intro}</p>
+
+        <div class="mt-10 space-y-9">
+          {s.sections.map((sec) => (
+            <div class="border-l-2 border-accent-500 pl-6">
+              <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{sec.t}</h2>
+              <p class="text-brand-500 leading-relaxed">{sec.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- WHAT IT INCLUDES -->
+        <div class="mt-12 bg-brand-100 border border-brand-200 p-7">
+          <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">What it includes</h2>
+          <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+            {s.bullets.map((b) => (
+              <li class="flex gap-2.5 text-[15px] font-semibold text-brand-800">
+                <span class="text-accent-500 font-black shrink-0">✓</span>{b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- WHO IT IS FOR -->
+        <p class="mt-8 text-brand-500">
+          <b class="text-brand-900">Who it is for:</b> {s.forWho}
+        </p>
+
+        <!-- FAQ -->
+        <div class="mt-12">
+          <h2 class="text-2xl lg:text-3xl font-black text-brand-900 tracking-tight mb-6">Frequently asked questions</h2>
+          <div class="border-t border-brand-200">
+            {s.faqs.map((f) => (
+              <details class="group border-b border-brand-200">
+                <summary class="flex justify-between items-start gap-4 py-5 cursor-pointer list-none font-extrabold text-brand-900">
+                  {f.q}
+                  <span class="text-accent-500 font-black text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="text-brand-500 leading-relaxed pb-5 -mt-1">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="lg:sticky lg:top-24 self-start space-y-6">
+        <div class="bg-white border border-brand-200 p-6">
+          <h2 class="font-black text-brand-900 text-lg tracking-tight mb-1.5">Quote this service</h2>
+          <p class="text-brand-400 text-[14px] leading-relaxed mb-5">A reply within 24 hours. The assessment costs nothing.</p>
+          <a href="/en/contact/" class="block text-center bg-accent-500 text-white font-extrabold py-3.5 hover:bg-accent-600 transition-colors">Request a quote</a>
+          <a href={waHref} target="_blank" rel="noopener" class="block text-center border border-brand-200 text-brand-700 font-extrabold py-3.5 mt-2.5 hover:border-accent-500 transition-colors">Message us on WhatsApp</a>
+        </div>
+
+        <div class="bg-brand-900 text-white p-6">
+          <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">Other services</h2>
+          <div class="space-y-px">
+            {others.map((o) => (
+              <a href={`/en/services/${o.slug.en}/`} class="flex items-center gap-3 py-2.5 border-b border-white/10 text-sm font-bold hover:text-accent-400 transition-colors">
+                <span class="text-lg">{o.ic}</span>{o.title}
+              </a>
+            ))}
+          </div>
+          <a href="/en/services/" class="inline-block mt-4 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-400 transition-colors">See all →</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="bg-brand-100 border-t border-brand-200 py-16 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
+      <div>
+        <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+          Request your quote
+        </h2>
+        <p class="mt-4 text-brand-500 leading-relaxed">
+          The more detail you give us, the more accurate it will be. If you would rather talk it through, message us on WhatsApp.
+        </p>
+      </div>
+      <div class="bg-white border border-brand-200 p-6 sm:p-9">
+        <QuoteForm locale="en" />
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+</Base>

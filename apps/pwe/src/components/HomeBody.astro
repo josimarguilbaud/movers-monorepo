@@ -1,0 +1,246 @@
+---
+/* Cuerpo de la home. Compartido ES/EN.
+
+   Reescrita el 2026-08-17: la versión anterior anunciaba "Carga y Logística" y
+   "Almacenaje" con descripciones inventadas, y mostraba cifras sin ninguna
+   fuente ("10 provincias", "+15k cajas al año"). Ahora los servicios salen de
+   services.ts y las cifras son solo las que el cliente puede sostener. */
+import { services } from '../data/services';
+import { destinations } from '../data/destinations';
+import { principles } from '../data/content';
+import { wa, claimedExperience } from '../data/site';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+const list = services[locale];
+const featuredDest = destinations.filter((d) => d.featured);
+const P = principles[locale].slice(0, 3);
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+const servicesBase = locale === 'es' ? '/es/servicios/' : '/en/services/';
+const destBase = locale === 'es' ? '/es/destinos/' : '/en/destinations/';
+const intlSlug = locale === 'es' ? 'mudanzas-internacionales' : 'international-moving';
+const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar una mudanza con PWE.' : 'Hi, I would like a quote from PWE.');
+
+const T = {
+  es: {
+    kicker: 'Internacional · Nacional · Corporativo · Carga',
+    h1a: 'Mudanzas y logística que ',
+    h1b: 'mueven a Panamá',
+    h1c: ' y al mundo.',
+    lead: 'Mudanzas internacionales, locales, de oficina y carga, desde y hacia Panamá. Nos encargamos también de la aduana, que es donde la mayoría se atasca.',
+    cta1: 'Cotiza en 2 minutos',
+    cta2: 'Ver servicios',
+    band: ['Gestión aduanera incluida', 'Evaluación gratuita a domicilio', 'Mascotas y vehículos', 'Contenedor compartido'],
+    /* Solo cifras que el cliente puede sostener. Las anteriores ("10 prov",
+       "+15k cajas al año") no tenían ninguna fuente. */
+    stats: [
+      { n: '+25', u: 'años', d: 'Moviendo casas y empresas' },
+      { n: '24', u: 'h', d: 'Respuesta a tu cotización' },
+      { n: '3', u: 'vías', d: 'Aérea, marítima y terrestre' },
+      { n: '0', u: '$', d: 'Cuesta la evaluación' },
+    ],
+    featKicker: 'Servicio destacado',
+    featTitle: 'Tu mudanza internacional, desde y hacia Panamá',
+    featText: 'Coordinamos todo el traslado: contenedor marítimo exclusivo o compartido, envío aéreo, gestión aduanera y entrega puerta a puerta, a cualquier destino del mundo.',
+    featBullets: ['Contenedor exclusivo o compartido', 'Envío aéreo', 'Gestión aduanera', 'Puerta a puerta'],
+    featCta: 'Cómo funciona →',
+    svcKicker: 'Lo que hacemos',
+    svcTitle: 'Once servicios para mover tu casa, tu oficina y tu carga',
+    svcLead: 'Desde un apartamento hasta el traslado completo de una empresa, con el equipo y los camiones para hacerlo bien.',
+    svcAll: 'Ver todos los servicios',
+    destKicker: 'A dónde llegamos',
+    destTitle: 'Salida al mundo desde Panamá',
+    destLead: 'Estos son los corredores que más movemos. Cada uno con sus tiempos y lo que pide su aduana.',
+    destAll: 'Ver todos los destinos',
+    whyKicker: 'Por qué PWE',
+    whyTitle: 'Logística que no te deja a medias',
+    ctaTitle: '¿Listo para cotizar?',
+    ctaText: 'Cuéntanos qué tienes que mover. La evaluación es gratis y la cotización llega en menos de 24 horas.',
+    ctaBtn: 'Cotizar gratis',
+  },
+  en: {
+    kicker: 'International · Domestic · Corporate · Freight',
+    h1a: 'Moving and logistics that ',
+    h1b: 'move Panama',
+    h1c: ' and the world.',
+    lead: 'International, local, office moving, and freight, to and from Panama. We handle customs too, which is where most people get stuck.',
+    cta1: 'Get a quote in 2 minutes',
+    cta2: 'See services',
+    band: ['Customs handling included', 'Free at-home assessment', 'Pets and vehicles', 'Shared container'],
+    stats: [
+      { n: '25+', u: 'years', d: 'Moving homes and businesses' },
+      { n: '24', u: 'h', d: 'To answer your quote' },
+      { n: '3', u: 'modes', d: 'Air, ocean, and overland' },
+      { n: '0', u: '$', d: 'Cost of the assessment' },
+    ],
+    featKicker: 'Featured service',
+    featTitle: 'Your international move, to and from Panama',
+    featText: 'We coordinate the whole thing: exclusive or shared ocean container, air freight, customs handling, and door-to-door delivery anywhere in the world.',
+    featBullets: ['Exclusive or shared container', 'Air freight', 'Customs handling', 'Door to door'],
+    featCta: 'How it works →',
+    svcKicker: 'What we do',
+    svcTitle: 'Eleven services to move your home, your office, and your freight',
+    svcLead: 'From a single apartment to relocating an entire company, with the crew and the trucks to do it properly.',
+    svcAll: 'See all services',
+    destKicker: 'Where we reach',
+    destTitle: 'Out of Panama to the world',
+    destLead: 'These are the corridors we run most. Each with its timings and what its customs authority asks for.',
+    destAll: 'See all destinations',
+    whyKicker: 'Why PWE',
+    whyTitle: 'Logistics that does not leave you halfway',
+    ctaTitle: 'Ready for a quote?',
+    ctaText: 'Tell us what you need to move. The assessment is free and the quote arrives within 24 hours.',
+    ctaBtn: 'Get a free quote',
+  },
+}[locale];
+---
+
+<!-- HERO -->
+<section class="relative bg-brand-900 text-white overflow-hidden">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="grid lg:grid-cols-[1.05fr_.95fr] min-h-[560px]">
+      <div class="flex flex-col justify-center py-16 lg:py-20 relative z-20">
+        <div class="max-w-[560px] lg:pr-10">
+          <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.kicker}</span>
+          <h1 class="text-4xl md:text-6xl font-black leading-[1.04] tracking-tight my-5">{T.h1a}<span class="text-accent-500">{T.h1b}</span>{T.h1c}</h1>
+          <p class="text-lg text-brand-300 max-w-[480px]">{T.lead}</p>
+          <div class="flex flex-wrap gap-3.5 mt-8">
+            <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors flex items-center gap-2">{T.cta1} <span class="font-black">→</span></a>
+            <a href={servicesBase} class="border-2 border-white/25 text-white font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">{T.cta2}</a>
+          </div>
+        </div>
+      </div>
+      <div class="relative hidden lg:block">
+        <img src="/img/hero-truck.jpg" alt="Camión de PWE" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 z-10" style="background:linear-gradient(90deg,#14181f 0%,rgba(20,24,31,.55) 26%,rgba(20,24,31,.12) 60%);"></div>
+        <div class="absolute -left-0.5 inset-y-0 w-[70px] bg-accent-500 skew-x-[-9deg] z-20 opacity-90"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-accent-500">
+    <div class="max-w-[1180px] mx-auto px-6 flex flex-wrap gap-x-10 gap-y-2 py-3.5 text-[13.5px] font-extrabold uppercase tracking-wide">
+      {T.band.map((b) => (
+        <span class="flex items-center gap-2 before:content-['›'] before:text-lg before:opacity-70">{b}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="bg-white border-b border-brand-200">
+  <div class="max-w-[1180px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 py-9">
+    {T.stats.map((s) => (
+      <div>
+        <div class="text-3xl md:text-4xl font-black tracking-tight text-brand-900">
+          <span class="text-accent-500">{s.n}</span> {s.u}
+        </div>
+        <div class="text-[13px] text-brand-400 font-semibold mt-0.5">{s.d}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- DESTACADO: INTERNACIONAL -->
+<section class="pt-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="grid lg:grid-cols-2 border border-brand-200 bg-white overflow-hidden">
+      <div class="relative min-h-[300px] lg:min-h-full">
+        <img src="/img/yard.jpg" alt="Mudanzas internacionales PWE" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <span class="absolute top-0 left-0 bg-accent-500 text-white text-[11px] font-black uppercase tracking-[0.14em] px-4 py-2">{T.featKicker}</span>
+      </div>
+      <div class="p-8 lg:p-12">
+        <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{list[0].title}</span>
+        <h2 class="text-3xl md:text-4xl font-black tracking-tight text-brand-900 mt-3 mb-4">{T.featTitle}</h2>
+        <p class="text-brand-500 text-base mb-6">{T.featText}</p>
+        <div class="grid grid-cols-2 gap-3 mb-7">
+          {T.featBullets.map((f) => (
+            <div class="flex items-center gap-2.5 text-sm font-bold text-brand-800"><span class="text-accent-500 font-black">✓</span> {f}</div>
+          ))}
+        </div>
+        <a href={`${servicesBase}${intlSlug}/`} class="inline-flex bg-brand-900 text-white font-extrabold px-6 py-3.5 hover:bg-brand-800 transition-colors">{T.featCta}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-9">
+      <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.svcKicker}</span>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight text-brand-900 mt-3 mb-2.5">{T.svcTitle}</h2>
+      <p class="text-brand-400 text-lg">{T.svcLead}</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
+      {list.map((s) => (
+        <a href={`${servicesBase}${s.slug[locale]}/`} class="group bg-white p-7 relative hover:bg-brand-50 transition-colors block">
+          <div class="text-xs font-black text-accent-500 tracking-widest">{s.n}</div>
+          <div class="w-11 h-11 bg-brand-900 text-white grid place-items-center text-2xl my-3.5">{s.ic}</div>
+          <h3 class="text-lg font-extrabold text-brand-900 mb-2">{s.title}</h3>
+          <p class="text-brand-400 text-[14.5px]">{s.tagline}</p>
+          <span class="absolute left-0 bottom-0 h-[3px] w-0 bg-accent-500 group-hover:w-full transition-all duration-200"></span>
+        </a>
+      ))}
+    </div>
+    <a href={servicesBase} class="inline-block mt-6 text-sm font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">{T.svcAll} →</a>
+  </div>
+</section>
+
+<!-- DESTINOS -->
+<section class="bg-brand-900 text-white py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-9">
+      <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.destKicker}</span>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight my-3.5">{T.destTitle}</h2>
+      <p class="text-brand-300 text-base">{T.destLead}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {featuredDest.map((d) => (
+        <a href={`${destBase}${d.slug[locale]}/`} class="group border border-white/15 p-6 hover:border-accent-500 transition-colors">
+          <span class="text-3xl">{d.flag}</span>
+          <h3 class="text-xl font-black mt-3">{d.country[locale]}</h3>
+          <div class="flex gap-5 mt-4 pt-4 border-t border-white/10 text-[13px]">
+            <div><span class="block text-brand-400 font-semibold">{locale === 'es' ? 'Marítimo' : 'Ocean'}</span><b>{d.seaWeeks} {locale === 'es' ? 'sem.' : 'wks'}</b></div>
+            <div><span class="block text-brand-400 font-semibold">{locale === 'es' ? 'Aéreo' : 'Air'}</span><b>{d.airDays} {locale === 'es' ? 'días' : 'days'}</b></div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <a href={destBase} class="inline-block mt-6 text-sm font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-400 transition-colors">{T.destAll} →</a>
+  </div>
+</section>
+
+<!-- POR QUÉ -->
+<section class="py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-9">
+      <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.whyKicker}</span>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight text-brand-900 mt-3">{T.whyTitle}</h2>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-6">
+      {P.map((w) => (
+        <div class="border border-brand-200 bg-white p-7 shadow-sm">
+          <div class="w-11 h-11 grid place-items-center text-lg font-black text-accent-500" style="background:rgba(225,29,46,.10);">{w.k}</div>
+          <h3 class="text-lg font-extrabold text-brand-900 mt-4 mb-2">{w.t}</h3>
+          <p class="text-brand-400 text-[14.5px] leading-relaxed">{w.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-accent-500 text-white py-16">
+  <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+    <div>
+      <h2 class="text-3xl lg:text-[42px] font-black tracking-tight">{T.ctaTitle}</h2>
+      <p class="mt-2.5 max-w-xl opacity-90">{T.ctaText}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 shrink-0">
+      <a href={contact} class="bg-white text-accent-600 font-extrabold px-7 py-4 hover:bg-brand-50 transition-colors">{T.ctaBtn}</a>
+      <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/50 font-extrabold px-7 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+    </div>
+  </div>
+</section>

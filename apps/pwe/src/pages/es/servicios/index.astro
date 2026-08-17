@@ -1,0 +1,101 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { services } from '../../../data/services';
+import { process } from '../../../data/content';
+import { wa } from '../../../data/site';
+
+const list = services.es;
+const steps = process.es;
+const waHref = wa('Hola, quiero cotizar un servicio con PWE.');
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Servicios de Panamá Worldwide Express',
+  itemListElement: list.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.title,
+    url: `https://panamaworldwideexpress.com/es/servicios/${s.slug.es}/`,
+  })),
+};
+---
+
+<Base
+  title="Servicios de mudanzas y carga en Panamá | PWE"
+  description="Mudanzas internacionales, locales y de oficina, relocation, embalaje, mascotas, vehículos, guardamuebles y carga. Cotiza gratis con Panamá Worldwide Express."
+  lang="es"
+  altPaths={{ es: '/es/servicios/', en: '/en/services/' }}
+  jsonld={jsonld}
+>
+  <Header locale="es" />
+
+  <section class="bg-brand-900 text-white">
+    <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+      <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">Servicios</span>
+      <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">
+        Todo lo que hace falta para mover tu casa, tu oficina o tu carga<span class="text-accent-500">.</span>
+      </h1>
+      <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">
+        Cada servicio se puede contratar solo o combinado con los demás. La evaluación es gratuita y la cotización llega en menos de 24 horas.
+      </p>
+    </div>
+  </section>
+
+  <!-- GRID DE SERVICIOS -->
+  <section class="py-16 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
+        {list.map((s) => (
+          <a href={`/es/servicios/${s.slug.es}/`} class="group bg-white p-7 relative hover:bg-brand-50 transition-colors block">
+            <div class="text-xs font-black text-accent-500 tracking-widest">{s.n}</div>
+            <div class="w-11 h-11 bg-brand-900 text-white grid place-items-center text-2xl my-3.5">{s.ic}</div>
+            <h2 class="text-lg font-extrabold text-brand-900 mb-1.5">{s.title}</h2>
+            <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.tagline}</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide">
+              Ver detalle <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
+            </span>
+            <span class="absolute left-0 bottom-0 h-[3px] w-0 bg-accent-500 group-hover:w-full transition-all duration-200"></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="bg-brand-100 border-y border-brand-200 py-16 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="max-w-[640px] mb-10">
+        <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Cómo funciona</span>
+        <h2 class="text-3xl md:text-[42px] font-black tracking-tight text-brand-900 mt-3">De la primera llamada a la última caja</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {steps.map((s) => (
+          <div class="bg-white border border-brand-200 p-6">
+            <div class="w-9 h-9 bg-accent-500 text-white grid place-items-center font-black text-sm">{s.n}</div>
+            <h3 class="font-extrabold text-brand-900 mt-4 mb-1.5">{s.t}</h3>
+            <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-900 text-white py-16">
+    <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-black tracking-tight">¿No sabes cuál necesitas?</h2>
+        <p class="text-brand-300 mt-2.5 max-w-xl">Cuéntanos qué tienes que mover y nosotros te decimos qué servicio aplica. La evaluación no cuesta nada.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="/es/contacto/" class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">Cotizar gratis</a>
+        <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="es" />
+</Base>

@@ -1,0 +1,156 @@
+---
+/* Cuerpo de "Nosotros". Compartido ES/EN.
+
+   ⚠️ Sin historia inventada: no hay fundación, tamaño de flota, número de
+   empleados ni certificaciones. El único dato de trayectoria es "más de 25
+   años", que el cliente publica en su propio sitio. Todo lo demás describe
+   cómo se trabaja, que es lo que no se puede desmentir. */
+import { principles, process, extras } from '../data/content';
+import { site, claimedExperience, wa } from '../data/site';
+import { services } from '../data/services';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+const { locale } = Astro.props;
+const P = principles[locale];
+const steps = process[locale];
+const X = extras[locale];
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+const servicesBase = locale === 'es' ? '/es/servicios/' : '/en/services/';
+const waHref = wa();
+
+const T = {
+  es: {
+    kicker: 'Nosotros',
+    h1: 'Llevamos ' + claimedExperience.es + ' moviendo casas y empresas desde Panamá',
+    lead: 'Panamá Worldwide Express es una empresa de mudanzas internacionales que traslada a particulares y a empresas, a nivel local, nacional e internacional. Operamos desde el Aeropuerto de Carga, en Ciudad de Panamá.',
+    howTitle: 'Cómo trabajamos',
+    howLead: 'No prometemos nada que no se pueda comprobar el día de la mudanza. Esto es lo que sí.',
+    processTitle: 'Qué pasa cuando nos contratas',
+    processLead: 'Seis pasos, del primer mensaje a la última caja desempacada.',
+    extrasTitle: 'Servicios adicionales',
+    extrasLead: 'Se adaptan según lo que necesites, y se cotizan junto con la mudanza.',
+    servicesTitle: 'Lo que movemos',
+    ctaTitle: '¿Hablamos de tu mudanza?',
+    ctaText: 'La evaluación es gratis y la cotización llega en menos de 24 horas.',
+    ctaBtn: 'Cotizar gratis',
+    contactTitle: 'Dónde estamos',
+  },
+  en: {
+    kicker: 'About us',
+    h1: 'We have spent ' + claimedExperience.en + ' moving homes and businesses out of Panama',
+    lead: 'Panamá Worldwide Express is an international moving company serving individuals and businesses, locally, nationally, and internationally. We operate out of the Cargo Airport in Panama City.',
+    howTitle: 'How we work',
+    howLead: 'We do not promise anything that cannot be checked on moving day. Here is what we do promise.',
+    processTitle: 'What happens when you hire us',
+    processLead: 'Six steps, from the first message to the last unpacked box.',
+    extrasTitle: 'Additional services',
+    extrasLead: 'Adapted to what you need, and quoted alongside the move.',
+    servicesTitle: 'What we move',
+    ctaTitle: 'Shall we talk about your move?',
+    ctaText: 'The assessment is free and the quote arrives within 24 hours.',
+    ctaBtn: 'Get a free quote',
+    contactTitle: 'Where we are',
+  },
+}[locale];
+---
+
+<!-- HERO -->
+<section class="bg-brand-900 text-white">
+  <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+    <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">{T.kicker}</span>
+    <h1 class="text-4xl lg:text-[52px] font-black leading-[1.05] tracking-tight max-w-4xl">{T.h1}<span class="text-accent-500">.</span></h1>
+    <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">{T.lead}</p>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-10">
+      <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.howTitle}</span>
+      <h2 class="text-3xl md:text-[42px] font-black tracking-tight text-brand-900 mt-3">{T.howLead}</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
+      {P.map((p) => (
+        <div class="bg-white p-7">
+          <div class="text-xs font-black text-accent-500 tracking-widest">{p.k}</div>
+          <h3 class="text-lg font-extrabold text-brand-900 mt-3 mb-2">{p.t}</h3>
+          <p class="text-brand-400 text-[14.5px] leading-relaxed">{p.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="bg-brand-900 text-white py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6">
+    <div class="max-w-[640px] mb-10">
+      <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">{T.processTitle}</span>
+      <h2 class="text-3xl md:text-[42px] font-black tracking-tight mt-3">{T.processLead}</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-9">
+      {steps.map((s) => (
+        <div class="border-t-2 border-accent-500 pt-4">
+          <div class="text-accent-500 font-black text-3xl leading-none">{s.n}</div>
+          <h3 class="font-extrabold text-white mt-3 mb-1.5 text-lg">{s.t}</h3>
+          <p class="text-brand-300 text-[14.5px] leading-relaxed">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS + EXTRAS -->
+<section class="py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1.2fr_.8fr] gap-12 lg:gap-16">
+    <div>
+      <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-5">{T.servicesTitle}</h2>
+      <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+        {services[locale].map((s) => (
+          <a href={`${servicesBase}${s.slug[locale]}/`} class="flex items-center gap-3 py-2 border-b border-brand-200 font-bold text-brand-800 hover:text-accent-500 transition-colors">
+            <span class="text-lg shrink-0">{s.ic}</span><span class="text-[15px]">{s.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-2">{T.extrasTitle}</h2>
+      <p class="text-brand-400 text-[14.5px] mb-5 leading-relaxed">{T.extrasLead}</p>
+      <ul class="space-y-2.5">
+        {X.map((x) => (
+          <li class="flex gap-2.5 text-[15px] text-brand-700 font-semibold">
+            <span class="text-accent-500 font-black shrink-0">✓</span>{x}
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-9 border-l-2 border-accent-500 pl-5">
+        <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-2">{T.contactTitle}</h2>
+        <p class="text-sm text-brand-500 leading-relaxed">
+          <b class="text-brand-900">{site.name}</b><br />
+          {site.address.street}<br />
+          {site.address.locality}, Panamá<br />
+          <a href={`tel:${site.phones[0].replace(/\s/g, '')}`} class="hover:text-accent-500 transition-colors">{site.phones[0]}</a> ·
+          <a href={waHref} target="_blank" rel="noopener" class="hover:text-accent-500 transition-colors">{site.phones[1]}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-brand-100 border-t border-brand-200 py-14">
+  <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+    <div>
+      <h2 class="text-3xl lg:text-4xl font-black tracking-tight text-brand-900">{T.ctaTitle}</h2>
+      <p class="text-brand-500 mt-2.5 max-w-xl">{T.ctaText}</p>
+    </div>
+    <div class="flex flex-wrap gap-3 shrink-0">
+      <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">{T.ctaBtn}</a>
+      <a href={waHref} target="_blank" rel="noopener" class="border-2 border-brand-300 text-brand-800 font-extrabold px-6 py-4 hover:border-accent-500 transition-colors">WhatsApp</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { services } from '../../../data/services';
+import { process } from '../../../data/content';
+import { wa } from '../../../data/site';
+
+const list = services.en;
+const steps = process.en;
+const waHref = wa('Hi, I would like a quote from PWE.');
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Panamá Worldwide Express services',
+  itemListElement: list.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.title,
+    url: `https://panamaworldwideexpress.com/en/services/${s.slug.en}/`,
+  })),
+};
+---
+
+<Base
+  title="Moving and freight services in Panama | PWE"
+  description="International, local, and office moving, relocation, packing, pets, vehicles, storage, and freight. Free quote from Panamá Worldwide Express."
+  lang="en"
+  altPaths={{ es: '/es/servicios/', en: '/en/services/' }}
+  jsonld={jsonld}
+>
+  <Header locale="en" />
+
+  <section class="bg-brand-900 text-white">
+    <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
+      <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">Services</span>
+      <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">
+        Everything it takes to move your home, your office, or your freight<span class="text-accent-500">.</span>
+      </h1>
+      <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">
+        Each service can be booked on its own or combined with the others. The assessment is free and the quote arrives within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="py-16 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
+        {list.map((s) => (
+          <a href={`/en/services/${s.slug.en}/`} class="group bg-white p-7 relative hover:bg-brand-50 transition-colors block">
+            <div class="text-xs font-black text-accent-500 tracking-widest">{s.n}</div>
+            <div class="w-11 h-11 bg-brand-900 text-white grid place-items-center text-2xl my-3.5">{s.ic}</div>
+            <h2 class="text-lg font-extrabold text-brand-900 mb-1.5">{s.title}</h2>
+            <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.tagline}</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide">
+              Read more <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
+            </span>
+            <span class="absolute left-0 bottom-0 h-[3px] w-0 bg-accent-500 group-hover:w-full transition-all duration-200"></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="bg-brand-100 border-y border-brand-200 py-16 lg:py-20">
+    <div class="max-w-[1180px] mx-auto px-6">
+      <div class="max-w-[640px] mb-10">
+        <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">How it works</span>
+        <h2 class="text-3xl md:text-[42px] font-black tracking-tight text-brand-900 mt-3">From the first call to the last box</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {steps.map((s) => (
+          <div class="bg-white border border-brand-200 p-6">
+            <div class="w-9 h-9 bg-accent-500 text-white grid place-items-center font-black text-sm">{s.n}</div>
+            <h3 class="font-extrabold text-brand-900 mt-4 mb-1.5">{s.t}</h3>
+            <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-900 text-white py-16">
+    <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-black tracking-tight">Not sure which one you need?</h2>
+        <p class="text-brand-300 mt-2.5 max-w-xl">Tell us what you have to move and we will tell you which service applies. The assessment costs nothing.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="/en/contact/" class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">Get a free quote</a>
+        <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer locale="en" />
+</Base>

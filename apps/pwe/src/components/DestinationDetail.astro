@@ -1,0 +1,148 @@
+---
+/* Cuerpo de la página de un destino. Compartido entre ES y EN. */
+import QuoteForm from './QuoteForm.astro';
+import { destinations, destinationsCopy, type Destination } from '../data/destinations';
+import { wa } from '../data/site';
+
+interface Props {
+  locale: 'es' | 'en';
+  d: Destination;
+}
+const { locale, d } = Astro.props;
+const C = destinationsCopy[locale];
+const base = locale === 'es' ? '/es/destinos/' : '/en/destinations/';
+const home = locale === 'es' ? '/es/' : '/en/';
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+const servicesBase = locale === 'es' ? '/es/servicios/' : '/en/services/';
+const intlSlug = locale === 'es' ? 'mudanzas-internacionales' : 'international-moving';
+const others = destinations.filter((x) => x.slug[locale] !== d.slug[locale]).slice(0, 6);
+const waHref = wa(
+  locale === 'es'
+    ? `Hola, quiero cotizar una mudanza de Panamá a ${d.country.es}.`
+    : `Hi, I would like a quote for a move from Panama to ${d.country.en}.`
+);
+---
+
+<!-- HERO -->
+<section class="bg-brand-900 text-white">
+  <div class="max-w-[1180px] mx-auto px-6 py-14 lg:py-18">
+    <nav class="text-[13px] text-brand-400 font-semibold mb-6" aria-label={locale === 'es' ? 'Migas de pan' : 'Breadcrumb'}>
+      <a href={home} class="hover:text-accent-400 transition-colors">{C.breadHome}</a>
+      <span class="mx-2 opacity-50">/</span>
+      <a href={base} class="hover:text-accent-400 transition-colors">{C.kicker}</a>
+      <span class="mx-2 opacity-50">/</span>
+      <span class="text-brand-300">{d.country[locale]}</span>
+    </nav>
+    <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-end">
+      <div>
+        <div class="text-5xl mb-4">{d.flag}</div>
+        <h1 class="text-4xl lg:text-[50px] font-black leading-[1.05] tracking-tight">
+          {locale === 'es' ? `Mudanza de Panamá a ${d.country.es}` : `Moving from Panama to ${d.country.en}`}
+        </h1>
+      </div>
+      <div class="flex flex-wrap gap-3 lg:justify-end">
+        <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors">
+          {locale === 'es' ? 'Cotizar gratis' : 'Get a free quote'}
+        </a>
+        <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATOS RÁPIDOS -->
+  <div class="bg-accent-500">
+    <div class="max-w-[1180px] mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-6 py-5 text-white">
+      <div>
+        <span class="block text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-80">{C.sea}</span>
+        <b class="text-lg font-black">{d.seaWeeks} {C.weeks}</b>
+      </div>
+      <div>
+        <span class="block text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-80">{C.air}</span>
+        <b class="text-lg font-black">{d.airDays} {C.days}</b>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <span class="block text-[11px] font-extrabold uppercase tracking-[0.14em] opacity-80">{C.gateways}</span>
+        <b class="text-lg font-black">{d.gateways.join(' · ')}</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="py-14 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16">
+    <div>
+      <p class="text-xl text-brand-700 leading-relaxed font-medium">{d.intro[locale]}</p>
+
+      <div class="mt-10 space-y-9">
+        <div class="border-l-2 border-accent-500 pl-6">
+          <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{C.profile}</h2>
+          <p class="text-brand-500 leading-relaxed">{d.profile[locale]}</p>
+        </div>
+        <div class="border-l-2 border-accent-500 pl-6">
+          <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{C.customs}</h2>
+          <p class="text-brand-500 leading-relaxed">{d.customs[locale]}</p>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-brand-900 text-white p-7">
+        <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-3">{C.tip}</h2>
+        <p class="text-brand-200 leading-relaxed text-[15px]">{d.tip[locale]}</p>
+      </div>
+
+      <p class="mt-8 text-[13px] text-brand-400">{C.estimate}</p>
+
+      <a href={`${servicesBase}${intlSlug}/`} class="inline-flex items-center gap-2 mt-8 font-extrabold text-accent-500 uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">
+        {locale === 'es' ? 'Cómo funciona una mudanza internacional' : 'How an international move works'} →
+      </a>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="lg:sticky lg:top-24 self-start space-y-6">
+      <div class="bg-white border border-brand-200 p-6">
+        <h2 class="font-black text-brand-900 text-lg tracking-tight mb-1.5">
+          {locale === 'es' ? `Cotiza tu mudanza a ${d.country.es}` : `Quote your move to ${d.country.en}`}
+        </h2>
+        <p class="text-brand-400 text-[14px] leading-relaxed mb-5">
+          {locale === 'es' ? 'Respuesta en menos de 24 horas. La evaluación no cuesta nada.' : 'A reply within 24 hours. The assessment costs nothing.'}
+        </p>
+        <a href={contact} class="block text-center bg-accent-500 text-white font-extrabold py-3.5 hover:bg-accent-600 transition-colors">
+          {locale === 'es' ? 'Solicitar cotización' : 'Request a quote'}
+        </a>
+      </div>
+
+      <div class="bg-brand-100 border border-brand-200 p-6">
+        <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">{C.all}</h2>
+        <div class="space-y-px">
+          {others.map((o) => (
+            <a href={`${base}${o.slug[locale]}/`} class="flex items-center gap-3 py-2.5 border-b border-brand-200 text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">
+              <span class="text-lg">{o.flag}</span>{o.country[locale]}
+            </a>
+          ))}
+        </div>
+        <a href={base} class="inline-block mt-4 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">
+          {locale === 'es' ? 'Ver todos →' : 'See all →'}
+        </a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="bg-brand-100 border-t border-brand-200 py-16 lg:py-20">
+  <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
+    <div>
+      <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+        {locale === 'es' ? `¿Te mudas a ${d.country.es}?` : `Moving to ${d.country.en}?`}
+      </h2>
+      <p class="mt-4 text-brand-500 leading-relaxed">
+        {locale === 'es'
+          ? 'Cuéntanos qué tienes que mover y para cuándo. Te cotizamos en menos de 24 horas.'
+          : 'Tell us what you need to move and when. We will quote it within 24 hours.'}
+      </p>
+    </div>
+    <div class="bg-white border border-brand-200 p-6 sm:p-9">
+      <QuoteForm locale={locale} />
+    </div>
+  </div>
+</section>
