@@ -73,18 +73,60 @@ const err = (m) => log(`  ${c.no}FALLO${c.x} ${m}`);
    Preguntar es mejor que usar variables de entorno: no quedan en el historial
    del shell y no hay marcadores de ejemplo que copiar por error. */
 async function preguntar(texto, oculto = false) {
-  const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: true });
-  if (oculto) {
-    rl._writeToOutput = function (s) {
-      // deja pasar el enunciado, oculta lo que se teclea
-      if (s.includes(texto) || s.trim() === '') rl.output.write(s);
-      else rl.output.write('*');
-    };
+  if (!oculto) {
+    const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: true });
+    const r = await rl.question(texto);
+    rl.close();
+    return r.trim();
   }
-  const r = await rl.question(texto);
-  rl.close();
-  if (oculto) log('');
-  return r.trim();
+
+  /* Para ocultar hay que leer en modo raw y pintar los asteriscos a mano.
+     Interceptar readline no basta: al PEGAR, la terminal hace eco del texto
+     antes de que el filtro llegue a verlo, y la clave termina impresa en
+     pantalla. En modo raw ese eco no ocurre.
+     El chunk se recorre carácter a carácter porque un pegado llega entero,
+     con su salto de línea incluido, en un solo evento. */
+  /* Sin terminal real (entrada canalizada, CI) no se puede desactivar el eco.
+     Mejor avisar que dejar creer que la clave va oculta cuando no lo va. */
+  if (!process.stdin.isTTY) {
+    err('Sin terminal interactiva no se puede ocultar lo que escribes.');
+    log('  Ejecuta el script directamente en tu terminal, sin canalizar la entrada,');
+    log('  o pasa la clave por la variable de entorno SMTP_PASSWORD.\n');
+    process.exit(1);
+  }
+
+  return new Promise((resolve) => {
+    const stdin = process.stdin;
+    const eraRaw = stdin.isRaw;
+    process.stdout.write(texto);
+    if (stdin.isTTY) stdin.setRawMode(true);
+    stdin.resume();
+    stdin.setEncoding('utf8');
+
+    let valor = '';
+    const terminar = () => {
+      if (stdin.isTTY) stdin.setRawMode(eraRaw);
+      stdin.pause();
+      stdin.removeListener('data', onData);
+      process.stdout.write('\n');
+      resolve(valor.trim());
+    };
+
+    const onData = (chunk) => {
+      for (const ch of chunk) {
+        if (ch === '\r' || ch === '\n' || ch === '\u0004') return terminar();
+        if (ch === '\u0003') { process.stdout.write('\n'); process.exit(1); }   // Ctrl+C
+        if (ch === '\u007f' || ch === '\b') {                                   // borrar
+          if (valor.length) { valor = valor.slice(0, -1); process.stdout.write('\b \b'); }
+          continue;
+        }
+        if (ch < ' ') continue;                                                 // ignora control
+        valor += ch;
+        process.stdout.write('*');
+      }
+    };
+    stdin.on('data', onData);
+  });
 }
 
 /* Detecta que se pegó el texto de ejemplo en vez del valor real: corchetes,
@@ -107,6 +149,16 @@ async function obtener(nombre, valorEnv, enunciado, oculto = false) {
 
 log(`\n${c.b}Configuración de los flujos de lead en n8n${c.x}`);
 log(`${c.dim}Lo que escribas aquí no se guarda en ningún archivo ni queda en el historial.${c.x}`);
+
+/* Este script es interactivo. Con la entrada canalizada, readline se traga todo
+   el buffer en la primera pregunta y además no se puede desactivar el eco, así
+   que la clave acabaría impresa. Se corta antes de que eso pase. */
+if (!process.stdin.isTTY && !(N8N_API_KEY && (CRED_ID_ARG || (SMTP_USER && SMTP_PASSWORD)))) {
+  err('Hace falta una terminal interactiva para pedir los datos.');
+  log('\n  Ejecútalo directamente en tu terminal, sin canalizar la entrada.');
+  log('  Para uso automatizado, define N8N_API_KEY, SMTP_USER y SMTP_PASSWORD\n');
+  process.exit(1);
+}
 
 const API_KEY = await obtener(
   'N8N_API_KEY',
@@ -216,7 +268,6 @@ if (credId) {
           port: PUERTO,
           /* 587 usa STARTTLS, no SSL directo. 465 sí es SSL. */
           secure: PUERTO === 465,
-          secure: false,
           disableStartTls: false,
         },
       }),
