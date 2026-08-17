@@ -167,7 +167,9 @@ const optCls =
 
   <div id="form-success" class="hidden text-center py-16">
     <div class="w-16 h-16 bg-brand-900 text-white grid place-items-center text-2xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
-    <h4 class="text-3xl font-black text-brand-900 mb-3 tracking-tight">{T.okTitle}</h4>
+    <!-- h3 y no h4: el formulario va bajo un h2, y saltar un nivel rompe la
+         jerarquía de encabezados que leen los lectores de pantalla y Google. -->
+    <h3 class="text-3xl font-black text-brand-900 mb-3 tracking-tight">{T.okTitle}</h3>
     <p class="text-brand-500 mb-8 max-w-md mx-auto">{T.okText}</p>
     <button id="reset-form-btn" class="text-accent-500 font-extrabold uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">{T.another}</button>
   </div>
