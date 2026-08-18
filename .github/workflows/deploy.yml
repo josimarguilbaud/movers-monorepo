@@ -1,0 +1,104 @@
+# Publica en Netcup las dos webs del monorepo cuando se sube algo a `main`.
+#
+# Por que existe: el panel de Coolify de Netcup esta cerrado a internet a
+# proposito, asi que GitHub no puede llamarle a un webhook. Sin esto un push se
+# queda en GitHub sin llegar al servidor, y no falla nada visible.
+#
+# Lo particular de este repo: dentro viven DOS webs en produccion, PIM y PWE.
+# Cada una se despliega solo si cambio su carpeta, para no reconstruir la otra
+# sin motivo. Pero un cambio en `packages/` las toca a las dos —comparten el
+# i18n y los tipos—, y ahi si se reconstruyen ambas: publicar solo una dejaria
+# las dos versiones descuadradas sin que nada avisara.
+#
+# Seguridad: la llave NO es la de administracion. Esta atada en el servidor a un
+# unico comando (`/usr/local/bin/coolify-deploy`) con `restrict`. No da shell,
+# no lee ficheros y no llega a Hetzner. El token de Coolify vive en el servidor.
+name: Desplegar en Netcup
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-movers
+  cancel-in-progress: false
+
+env:
+  NETCUP_HOST: 159.195.234.239
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - app: pim
+            uuid: quyescslrfkuaacuk3oahubg
+            dominio: panamainternationalmovers.com
+            ruta: /es/
+          - app: pwe
+            uuid: crou4amgfszxan3bakpbaxhu
+            dominio: panamaworldwideexpress.com
+            ruta: /
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ¿Cambio esta web?
+        id: filtro
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "toca=si" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          BASE="${{ github.event.before }}"
+          # Primer push de una rama nueva: `before` viene en ceros y no hay diff.
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            echo "toca=si" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          CAMBIOS=$(git diff --name-only "$BASE" "${{ github.sha }}" || true)
+          # `packages/` es compartido: si cambia, las dos se reconstruyen.
+          # Los ficheros de raiz (lockfile, workspace, tsconfig) tambien afectan
+          # al build de ambas.
+          if echo "$CAMBIOS" | grep -qE "^(packages/|pnpm-lock\.yaml|pnpm-workspace\.yaml|package\.json|tsconfig\.base\.json)" \
+             || echo "$CAMBIOS" | grep -q "^apps/${{ matrix.app }}/"; then
+            echo "toca=si" >> "$GITHUB_OUTPUT"
+          else
+            echo "toca=no" >> "$GITHUB_OUTPUT"
+            echo "Sin cambios en apps/${{ matrix.app }}/ ni en lo compartido — no se despliega."
+          fi
+
+      - name: Preparar la llave
+        if: steps.filtro.outputs.toca == 'si'
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.NETCUP_DEPLOY_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "$NETCUP_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Desplegar y esperar el resultado
+        if: steps.filtro.outputs.toca == 'si'
+        run: |
+          set -euo pipefail
+          ssh -T -i ~/.ssh/id_deploy -o BatchMode=yes -o ConnectTimeout=20 \
+            "root@${NETCUP_HOST}" "${{ matrix.uuid }}"
+
+      - name: Comprobar que la web responde
+        if: steps.filtro.outputs.toca == 'si'
+        run: |
+          set -euo pipefail
+          # PIM redirige / a /es/, asi que cada una se comprueba en su ruta real.
+          # Traefik tarda unos segundos en registrar el contenedor nuevo.
+          URL="https://${{ matrix.dominio }}${{ matrix.ruta }}"
+          for i in $(seq 1 12); do
+            COD=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$URL" || echo 000)
+            echo "[$i] $URL -> $COD"
+            [ "$COD" = "200" ] && exit 0
+            sleep 5
+          done
+          echo "La web sigue sin responder 200 un minuto despues de desplegar." >&2
+          exit 1
