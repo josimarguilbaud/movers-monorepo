@@ -36,15 +36,15 @@ const waHref = wa(
     <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-end">
       <div>
         <div class="text-5xl mb-4">{d.flag}</div>
-        <h1 class="text-4xl lg:text-[50px] font-black leading-[1.05] tracking-tight">
+        <h1 class="text-4xl lg:text-[50px] font-extrabold leading-[1.08] tracking-tight">
           {locale === 'es' ? `Mudanza de Panamá a ${d.country.es}` : `Moving from Panama to ${d.country.en}`}
         </h1>
       </div>
       <div class="flex flex-wrap gap-3 lg:justify-end">
-        <a href={contact} class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors">
+        <a href={contact} class="bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-3.5 rounded-xl transition-colors">
           {locale === 'es' ? 'Cotizar gratis' : 'Get a free quote'}
         </a>
-        <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">WhatsApp</a>
+        <a href={waHref} target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/15 border border-white/20 font-bold px-6 py-3.5 rounded-xl transition-colors">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -74,53 +74,53 @@ const waHref = wa(
     <div>
       <p class="text-xl text-brand-700 leading-relaxed font-medium">{d.intro[locale]}</p>
 
-      <div class="mt-10 space-y-9">
-        <div class="border-l-2 border-accent-500 pl-6">
-          <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{C.profile}</h2>
+      <div class="mt-10 space-y-6">
+        <div class="bg-brand-50 rounded-2xl p-6">
+          <h2 class="text-xl lg:text-2xl font-extrabold text-brand-900 tracking-tight mb-2.5">{C.profile}</h2>
           <p class="text-brand-500 leading-relaxed">{d.profile[locale]}</p>
         </div>
-        <div class="border-l-2 border-accent-500 pl-6">
-          <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{C.customs}</h2>
+        <div class="bg-brand-50 rounded-2xl p-6">
+          <h2 class="text-xl lg:text-2xl font-extrabold text-brand-900 tracking-tight mb-2.5">{C.customs}</h2>
           <p class="text-brand-500 leading-relaxed">{d.customs[locale]}</p>
         </div>
       </div>
 
-      <div class="mt-10 bg-brand-900 text-white p-7">
-        <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-3">{C.tip}</h2>
+      <div class="mt-6 bg-brand-900 text-white rounded-2xl p-7">
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-500 mb-3">{C.tip}</h2>
         <p class="text-brand-200 leading-relaxed text-[15px]">{d.tip[locale]}</p>
       </div>
 
       <p class="mt-8 text-[13px] text-brand-400">{C.estimate}</p>
 
-      <a href={`${servicesBase}${intlSlug}/`} class="inline-flex items-center gap-2 mt-8 font-extrabold text-accent-500 uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">
+      <a href={`${servicesBase}${intlSlug}/`} class="inline-flex items-center gap-2 mt-8 font-bold text-accent-500 uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">
         {locale === 'es' ? 'Cómo funciona una mudanza internacional' : 'How an international move works'} →
       </a>
     </div>
 
     <!-- SIDEBAR -->
     <aside class="lg:sticky lg:top-24 self-start space-y-6">
-      <div class="bg-white border border-brand-200 p-6">
-        <h2 class="font-black text-brand-900 text-lg tracking-tight mb-1.5">
+      <div class="bg-white rounded-2xl shadow-card p-6">
+        <h2 class="font-extrabold text-brand-900 text-lg tracking-tight mb-1.5">
           {locale === 'es' ? `Cotiza tu mudanza a ${d.country.es}` : `Quote your move to ${d.country.en}`}
         </h2>
         <p class="text-brand-400 text-[14px] leading-relaxed mb-5">
           {locale === 'es' ? 'Respuesta en menos de 24 horas. La evaluación no cuesta nada.' : 'A reply within 24 hours. The assessment costs nothing.'}
         </p>
-        <a href={contact} class="block text-center bg-accent-500 text-white font-extrabold py-3.5 hover:bg-accent-600 transition-colors">
+        <a href={contact} class="block text-center bg-accent-500 hover:bg-accent-600 text-white font-bold py-3.5 rounded-xl transition-colors">
           {locale === 'es' ? 'Solicitar cotización' : 'Request a quote'}
         </a>
       </div>
 
-      <div class="bg-brand-100 border border-brand-200 p-6">
-        <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">{C.all}</h2>
-        <div class="space-y-px">
+      <div class="bg-brand-50 rounded-2xl p-6">
+        <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-500 mb-4">{C.all}</h2>
+        <div class="space-y-1">
           {others.map((o) => (
-            <a href={`${base}${o.slug[locale]}/`} class="flex items-center gap-3 py-2.5 border-b border-brand-200 text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">
+            <a href={`${base}${o.slug[locale]}/`} class="flex items-center gap-3 py-2.5 px-2 rounded-lg text-sm font-bold text-brand-700 hover:bg-white hover:text-accent-500 transition-colors">
               <span class="text-lg">{o.flag}</span>{o.country[locale]}
             </a>
           ))}
         </div>
-        <a href={base} class="inline-block mt-4 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">
+        <a href={base} class="inline-block mt-4 text-[13px] font-bold text-accent-500 uppercase tracking-wide hover:text-accent-600 transition-colors">
           {locale === 'es' ? 'Ver todos →' : 'See all →'}
         </a>
       </div>
@@ -129,10 +129,10 @@ const waHref = wa(
 </section>
 
 <!-- FORMULARIO -->
-<section class="bg-brand-100 border-t border-brand-200 py-16 lg:py-20">
+<section class="bg-brand-50 py-16 lg:py-20">
   <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
     <div>
-      <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+      <h2 class="text-3xl lg:text-[40px] font-extrabold text-brand-900 leading-[1.1] tracking-tight">
         {locale === 'es' ? `¿Te mudas a ${d.country.es}?` : `Moving to ${d.country.en}?`}
       </h2>
       <p class="mt-4 text-brand-500 leading-relaxed">
@@ -141,7 +141,7 @@ const waHref = wa(
           : 'Tell us what you need to move and when. We will quote it within 24 hours.'}
       </p>
     </div>
-    <div class="bg-white border border-brand-200 p-6 sm:p-9">
+    <div class="bg-white rounded-2xl shadow-card p-6 sm:p-9">
       <QuoteForm locale={locale} />
     </div>
   </div>

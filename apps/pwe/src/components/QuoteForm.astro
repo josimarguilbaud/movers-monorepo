@@ -57,12 +57,13 @@ const T = {
   },
 }[locale];
 
-/* Marca PWE: angular, sin esquinas redondeadas, acento rojo. */
+/* Redisño 2026-08-22: esquinas redondeadas y acento ámbar, en línea con
+   pwe_redesign.html. */
 const inputCls =
-  'w-full px-4 py-3.5 border border-brand-200 bg-white text-brand-900 placeholder:text-brand-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/25 outline-none transition-colors';
-const labelCls = 'block text-[11px] font-extrabold text-brand-500 uppercase tracking-[0.14em] mb-2';
+  'w-full px-4 py-3.5 rounded-xl border border-brand-200 bg-white text-brand-900 placeholder:text-brand-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/25 outline-none transition-colors';
+const labelCls = 'block text-[11px] font-bold text-brand-500 uppercase tracking-[0.14em] mb-2';
 const optCls =
-  'block text-center px-3 py-3 border border-brand-200 bg-white text-brand-600 font-extrabold text-[13px] cursor-pointer peer-checked:bg-brand-900 peer-checked:text-white peer-checked:border-brand-900 hover:border-accent-500 transition-colors';
+  'block text-center px-3 py-3 rounded-xl border border-brand-200 bg-white text-brand-600 font-bold text-[13px] cursor-pointer peer-checked:bg-brand-900 peer-checked:text-white peer-checked:border-brand-900 hover:border-accent-500 transition-colors';
 ---
 
 <div class="quote-form-wrap">
@@ -158,7 +159,7 @@ const optCls =
       <textarea id="pwe-detalles" name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder={T.detailsPh}></textarea>
     </div>
 
-    <button type="submit" id="quote-submit" class="w-full bg-accent-500 text-white font-extrabold py-4 hover:bg-accent-600 transition-colors flex justify-center items-center gap-2.5 mt-1 text-[15px] uppercase tracking-wide disabled:opacity-70">
+    <button type="submit" id="quote-submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 rounded-xl transition-colors flex justify-center items-center gap-2.5 mt-1 text-[15px] uppercase tracking-wide disabled:opacity-70">
       {T.send} <Icon name="fa6-solid:arrow-right" />
     </button>
     <p id="form-error" class="hidden text-sm text-accent-600 text-center font-semibold"></p>
@@ -166,12 +167,12 @@ const optCls =
   </form>
 
   <div id="form-success" class="hidden text-center py-16">
-    <div class="w-16 h-16 bg-brand-900 text-white grid place-items-center text-2xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
+    <div class="w-16 h-16 rounded-2xl bg-brand-900 text-white grid place-items-center text-2xl mx-auto mb-6"><Icon name="fa6-solid:check" /></div>
     <!-- h3 y no h4: el formulario va bajo un h2, y saltar un nivel rompe la
          jerarquía de encabezados que leen los lectores de pantalla y Google. -->
-    <h3 class="text-3xl font-black text-brand-900 mb-3 tracking-tight">{T.okTitle}</h3>
+    <h3 class="text-3xl font-extrabold text-brand-900 mb-3 tracking-tight">{T.okTitle}</h3>
     <p class="text-brand-500 mb-8 max-w-md mx-auto">{T.okText}</p>
-    <button id="reset-form-btn" class="text-accent-500 font-extrabold uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">{T.another}</button>
+    <button id="reset-form-btn" class="text-accent-500 font-bold uppercase text-sm tracking-wide hover:text-accent-600 transition-colors">{T.another}</button>
   </div>
 </div>
 

@@ -67,15 +67,15 @@ const jsonld = [
       <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-end">
         <div>
           <div class="flex items-center gap-3.5 mb-4">
-            <span class="w-12 h-12 bg-accent-500 grid place-items-center text-2xl">{s.ic}</span>
-            <span class="text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500">Service {s.n}</span>
+            <span class="w-12 h-12 rounded-2xl bg-accent-500 grid place-items-center text-2xl shadow-lg shadow-accent-500/20">{s.ic}</span>
+            <span class="text-[11px] font-bold tracking-[0.22em] uppercase text-accent-500">Service {s.n}</span>
           </div>
-          <h1 class="text-4xl lg:text-[50px] font-black leading-[1.05] tracking-tight">{s.h1}</h1>
+          <h1 class="text-4xl lg:text-[50px] font-extrabold leading-[1.08] tracking-tight">{s.h1}</h1>
           <p class="mt-4 text-brand-300 text-lg leading-relaxed max-w-2xl">{s.tagline}</p>
         </div>
         <div class="flex flex-wrap gap-3 lg:justify-end">
-          <a href="/en/contact/" class="bg-accent-500 text-white font-extrabold px-6 py-3.5 hover:bg-accent-600 transition-colors">Get a free quote</a>
-          <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-3.5 hover:bg-white/10 transition-colors">WhatsApp</a>
+          <a href="/en/contact/" class="bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-3.5 rounded-xl transition-colors">Get a free quote</a>
+          <a href={waHref} target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/15 border border-white/20 font-bold px-6 py-3.5 rounded-xl transition-colors">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -87,22 +87,22 @@ const jsonld = [
       <div>
         <p class="text-xl text-brand-700 leading-relaxed font-medium">{s.intro}</p>
 
-        <div class="mt-10 space-y-9">
+        <div class="mt-10 space-y-5">
           {s.sections.map((sec) => (
-            <div class="border-l-2 border-accent-500 pl-6">
-              <h2 class="text-xl lg:text-2xl font-black text-brand-900 tracking-tight mb-2.5">{sec.t}</h2>
+            <div class="bg-brand-50 rounded-2xl p-6">
+              <h2 class="text-xl lg:text-2xl font-extrabold text-brand-900 tracking-tight mb-2.5">{sec.t}</h2>
               <p class="text-brand-500 leading-relaxed">{sec.d}</p>
             </div>
           ))}
         </div>
 
         <!-- WHAT IT INCLUDES -->
-        <div class="mt-12 bg-brand-100 border border-brand-200 p-7">
-          <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">What it includes</h2>
+        <div class="mt-8 bg-brand-900 text-white rounded-2xl p-7">
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-500 mb-4">What it includes</h2>
           <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
             {s.bullets.map((b) => (
-              <li class="flex gap-2.5 text-[15px] font-semibold text-brand-800">
-                <span class="text-accent-500 font-black shrink-0">✓</span>{b}
+              <li class="flex gap-2.5 text-[15px] font-semibold">
+                <span class="w-5 h-5 rounded-full bg-accent-500/20 text-accent-400 flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span>{b}
               </li>
             ))}
           </ul>
@@ -115,10 +115,10 @@ const jsonld = [
 
         <!-- FAQ -->
         <div class="mt-12">
-          <h2 class="text-2xl lg:text-3xl font-black text-brand-900 tracking-tight mb-6">Frequently asked questions</h2>
-          <div class="border-t border-brand-200">
+          <h2 class="text-2xl lg:text-3xl font-extrabold text-brand-900 tracking-tight mb-6">Frequently asked questions</h2>
+          <div class="space-y-3">
             {s.faqs.map((f) => (
-              <details class="group border-b border-brand-200">
+              <details class="group bg-white rounded-2xl shadow-sm open:shadow-card px-6 transition-shadow">
                 <summary class="flex justify-between items-start gap-4 py-5 cursor-pointer list-none font-extrabold text-brand-900">
                   {f.q}
                   <span class="text-accent-500 font-black text-xl shrink-0 group-open:rotate-45 transition-transform">+</span>
@@ -132,40 +132,40 @@ const jsonld = [
 
       <!-- SIDEBAR -->
       <aside class="lg:sticky lg:top-24 self-start space-y-6">
-        <div class="bg-white border border-brand-200 p-6">
-          <h2 class="font-black text-brand-900 text-lg tracking-tight mb-1.5">Quote this service</h2>
+        <div class="bg-white rounded-2xl shadow-card p-6">
+          <h2 class="font-extrabold text-brand-900 text-lg tracking-tight mb-1.5">Quote this service</h2>
           <p class="text-brand-400 text-[14px] leading-relaxed mb-5">A reply within 24 hours. The assessment costs nothing.</p>
-          <a href="/en/contact/" class="block text-center bg-accent-500 text-white font-extrabold py-3.5 hover:bg-accent-600 transition-colors">Request a quote</a>
-          <a href={waHref} target="_blank" rel="noopener" class="block text-center border border-brand-200 text-brand-700 font-extrabold py-3.5 mt-2.5 hover:border-accent-500 transition-colors">Message us on WhatsApp</a>
+          <a href="/en/contact/" class="block text-center bg-accent-500 hover:bg-accent-600 text-white font-bold py-3.5 rounded-xl transition-colors">Request a quote</a>
+          <a href={waHref} target="_blank" rel="noopener" class="block text-center border border-brand-200 text-brand-700 font-bold py-3.5 rounded-xl mt-2.5 hover:border-accent-500 hover:text-accent-500 transition-colors">Message us on WhatsApp</a>
         </div>
 
-        <div class="bg-brand-900 text-white p-6">
-          <h2 class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-accent-500 mb-4">Other services</h2>
-          <div class="space-y-px">
+        <div class="bg-brand-900 text-white rounded-2xl p-6">
+          <h2 class="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-500 mb-4">Other services</h2>
+          <div class="space-y-1">
             {others.map((o) => (
-              <a href={`/en/services/${o.slug.en}/`} class="flex items-center gap-3 py-2.5 border-b border-white/10 text-sm font-bold hover:text-accent-400 transition-colors">
+              <a href={`/en/services/${o.slug.en}/`} class="flex items-center gap-3 py-2.5 px-2 rounded-lg text-sm font-bold hover:bg-white/10 hover:text-accent-400 transition-colors">
                 <span class="text-lg">{o.ic}</span>{o.title}
               </a>
             ))}
           </div>
-          <a href="/en/services/" class="inline-block mt-4 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide hover:text-accent-400 transition-colors">See all →</a>
+          <a href="/en/services/" class="inline-block mt-4 text-[13px] font-bold text-accent-500 uppercase tracking-wide hover:text-accent-400 transition-colors">See all →</a>
         </div>
       </aside>
     </div>
   </section>
 
   <!-- FORM -->
-  <section class="bg-brand-100 border-t border-brand-200 py-16 lg:py-20">
+  <section class="bg-brand-50 py-16 lg:py-20">
     <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
       <div>
-        <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+        <h2 class="text-3xl lg:text-[40px] font-extrabold text-brand-900 leading-[1.1] tracking-tight">
           Request your quote
         </h2>
         <p class="mt-4 text-brand-500 leading-relaxed">
           The more detail you give us, the more accurate it will be. If you would rather talk it through, message us on WhatsApp.
         </p>
       </div>
-      <div class="bg-white border border-brand-200 p-6 sm:p-9">
+      <div class="bg-white rounded-2xl shadow-card p-6 sm:p-9">
         <QuoteForm locale="en" />
       </div>
     </div>

@@ -27,7 +27,7 @@ const L = {
     ],
     verTodos: 'Ver todos los servicios',
     verDestinos: 'Ver todos los destinos',
-    rights: 'Todos los derechos reservados.', madeWith: 'Desarrollado por',
+    rights: 'Todos los derechos reservados.', madeWith: 'Diseñado por',
   },
   en: {
     blurb: 'International, local, and office moving from Panama. Over 25 years moving homes and businesses.',
@@ -40,7 +40,7 @@ const L = {
     ],
     verTodos: 'See all services',
     verDestinos: 'See all destinations',
-    rights: 'All rights reserved.', madeWith: 'Built by',
+    rights: 'All rights reserved.', madeWith: 'Designed by',
   },
 }[locale];
 
@@ -50,17 +50,17 @@ const waHref = wa();
 const linkCls = 'block text-sm py-[5px] hover:text-accent-400 transition-colors';
 ---
 
-<footer class="bg-brand-900 text-brand-400 pt-14 pb-7">
+<footer class="bg-brand-900 text-brand-400 pt-16 pb-7">
   <div class="max-w-[1180px] mx-auto px-6">
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pb-9 border-b border-white/10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
       <div>
-        <a href={base} class="flex items-center gap-3 mb-4">
-          <span class="relative w-10 h-10 bg-white text-brand-900 grid place-items-center font-black text-[15px] overflow-hidden">
-            PWE<span class="absolute -right-1.5 inset-y-0 w-3 bg-accent-500 skew-x-[-16deg]"></span>
+        <a href={base} class="flex items-center gap-3 mb-5">
+          <span class="relative w-11 h-11 rounded-2xl bg-white text-brand-900 grid place-items-center font-black text-[15px] overflow-hidden">
+            PWE<span class="absolute -right-2 inset-y-0 w-3.5 bg-accent-500 skew-x-[-16deg]"></span>
           </span>
           <span class="leading-none">
-            <span class="block font-black text-[16px] text-white tracking-tight">Panamá Worldwide</span>
-            <span class="block text-[9px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mt-[3px]">Express · Logística</span>
+            <span class="block font-extrabold text-[16px] text-white tracking-tight">Panamá Worldwide</span>
+            <span class="block text-[9px] font-bold tracking-[0.22em] uppercase text-accent-500 mt-[3px]">Express · Logística</span>
           </span>
         </a>
         <p class="text-sm max-w-[280px] text-brand-400 leading-relaxed">{L.blurb}</p>
@@ -95,9 +95,9 @@ const linkCls = 'block text-sm py-[5px] hover:text-accent-400 transition-colors'
       </div>
     </div>
 
-    <div class="pt-5 flex flex-wrap justify-between gap-2 text-[13px]">
+    <div class="pt-6 flex flex-wrap justify-between gap-2 text-[13px]">
       <span>&copy; 2026 {site.name} · {L.rights}</span>
-      <span>{L.madeWith} <a href="https://elementoweb.com" target="_blank" rel="noopener" class="text-brand-400 hover:text-accent-400 font-bold">Elemento Web</a></span>
+      <span>{L.madeWith} <a href="https://elementoweb.com" target="_blank" rel="noopener" class="text-brand-400 hover:text-accent-400 font-bold transition-colors">elementoweb.com</a></span>
     </div>
   </div>
 </footer>

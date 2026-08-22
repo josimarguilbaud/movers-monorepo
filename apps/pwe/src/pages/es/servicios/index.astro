@@ -34,8 +34,8 @@ const jsonld = {
 
   <section class="bg-brand-900 text-white">
     <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
-      <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">Servicios</span>
-      <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">
+      <span class="inline-flex px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold tracking-[0.22em] uppercase text-accent-400 mb-5">Servicios</span>
+      <h1 class="text-4xl lg:text-[54px] font-extrabold leading-[1.06] tracking-tight max-w-3xl">
         Todo lo que hace falta para mover tu casa, tu oficina o tu carga<span class="text-accent-500">.</span>
       </h1>
       <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">
@@ -47,17 +47,17 @@ const jsonld = {
   <!-- GRID DE SERVICIOS -->
   <section class="py-16 lg:py-20">
     <div class="max-w-[1180px] mx-auto px-6">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-200 border border-brand-200">
-        {list.map((s) => (
-          <a href={`/es/servicios/${s.slug.es}/`} class="group bg-white p-7 relative hover:bg-brand-50 transition-colors block">
-            <div class="text-xs font-black text-accent-500 tracking-widest">{s.n}</div>
-            <div class="w-11 h-11 bg-brand-900 text-white grid place-items-center text-2xl my-3.5">{s.ic}</div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {list.map((s, i) => (
+          <a href={`/es/servicios/${s.slug.es}/`} class={`group bg-white rounded-2xl shadow-card hover:-translate-y-1.5 transition-all duration-300 p-7 relative overflow-hidden block ${i === list.length - 1 ? 'sm:col-span-2 lg:col-span-1' : ''}`}>
+            <div class="text-xs font-bold text-accent-500 tracking-widest mb-2">{s.n}</div>
+            <div class="w-13 h-13 rounded-xl bg-brand-50 text-brand-900 grid place-items-center text-2xl mb-4 group-hover:bg-accent-500 group-hover:text-white transition-colors">{s.ic}</div>
             <h2 class="text-lg font-extrabold text-brand-900 mb-1.5">{s.title}</h2>
             <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.tagline}</p>
-            <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-extrabold text-accent-500 uppercase tracking-wide">
+            <span class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-accent-500 uppercase tracking-wide">
               Ver detalle <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
             </span>
-            <span class="absolute left-0 bottom-0 h-[3px] w-0 bg-accent-500 group-hover:w-full transition-all duration-200"></span>
+            <span class="absolute left-0 bottom-0 h-1 w-0 bg-accent-500 group-hover:w-full transition-all duration-300 rounded-full"></span>
           </a>
         ))}
       </div>
@@ -65,16 +65,16 @@ const jsonld = {
   </section>
 
   <!-- PROCESO -->
-  <section class="bg-brand-100 border-y border-brand-200 py-16 lg:py-20">
+  <section class="bg-brand-50 py-16 lg:py-20">
     <div class="max-w-[1180px] mx-auto px-6">
       <div class="max-w-[640px] mb-10">
-        <span class="inline-flex items-center gap-2 text-xs font-extrabold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Cómo funciona</span>
-        <h2 class="text-3xl md:text-[42px] font-black tracking-tight text-brand-900 mt-3">De la primera llamada a la última caja</h2>
+        <span class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.16em] uppercase text-accent-500 before:content-[''] before:w-6 before:h-0.5 before:bg-accent-500">Cómo funciona</span>
+        <h2 class="text-3xl md:text-[42px] font-extrabold tracking-tight text-brand-900 mt-3">De la primera llamada a la última caja</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {steps.map((s) => (
-          <div class="bg-white border border-brand-200 p-6">
-            <div class="w-9 h-9 bg-accent-500 text-white grid place-items-center font-black text-sm">{s.n}</div>
+          <div class="bg-white rounded-2xl shadow-card p-6">
+            <div class="w-9 h-9 rounded-full bg-accent-500 text-white grid place-items-center font-bold text-sm">{s.n}</div>
             <h3 class="font-extrabold text-brand-900 mt-4 mb-1.5">{s.t}</h3>
             <p class="text-brand-400 text-[14.5px] leading-relaxed">{s.d}</p>
           </div>
@@ -87,12 +87,12 @@ const jsonld = {
   <section class="bg-brand-900 text-white py-16">
     <div class="max-w-[1180px] mx-auto px-6 flex flex-col lg:flex-row lg:items-center gap-8 justify-between">
       <div>
-        <h2 class="text-3xl lg:text-4xl font-black tracking-tight">¿No sabes cuál necesitas?</h2>
+        <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight">¿No sabes cuál necesitas?</h2>
         <p class="text-brand-300 mt-2.5 max-w-xl">Cuéntanos qué tienes que mover y nosotros te decimos qué servicio aplica. La evaluación no cuesta nada.</p>
       </div>
-      <div class="flex flex-wrap gap-3 shrink-0">
-        <a href="/es/contacto/" class="bg-accent-500 text-white font-extrabold px-6 py-4 hover:bg-accent-600 transition-colors">Cotizar gratis</a>
-        <a href={waHref} target="_blank" rel="noopener" class="border-2 border-white/25 font-extrabold px-6 py-4 hover:bg-white/10 transition-colors">WhatsApp</a>
+      <div class="flex flex-wrap gap-3.5 shrink-0">
+        <a href="/es/contacto/" class="bg-accent-500 hover:bg-accent-600 text-white font-bold px-6 py-4 rounded-xl transition-colors">Cotizar gratis</a>
+        <a href={waHref} target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/15 border border-white/20 font-bold px-6 py-4 rounded-xl transition-colors">WhatsApp</a>
       </div>
     </div>
   </section>

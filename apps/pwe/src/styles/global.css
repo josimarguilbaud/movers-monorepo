@@ -1,25 +1,32 @@
 @import "tailwindcss";
 
-/* ===== Tokens de marca PWE (grafito + rojo) — Tailwind v4 @theme =====
-   Distinta a propósito de PIM (navy + dorado): más enérgica y operativa. */
+/* ===== Tokens de marca PWE (navy + ámbar) — Tailwind v4 @theme =====
+   Redisño 2026-08-22: reemplaza la paleta grafito + rojo por la dirección
+   visual aprobada por el cliente (ver pwe_redesign.html de Elemento Web).
+   Los nombres de token (brand- y accent-) se mantienen para que todos los
+   componentes existentes se retematicen sin tocar sus clases. */
 @theme {
-  --color-brand-50: #f6f6f5;
-  --color-brand-100: #e9e9e7;
-  --color-brand-200: #d4d4d0;
-  --color-brand-300: #adadaa;
-  --color-brand-400: #7d7f83;
-  --color-brand-500: #565a61;
-  --color-brand-600: #3f444c;
-  --color-brand-700: #2f343c;
-  --color-brand-800: #22262d;
-  --color-brand-900: #14181f;
-  --color-brand-950: #0c0f14;
+  --color-brand-50: #f7fafc;
+  --color-brand-100: #eef2f6;
+  --color-brand-200: #dce3ea;
+  --color-brand-300: #b7c2ce;
+  --color-brand-400: #8a97a6;
+  --color-brand-500: #425466;
+  --color-brand-600: #2e3f52;
+  --color-brand-700: #1d2e40;
+  --color-brand-800: #14233a;
+  --color-brand-900: #0a2540;
+  --color-brand-950: #071a2e;
 
-  --color-accent-400: #f43f52;
-  --color-accent-500: #e11d2e;
-  --color-accent-600: #b5121f;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
 
-  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Sombras propias del redisño: tarjetas suaves y header en glassmorphism. */
+  --shadow-card: 0 10px 25px -5px rgba(10, 37, 64, 0.08), 0 8px 10px -6px rgba(10, 37, 64, 0.03);
+  --shadow-glass: 0 8px 32px 0 rgba(10, 37, 64, 0.07);
 }
 
 @layer base {
@@ -33,10 +40,15 @@
   }
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-brand-50);
-    color: var(--color-brand-700);
+    background-color: white;
+    color: var(--color-brand-500);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection { background: var(--color-accent-500); color: #fff; }
+}
+
+@layer utilities {
+  /* Header sticky en vidrio esmerilado, como en el mockup. */
+  .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 }

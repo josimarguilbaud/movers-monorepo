@@ -30,25 +30,25 @@ const other = locale === 'es' ? { href: '/en/', label: 'EN' } : { href: '/es/', 
 const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar con PWE.' : 'Hi, I would like a quote from PWE.');
 ---
 
-<header id="navbar" class="sticky top-0 z-40 bg-brand-50/85 backdrop-blur border-b border-brand-200">
-  <div class="max-w-[1180px] mx-auto px-6 flex items-center justify-between h-[74px]">
+<header id="navbar" class="sticky top-0 z-40 glass shadow-glass border-b border-white/40">
+  <div class="max-w-[1180px] mx-auto px-6 flex items-center justify-between h-[78px]">
     <a href={base} class="flex items-center gap-3 shrink-0">
-      <span class="relative w-10 h-10 bg-brand-900 text-white grid place-items-center font-black text-[15px] overflow-hidden">
-        PWE<span class="absolute -right-1.5 inset-y-0 w-3 bg-accent-500 skew-x-[-16deg]"></span>
+      <span class="relative w-11 h-11 rounded-2xl bg-brand-900 text-white grid place-items-center font-black text-[15px] overflow-hidden shadow-card">
+        PWE<span class="absolute -right-2 inset-y-0 w-3.5 bg-accent-500 skew-x-[-16deg]"></span>
       </span>
       <span class="leading-none">
-        <span class="block font-black text-[17px] text-brand-900 tracking-tight">Panamá Worldwide</span>
-        <span class="block text-[9.5px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mt-[3px]">Express · Logística</span>
+        <span class="block font-extrabold text-[17px] text-brand-900 tracking-tight">Panamá Worldwide</span>
+        <span class="block text-[9.5px] font-bold tracking-[0.22em] uppercase text-accent-500 mt-[3px]">Express · Logística</span>
       </span>
     </a>
 
     <nav class="hidden lg:flex items-center gap-7">
-      <a href={`${base}${seg.servicios}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.servicios}</a>
-      <a href={`${base}${seg.destinos}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.destinos}</a>
-      <a href={`${base}${seg.nosotros}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.empresa}</a>
-      <a href={`${base}${seg.recursos}/`} class="text-sm font-bold text-brand-700 hover:text-accent-500 transition-colors">{L.recursos}</a>
-      <a href={other.href} class="text-xs font-extrabold border border-brand-200 px-2.5 py-[5px] rounded-sm text-brand-700 hover:border-accent-500">{other.label}</a>
-      <a href={`${base}${seg.contacto}/`} class="bg-accent-500 text-white font-extrabold text-sm px-5 py-3 hover:bg-accent-600 transition-colors">{L.cotizar}</a>
+      <a href={`${base}${seg.servicios}/`} class="text-sm font-semibold text-brand-700 hover:text-accent-500 transition-colors">{L.servicios}</a>
+      <a href={`${base}${seg.destinos}/`} class="text-sm font-semibold text-brand-700 hover:text-accent-500 transition-colors">{L.destinos}</a>
+      <a href={`${base}${seg.nosotros}/`} class="text-sm font-semibold text-brand-700 hover:text-accent-500 transition-colors">{L.empresa}</a>
+      <a href={`${base}${seg.recursos}/`} class="text-sm font-semibold text-brand-700 hover:text-accent-500 transition-colors">{L.recursos}</a>
+      <a href={other.href} class="text-xs font-bold border border-brand-200 px-3 py-1.5 rounded-full text-brand-700 hover:border-accent-500 hover:text-accent-500 transition-colors">{other.label}</a>
+      <a href={`${base}${seg.contacto}/`} class="bg-accent-500 hover:bg-accent-600 text-white font-bold text-sm px-6 py-3 rounded-full transition-all transform hover:-translate-y-0.5 shadow-lg shadow-accent-500/25">{L.cotizar}</a>
     </nav>
 
     <button id="pwe-menu-btn" class="lg:hidden text-brand-900 p-2" aria-label="Menú" aria-expanded="false">
@@ -60,15 +60,15 @@ const waHref = wa(locale === 'es' ? 'Hola, quiero cotizar con PWE.' : 'Hi, I wou
   <div id="pwe-menu" class="lg:hidden fixed inset-0 z-50 bg-brand-900 text-white translate-x-full transition-transform duration-300 flex flex-col pt-8 px-7 pb-8 overflow-y-auto">
     <button id="pwe-menu-close" class="absolute top-6 right-5 text-white p-2" aria-label="Cerrar"><Icon name="fa6-solid:xmark" class="text-3xl" /></button>
     <div class="flex flex-col gap-1 mt-12 text-center">
-      <a href={`${base}${seg.servicios}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.servicios}</a>
-      <a href={`${base}${seg.destinos}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.destinos}</a>
-      <a href={`${base}${seg.nosotros}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.empresa}</a>
-      <a href={`${base}${seg.recursos}/`} class="pwe-mlink text-xl font-extrabold py-3 hover:text-accent-400">{L.recursos}</a>
-      <a href={other.href} class="text-xl font-extrabold py-3 text-accent-400">{other.label}</a>
+      <a href={`${base}${seg.servicios}/`} class="pwe-mlink text-xl font-bold py-3 hover:text-accent-400">{L.servicios}</a>
+      <a href={`${base}${seg.destinos}/`} class="pwe-mlink text-xl font-bold py-3 hover:text-accent-400">{L.destinos}</a>
+      <a href={`${base}${seg.nosotros}/`} class="pwe-mlink text-xl font-bold py-3 hover:text-accent-400">{L.empresa}</a>
+      <a href={`${base}${seg.recursos}/`} class="pwe-mlink text-xl font-bold py-3 hover:text-accent-400">{L.recursos}</a>
+      <a href={other.href} class="text-xl font-bold py-3 text-accent-400">{other.label}</a>
     </div>
     <div class="mt-auto flex flex-col gap-3 pt-8">
-      <a href={waHref} target="_blank" rel="noopener" class="w-full bg-green-500 text-white py-4 font-extrabold text-center flex justify-center items-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-xl" /> WhatsApp</a>
-      <a href={`${base}${seg.contacto}/`} class="pwe-mlink w-full bg-accent-500 text-white py-4 font-extrabold text-center">{L.cotizar}</a>
+      <a href={waHref} target="_blank" rel="noopener" class="w-full bg-green-500 text-white py-4 rounded-full font-bold text-center flex justify-center items-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-xl" /> WhatsApp</a>
+      <a href={`${base}${seg.contacto}/`} class="pwe-mlink w-full bg-accent-500 text-white py-4 rounded-full font-bold text-center">{L.cotizar}</a>
     </div>
   </div>
 </header>

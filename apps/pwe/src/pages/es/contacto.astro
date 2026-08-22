@@ -25,8 +25,8 @@ const channels = [
   <!-- HERO -->
   <section class="bg-brand-900 text-white">
     <div class="max-w-[1180px] mx-auto px-6 py-16 lg:py-20">
-      <span class="inline-block text-[11px] font-extrabold tracking-[0.22em] uppercase text-accent-500 mb-4">Contacto</span>
-      <h1 class="text-4xl lg:text-[54px] font-black leading-[1.03] tracking-tight max-w-3xl">
+      <span class="inline-flex px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] font-bold tracking-[0.22em] uppercase text-accent-400 mb-5">Contacto</span>
+      <h1 class="text-4xl lg:text-[54px] font-extrabold leading-[1.06] tracking-tight max-w-3xl">
         Cuéntanos qué necesitas mover<span class="text-accent-500">.</span>
       </h1>
       <p class="mt-5 text-brand-300 text-lg max-w-2xl leading-relaxed">
@@ -36,19 +36,19 @@ const channels = [
   </section>
 
   <!-- CANALES -->
-  <section class="bg-brand-100 border-b border-brand-200">
-    <div class="max-w-[1180px] mx-auto px-6 grid md:grid-cols-3">
+  <section class="bg-brand-50">
+    <div class="max-w-[1180px] mx-auto px-6 grid md:grid-cols-3 gap-4 py-10">
       {channels.map((c, i) => (
         <a
           href={c.href}
           target={c.href.startsWith('http') ? '_blank' : undefined}
           rel={c.href.startsWith('http') ? 'noopener' : undefined}
-          class={`group block py-8 px-6 md:px-8 hover:bg-white transition-colors ${i > 0 ? 'md:border-l border-brand-200' : ''}`}
+          class="group block bg-white rounded-2xl shadow-sm hover:shadow-card p-7 transition-all"
         >
           <span class="text-2xl">{c.ic}</span>
-          <h2 class="mt-3 font-black text-brand-900 text-lg tracking-tight">{c.t}</h2>
+          <h2 class="mt-3 font-extrabold text-brand-900 text-lg tracking-tight">{c.t}</h2>
           <p class="mt-1 text-sm text-brand-500 leading-relaxed">{c.d}</p>
-          <span class="mt-3 inline-block font-extrabold text-accent-500 group-hover:text-accent-600 transition-colors">{c.v}</span>
+          <span class="mt-3 inline-block font-bold text-accent-500 group-hover:text-accent-600 transition-colors">{c.v}</span>
         </a>
       ))}
     </div>
@@ -58,7 +58,7 @@ const channels = [
   <section class="py-16 lg:py-24">
     <div class="max-w-[1180px] mx-auto px-6 grid lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16">
       <div>
-        <h2 class="text-3xl lg:text-[40px] font-black text-brand-900 leading-[1.08] tracking-tight">
+        <h2 class="text-3xl lg:text-[40px] font-extrabold text-brand-900 leading-[1.1] tracking-tight">
           Solicita tu cotización
         </h2>
         <p class="mt-4 text-brand-500 leading-relaxed">
@@ -71,7 +71,7 @@ const channels = [
           <li class="flex gap-3"><span class="text-accent-500 font-black">03</span><span class="text-brand-600">Te contactamos con la cotización en menos de 24 horas.</span></li>
         </ul>
 
-        <div class="mt-10 border-l-2 border-accent-500 pl-5">
+        <div class="mt-10 bg-brand-50 rounded-2xl p-5">
           <p class="text-sm text-brand-500 leading-relaxed">
             <b class="text-brand-900">{site.name}</b><br />
             {site.address.street}<br />
@@ -80,7 +80,7 @@ const channels = [
         </div>
       </div>
 
-      <div class="bg-white border border-brand-200 p-6 sm:p-9">
+      <div class="bg-white rounded-2xl shadow-card p-6 sm:p-9">
         <QuoteForm locale="es" />
       </div>
     </div>
