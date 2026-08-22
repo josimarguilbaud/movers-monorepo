@@ -41,7 +41,7 @@ jobs:
           - app: pwe
             uuid: crou4amgfszxan3bakpbaxhu
             dominio: panamaworldwideexpress.com
-            ruta: /
+            ruta: /es/
     steps:
       - uses: actions/checkout@v4
         with:
