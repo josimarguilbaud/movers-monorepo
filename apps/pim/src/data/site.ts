@@ -50,16 +50,21 @@ export const contactForm = {
    falte.
 
    Los dos valores salen de /admin/clientes/<id> en WazaCRM, sección
-   "🧩 Formularios de su sitio web". Mientras estén vacíos esto no hace nada: el
-   formulario sigue funcionando igual, solo que el CRM no se entera.
+   "🧩 Formularios de su sitio web", y se ponen como variables de entorno en
+   Coolify (Netcup), en la app de PIM. Mientras falte cualquiera de las dos esto
+   no hace nada: el formulario sigue funcionando igual, solo que el CRM no se
+   entera.
 
-   El `secret` viaja al navegador (es una petición del cliente, no del servidor):
-   no es una contraseña, es la llave de ESTE sitio. El endpoint la valida junto al
-   clientId y tiene límite de envíos por minuto. */
+   Por qué en variables y no aquí escritas: este repositorio es PÚBLICO, y los
+   rastreadores automáticos recogen credenciales de repos públicos. El `secret`
+   igual le llega al navegador —la petición la hace la página, no el servidor,
+   así que es inevitable y por eso no es una contraseña sino la llave de ESTE
+   sitio— pero no hace falta además dejarlo indexado en GitHub. El endpoint la
+   valida junto al clientId y tiene límite de envíos por minuto. */
 export const crmForm = {
   endpoint: 'https://wazacrm.com/api/webhooks/forms',
-  clientId: '', // ← pegar aquí el clientId de PIM
-  secret: '', // ← pegar aquí el secret de PIM
+  clientId: import.meta.env.PUBLIC_WAZACRM_CLIENT_ID ?? '',
+  secret: import.meta.env.PUBLIC_WAZACRM_SECRET ?? '',
   /* Este texto es literalmente lo que el bot le dirá a la persona
      ("ya llenó el formulario …"), así que se escribe como se lee. */
   formName: 'Cotización de mudanza',
