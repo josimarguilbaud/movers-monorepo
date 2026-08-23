@@ -40,3 +40,27 @@ export const contactForm = {
   leadWebhook: 'https://n8n.aiwebstudio.co/webhook/pim-lead',
   toEmail: 'info@panamainternationalmovers.com',
 };
+
+/* El MISMO lead, además, al CRM (WazaCRM). No reemplaza al webhook de n8n: René
+   sigue recibiendo su correo con diseño exactamente igual que hoy.
+
+   Para qué sirve: sin esto, quien cotiza en la web y después escribe por WhatsApp
+   llega como un desconocido y el bot le vuelve a pedir origen, destino y fecha —
+   los que acaba de escribir. Con esto, el bot ya sabe qué puso y solo pide lo que
+   falte.
+
+   Los dos valores salen de /admin/clientes/<id> en WazaCRM, sección
+   "🧩 Formularios de su sitio web". Mientras estén vacíos esto no hace nada: el
+   formulario sigue funcionando igual, solo que el CRM no se entera.
+
+   El `secret` viaja al navegador (es una petición del cliente, no del servidor):
+   no es una contraseña, es la llave de ESTE sitio. El endpoint la valida junto al
+   clientId y tiene límite de envíos por minuto. */
+export const crmForm = {
+  endpoint: 'https://wazacrm.com/api/webhooks/forms',
+  clientId: '', // ← pegar aquí el clientId de PIM
+  secret: '', // ← pegar aquí el secret de PIM
+  /* Este texto es literalmente lo que el bot le dirá a la persona
+     ("ya llenó el formulario …"), así que se escribe como se lee. */
+  formName: 'Cotización de mudanza',
+};

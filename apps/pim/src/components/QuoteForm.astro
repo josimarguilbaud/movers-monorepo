@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { contactForm } from '../data/site';
+import { contactForm, crmForm } from '../data/site';
 
 interface Props {
   locale?: 'es' | 'en';
@@ -63,6 +63,10 @@ const optCls =
   <form
     id="quote-form"
     data-endpoint={contactForm.leadWebhook}
+    data-crm-endpoint={crmForm.clientId && crmForm.secret ? crmForm.endpoint : ''}
+    data-crm-client={crmForm.clientId}
+    data-crm-secret={crmForm.secret}
+    data-crm-form={crmForm.formName}
     data-send={T.send}
     data-err-config={T.errConfig}
     data-err-send={T.errSend}
@@ -179,6 +183,44 @@ const optCls =
 
   const showError = (msg: string) => { if (errorMsg) { errorMsg.textContent = msg; errorMsg.classList.remove('hidden'); } };
 
+  /**
+   * El mismo lead, además, al CRM — para que el bot de WhatsApp reconozca después
+   * a esta persona y NO le vuelva a pedir lo que acaba de escribir aquí.
+   *
+   * Va aparte del envío a n8n y no se espera: si el CRM está caído o mal
+   * configurado, René recibe su correo igual y la persona ve su "solicitud
+   * recibida" igual. Esto nunca puede romper el formulario.
+   *
+   * Los campos se mandan uno por uno a propósito, no volcando el formulario
+   * entero: así el honeypot (`botcheck`) y los campos internos del correo no
+   * terminan como datos del cliente en el CRM.
+   */
+  const avisarAlCrm = (fd: FormData) => {
+    const crmEndpoint = form?.dataset.crmEndpoint || '';
+    if (!crmEndpoint) return; // sin configurar todavía: no se hace nada
+    const v = (k: string) => String(fd.get(k) ?? '').trim();
+    fetch(crmEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        clientId: form?.dataset.crmClient,
+        secret: form?.dataset.crmSecret,
+        formulario: form?.dataset.crmForm,
+        nombre: v('Nombre'),
+        email: v('email'),
+        telefono: v('Teléfono'),
+        mensaje: v('Detalles'),
+        // Lo que el bot necesita para no repetir preguntas. Las claves se leen
+        // tal cual en su ficha, así que van en español y como las diría una persona.
+        'Tipo de mudanza': v('Tipo de Mudanza'),
+        Origen: v('Origen'),
+        Destino: v('Destino'),
+        'Fecha aproximada': v('Fecha aproximada'),
+        Embalaje: v('Servicio de empaque'),
+      }),
+    }).catch(() => { /* el CRM nunca bloquea el formulario */ });
+  };
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     errorMsg?.classList.add('hidden');
@@ -191,7 +233,9 @@ const optCls =
 
     try {
       // urlencoded = "simple request": el navegador no manda preflight CORS.
-      const body = new URLSearchParams(new FormData(form) as any).toString();
+      const datos = new FormData(form);
+      avisarAlCrm(datos);
+      const body = new URLSearchParams(datos as any).toString();
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
