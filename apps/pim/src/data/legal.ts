@@ -22,8 +22,11 @@
      2019 de Protección de Datos Personales, que es la que aplica.
    ========================================================================== */
 
-import type { Locale } from './content';
 import { site } from './site';
+
+/* PIM no tiene un `content.ts` con el tipo compartido (eso es de PWE), así que
+   el locale se declara aquí. */
+type Locale = 'es' | 'en';
 
 export interface LegalSection {
   t: string;
