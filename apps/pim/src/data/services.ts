@@ -220,45 +220,72 @@ export const services: Service[] = [
     ],
     sections: [
       {
-        heading: '¿Cómo se cobra el LCL?',
-        body: [
-          'A diferencia del contenedor exclusivo, el LCL se factura por volumen (metros cúbicos) o por peso, según lo que resulte mayor. Por eso un buen empaque y una estiba eficiente influyen directamente en el costo: cuanto mejor aprovechamos el espacio de sus cajas, menos paga.',
-          'Al compartir contenedor, el tiempo de tránsito puede ser algo mayor que en un FCL, porque la carga espera a completar el grupaje y pasa por procesos de consolidación y desconsolidación en puerto. A cambio, el ahorro para volúmenes pequeños es significativo.',
-        ],
-        image: IMG.packing,
-      },
-      {
-        heading: '¿Para quién es ideal?',
-        body: [
-          'El LCL brilla cuando el volumen no justifica un contenedor entero: un estudiante que se va a cursar el año en el extranjero, una persona que solo lleva su habitación, o quien complementa una mudanza previa con algunas cajas adicionales.',
-          'Si su volumen crece, en algún punto el contenedor exclusivo se vuelve más conveniente por metro cúbico. En la inspección calculamos ambos escenarios y le mostramos cuál le conviene realmente.',
-        ],
-      },
-      {
         heading: 'Cómo funciona la consolidación (grupaje)',
         body: [
-          'En un envío LCL, su carga se agrupa con la de otros clientes dentro de un mismo contenedor en un almacén de consolidación. Cada lote va perfectamente embalado, etiquetado e inventariado, e identificado por cliente, de modo que nunca se confunde con el resto. Al llegar a destino, el contenedor se desconsolida y cada carga sigue su camino hacia su dueño.',
-          'Este proceso de consolidación y desconsolidación es lo que permite el ahorro, pero también explica por qué el LCL suele tardar algo más que un FCL: la carga espera a completar el grupaje y pasa por un paso adicional en cada puerto. Para volúmenes pequeños, ese tiempo extra se compensa con creces en el precio.',
+          'En un envío LCL, su carga se agrupa con la de otros clientes dentro de un mismo contenedor, en un almacén de consolidación. Cada lote va embalado, etiquetado e inventariado e identificado por cliente, de modo que nunca se confunde con el resto. Al llegar a destino, el contenedor se desconsolida —se abre y se separa cada lote— y su carga sigue su camino.',
+          'Ese contenedor no sale porque usted esté listo, sino cuando la consolidación se completa hacia ese destino. Es la lógica de fondo del LCL: usted no alquila un espacio, se suma a uno que ya va en camino. De ahí viene el ahorro, y también las particularidades de plazo que explicamos más abajo.',
         ],
         image: IMG.warehouse,
       },
       {
-        heading: 'Consejos para optimizar un envío compartido',
+        heading: 'Cómo se cobra el LCL: volumen, peso y cargos fijos',
         body: [
-          'Como el LCL se factura por volumen, un buen embalaje se traduce directamente en ahorro: cajas bien armadas, sin espacios muertos y con dimensiones estándar aprovechan mejor el espacio. Desmontar muebles voluminosos también reduce metros cúbicos.',
-          'Nuestro equipo le asesora sobre qué conviene enviar por esta vía y cómo empacar para minimizar el volumen facturable, sin comprometer la protección de sus pertenencias. Es la diferencia entre un envío eficiente y uno que paga espacio de aire.',
+          'A diferencia del contenedor exclusivo, el LCL se factura por volumen (metros cúbicos) o por peso, según lo que resulte mayor. La regla existe porque un contenedor se llena por espacio o por tonelaje, lo que ocurra primero: una caja de libros pesa mucho en poco volumen, un sofá ocupa mucho volumen con poco peso. Por eso un buen empaque influye directamente en el costo.',
+          'Hay un segundo componente que conviene entender desde el principio: los cargos fijos. Manejo en terminal, desconsolidación en destino, documentación y despacho aduanero cuestan prácticamente lo mismo tanto si envía dos metros cúbicos como si envía ocho. En envíos muy pequeños esos cargos pueden pesar más que el flete mismo. Se lo decimos antes, no después.',
+        ],
+        image: IMG.packing,
+      },
+      {
+        heading: 'Tiempos: por qué el grupaje suele tardar más',
+        body: [
+          'El LCL casi siempre tarda más que un contenedor exclusivo, y no por el barco. Tarda más porque hay dos pasos extra: la carga espera en origen a que se complete la consolidación hacia su destino, y en destino debe desconsolidarse antes de que le entreguen su lote. Ninguno de esos dos pasos existe en un FCL, que viaja sellado de puerta a puerta.',
+          'El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de este corredor en su cotización. Si su fecha es rígida —una fecha de inicio de clases, una entrega de vivienda—, dígalo desde el principio: puede cambiar la recomendación.',
+        ],
+      },
+      {
+        heading: 'LCL o FCL: dónde está el punto de quiebre',
+        body: [
+          'Existe un volumen a partir del cual el contenedor exclusivo cuesta menos por metro cúbico que el compartido. Ese punto de quiebre no es fijo: se mueve según la ruta, la temporada y los cargos de destino de cada país. Por eso no le vamos a dar aquí un número mágico que después no se cumpla.',
+          'Lo que sí hacemos es calcular ambos escenarios con su volumen real y su corredor específico, y mostrárselos lado a lado en la cotización. A veces la sorpresa es agradable: hay casos en que un contenedor de 20 pies cuesta casi lo mismo que un LCL abultado, y encima llega antes y se manipula menos.',
+        ],
+      },
+      {
+        heading: '¿Para quién es ideal el contenedor compartido?',
+        body: [
+          'El LCL brilla cuando el volumen no justifica un contenedor entero: un estudiante que se va a cursar el año en el extranjero, una persona que solo lleva su habitación, o quien complementa una mudanza previa con algunas cajas adicionales.',
+          'También es la vía natural para quien se muda ligero por decisión propia —lleva lo personal y compra el mobiliario en destino— y para el envío de complemento: esa caja de libros, herramientas o recuerdos que no cupo la primera vez y que tampoco justifica un flete aéreo.',
+        ],
+      },
+      {
+        heading: 'Cómo empacar para pagar menos',
+        body: [
+          'Como el LCL se factura por volumen, un buen embalaje se traduce directamente en ahorro: cajas bien armadas, sin espacios muertos y con dimensiones estándar aprovechan mejor el espacio. Desmontar muebles voluminosos también reduce metros cúbicos, y a menudo es la partida donde más se recorta.',
+          'La otra mitad del consejo es qué dejar. Muebles de bajo valor y gran volumen, electrodomésticos con voltaje incompatible en destino o cosas que se reponen barato allá suelen costar más de enviar que de reemplazar. Nuestro equipo le asesora sobre qué conviene mandar y cómo empacarlo, sin comprometer la protección. Es la diferencia entre un envío eficiente y uno que paga espacio de aire.',
+        ],
+      },
+      {
+        heading: 'La cotización más barata no siempre es la más económica',
+        body: [
+          'En la búsqueda de una mudanza barata es fácil quedarse con el número más bajo de la lista. El problema es que ese número suele ser solo el flete. Los cargos de destino —desconsolidación, terminal, despacho, transporte final— llegan después, se cobran en la otra punta y son los que descuadran el presupuesto de mucha gente.',
+          'Cuando compare, pida siempre el costo total estimado puerta a puerta y qué queda fuera. Nosotros se lo presentamos así desde la primera propuesta, con los conceptos separados. Preferimos que nuestra cotización parezca más alta al principio y sea la real al final.',
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:coins', title: 'Solo pagas tu espacio', text: 'Facturación por metro cúbico: ideal para volúmenes pequeños.' },
       { icon: 'fa6-solid:graduation-cap', title: 'Perfecto para estudiantes', text: 'La opción más común para quienes se mudan con pocas cajas.' },
-      { icon: 'fa6-solid:list-check', title: 'Carga inventariada', text: 'Cada bulto va etiquetado e inventariado dentro del grupaje.' },
+      { icon: 'fa6-solid:list-check', title: 'Carga inventariada', text: 'Cada bulto va etiquetado e identificado dentro del grupaje.' },
       { icon: 'fa6-solid:earth-americas', title: 'Mismas rutas globales', text: 'Consolidaciones frecuentes hacia los principales destinos.' },
+      { icon: 'fa6-solid:ruler-combined', title: 'Asesoría de empaque', text: 'Le ayudamos a bajar el volumen facturable sin perder protección.' },
+      { icon: 'fa6-solid:receipt', title: 'Costo total a la vista', text: 'Flete y cargos de destino desglosados desde la primera propuesta.' },
     ],
     faqs: [
-      { q: '¿El LCL es más barato que el FCL?', a: 'Para volúmenes pequeños, sí: paga solo por el espacio que ocupa. A medida que el volumen crece, el contenedor exclusivo se vuelve más eficiente por metro cúbico. Le calculamos ambas opciones.' },
-      { q: '¿Mi carga se mezcla con la de otros?', a: 'Comparte contenedor, pero su carga va perfectamente embalada, etiquetada e inventariada, separada e identificada del resto del grupaje.' },
+      { q: '¿El LCL es más barato que el FCL?', a: 'Para volúmenes pequeños, sí: paga solo por el espacio que ocupa. A medida que el volumen crece, el contenedor exclusivo se vuelve más eficiente por metro cúbico, y el punto exacto donde se cruzan depende de la ruta y de los cargos de destino. Le calculamos ambas opciones con su volumen real.' },
+      { q: '¿Mi carga se mezcla con la de otros?', a: 'Comparte contenedor, pero su carga va embalada, etiquetada e inventariada, separada e identificada del resto del grupaje. En el almacén de consolidación cada lote se maneja como una unidad propia, y así se entrega en destino.' },
+      { q: '¿Hay un volumen mínimo para enviar por LCL?', a: 'En la práctica casi siempre existe un mínimo facturable, porque por debajo de cierto tamaño los cargos fijos hacen que el envío deje de tener sentido económico. Si su volumen es muy pequeño, le decimos con franqueza si le conviene más un envío aéreo o un courier internacional.' },
+      { q: '¿Puedo enviar mi auto o mi moto en un contenedor compartido?', a: 'Un vehículo no viaja en un grupaje estándar: requiere su propio esquema, ya sea en contenedor o por sistema Ro-Ro, con documentación y trámite aduanero específicos. Si necesita mover menaje y vehículo, le planteamos la combinación más conveniente.' },
+      { q: '¿La carga compartida se manipula más? ¿Debo asegurarla?', a: 'Sí se manipula más: hay consolidación en origen y desconsolidación en destino, pasos que un FCL no tiene. Por eso el embalaje profesional importa aún más aquí, y por eso recomendamos siempre contratar seguro sobre el valor declarado. Se cotiza aparte y le asesoramos sobre cómo declarar.' },
+      { q: '¿Cuándo conviene el aéreo en lugar del LCL?', a: 'Cuando el volumen es realmente pequeño y la urgencia es alta. En envíos muy reducidos la diferencia de precio entre mar y aire se estrecha, y el aéreo llega en una fracción del tiempo. Le comparamos ambas vías en la misma cotización para que decida con números a la vista.' },
     ],
     related: ['maritimas', 'fcl', 'aereas'],
   },
@@ -341,24 +368,51 @@ export const services: Service[] = [
         heading: '¿Qué incluye el servicio puerta a puerta?',
         body: [
           'El door-to-door abarca la inspección y cotización, el suministro de materiales, el empaque profesional de exportación, el inventario, la carga, el flete internacional (marítimo o aéreo), toda la documentación y aduanas en origen y destino, el transporte de última milla y la entrega con desembalaje básico. Es, literalmente, una mudanza llave en mano.',
-          'Esta modalidad es la preferida por familias y expatriados que valoran su tiempo y tranquilidad, porque elimina la complejidad logística y concentra la responsabilidad en un único proveedor de confianza.',
+          'Conviene precisar qué es el desembalaje básico, porque el término se usa con ligereza en el sector. Abrimos las cajas, ubicamos el mobiliario donde usted indique, montamos lo que desmontamos en origen y retiramos el material sobrante. No incluye ordenar su ropa ni instalar el televisor en la pared: ese acompañamiento existe y se cotiza aparte.',
+          'Es la modalidad preferida por familias y expatriados que valoran su tiempo, porque elimina la complejidad logística y concentra la responsabilidad en un único proveedor.',
         ],
         image: IMG.packing,
       },
       {
-        heading: 'Door-to-Port y Port-to-Port: alternativas para ahorrar',
+        heading: 'Door-to-door, door-to-port y port-to-port: dónde termina la responsabilidad',
         body: [
-          'Si desea reducir el costo y tiene disposición para gestionar parte del proceso, el door-to-port termina nuestra responsabilidad en el puerto de destino, donde usted (o un agente que designe) se encarga de la desaduanización y el transporte final. El port-to-port, por su parte, cubre solo el tramo de puerto a puerto.',
-          'Estas opciones son frecuentes entre clientes con experiencia en importación o que cuentan con apoyo en el país de destino. Nuestro coordinador le explica con transparencia qué trámites asume en cada modalidad para que elija con conocimiento.',
+          'Las tres modalidades se diferencian por un solo criterio: en qué punto deja de responder el transportista y empieza a responder usted. El door-to-door responde hasta la puerta de su nueva casa. El door-to-port llega hasta el puerto de destino, y ahí usted asume el despacho y el transporte final. El port-to-port cubre solo el tramo entre puertos: el empaque en origen y todo el destino corren por su cuenta.',
+          'Ese “por su cuenta” significa contratar un agente de aduanas local, presentar el inventario valorizado en el idioma del país, pagar los impuestos que correspondan, coordinar la desconsolidación de la carga en terminal y conseguir el camión de última milla. Nada de eso es imposible. Pero se hace en un país donde usted acaba de llegar.',
+          'De ahí una advertencia: al comparar cotizaciones, verifique en qué punto termina cada una. Una propuesta notablemente más barata suele cubrir menos trayecto, no tener mejor flete, y la diferencia reaparece como gastos de destino que nadie le anticipó. Nosotros le entregamos las tres modalidades con su alcance escrito.',
         ],
       },
       {
         heading: 'Un solo interlocutor, de principio a fin',
         body: [
           'La mayor ventaja del puerta a puerta no es solo logística: es humana. En lugar de coordinar por su cuenta con la empresa de empaque, la naviera, el agente de aduanas de origen, el de destino y el transportista de última milla —cada uno con sus tiempos y su idioma—, usted tiene un único coordinador personal que responde por toda la cadena.',
-          'Ese coordinador conoce su caso, anticipa los pasos, resuelve los imprevistos y le mantiene informado. Cuando se mueve el hogar de una familia a miles de kilómetros, tener una sola persona de confianza al mando cambia por completo la experiencia.',
+          'La diferencia se nota sobre todo cuando algo se sale del guion, que en una mudanza internacional ocurre más de lo que se admite: una naviera que reprograma la salida, una inspección aleatoria, un feriado local que nadie tenía en el calendario. Con un solo interlocutor usted recibe una llamada con lo que pasó y el plan. Sin él, recibe el silencio de cinco proveedores que se derivan la responsabilidad entre sí.',
         ],
         image: IMG.team,
+      },
+      {
+        heading: 'Cómo avanza una mudanza puerta a puerta',
+        body: [
+          'La primera fase es la inspección. Recorremos su vivienda —presencialmente o por videollamada— y levantamos el volumen real de la carga en metros cúbicos (CBM), la unidad con la que cotiza todo el sector. De ahí salen la vía recomendada, el tipo de contenedor y una cotización cerrada. Es gratuita y no compromete a nada.',
+          'La segunda es el origen. Nuestro equipo empaca con estándar de exportación, elabora el inventario pieza por pieza y estiba la carga: la acomoda e inmoviliza dentro del contenedor para que no se desplace en travesía. Se cierra con precinto numerado, el sello de seguridad que solo se rompe legítimamente en aduana. En paralelo tramitamos la documentación de exportación.',
+          'La tercera es el destino: nuestra red recibe la carga, gestiona el despacho aduanero, coordina la última milla y entrega en su nueva vivienda. El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de este corredor en su cotización.',
+        ],
+      },
+      {
+        heading: 'La aduana de destino: el tramo que más agradece delegar',
+        body: [
+          'De toda la cadena, la aduana es donde un puerta a puerta se paga solo. Cada país tiene su propio régimen de menaje de casa, y el costo de equivocarse se cobra en almacenaje diario mientras la carga espera detenida en terminal.',
+          'El caso panameño lo ilustra. Panamá reconoce una franquicia de menaje de casa de B/.25.000 de valor aduanero, por una sola vez, para el extranjero que compruebe venir a domiciliarse y para el panameño que haya residido en el exterior dos años o más (Artículo 216 del Decreto de Gabinete N.º 41 de 2002). Es un beneficio real, pero exige acreditar la condición y declarar el menaje correctamente. Lo que exceda la franquicia no tiene tasa única: se liquida por partida arancelaria, más ITBMS. Y la ley exige la intervención de un Agente Corredor de Aduana.',
+          'Ese tipo de detalle cambia el resultado de una mudanza y no se improvisa desde otro país. En el puerta a puerta ya está incluido y ya tiene responsable.',
+        ],
+        image: IMG.port,
+      },
+      {
+        heading: 'Lo que el puerta a puerta no puede prometerle',
+        body: [
+          'Un servicio llave en mano cubre toda la cadena, pero no suspende las reglas del comercio internacional. Hay tres cosas que ninguna empresa seria puede garantizarle. La primera es la fecha exacta de entrega: comprometemos un estimado sólido y le avisamos de cualquier cambio, pero la salida de un buque y el ritmo de una aduana no dependen de nosotros.',
+          'La segunda es que su contenedor no sea inspeccionado; las revisiones aleatorias son parte normal del sistema. Lo que sí controlamos es llegar preparados, con inventario que cuadre y documentación en regla: eso convierte una inspección en un trámite de horas y no en un problema de semanas.',
+          'La tercera es que podamos llevarlo todo. Cada país mantiene su lista de artículos prohibidos y restringidos: perecederos, plantas, ciertos líquidos y aerosoles, armas, inflamables. En la inspección revisamos su inventario con esa lista en mano.',
+        ],
       },
       {
         heading: '¿Para quién es ideal el servicio llave en mano?',
@@ -373,10 +427,16 @@ export const services: Service[] = [
       { icon: 'fa6-solid:user-tie', title: 'Un solo interlocutor', text: 'Su coordinador responde por toda la cadena, de principio a fin.' },
       { icon: 'fa6-solid:scale-balanced', title: 'Opciones a su medida', text: 'Door-to-port y port-to-port para ajustar costo y control.' },
       { icon: 'fa6-solid:boxes-packing', title: 'Desembalaje incluido', text: 'Entregamos, desembalamos lo básico y retiramos el material.' },
+      { icon: 'fa6-solid:file-signature', title: 'Aduanas resueltas', text: 'Despacho en origen y destino gestionado por nuestra red.' },
+      { icon: 'fa6-solid:receipt', title: 'Alcance por escrito', text: 'Sabe exactamente dónde termina cada modalidad antes de firmar.' },
     ],
     faqs: [
-      { q: '¿Cuál es la diferencia con port-to-port?', a: 'El puerta a puerta cubre todo, de su casa actual a la nueva. El port-to-port cubre solo el tramo entre puertos: usted gestiona el empaque, la aduana de destino y el transporte final. El door-to-port es un punto intermedio.' },
-      { q: '¿El puerta a puerta es mucho más caro?', a: 'Incluye más servicios, por lo que su precio es mayor que el port-to-port, pero a cambio elimina toda la complejidad y el tiempo que usted invertiría gestionando puertos y aduanas. Para la mayoría de las familias, la tranquilidad compensa.' },
+      { q: '¿Cuál es la diferencia con port-to-port?', a: 'El puerta a puerta cubre todo, de su casa actual a la nueva. El port-to-port cubre solo el tramo entre puertos: usted gestiona el empaque, la aduana de destino y el transporte final. El door-to-port es un punto intermedio: llevamos la carga hasta el puerto de destino y usted asume el despacho y la última milla.' },
+      { q: '¿El puerta a puerta es mucho más caro?', a: 'Incluye más servicios, por lo que su precio es mayor que el port-to-port. Pero buena parte de esa diferencia no desaparece en las otras modalidades: reaparece en destino como agente de aduanas, transporte local y almacenaje que usted paga por separado.' },
+      { q: '¿Tengo que estar presente el día del empaque?', a: 'Es muy recomendable que usted o alguien de su confianza esté al inicio y al cierre. El inventario se levanta pieza por pieza y conviene que lo revise y lo firme. También es el momento de apartar lo que viajará con usted: documentos, medicamentos, joyas y objetos irremplazables.' },
+      { q: '¿Puedo incluir mi vehículo?', a: 'Sí. Puede viajar dentro del mismo contenedor junto con su menaje o por separado, según el volumen y el destino. Requiere documentación y trámite aduanero propios, que también gestionamos, y se lo cotizamos dentro del mismo proyecto.' },
+      { q: '¿Qué pasa si mi nueva vivienda no está lista al llegar la carga?', a: 'Es frecuente y tiene solución: almacenaje temporal en destino hasta que pueda recibir. Avísenos apenas lo sospeche, porque el almacenaje planificado cuesta bastante menos que la carga detenida en terminal generando cargos por demora.' },
+      { q: '¿Cómo sé en qué punto va mi mudanza?', a: 'Su coordinador le informa en cada hito: cierre del inventario, salida del contenedor, llegada a destino, inicio del despacho aduanero y coordinación de la entrega. No tiene que perseguir a nadie para saber dónde está su casa.' },
     ],
     related: ['maritimas', 'fcl', 'aereas'],
   },
@@ -631,44 +691,73 @@ export const services: Service[] = [
     ],
     sections: [
       {
-        heading: 'Requisitos generales',
+        heading: 'Requisitos generales: la lista base',
         body: [
           'La mayoría de los países exige microchip de identificación, vacuna antirrábica vigente (a menudo aplicada con cierta antelación), certificado de salud emitido por un veterinario autorizado y, en algunos casos, títulos de anticuerpos o permisos de importación específicos.',
+          'A eso suelen sumarse tratamientos antiparasitarios internos y externos aplicados dentro de una ventana determinada antes del vuelo, y el endoso oficial del certificado por la autoridad sanitaria del país de origen. Ese endoso es un trámite aparte, con su propio horario y su propia oficina, y es donde más gente descubre tarde que le falta un papel.',
           'Cada destino tiene su propia lista; nuestro equipo la revisa contra el corredor exacto de su mudanza para que no falte ningún documento.',
         ],
         image: IMG.packing,
       },
       {
+        heading: 'El orden importa tanto como la lista',
+        body: [
+          'Aquí está el error que más viajes retrasa: creer que los requisitos son una lista de compras que se puede completar en cualquier orden. No lo son. Son una secuencia encadenada, y cada eslabón condiciona al siguiente.',
+          'El microchip debe estar implantado antes de la vacuna antirrábica para que esa vacuna sea válida; la prueba de anticuerpos solo se toma pasado cierto tiempo desde la vacuna; algunos países exigen además un período de espera desde la toma de la muestra hasta la fecha de entrada. Y el certificado de salud, en cambio, tiene una vigencia corta, así que se emite casi al final. Hacer un paso antes de tiempo puede invalidarlo tanto como hacerlo tarde. Por eso lo primero que armamos no es el expediente: es el calendario.',
+        ],
+      },
+      {
         heading: 'Guacal IATA y bienestar animal',
         body: [
-          'El transporte aéreo exige un guacal que cumpla las normas IATA: tamaño adecuado para que la mascota pueda estar de pie y girar, ventilación y seguridad. Le asesoramos en la elección y preparación para reducir el estrés del viaje.',
+          'El transporte aéreo exige un guacal que cumpla las normas IATA: tamaño adecuado para que la mascota pueda estar de pie, darse la vuelta y echarse con naturalidad, ventilación en varios lados, cierres seguros y piso absorbente. Un guacal que se queda corto es motivo de rechazo en el mostrador, incluso con toda la documentación en regla.',
+          'Le asesoramos en la elección y en algo que importa igual: la preparación. Un animal que conoce su guacal desde semanas antes, que ha comido y dormido dentro de él en casa, viaja mucho mejor que uno que lo ve por primera vez el día del vuelo. Ese acostumbramiento gradual es la medida más eficaz para reducir el estrés, y no cuesta nada.',
         ],
+      },
+      {
+        heading: 'Cómo viaja: cabina, bodega presurizada o carga',
+        body: [
+          'Existen tres modalidades y no siempre puede elegir. En cabina viajan solo animales pequeños que caben en un bolso bajo el asiento, según la política de cada aerolínea. En bodega presurizada y climatizada viaja el equipaje acompañado, en el mismo vuelo que usted. Como carga (manifiesto aéreo) viaja de forma independiente, y es la vía habitual en reubicaciones internacionales, sobre todo si el animal es grande o si la ruta tiene conexiones.',
+          'Hay restricciones que conviene conocer antes de comprar el boleto. Muchas aerolíneas limitan el traslado de razas braquicéfalas —de hocico corto, como bulldog o persa— por su mayor riesgo respiratorio, aplican embargos por temperatura en ciertas épocas del año y limitan el número de animales por vuelo. Confirmamos esas condiciones con la aerolínea antes de fijar la fecha, no después.',
+        ],
+        image: IMG.plane,
       },
       {
         heading: 'Cuarentena: qué esperar según el país',
         body: [
           'Uno de los factores que más varía entre destinos es la cuarentena. Algunos países no la exigen si la documentación está completa y correcta; otros, como Australia o Nueva Zelanda, aplican controles muy estrictos que pueden incluir períodos de cuarentena obligatoria. Anticipar esto es clave para planificar y evitar sorpresas.',
-          'Revisamos el régimen exacto de su destino y le explicamos con claridad qué esperar, para que tome decisiones informadas sobre los tiempos y el bienestar de su mascota.',
+          'Revisamos el régimen exacto de su destino y le explicamos con claridad qué esperar, para que tome decisiones informadas sobre los tiempos y el bienestar de su mascota. Y si el destino es de los exigentes, se lo decimos de frente al principio: es mejor reorganizar el calendario familiar que descubrirlo con el animal ya en tránsito.',
         ],
-        image: IMG.packing,
       },
       {
         heading: 'El día del viaje, paso a paso',
         body: [
           'Coordinamos la logística del día: la entrega de la mascota en el terminal de carga dentro de la ventana adecuada, la última alimentación e hidratación, y la documentación lista para presentar. En destino, nuestra red gestiona la recepción, la inspección sanitaria y la reunión con su familia.',
-          'Nuestro objetivo es que el trayecto sea lo más corto y tranquilo posible, con la mascota siempre atendida en cada punto de la cadena.',
+          'Nuestro objetivo es que el trayecto sea lo más corto y tranquilo posible, con la mascota siempre atendida en cada punto de la cadena. Cuando la ruta obliga a conexión, priorizamos escalas cortas y aeropuertos con manejo adecuado de animales vivos, aunque el itinerario resulte algo menos directo.',
+        ],
+      },
+      {
+        heading: 'Perros, gatos y especies exóticas: cada caso es distinto',
+        body: [
+          'Aunque el marco general es el mismo, los detalles cambian bastante entre especies. Un perro grande plantea un desafío de guacal y de restricciones de aerolínea; un gato suele viajar con más facilidad pero es mucho más sensible al estrés y a los cambios de entorno; y las especies exóticas añaden una capa entera de normativa, incluida la convención CITES cuando se trata de especies protegidas.',
+          'Por eso tratamos cada caso por separado y no con una plantilla única. Si ya sabe qué animal va a viajar, le conviene revisar la página específica de su especie: ahí están los detalles que aquí solo mencionamos en general.',
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:clipboard-check', title: 'Requisitos por país', text: 'Revisamos cada documento contra el destino exacto.' },
+      { icon: 'fa6-solid:calendar-days', title: 'Calendario primero', text: 'Ordenamos la secuencia de trámites para que nada se invalide.' },
       { icon: 'fa6-solid:box', title: 'Guacal IATA', text: 'Asesoría en el guacal correcto y su preparación.' },
       { icon: 'fa6-solid:stethoscope', title: 'Gestión veterinaria', text: 'Coordinación de certificados, microchip y vacunas.' },
+      { icon: 'fa6-solid:plane', title: 'Ruta y aerolínea', text: 'Confirmamos restricciones y escalas antes de fijar la fecha.' },
       { icon: 'fa6-solid:heart', title: 'Bienestar primero', text: 'Todo pensado para reducir el estrés de su mascota.' },
     ],
     faqs: [
-      { q: '¿Con cuánta anticipación debo empezar?', a: 'Idealmente varias semanas o meses, porque algunas vacunas y pruebas de anticuerpos deben aplicarse con antelación mínima antes del viaje. Cuanto antes empecemos, más seguro es el proceso.' },
-      { q: '¿Habrá cuarentena en el destino?', a: 'Depende del país. Algunos destinos (como Australia) son muy estrictos; otros no exigen cuarentena si la documentación está completa. Se lo confirmamos según su ruta.' },
+      { q: '¿Con cuánta anticipación debo empezar?', a: 'Idealmente varias semanas o meses, porque algunas vacunas y pruebas de anticuerpos deben aplicarse con antelación mínima antes del viaje y varias tienen períodos de espera encadenados. Cuanto antes empecemos, más seguro es el proceso y menos probable es tener que mover la fecha.' },
+      { q: '¿Habrá cuarentena en el destino?', a: 'Depende del país. Algunos destinos (como Australia) son muy estrictos; otros no exigen cuarentena si la documentación está completa. Se lo confirmamos según su ruta antes de que usted comprometa fechas.' },
+      { q: '¿Mi mascota puede viajar conmigo en cabina?', a: 'Solo si es pequeña, cabe en un bolso bajo el asiento y la aerolínea lo permite en esa ruta. Cada aerolínea fija su propio límite de peso y medidas, y el cupo por vuelo es limitado. Para animales medianos o grandes, la vía es bodega presurizada o carga.' },
+      { q: '¿Es seguro que viaje en bodega?', a: 'La bodega destinada a animales vivos es presurizada y climatizada, es decir, mantiene condiciones similares a las de la cabina. Lo que más influye en la seguridad no es la bodega en sí, sino el guacal correcto, la ruta bien elegida y una mascota sana y preparada. Sobre esas tres cosas sí trabajamos.' },
+      { q: '¿Debo sedar a mi mascota para el vuelo?', a: 'La recomendación general de la práctica veterinaria y del sector aéreo es no sedar para viajes en avión: la sedación puede afectar la respiración y la regulación de temperatura en altura, y deja al animal menos capaz de mantenerse estable dentro del guacal. La decisión final es de su veterinario, pero conviene que llegue a esa conversación sabiéndolo.' },
+      { q: '¿Y si mi perro es de raza braquicéfala o restringida?', a: 'No es un caso perdido, pero sí uno que exige planificar más. Muchas aerolíneas restringen razas de hocico corto y algunas prohíben ciertas razas por normativa del país de destino. Revisamos la ruta, buscamos la aerolínea que sí lo admite y le decimos con franqueza si el traslado no es aconsejable.' },
     ],
     related: ['mascotas-perros', 'mascotas-gatos', 'mascotas-exoticos'],
   },
@@ -1318,47 +1407,76 @@ export const services: Service[] = [
     heroImage: IMG.team,
     intro: [
       'Mover una oficina es un proyecto logístico donde cada hora de inactividad tiene un costo. Planificamos la mudanza corporativa para que su operación se detenga lo mínimo indispensable: trabajamos por fases, en horarios de menor impacto y con un inventario riguroso de mobiliario, equipos y documentación confidencial.',
-      'Desde una pequeña oficina hasta un piso completo, coordinamos el traslado con la discreción y la precisión que su empresa necesita.',
+      'Desde una pequeña oficina hasta un piso completo, coordinamos el traslado con la discreción y la precisión que su empresa necesita. Un solo coordinador se sienta con su equipo de operaciones, IT o RR.HH. y responde por todo el proyecto, de la primera visita al último puesto montado.',
     ],
     sections: [
       {
-        heading: 'Planificación por fases',
+        heading: 'Un proyecto, no solo una mudanza',
         body: [
-          'Diseñamos un cronograma que respeta su operación: etiquetado por área, desmontaje y montaje de puestos, y una secuencia que permite retomar el trabajo cuanto antes en la nueva sede.',
+          'Mover una oficina es gestionar un proyecto con múltiples variables: personas, mobiliario, tecnología, plazos y la continuidad del negocio. Asignamos un coordinador que trabaja con su equipo para levantar un plan detallado: inventario por área, cronograma por fases y un mapa de la nueva sede para ubicar cada puesto.',
+          'Esa planificación previa es lo que permite que el día de la mudanza todo fluya y su empresa vuelva a producir lo antes posible. La diferencia entre una mudanza corporativa ordenada y un fin de semana perdido casi nunca está en el camión: está en el plan que se hizo tres semanas antes.',
         ],
         image: IMG.packing,
       },
       {
-        heading: 'Equipos y documentación sensible',
+        heading: 'El cronograma manda: cómo se mueve por fases',
         body: [
-          'Servidores, equipos electrónicos y archivos confidenciales reciben embalaje especializado y cadena de custodia. Todo se inventaría para garantizar que nada se traspapele en el traslado.',
+          'Diseñamos un cronograma que respeta su operación. Lo habitual es mover por áreas y no todo de golpe: primero archivo y depósito, que nadie usa a diario; después las áreas de soporte; al final la operación crítica y los directivos, en la ventana de menor impacto. Así ninguna parte de la empresa queda sin poder trabajar más de lo previsto.',
+          'El cronograma también contempla lo que no depende de nosotros: la fecha real de entrega del local, el estado de la obra, la instalación del cableado y de la red. Si esas piezas se mueven, el plan se ajusta antes y no el mismo día. Por eso insistimos en fijar hitos verificables con su contratista y su proveedor de IT.',
         ],
-      },
-      {
-        heading: 'Un proyecto, no solo una mudanza',
-        body: [
-          'Mover una oficina es gestionar un proyecto con múltiples variables: personas, mobiliario, tecnología, plazos y la continuidad del negocio. Asignamos un coordinador que trabaja con su equipo de operaciones o RR.HH. para levantar un plan detallado: inventario por área, cronograma por fases y un mapa de la nueva sede para ubicar cada puesto.',
-          'Esa planificación previa es lo que permite que el día de la mudanza todo fluya y su empresa vuelva a producir lo antes posible.',
-        ],
-        image: IMG.team,
       },
       {
         heading: 'Etiquetado inteligente para un montaje rápido',
         body: [
-          'Cada caja, mueble y equipo se etiqueta según su destino en la nueva oficina (área, puesto, piso). Así, en lugar de una pila caótica de cajas, su equipo encuentra cada cosa en su lugar y puede reanudar labores casi de inmediato.',
-          'Coordinamos el montaje de estaciones de trabajo y la reconexión ordenada de equipos, minimizando el tiempo que su personal pasa sin poder trabajar.',
+          'Cada caja, mueble y equipo se etiqueta según su destino en la nueva oficina: área, puesto y piso. Así, en lugar de una pila caótica de cajas, su equipo encuentra cada cosa en su lugar y puede reanudar labores casi de inmediato.',
+          'El etiquetado se apoya en el plano de la nueva sede, que levantamos con usted antes de mover nada. Cada colaborador recibe además un juego de cajas identificadas con su nombre y su puesto de destino, lo que evita la escena clásica del lunes: veinte personas buscando su monitor entre cajas anónimas.',
+        ],
+      },
+      {
+        heading: 'Servidores, equipos de IT y continuidad tecnológica',
+        body: [
+          'El equipamiento tecnológico recibe embalaje especializado: protección antiestática, amortiguación y cajas dimensionadas para que nada se desplace en el trayecto. Cada equipo viaja inventariado con su serial, de modo que la entrega se verifica una por una contra la lista y no de memoria.',
+          'Aquí conviene ser claro sobre el alcance. Nosotros desconectamos, embalamos, transportamos y reinstalamos físicamente el equipo en su nuevo puesto. La desconexión lógica, la configuración de red y la puesta en marcha de servidores corresponden a su área de IT o a su proveedor, y trabajamos coordinados con ellos dentro del mismo cronograma. Desconfíe de quien le prometa hacerse cargo de todo sin preguntar por su infraestructura.',
+        ],
+        image: IMG.team,
+      },
+      {
+        heading: 'Documentación confidencial y cadena de custodia',
+        body: [
+          'Contratos, expedientes de personal, información financiera y de clientes: en muchas empresas es el activo más sensible del traslado. Ese material viaja en cajas selladas y numeradas, con un registro de qué contiene cada una, quién la entregó y quién la recibió. Eso es la cadena de custodia: un rastro documentado de responsables, no una promesa verbal.',
+          'Cuando el sector lo exige, coordinamos que un responsable designado por usted acompañe el traslado del material crítico y firme la recepción. Si su empresa tiene una política interna de manejo de información, la revisamos antes y ajustamos el procedimiento a ella.',
+        ],
+      },
+      {
+        heading: 'Mobiliario, divisiones y lo que suele sorprender',
+        body: [
+          'Buena parte de los imprevistos de una mudanza de oficina no está en las cajas, sino en el mobiliario fijo: divisiones modulares que hay que desmontar panel por panel, archivadores rodantes, cajas fuertes, mesas de sala de juntas que no pasan por la puerta del ascensor. Todo eso se detecta en el levantamiento presencial y se cotiza desde el inicio.',
+          'El edificio es el otro frente. Reserva del ascensor de carga, horarios permitidos por la administración, protección de pisos y paredes, acceso al muelle y permisos de salida de equipos suelen tener reglas propias en origen y en destino. Nos encargamos de esas gestiones con ambas administraciones antes del día señalado.',
+        ],
+      },
+      {
+        heading: 'Qué necesitamos para cotizarle en serio',
+        body: [
+          'Una mudanza corporativa no se cotiza por teléfono ni por metros cuadrados. Necesitamos una visita al local actual y, si es posible, al nuevo: es la única forma de contar puestos, medir mobiliario, ver accesos y detectar lo que nadie mencionó. La inspección es gratuita y no compromete a nada.',
+          'Nos ayuda mucho tener el plano de la nueva sede con la distribución prevista, el número de colaboradores por área, un inventario aproximado de equipos y la fecha comprometida de entrega del local. Con eso le entregamos una propuesta con alcance y cronograma escritos, que es lo que su gerencia necesita para aprobar sin sorpresas posteriores.',
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:business-time', title: 'Mínima inactividad', text: 'Planificación por fases y horarios de bajo impacto.' },
-      { icon: 'fa6-solid:server', title: 'Equipos protegidos', text: 'Embalaje especializado para IT y electrónicos.' },
-      { icon: 'fa6-solid:file-shield', title: 'Documentos seguros', text: 'Cadena de custodia para material confidencial.' },
-      { icon: 'fa6-solid:clipboard-list', title: 'Inventario riguroso', text: 'Etiquetado por área para un montaje ordenado.' },
+      { icon: 'fa6-solid:server', title: 'Equipos protegidos', text: 'Embalaje antiestático e inventario por serial.' },
+      { icon: 'fa6-solid:file-shield', title: 'Documentos seguros', text: 'Cajas selladas y cadena de custodia documentada.' },
+      { icon: 'fa6-solid:clipboard-list', title: 'Inventario riguroso', text: 'Etiquetado por área, puesto y piso sobre el plano.' },
+      { icon: 'fa6-solid:user-tie', title: 'Un coordinador único', text: 'Un interlocutor para operaciones, IT y administración.' },
+      { icon: 'fa6-solid:building-shield', title: 'Gestión con el edificio', text: 'Ascensores, horarios y permisos en origen y destino.' },
     ],
     faqs: [
-      { q: '¿Pueden mudar la oficina en fin de semana?', a: 'Sí. Trabajamos en horarios de menor impacto —noches o fines de semana— para que su equipo encuentre todo listo al reanudar labores.' },
-      { q: '¿Cómo manejan la información confidencial?', a: 'Con inventario, etiquetado y cadena de custodia. El material sensible viaja identificado y bajo control en todo momento.' },
+      { q: '¿Pueden mudar la oficina en fin de semana?', a: 'Sí. Trabajamos en horarios de menor impacto —noches o fines de semana— para que su equipo encuentre todo listo al reanudar labores. Conviene definirlo temprano, porque también condiciona los permisos y horarios que autoriza la administración del edificio.' },
+      { q: '¿Cómo manejan la información confidencial?', a: 'Con cajas selladas y numeradas, registro de contenido y responsables, y cadena de custodia documentada de extremo a extremo. Si su empresa tiene una política interna de manejo de información, ajustamos el procedimiento a ella y su personal designado puede acompañar y firmar la recepción.' },
+      { q: '¿Ustedes desconectan y vuelven a conectar los servidores?', a: 'Desconectamos, embalamos, transportamos y reinstalamos el equipo físicamente en su nuevo puesto. La configuración lógica, la red y la puesta en marcha de servidores corresponden a su área de IT o a su proveedor; trabajamos coordinados con ellos dentro del mismo cronograma.' },
+      { q: '¿Pueden mudar por etapas si la nueva sede no está lista?', a: 'Sí, y es una situación común cuando la obra se retrasa. Se puede mover primero lo que no interrumpe la operación y mantener el resto en almacenaje temporal hasta que el local esté habilitado. Planificarlo cuesta bastante menos que improvisarlo.' },
+      { q: '¿Desmontan y montan las estaciones de trabajo y divisiones?', a: 'Sí. El desmontaje y montaje de puestos, divisiones modulares y mobiliario de oficina forma parte del servicio y se cuantifica en el levantamiento presencial. Es justamente la partida que las cotizaciones apresuradas suelen omitir y luego cobrar aparte.' },
+      { q: '¿Con cuánta anticipación debemos empezar?', a: 'Cuanto antes, mejor: la planificación es la parte que realmente protege su operación. Lo ideal es que nos contacte apenas tenga definida la nueva sede, aunque la fecha aún no esté cerrada, para levantar el inventario y el cronograma con calma. Respondemos toda solicitud en menos de 24 horas.' },
     ],
     related: ['cliente-expatriados', 'especiales-arte', 'complementarios-almacenaje'],
   },
