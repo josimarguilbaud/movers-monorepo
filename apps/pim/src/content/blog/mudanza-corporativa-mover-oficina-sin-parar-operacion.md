@@ -4,6 +4,7 @@ description: "Guía para trasladar una oficina minimizando el tiempo de inactivi
 pubDate: 2026-09-02
 category: "Aduanas y Logística"
 heroImage: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2000&auto=format&fit=crop"
+translation: "corporate-move-office-relocation-without-downtime"
 ---
 
 En una mudanza residencial, el peor escenario es dormir una noche entre cajas. En una mudanza corporativa tiene un costo por hora: personal que no puede trabajar, clientes sin respuesta, procesos detenidos.

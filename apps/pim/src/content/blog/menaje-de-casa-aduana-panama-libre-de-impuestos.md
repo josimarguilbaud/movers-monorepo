@@ -4,6 +4,7 @@ description: "Qué es el menaje de casa, cuánto entra libre de impuestos a Pana
 pubDate: 2026-09-02
 category: "Aduanas y Logística"
 heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
+translation: "household-goods-customs-panama-duty-free"
 ---
 
 Cuando alguien decide mudarse a Panamá, la pregunta llega casi siempre en el mismo orden: primero cuánto cuesta el flete, después **cuánto va a pagar de impuestos al entrar sus cosas**. La segunda pregunta tiene mejor respuesta de la que la mayoría espera, porque Panamá reconoce una franquicia específica para el menaje de casa. Pero esa franquicia tiene un monto, un plazo, unos requisitos y un límite. Aquí está todo, con la norma citada.

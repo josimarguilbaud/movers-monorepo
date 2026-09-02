@@ -4,6 +4,7 @@ description: "Cronología por hitos de una mudanza internacional: qué resolver 
 pubDate: 2026-09-02
 category: "Aduanas y Logística"
 heroImage: "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?q=80&w=2000&auto=format&fit=crop"
+translation: "international-moving-timeline-12-8-4-1-weeks"
 ---
 
 Casi ningún problema de una mudanza internacional aparece el día de la carga. Aparece semanas antes, en forma de una decisión que se pospuso. El pasaporte que se venció, el documento de destino que tardaba un mes, el vehículo que no se podía embarcar sin un trámite previo.

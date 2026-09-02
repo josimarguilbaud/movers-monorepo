@@ -84,7 +84,7 @@ export const services: Service[] = [
       {
         heading: '¿Cómo funciona una mudanza marítima?',
         body: [
-          'Todo comienza con una inspección —presencial o por videollamada— en la que calculamos el volumen real de su carga en metros cúbicos (CBM). Ese dato define si le conviene un contenedor exclusivo o uno compartido, y es la base de una cotización exacta, sin sorpresas.',
+          'Todo comienza con una inspección —presencial o por videollamada— en la que calculamos el volumen real de su carga en metros cúbicos (CBM). Ese dato define si le conviene un [contenedor exclusivo](/es/servicios/contenedor-exclusivo-fcl/) o [uno compartido](/es/servicios/contenedor-compartido-lcl/), y es la base de una **cotización exacta**, sin sorpresas.',
           'El día de la mudanza, nuestro equipo empaca sus pertenencias con materiales de calidad de exportación, elabora un inventario detallado y estiba la carga de forma que aproveche cada centímetro del contenedor y viaje inmovilizada. Luego gestionamos el flete con la naviera, emitimos el Bill of Lading y tramitamos la documentación de exportación e importación.',
           'Al llegar a destino, nuestra red de agentes locales se encarga de la desaduanización, el transporte terrestre de última milla y —si contrata el servicio puerta a puerta— la entrega, el desembalaje básico y el retiro de material sobrante en su nueva casa.',
         ],
@@ -101,7 +101,7 @@ export const services: Service[] = [
         heading: 'Tiempos de tránsito',
         body: [
           'El tiempo total de una mudanza marítima combina el tránsito del barco con los procesos de origen y destino (empaque, consolidación, aduanas y entrega). El tránsito marítimo varía según la ruta y las conexiones de la naviera; los trámites aduaneros y la última milla suman días adicionales que dependen de cada país.',
-          'En la página de cada destino encontrará los tiempos estimados de ese corredor específico. Como regla general, una mudanza puerta a puerta debe planificarse con varias semanas de anticipación para asegurar espacio en la naviera a las mejores tarifas.',
+          'En la página de cada destino —de [España](/es/destinos/mudanzas-de-panama-a-espana/) a [Australia](/es/destinos/mudanzas-de-panama-a-australia/)— encontrará los tiempos estimados de ese corredor específico. Como regla general, una mudanza puerta a puerta debe planificarse con varias semanas de anticipación para asegurar espacio en la naviera a las mejores tarifas.',
         ],
       },
       {
@@ -157,7 +157,7 @@ export const services: Service[] = [
     heroImage: IMG.containers,
     intro: [
       'FCL (Full Container Load) significa que usted contrata un contenedor completo solo para su mudanza. Es la opción preferida cuando se traslada el menaje de una casa entera, porque combina privacidad, rapidez y la mínima manipulación de sus pertenencias: el contenedor se sella en su domicilio de origen y no se vuelve a abrir hasta el destino.',
-      'En Panamá International Movers manejamos contenedores estándar de 20 pies y de 40 pies (incluido el 40 High Cube, con mayor altura), y le asesoramos sobre cuál se ajusta a su volumen para que no pague espacio de más ni se quede corto.',
+      'En Panamá International Movers manejamos contenedores estándar de 20 pies y de 40 pies (incluido el 40 High Cube, con mayor altura), y le asesoramos sobre cuál se ajusta a su volumen y a su destino —sea [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) o cualquier otro corredor— para que no pague espacio de más ni se quede corto.',
     ],
     sections: [
       {
@@ -172,13 +172,13 @@ export const services: Service[] = [
         heading: 'Ventajas frente al contenedor compartido',
         body: [
           'La principal ventaja del FCL es que su carga viaja sola: menos manipulación, menos riesgo y tiempos de tránsito más predecibles, ya que no depende de que se complete un grupaje. Además, el sellado en origen aporta seguridad y facilita los trámites aduaneros.',
-          'Si su volumen es pequeño, sin embargo, un contenedor exclusivo puede resultar en espacio pagado y no utilizado; en ese caso el LCL (compartido) suele ser más económico. Nuestro coordinador le ayuda a tomar la decisión correcta.',
+          'Si su volumen es pequeño, sin embargo, un contenedor exclusivo puede resultar en espacio pagado y no utilizado; en ese caso el [contenedor compartido (LCL)](/es/servicios/contenedor-compartido-lcl/) suele ser más económico. Nuestro coordinador le ayuda a tomar la decisión correcta.',
         ],
       },
       {
         heading: '20 pies, 40 pies o 40 High Cube: cuál elegir',
         body: [
-          'El contenedor de 20 pies ofrece unos 33 metros cúbicos de capacidad, suficiente para el mobiliario de un apartamento o una casa pequeña. El de 40 pies duplica ese espacio, y la variante High Cube añade cerca de 30 cm de altura extra, ideal para muebles altos, electrodomésticos grandes o para ganar volumen apilable.',
+          'El [contenedor de 20 pies](/es/servicios/contenedor-de-20-pies/) ofrece unos 33 metros cúbicos de capacidad, suficiente para el mobiliario de un apartamento o una casa pequeña. El [de 40 pies](/es/servicios/contenedor-de-40-pies-high-cube/) duplica ese espacio, y la variante High Cube añade cerca de 30 cm de altura extra, ideal para muebles altos, electrodomésticos grandes o para ganar volumen apilable.',
           'La regla práctica: una casa de una a dos habitaciones suele caber en un 20 pies; una de tres o más, en un 40 pies o 40 High Cube. Si además lleva un vehículo, el 40 pies es casi siempre la elección correcta. En la inspección calculamos su volumen exacto para que no pague de más.',
         ],
         image: IMG.containers,
@@ -230,7 +230,7 @@ export const services: Service[] = [
       {
         heading: 'Cómo se cobra el LCL: volumen, peso y cargos fijos',
         body: [
-          'A diferencia del contenedor exclusivo, el LCL se factura por volumen (metros cúbicos) o por peso, según lo que resulte mayor. La regla existe porque un contenedor se llena por espacio o por tonelaje, lo que ocurra primero: una caja de libros pesa mucho en poco volumen, un sofá ocupa mucho volumen con poco peso. Por eso un buen empaque influye directamente en el costo.',
+          'A diferencia del [contenedor exclusivo](/es/servicios/contenedor-exclusivo-fcl/), el LCL se factura **por volumen (metros cúbicos) o por peso, según lo que resulte mayor**. La regla existe porque un contenedor se llena por espacio o por tonelaje, lo que ocurra primero: una caja de libros pesa mucho en poco volumen, un sofá ocupa mucho volumen con poco peso. Por eso un buen empaque influye directamente en el costo.',
           'Hay un segundo componente que conviene entender desde el principio: los cargos fijos. Manejo en terminal, desconsolidación en destino, documentación y despacho aduanero cuestan prácticamente lo mismo tanto si envía dos metros cúbicos como si envía ocho. En envíos muy pequeños esos cargos pueden pesar más que el flete mismo. Se lo decimos antes, no después.',
         ],
         image: IMG.packing,
@@ -239,7 +239,7 @@ export const services: Service[] = [
         heading: 'Tiempos: por qué el grupaje suele tardar más',
         body: [
           'El LCL casi siempre tarda más que un contenedor exclusivo, y no por el barco. Tarda más porque hay dos pasos extra: la carga espera en origen a que se complete la consolidación hacia su destino, y en destino debe desconsolidarse antes de que le entreguen su lote. Ninguno de esos dos pasos existe en un FCL, que viaja sellado de puerta a puerta.',
-          'El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de este corredor en su cotización. Si su fecha es rígida —una fecha de inicio de clases, una entrega de vivienda—, dígalo desde el principio: puede cambiar la recomendación.',
+          'El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de su corredor —[Panamá a Colombia](/es/destinos/mudanzas-de-panama-a-colombia/), por ejemplo— en su cotización. Si su fecha es rígida —una fecha de inicio de clases, una entrega de vivienda—, dígalo desde el principio: puede cambiar la recomendación.',
         ],
       },
       {
@@ -252,14 +252,14 @@ export const services: Service[] = [
       {
         heading: '¿Para quién es ideal el contenedor compartido?',
         body: [
-          'El LCL brilla cuando el volumen no justifica un contenedor entero: un estudiante que se va a cursar el año en el extranjero, una persona que solo lleva su habitación, o quien complementa una mudanza previa con algunas cajas adicionales.',
+          'El LCL brilla cuando el volumen no justifica un contenedor entero: [un estudiante que se va a cursar el año en el extranjero](/es/servicios/mudanzas-para-estudiantes/), una persona que solo lleva su habitación, o quien complementa una mudanza previa con algunas cajas adicionales.',
           'También es la vía natural para quien se muda ligero por decisión propia —lleva lo personal y compra el mobiliario en destino— y para el envío de complemento: esa caja de libros, herramientas o recuerdos que no cupo la primera vez y que tampoco justifica un flete aéreo.',
         ],
       },
       {
         heading: 'Cómo empacar para pagar menos',
         body: [
-          'Como el LCL se factura por volumen, un buen embalaje se traduce directamente en ahorro: cajas bien armadas, sin espacios muertos y con dimensiones estándar aprovechan mejor el espacio. Desmontar muebles voluminosos también reduce metros cúbicos, y a menudo es la partida donde más se recorta.',
+          'Como el LCL se factura por volumen, un [buen embalaje](/es/servicios/servicio-de-embalaje-profesional/) se traduce directamente en ahorro: cajas bien armadas, sin espacios muertos y con dimensiones estándar aprovechan mejor el espacio. Desmontar muebles voluminosos también reduce metros cúbicos, y a menudo es la partida donde más se recorta.',
           'La otra mitad del consejo es qué dejar. Muebles de bajo valor y gran volumen, electrodomésticos con voltaje incompatible en destino o cosas que se reponen barato allá suelen costar más de enviar que de reemplazar. Nuestro equipo le asesora sobre qué conviene mandar y cómo empacarlo, sin comprometer la protección. Es la diferencia entre un envío eficiente y uno que paga espacio de aire.',
         ],
       },
@@ -317,7 +317,7 @@ export const services: Service[] = [
         heading: 'Empaque y peso: la clave del costo aéreo',
         body: [
           'En el transporte aéreo se cobra por el mayor valor entre el peso real y el peso volumétrico, por lo que un embalaje eficiente es determinante. Nuestro equipo empaca para proteger sus bienes a la vez que reduce peso y volumen innecesarios.',
-          'Igual que en la vía marítima, tramitamos la documentación y la aduana en origen y destino, y podemos ofrecer servicio puerta a puerta para que reciba su envío en la comodidad de su nuevo hogar.',
+          'Igual que en la [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/), tramitamos la documentación y la aduana en origen y destino, y podemos ofrecer [servicio puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) para que reciba su envío en la comodidad de su nuevo hogar.',
         ],
       },
       {
@@ -332,7 +332,7 @@ export const services: Service[] = [
         heading: 'La estrategia inteligente: combinar aéreo y marítimo',
         body: [
           'Muchas familias experimentadas no eligen entre avión y barco: usan ambos. Envían por vía aérea un "kit de primeras semanas" —ropa, artículos esenciales, algo de menaje— para tenerlo disponible apenas llegan, y por vía marítima el grueso del hogar, que llega semanas después sin prisa.',
-          'Esta combinación ofrece lo mejor de los dos mundos: la rapidez donde importa y la economía en el volumen grande. Nuestro coordinador le ayuda a decidir qué conviene enviar por cada vía para optimizar tiempo y presupuesto.',
+          'Esta combinación ofrece lo mejor de los dos mundos: la rapidez donde importa y la economía en el volumen grande. Nuestro coordinador le ayuda a decidir qué conviene enviar por cada vía —y qué pide su destino, sea [Japón](/es/destinos/mudanzas-de-panama-a-japon/) o cualquier otro corredor— para optimizar tiempo y presupuesto.',
         ],
       },
     ],
@@ -367,7 +367,7 @@ export const services: Service[] = [
       {
         heading: '¿Qué incluye el servicio puerta a puerta?',
         body: [
-          'El door-to-door abarca la inspección y cotización, el suministro de materiales, el empaque profesional de exportación, el inventario, la carga, el flete internacional (marítimo o aéreo), toda la documentación y aduanas en origen y destino, el transporte de última milla y la entrega con desembalaje básico. Es, literalmente, una mudanza llave en mano.',
+          'El door-to-door abarca la inspección y cotización, el suministro de materiales, el empaque profesional de exportación, el inventario, la carga, el flete internacional ([marítimo](/es/servicios/mudanzas-internacionales-maritimas/) o [aéreo](/es/servicios/mudanzas-internacionales-aereas/)), toda la documentación y aduanas en origen y destino, el transporte de última milla y la entrega con desembalaje básico. Es, literalmente, una mudanza llave en mano.',
           'Conviene precisar qué es el desembalaje básico, porque el término se usa con ligereza en el sector. Abrimos las cajas, ubicamos el mobiliario donde usted indique, montamos lo que desmontamos en origen y retiramos el material sobrante. No incluye ordenar su ropa ni instalar el televisor en la pared: ese acompañamiento existe y se cotiza aparte.',
           'Es la modalidad preferida por familias y expatriados que valoran su tiempo, porque elimina la complejidad logística y concentra la responsabilidad en un único proveedor.',
         ],
@@ -394,13 +394,13 @@ export const services: Service[] = [
         body: [
           'La primera fase es la inspección. Recorremos su vivienda —presencialmente o por videollamada— y levantamos el volumen real de la carga en metros cúbicos (CBM), la unidad con la que cotiza todo el sector. De ahí salen la vía recomendada, el tipo de contenedor y una cotización cerrada. Es gratuita y no compromete a nada.',
           'La segunda es el origen. Nuestro equipo empaca con estándar de exportación, elabora el inventario pieza por pieza y estiba la carga: la acomoda e inmoviliza dentro del contenedor para que no se desplace en travesía. Se cierra con precinto numerado, el sello de seguridad que solo se rompe legítimamente en aduana. En paralelo tramitamos la documentación de exportación.',
-          'La tercera es el destino: nuestra red recibe la carga, gestiona el despacho aduanero, coordina la última milla y entrega en su nueva vivienda. El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de este corredor en su cotización.',
+          'La tercera es el destino: nuestra red recibe la carga, gestiona el despacho aduanero, coordina la última milla y entrega en su nueva vivienda. El tiempo total combina el tránsito marítimo con los procesos de origen y destino (empaque, aduanas y entrega). Le confirmamos el estimado exacto de su corredor —sea [Panamá a Canadá](/es/destinos/mudanzas-de-panama-a-canada/) o cualquier otro— en su cotización.',
         ],
       },
       {
         heading: 'La aduana de destino: el tramo que más agradece delegar',
         body: [
-          'De toda la cadena, la aduana es donde un puerta a puerta se paga solo. Cada país tiene su propio régimen de menaje de casa, y el costo de equivocarse se cobra en almacenaje diario mientras la carga espera detenida en terminal.',
+          'De toda la cadena, la aduana es donde un puerta a puerta se paga solo. Cada país tiene su propio [régimen de menaje de casa](/es/servicios/gestion-aduanera-desaduanizacion/), y el costo de equivocarse se cobra en almacenaje diario mientras la carga espera detenida en terminal.',
           'El caso panameño lo ilustra. Panamá reconoce una franquicia de menaje de casa de B/.25.000 de valor aduanero, por una sola vez, para el extranjero que compruebe venir a domiciliarse y para el panameño que haya residido en el exterior dos años o más (Artículo 216 del Decreto de Gabinete N.º 41 de 2002). Es un beneficio real, pero exige acreditar la condición y declarar el menaje correctamente. Lo que exceda la franquicia no tiene tasa única: se liquida por partida arancelaria, más ITBMS. Y la ley exige la intervención de un Agente Corredor de Aduana.',
           'Ese tipo de detalle cambia el resultado de una mudanza y no se improvisa desde otro país. En el puerta a puerta ya está incluido y ya tiene responsable.',
         ],
@@ -461,7 +461,7 @@ export const services: Service[] = [
       {
         heading: 'Contenedor exclusivo o compartido para su auto',
         body: [
-          'Puede enviar su vehículo en un contenedor exclusivo o compartirlo con su menaje de casa para optimizar costos: en un contenedor de 40 pies es habitual combinar el auto con las cajas y muebles de la mudanza.',
+          'Puede enviar su vehículo en un contenedor exclusivo o compartirlo con su menaje de casa para optimizar costos: en un [contenedor de 40 pies](/es/servicios/contenedor-de-40-pies-high-cube/) es habitual combinar el auto con las cajas y muebles de la mudanza.',
           'También es posible consolidar el vehículo con la carga de otros clientes (varios autos por contenedor), una alternativa más económica cuando no se envía menaje.',
         ],
         image: IMG.port,
@@ -469,13 +469,13 @@ export const services: Service[] = [
       {
         heading: 'Documentación y permisos',
         body: [
-          'El envío internacional de vehículos exige documentación específica: título de propiedad, factura, y el cumplimiento de las normas de importación del país de destino, que a veces limita antigüedad, emisiones o exige homologación. Nuestro equipo le orienta sobre los requisitos de cada corredor.',
+          'El envío internacional de vehículos exige documentación específica: título de propiedad, factura, y el cumplimiento de las normas de importación del país de destino, que a veces limita **antigüedad, emisiones o exige homologación**. Nuestro equipo le orienta sobre los requisitos de cada corredor, de [Panamá a Chile](/es/destinos/mudanzas-de-panama-a-chile/) a cualquier otro destino.',
         ],
       },
       {
         heading: '¿Puedo cargar cajas dentro del auto?',
         body: [
-          'A diferencia del Ro-Ro, donde el vehículo viaja vacío, en un contenedor muchos países permiten cargar el auto con menaje debidamente inventariado, aprovechando el espacio interior. Es una forma inteligente de optimizar el envío cuando además está mudando su casa.',
+          'A diferencia del [Ro-Ro](/es/servicios/envio-de-autos-roll-on-roll-off/), donde el vehículo viaja vacío, en un contenedor muchos países permiten cargar el auto con menaje debidamente inventariado, aprovechando el espacio interior. Es una forma inteligente de optimizar el envío cuando además está mudando su casa.',
           'La posibilidad y los límites dependen de la naviera y de la normativa del país de destino, por lo que se lo confirmamos según su corredor antes de planificar la carga.',
         ],
         image: IMG.boxes,
@@ -527,21 +527,21 @@ export const services: Service[] = [
       {
         heading: 'Ro-Ro vs. contenedor: cuál elegir',
         body: [
-          'Elija Ro-Ro si busca el menor costo y su vehículo es de valor estándar. Elija contenedor si su auto es nuevo, de lujo o clásico, o si desea combinarlo con su mudanza de casa. Le mostramos ambas cotizaciones para que decida con claridad.',
+          'Elija Ro-Ro si busca el menor costo y su vehículo es de valor estándar. Elija [contenedor](/es/servicios/envio-de-autos-en-contenedor/) si su auto es nuevo, de lujo o [clásico](/es/servicios/envio-de-vehiculos-clasicos-alto-valor/), o si desea combinarlo con su mudanza de casa. Le mostramos ambas cotizaciones para que decida con claridad.',
         ],
       },
       {
         heading: 'Cómo es el proceso en el puerto',
         body: [
           'En un envío Ro-Ro, usted entrega el vehículo en la terminal portuaria dentro de la ventana acordada, con la documentación en regla. Personal especializado lo conduce al interior del buque y lo asegura en una cubierta destinada a carga rodada. Al llegar, se descarga del mismo modo y queda disponible para la desaduanización.',
-          'Nuestro equipo coordina cada paso y le indica con precisión los tiempos y documentos necesarios para que la entrega y el retiro sean fluidos.',
+          'Nuestro equipo coordina cada paso y le indica con precisión los tiempos y documentos que pide su destino —[Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/), por ejemplo— para que la entrega y el retiro sean fluidos.',
         ],
         image: IMG.port,
       },
       {
         heading: 'Seguro y estado del vehículo',
         body: [
-          'Aunque el Ro-Ro es económico, no renunciamos a la protección: ofrecemos póliza para el trayecto internacional y documentamos el estado del vehículo antes del embarque con un registro fotográfico. Así, ante cualquier eventualidad, hay respaldo.',
+          'Aunque el Ro-Ro es económico, no renunciamos a la protección: ofrecemos [póliza para el trayecto internacional](/es/servicios/seguros-de-mudanza-internacional/) y documentamos el estado del vehículo antes del embarque con un registro fotográfico. Así, ante cualquier eventualidad, hay respaldo.',
           'Por viajar en cubierta (no sellado en contenedor), el Ro-Ro se recomienda para vehículos operativos de valor estándar; para autos de alto valor, el contenedor sigue siendo la mejor opción.',
         ],
       },
@@ -577,7 +577,7 @@ export const services: Service[] = [
       {
         heading: 'Opciones de embalaje',
         body: [
-          'El crate de madera a medida es la opción más protectora: la moto se fija sobre una base, se inmoviliza y se encajona para resistir la manipulación portuaria. Para reducir costos, también consolidamos la moto dentro de un contenedor compartido, debidamente asegurada.',
+          'El crate de madera a medida es la opción más protectora: la moto se fija sobre una base, se inmoviliza y se encajona para resistir la manipulación portuaria. Para reducir costos, también consolidamos la moto dentro de un [contenedor compartido](/es/servicios/contenedor-compartido-lcl/), debidamente asegurada.',
         ],
         image: IMG.containers,
       },
@@ -590,15 +590,15 @@ export const services: Service[] = [
       {
         heading: 'Marítimo o aéreo para su motocicleta',
         body: [
-          'La mayoría de las motos viajan por vía marítima, en crate o consolidadas, por ser la opción más económica. Cuando el tiempo apremia —una competencia, una reubicación urgente— la vía aérea es posible: más rápida, aunque con un costo mayor y un embalaje aún más estricto.',
-          'Le ayudamos a elegir según su urgencia, presupuesto y destino, y preparamos la moto conforme a los requisitos de cada modalidad.',
+          'La mayoría de las motos viajan por vía marítima, en crate o consolidadas, por ser la opción más económica. Cuando el tiempo apremia —una competencia, una reubicación urgente— la [vía aérea](/es/servicios/mudanzas-internacionales-aereas/) es posible: más rápida, aunque con un costo mayor y un embalaje aún más estricto.',
+          'Le ayudamos a elegir según su urgencia, su presupuesto y su destino —[Colombia](/es/destinos/mudanzas-de-panama-a-colombia/) o cualquier otro corredor—, y preparamos la moto conforme a los requisitos de cada modalidad.',
         ],
         image: IMG.plane,
       },
       {
         heading: 'Varias motos o junto con su mudanza',
         body: [
-          'Si es coleccionista o se muda con más de una motocicleta, las consolidamos en un mismo contenedor para reducir el costo por unidad. Y si además traslada su casa, podemos incluir la moto junto al menaje, optimizando el envío en un solo flete.',
+          'Si es coleccionista o se muda con más de una motocicleta, las consolidamos en un mismo contenedor para reducir el costo por unidad. Y si además traslada su casa, podemos incluir la moto junto al menaje de su [mudanza marítima](/es/servicios/mudanzas-internacionales-maritimas/), optimizando el envío en un solo flete.',
           'Cada moto viaja inmovilizada y protegida de forma individual, sin importar cuántas compartan el espacio.',
         ],
       },
@@ -627,7 +627,7 @@ export const services: Service[] = [
     heroTagline: 'Para piezas irremplazables: contenedor exclusivo y cuidado de coleccionista.',
     heroImage: IMG.containers,
     intro: [
-      'Un vehículo clásico o de colección no es un auto más: es una pieza de valor —a veces irremplazable— que exige un tratamiento especializado. Para estos casos recomendamos siempre el contenedor exclusivo, con trincaje suave que protege la carrocería y la suspensión, y un seguro a valor declarado.',
+      'Un vehículo clásico o de colección no es un auto más: es una pieza de valor —a veces irremplazable— que exige un tratamiento especializado. Para estos casos recomendamos siempre el [contenedor exclusivo](/es/servicios/contenedor-exclusivo-fcl/), con **trincaje suave** que protege la carrocería y la suspensión, y un seguro a valor declarado.',
       'En Panamá International Movers tratamos cada vehículo de alto valor como lo que es: una inversión que debe llegar impecable.',
     ],
     sections: [
@@ -641,7 +641,7 @@ export const services: Service[] = [
       {
         heading: 'Seguro a valor declarado',
         body: [
-          'A diferencia de un auto estándar, aquí el seguro se dimensiona sobre el valor real de la pieza —muchas veces respaldado por avalúo—, garantizando una cobertura acorde a su importancia.',
+          'A diferencia de un auto estándar, aquí el [seguro](/es/servicios/seguros-de-mudanza-internacional/) se dimensiona sobre el valor real de la pieza —muchas veces respaldado por avalúo—, garantizando una cobertura acorde a su importancia.',
         ],
       },
       {
@@ -655,7 +655,7 @@ export const services: Service[] = [
       {
         heading: 'Coordinación discreta y a la medida',
         body: [
-          'El traslado de un vehículo clásico o de alto valor merece un trato distinto. Asignamos un coordinador dedicado que planifica cada detalle —tiempos, ruta, condiciones del contenedor, manejo en puerto— y mantiene una comunicación discreta y constante con usted.',
+          'El traslado de un vehículo clásico o de alto valor merece un trato distinto. Asignamos un coordinador dedicado que planifica cada detalle —tiempos, ruta hasta su destino (sea [Alemania](/es/destinos/mudanzas-de-panama-a-alemania/) o cualquier otro corredor), condiciones del contenedor, manejo en puerto— y mantiene una comunicación discreta y constante con usted.',
           'Entendemos que no está moviendo un medio de transporte, sino una inversión y, a menudo, una pasión. Lo tratamos como tal.',
         ],
       },
@@ -724,7 +724,7 @@ export const services: Service[] = [
       {
         heading: 'Cuarentena: qué esperar según el país',
         body: [
-          'Uno de los factores que más varía entre destinos es la cuarentena. Algunos países no la exigen si la documentación está completa y correcta; otros, como Australia o Nueva Zelanda, aplican controles muy estrictos que pueden incluir períodos de cuarentena obligatoria. Anticipar esto es clave para planificar y evitar sorpresas.',
+          'Uno de los factores que más varía entre destinos es la cuarentena. Algunos países no la exigen si la documentación está completa y correcta; otros, como [Australia](/es/destinos/mudanzas-de-panama-a-australia/) o [Nueva Zelanda](/es/destinos/mudanzas-de-panama-a-nueva-zelanda/), aplican controles muy estrictos que pueden incluir **períodos de cuarentena obligatoria**. Anticipar esto es clave para planificar y evitar sorpresas.',
           'Revisamos el régimen exacto de su destino y le explicamos con claridad qué esperar, para que tome decisiones informadas sobre los tiempos y el bienestar de su mascota. Y si el destino es de los exigentes, se lo decimos de frente al principio: es mejor reorganizar el calendario familiar que descubrirlo con el animal ya en tránsito.',
         ],
       },
@@ -738,7 +738,7 @@ export const services: Service[] = [
       {
         heading: 'Perros, gatos y especies exóticas: cada caso es distinto',
         body: [
-          'Aunque el marco general es el mismo, los detalles cambian bastante entre especies. Un perro grande plantea un desafío de guacal y de restricciones de aerolínea; un gato suele viajar con más facilidad pero es mucho más sensible al estrés y a los cambios de entorno; y las especies exóticas añaden una capa entera de normativa, incluida la convención CITES cuando se trata de especies protegidas.',
+          'Aunque el marco general es el mismo, los detalles cambian bastante entre especies. Un perro grande plantea un desafío de guacal y de restricciones de aerolínea; un gato suele viajar con más facilidad pero es mucho más sensible al estrés y a los cambios de entorno; y las [especies exóticas](/es/servicios/traslado-de-aves-y-animales-exoticos/) añaden una capa entera de normativa, incluida la convención CITES cuando se trata de especies protegidas.',
           'Por eso tratamos cada caso por separado y no con una plantilla única. Si ya sabe qué animal va a viajar, le conviene revisar la página específica de su especie: ahí están los detalles que aquí solo mencionamos en general.',
         ],
       },
@@ -773,14 +773,14 @@ export const services: Service[] = [
     heroTagline: 'Su perro llega sano y salvo a su nuevo hogar, dondequiera que esté.',
     heroImage: IMG.team,
     intro: [
-      'El traslado internacional de perros es el más frecuente dentro del pet relocation, y también uno con requisitos muy definidos: identificación por microchip, vacuna antirrábica vigente y certificado sanitario. Algunas razas braquicéfalas (de hocico corto) tienen restricciones aéreas por su sensibilidad respiratoria.',
+      'El traslado internacional de perros es el más frecuente dentro del [pet relocation](/es/servicios/transporte-de-mascotas-internacional/), y también uno con requisitos muy definidos: identificación por microchip, vacuna antirrábica vigente y certificado sanitario. Algunas razas braquicéfalas (de hocico corto) tienen restricciones aéreas por su sensibilidad respiratoria.',
       'Coordinamos cada detalle para que su perro viaje seguro, cumpliendo las normas del país de destino.',
     ],
     sections: [
       {
         heading: 'Lo que necesita su perro',
         body: [
-          'Microchip, cartilla de vacunación al día con antirrábica vigente, certificado de salud reciente y, según el destino, prueba de titulación de anticuerpos o tratamiento antiparasitario. Verificamos la lista exacta de su corredor.',
+          'Microchip, cartilla de vacunación al día con antirrábica vigente, certificado de salud reciente y, según el destino, prueba de titulación de anticuerpos o tratamiento antiparasitario. Verificamos la lista exacta de su corredor, sea [Panamá a Reino Unido](/es/destinos/mudanzas-de-panama-a-reino-unido/) o cualquier otro destino.',
         ],
         image: IMG.packing,
       },
@@ -830,14 +830,14 @@ export const services: Service[] = [
     heroTagline: 'Discretos y sensibles: preparamos cada detalle para su tranquilidad.',
     heroImage: IMG.team,
     intro: [
-      'Los gatos son especialmente sensibles al cambio, por lo que su traslado internacional requiere planificación y un guacal cómodo que les dé seguridad. Los requisitos sanitarios son similares a los de los perros —microchip, antirrábica, certificado de salud— con las particularidades de cada destino.',
-      'Coordinamos el proceso para que su gato viaje con el menor estrés posible y cumpliendo todas las normas.',
+      'Los gatos son especialmente sensibles al cambio, por lo que su traslado internacional requiere planificación y un guacal cómodo que les dé seguridad. Los requisitos sanitarios son similares a los de los [perros](/es/servicios/traslado-de-perros-al-extranjero/) —microchip, antirrábica, certificado de salud— con las particularidades de cada destino.',
+      'Coordinamos el [proceso de reubicación internacional](/es/servicios/transporte-de-mascotas-internacional/) para que su gato viaje con el menor estrés posible y cumpliendo todas las normas.',
     ],
     sections: [
       {
         heading: 'Requisitos y documentación',
         body: [
-          'Microchip de identificación, vacuna antirrábica vigente y certificado sanitario emitido por veterinario autorizado. Algunos destinos requieren pruebas adicionales; verificamos la lista exacta de su corredor.',
+          'Microchip de identificación, vacuna antirrábica vigente y certificado sanitario emitido por veterinario autorizado. Algunos destinos requieren pruebas adicionales; verificamos la lista exacta de su corredor, sea [Panamá a Canadá](/es/destinos/mudanzas-de-panama-a-canada/) o cualquier otro.',
         ],
         image: IMG.packing,
       },
@@ -887,14 +887,14 @@ export const services: Service[] = [
     heroTagline: 'Casos especiales que exigen permisos y manejo experto: aquí estamos.',
     heroImage: IMG.team,
     intro: [
-      'El traslado internacional de aves y animales exóticos es el más complejo del pet relocation, porque a menudo intervienen convenios de protección de especies (CITES), permisos especiales y requisitos sanitarios estrictos. No todos los animales pueden trasladarse, y cada especie tiene sus reglas.',
+      'El traslado internacional de aves y animales exóticos es el más complejo del [pet relocation](/es/servicios/transporte-de-mascotas-internacional/), porque a menudo intervienen convenios de protección de especies (CITES), permisos especiales y requisitos sanitarios estrictos. No todos los animales pueden trasladarse, y cada especie tiene sus reglas.',
       'En Panamá International Movers evaluamos su caso concreto, identificamos los permisos necesarios y coordinamos un manejo especializado que priorice el bienestar del animal y el cumplimiento legal.',
     ],
     sections: [
       {
         heading: 'Permisos CITES y especies protegidas',
         body: [
-          'Muchas aves y animales exóticos están sujetos a la convención CITES, que regula su comercio y traslado internacional. Verificamos si su especie requiere permiso y le orientamos sobre cómo obtenerlo, evitando problemas legales en origen y destino.',
+          'Muchas aves y animales exóticos están sujetos a la convención CITES, que regula su comercio y traslado internacional. Verificamos si su especie requiere permiso y le orientamos sobre cómo obtenerlo, evitando problemas legales en origen y en el país de destino, sea [Singapur](/es/destinos/mudanzas-de-panama-a-singapur/) o cualquier otro corredor.',
         ],
         image: IMG.packing,
       },
@@ -953,14 +953,14 @@ export const services: Service[] = [
       {
         heading: '¿Qué cabe en un contenedor de 20 pies?',
         body: [
-          'Como referencia general, acomoda el menaje de un apartamento o una casa de una a dos habitaciones: sala, comedor, dormitorios y electrodomésticos. El volumen exacto depende del tipo de mobiliario; en la inspección calculamos si le basta o conviene un 40 pies.',
+          'Como referencia general, acomoda el menaje de un apartamento o una casa de una a dos habitaciones: sala, comedor, dormitorios y electrodomésticos. El volumen exacto depende del tipo de mobiliario; en la inspección calculamos si le basta o conviene un [40 pies](/es/servicios/contenedor-de-40-pies-high-cube/).',
         ],
         image: IMG.port,
       },
       {
         heading: 'Usos y disponibilidad',
         body: [
-          'Además de la mudanza internacional puerta a puerta, el contenedor de 20 pies sirve para consolidar carga, almacenar temporalmente o cargar a su ritmo mediante drop-off en su domicilio. Le asesoramos sobre la mejor configuración.',
+          'Además de la [mudanza internacional puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/), el contenedor de 20 pies sirve para consolidar carga, almacenar temporalmente o cargar a su ritmo mediante [drop-off en su domicilio](/es/servicios/servicio-drop-off-contenedor/). Le asesoramos sobre la mejor configuración.',
         ],
       },
       {
@@ -974,7 +974,7 @@ export const services: Service[] = [
       {
         heading: 'Cárguelo a su ritmo con drop-off',
         body: [
-          'Si prefiere empacar por su cuenta, podemos dejar el contenedor de 20 pies en su domicilio durante un tiempo acordado para que lo cargue sin prisas. Le proveemos materiales de embalaje y asesoría de estiba, y al terminar lo retiramos para continuar con el flete internacional.',
+          'Si prefiere empacar por su cuenta, podemos dejar el contenedor de 20 pies en su domicilio durante un tiempo acordado para que lo cargue sin prisas. Le proveemos materiales de embalaje y asesoría de estiba, y al terminar lo retiramos para continuar con el flete internacional hacia su destino, sea [México](/es/destinos/mudanzas-de-panama-a-mexico/) o cualquier otro corredor.',
           'Es una opción flexible y a menudo más económica para quienes disponen de espacio y tiempo para cargar por sí mismos.',
         ],
       },
@@ -1004,7 +1004,7 @@ export const services: Service[] = [
     heroImage: IMG.port,
     intro: [
       'El contenedor de 40 pies —y su versión High Cube, con mayor altura— duplica la capacidad del de 20 pies y es la elección natural para mudanzas de casas grandes. También permite combinar el menaje completo con un automóvil en un solo envío, optimizando costos.',
-      'Coordinamos su envío internacional puerta a puerta con estiba profesional para aprovechar cada centímetro.',
+      'Coordinamos su [envío internacional puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) —a [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) o a cualquier otro destino— con estiba profesional para aprovechar cada centímetro.',
     ],
     sections: [
       {
@@ -1017,13 +1017,13 @@ export const services: Service[] = [
       {
         heading: 'Casa completa o menaje + auto',
         body: [
-          'Es la opción preferida para viviendas de tres o más habitaciones. Si además desea llevar su vehículo, cabe junto al menaje debidamente asegurado, evitando pagar dos fletes separados.',
+          'Es la opción preferida para viviendas de tres o más habitaciones. Si además desea [llevar su vehículo](/es/servicios/envio-de-autos-en-contenedor/), cabe junto al menaje debidamente asegurado, evitando pagar dos fletes separados.',
         ],
       },
       {
         heading: 'Cuánto cabe realmente en un 40 pies',
         body: [
-          'El contenedor de 40 pies ofrece unos 67 metros cúbicos de volumen útil, prácticamente el doble que el de 20 pies. La variante High Cube añade cerca de 30 cm de altura, útil para muebles altos, electrodomésticos grandes o para apilar más carga con seguridad.',
+          'El contenedor de 40 pies ofrece unos 67 metros cúbicos de volumen útil, prácticamente el doble que el [de 20 pies](/es/servicios/contenedor-de-20-pies/). La variante High Cube añade cerca de 30 cm de altura, útil para muebles altos, electrodomésticos grandes o para apilar más carga con seguridad.',
           'Como referencia, acomoda con holgura el menaje de una casa de tres o cuatro habitaciones. Y si le sobra espacio, es el momento ideal para incluir un vehículo y ahorrar un flete completo.',
         ],
         image: IMG.containers,
@@ -1061,13 +1061,13 @@ export const services: Service[] = [
     heroImage: IMG.warehouse,
     intro: [
       'A veces el reto no es mover, sino guardar: durante una remodelación, una obra o una transición de vivienda. El contenedor de almacenamiento temporal ofrece un espacio seguro, cerrado y a pie de calle para resguardar herramientas, materiales o mobiliario sin depender de una bodega externa.',
-      'En Panamá International Movers colocamos el contenedor donde lo necesite y coordinamos su retiro cuando termine.',
+      'En Panamá International Movers colocamos el contenedor donde lo necesite —igual que en el [servicio de drop-off](/es/servicios/servicio-drop-off-contenedor/)— y coordinamos su retiro cuando termine.',
     ],
     sections: [
       {
         heading: 'Usos frecuentes',
         body: [
-          'Almacenamiento de mobiliario durante una remodelación, resguardo de herramientas y materiales en obra, o depósito temporal mientras se define una mudanza. Es una solución flexible y económica frente a alquilar una bodega.',
+          'Almacenamiento de mobiliario durante una remodelación, resguardo de herramientas y materiales en obra, o depósito temporal mientras se define una mudanza, incluida una salida del país hacia [Colombia](/es/destinos/mudanzas-de-panama-a-colombia/) o cualquier otro destino. Es una solución flexible y económica frente a [alquilar una bodega](/es/servicios/almacenamiento-storage-panama/).',
         ],
         image: IMG.containers,
       },
@@ -1118,7 +1118,7 @@ export const services: Service[] = [
     heroImage: IMG.boxes,
     intro: [
       'El servicio drop-off consiste en llevar el contenedor hasta su domicilio y dejarlo allí durante un tiempo acordado, para que usted cargue sus pertenencias con calma y a su propio ritmo. Es la opción ideal para quienes prefieren empacar por su cuenta o necesitan flexibilidad de horarios.',
-      'Cuando termine, retiramos el contenedor y continuamos con el flete internacional y los trámites hasta el destino.',
+      'Cuando termine, retiramos el contenedor y continuamos con el flete internacional y los trámites hasta el destino, sea [Canadá](/es/destinos/mudanzas-de-panama-a-canada/) o cualquier otro corredor.',
     ],
     sections: [
       {
@@ -1131,7 +1131,7 @@ export const services: Service[] = [
       {
         heading: 'Ventajas de cargar usted mismo',
         body: [
-          'Además del ahorro potencial, el drop-off le da control total sobre qué entra y cómo se acomoda. Para quienes prefieren no encargarse, mantenemos disponible el empaque profesional completo.',
+          'Además del ahorro potencial, el drop-off le da control total sobre qué entra y cómo se acomoda. Para quienes prefieren no encargarse, mantenemos disponible el [empaque profesional completo](/es/servicios/servicio-de-embalaje-profesional/).',
         ],
       },
       {
@@ -1146,7 +1146,7 @@ export const services: Service[] = [
         heading: 'Con o sin nuestro empaque',
         body: [
           'El drop-off es tan flexible como lo necesite. Puede cargar completamente por su cuenta —le proveemos cajas y materiales de calidad, más asesoría de estiba— o combinar: usted empaca lo simple y nuestro equipo se encarga de lo frágil y voluminoso.',
-          'Sea cual sea la modalidad, le mostramos cómo aprovechar el espacio y proteger sus pertenencias para que el envío internacional posterior sea seguro.',
+          'Sea cual sea la modalidad, le mostramos cómo aprovechar el espacio y proteger sus pertenencias para que el [envío marítimo internacional](/es/servicios/mudanzas-internacionales-maritimas/) posterior sea seguro.',
         ],
       },
     ],
@@ -1183,7 +1183,7 @@ export const services: Service[] = [
       {
         heading: 'Estándar internacional en casa',
         body: [
-          'Protegemos pisos y esquinas, embalamos lo frágil, desarmamos y rearmamos muebles, y transportamos todo en vehículos acondicionados. La experiencia de mover casas entre continentes se nota en cada detalle local.',
+          'Protegemos pisos y esquinas, [embalamos lo frágil](/es/servicios/servicio-de-embalaje-profesional/), desarmamos y rearmamos muebles, y transportamos todo en vehículos acondicionados. La experiencia de mover casas entre continentes se nota en cada detalle local.',
         ],
         image: IMG.packing,
       },
@@ -1205,7 +1205,7 @@ export const services: Service[] = [
         heading: 'Un presupuesto claro, sin sorpresas',
         body: [
           'Antes de la mudanza evaluamos el volumen, la distancia, los accesos y los servicios que necesita (embalaje, desarme de muebles, materiales) para entregarle un presupuesto transparente. Sabe exactamente qué incluye y qué cuesta, sin cargos ocultos de última hora.',
-          'Ese mismo rigor de nuestras mudanzas internacionales lo aplicamos al traslado local: planificación seria y comunicación clara de principio a fin.',
+          'Ese mismo rigor de nuestras [mudanzas internacionales](/es/servicios/mudanzas-internacionales-maritimas/) —las que salen de Panamá hacia [España](/es/destinos/mudanzas-de-panama-a-espana/), [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) y otros destinos— lo aplicamos al traslado local: planificación seria y comunicación clara de principio a fin.',
         ],
       },
     ],
@@ -1254,14 +1254,14 @@ export const services: Service[] = [
         heading: 'Destinos que cubrimos en Panamá',
         body: [
           'Coordinamos mudanzas nacionales entre la Ciudad de Panamá y el interior del país: David y Chiriquí, Colón, Coronado y el Pacífico, Santiago, Chitré y la península de Azuero, Boquete y las tierras altas, Bocas del Toro, entre otros. Sea cual sea su destino dentro de Panamá, planificamos la ruta y los tiempos.',
-          'Cuéntenos a dónde se muda y le confirmamos la logística y el mejor momento para el traslado según la distancia y las condiciones de la vía.',
+          'Cuéntenos a dónde se muda y le confirmamos la logística y el mejor momento para el traslado según la distancia y las condiciones de la vía. Y si el traslado cruza la frontera, lo coordinamos igual: desde [mudanzas de Panamá a Colombia](/es/destinos/mudanzas-de-panama-a-colombia/) hasta [mudanzas de Panamá a Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/).',
         ],
         image: IMG.port,
       },
       {
         heading: 'Protección reforzada para la carretera',
         body: [
-          'Un trayecto nacional largo somete la carga a horas de vibración constante, que es donde más sufren los objetos frágiles. Por eso reforzamos el embalaje, aseguramos la estiba contra el movimiento y prestamos atención especial a vajilla, electrónicos y muebles delicados.',
+          'Un trayecto nacional largo somete la carga a horas de vibración constante, que es donde más sufren los objetos frágiles. Por eso reforzamos el [embalaje](/es/servicios/servicio-de-embalaje-profesional/), aseguramos la estiba contra el movimiento y prestamos atención especial a vajilla, electrónicos y muebles delicados.',
           'Si lo desea, incluimos un seguro para el trayecto nacional, dándole la misma tranquilidad de una mudanza internacional dentro de su propio país.',
         ],
       },
@@ -1310,8 +1310,8 @@ export const services: Service[] = [
       {
         heading: 'Cuándo es posible una mudanza express',
         body: [
-          'La viabilidad de un servicio express depende de tres factores: la fecha que necesita, el volumen a mover y nuestra disponibilidad de equipo en ese momento. Las mudanzas locales de última hora son casi siempre posibles; las internacionales express dependen además de espacios en aerolíneas o navieras y de los tiempos de aduana.',
-          'Por eso el primer paso es una llamada: evaluamos su caso al instante y le decimos con honestidad si podemos cumplir su plazo y bajo qué condiciones.',
+          'La viabilidad de un servicio express depende de tres factores: la fecha que necesita, el volumen a mover y nuestra disponibilidad de equipo en ese momento. Las [mudanzas locales](/es/servicios/mudanzas-locales-ciudad-de-panama/) de última hora son casi siempre posibles; las internacionales express dependen además de espacios en [aerolíneas](/es/servicios/mudanzas-internacionales-aereas/) o [navieras](/es/servicios/mudanzas-internacionales-maritimas/) y de los tiempos de aduana.',
+          'Por eso el primer paso es una llamada: evaluamos su caso al instante y le decimos con honestidad si podemos cumplir su plazo y bajo qué condiciones, sea una mudanza dentro de la ciudad o un corredor internacional como [Panamá a México](/es/destinos/mudanzas-de-panama-a-mexico/).',
         ],
         image: IMG.boxes,
       },
@@ -1350,20 +1350,20 @@ export const services: Service[] = [
     heroImage: IMG.packing,
     intro: [
       'Mudar una casa o un apartamento es mucho más que transportar muebles: es trasladar la vida cotidiana de una familia. Nuestro servicio residencial cubre desde estudios hasta viviendas grandes, con un plan a la medida de cada hogar y un coordinador personal que lo acompaña en todo el proceso.',
-      'Ya sea una mudanza local o internacional, cuidamos cada objeto con el mismo esmero con el que usted lo eligió para su casa.',
+      'Ya sea una mudanza local o una internacional —a [España](/es/destinos/mudanzas-de-panama-a-espana/), a [Canadá](/es/destinos/mudanzas-de-panama-a-canada/) o a cualquier otro destino—, cuidamos cada objeto con el mismo esmero con el que usted lo eligió para su casa.',
     ],
     sections: [
       {
         heading: 'Un plan a la medida de su hogar',
         body: [
-          'Comenzamos con una inspección para dimensionar el volumen y las necesidades: piezas frágiles, muebles a desarmar, electrodomésticos, obras de arte. Con eso diseñamos un plan de embalaje y transporte adecuado a su vivienda.',
+          'Comenzamos con una inspección para dimensionar el volumen y las necesidades: piezas frágiles, muebles a desarmar, electrodomésticos, [obras de arte](/es/servicios/transporte-de-obras-de-arte-antiguedades/). Con eso diseñamos un plan de embalaje y transporte adecuado a su vivienda.',
         ],
         image: IMG.boxes,
       },
       {
         heading: 'Embalaje que protege lo que importa',
         body: [
-          'Utilizamos materiales de calidad y técnicas específicas para vajilla, cuadros, electrónicos y muebles delicados. Todo se inventaría y etiqueta para que la reinstalación en destino sea ordenada y sin pérdidas.',
+          'Utilizamos materiales de calidad y [técnicas de embalaje específicas](/es/servicios/servicio-de-embalaje-profesional/) para vajilla, cuadros, electrónicos y muebles delicados. Todo se inventaría y etiqueta para que la reinstalación en destino sea ordenada y sin pérdidas.',
         ],
       },
       {
@@ -1407,7 +1407,7 @@ export const services: Service[] = [
     heroImage: IMG.team,
     intro: [
       'Mover una oficina es un proyecto logístico donde cada hora de inactividad tiene un costo. Planificamos la mudanza corporativa para que su operación se detenga lo mínimo indispensable: trabajamos por fases, en horarios de menor impacto y con un inventario riguroso de mobiliario, equipos y documentación confidencial.',
-      'Desde una pequeña oficina hasta un piso completo, coordinamos el traslado con la discreción y la precisión que su empresa necesita. Un solo coordinador se sienta con su equipo de operaciones, IT o RR.HH. y responde por todo el proyecto, de la primera visita al último puesto montado.',
+      'Desde una pequeña oficina hasta un piso completo —dentro de Panamá o en un traslado internacional a [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) o [Colombia](/es/destinos/mudanzas-de-panama-a-colombia/)—, coordinamos el traslado con la discreción y la precisión que su empresa necesita. Un solo coordinador se sienta con su equipo de operaciones, IT o RR.HH. y responde por todo el proyecto, de la primera visita al último puesto montado.',
     ],
     sections: [
       {
@@ -1435,7 +1435,7 @@ export const services: Service[] = [
       {
         heading: 'Servidores, equipos de IT y continuidad tecnológica',
         body: [
-          'El equipamiento tecnológico recibe embalaje especializado: protección antiestática, amortiguación y cajas dimensionadas para que nada se desplace en el trayecto. Cada equipo viaja inventariado con su serial, de modo que la entrega se verifica una por una contra la lista y no de memoria.',
+          'El equipamiento tecnológico recibe [embalaje especializado](/es/servicios/servicio-de-embalaje-profesional/): protección antiestática, amortiguación y cajas dimensionadas para que nada se desplace en el trayecto. Cada equipo viaja inventariado con su serial, de modo que la entrega se verifica una por una contra la lista y no de memoria.',
           'Aquí conviene ser claro sobre el alcance. Nosotros desconectamos, embalamos, transportamos y reinstalamos físicamente el equipo en su nuevo puesto. La desconexión lógica, la configuración de red y la puesta en marcha de servidores corresponden a su área de IT o a su proveedor, y trabajamos coordinados con ellos dentro del mismo cronograma. Desconfíe de quien le prometa hacerse cargo de todo sin preguntar por su infraestructura.',
         ],
         image: IMG.team,
@@ -1492,21 +1492,21 @@ export const services: Service[] = [
     heroTagline: 'Un aterrizaje suave en su nuevo país, de principio a fin.',
     heroImage: IMG.team,
     intro: [
-      'Reubicar a un ejecutivo o a su familia en otro país va más allá de la mudanza física: implica coordinar tiempos con la empresa, cuidar cada detalle y facilitar la adaptación al destino. Nuestro servicio de relocación VIP combina la mudanza internacional puerta a puerta con un acompañamiento pensado para expatriados.',
+      'Reubicar a un ejecutivo o a su familia en otro país va más allá de la mudanza física: implica coordinar tiempos con la empresa, cuidar cada detalle y facilitar la adaptación al destino. Nuestro servicio de relocación VIP combina la [mudanza internacional puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) con un acompañamiento pensado para expatriados.',
       'El objetivo es que el profesional se concentre en su nuevo rol mientras nosotros nos ocupamos de que su vida llegue en orden.',
     ],
     sections: [
       {
         heading: 'Mudanza y trámites, integrados',
         body: [
-          'Coordinamos el traslado del menaje con la gestión aduanera y los tiempos de incorporación laboral. Un coordinador dedicado sirve de enlace entre el ejecutivo, su empresa y nuestros agentes en destino.',
+          'Coordinamos el traslado del menaje con la [gestión aduanera](/es/servicios/gestion-aduanera-desaduanizacion/) y los tiempos de incorporación laboral. Un coordinador dedicado sirve de enlace entre el ejecutivo, su empresa y nuestros agentes en destino.',
         ],
         image: IMG.packing,
       },
       {
         heading: 'Apoyo en el destino',
         body: [
-          'A través de nuestra red y alianzas locales, podemos facilitar orientación para el aterrizaje —vivienda, servicios esenciales, gestiones iniciales— según las necesidades de cada corredor y cliente corporativo.',
+          'A través de nuestra red y alianzas locales, podemos facilitar orientación para el aterrizaje —vivienda, servicios esenciales, gestiones iniciales— según las necesidades de cada corredor —de [Panamá a Suiza](/es/destinos/mudanzas-de-panama-a-suiza/) a [Panamá a Dubái](/es/destinos/mudanzas-de-panama-a-dubai/)— y de cada cliente corporativo.',
         ],
       },
       {
@@ -1549,14 +1549,14 @@ export const services: Service[] = [
     heroTagline: 'Irse a estudiar afuera con lo necesario, sin gastar de más.',
     heroImage: IMG.boxes,
     intro: [
-      'Estudiar en el extranjero suele implicar mudar poco volumen: ropa, libros, algunos enseres y objetos personales. Para eso, la opción más económica es el contenedor compartido (LCL) o el envío aéreo de pocas cajas, donde solo se paga por el espacio o peso utilizado.',
+      'Estudiar en el extranjero suele implicar mudar poco volumen: ropa, libros, algunos enseres y objetos personales. Para eso, la opción más económica es el [contenedor compartido (LCL)](/es/servicios/contenedor-compartido-lcl/) o el [envío aéreo](/es/servicios/mudanzas-internacionales-aereas/) de pocas cajas, donde solo se paga por el espacio o peso utilizado.',
       'Ayudamos al estudiante y a su familia a mover lo esencial de forma sencilla, segura y ajustada al presupuesto.',
     ],
     sections: [
       {
         heading: 'La opción más económica',
         body: [
-          'Consolidamos sus cajas en un contenedor compartido o coordinamos un envío aéreo ligero, según urgencia y presupuesto. Le orientamos sobre qué conviene llevar y qué es mejor comprar en destino.',
+          'Consolidamos sus cajas en un contenedor compartido o coordinamos un envío aéreo ligero, según urgencia y presupuesto. Le orientamos sobre qué conviene llevar y qué es mejor comprar en destino, sea [España](/es/destinos/mudanzas-de-panama-a-espana/), [Reino Unido](/es/destinos/mudanzas-de-panama-a-reino-unido/) o cualquier otro destino de estudios.',
         ],
         image: IMG.packing,
       },
@@ -1626,15 +1626,15 @@ export const services: Service[] = [
       {
         heading: 'Panamá, destino de retiro',
         body: [
-          'Panamá es, año tras año, uno de los destinos de jubilación más elegidos del mundo, por su clima, su costo de vida y los beneficios de su Visa Pensionado. Eso significa que muchas de nuestras mudanzas de jubilados son de llegada, con familias que traen el hogar de toda una vida para empezar su mejor etapa aquí.',
-          'Conocemos bien este perfil y sus necesidades: cuidado con los objetos sentimentales, paciencia en el ritmo y orientación sobre la importación de menaje. Hacemos que la llegada sea tan tranquila como el destino promete.',
+          'Panamá es, año tras año, uno de los destinos de jubilación más elegidos del mundo, por su clima, su costo de vida y los beneficios de su Visa Pensionado. Eso significa que muchas de nuestras mudanzas de jubilados son de llegada, con familias que traen el hogar de toda una vida para empezar su mejor etapa aquí. También acompañamos el camino inverso, hacia destinos como [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) o [Portugal](/es/destinos/mudanzas-de-panama-a-portugal/).',
+          'Conocemos bien este perfil y sus necesidades: cuidado con los objetos sentimentales, paciencia en el ritmo y orientación sobre la [importación de menaje](/es/servicios/gestion-aduanera-desaduanizacion/). Hacemos que la llegada sea tan tranquila como el destino promete.',
         ],
         image: IMG.team,
       },
       {
         heading: 'Cuidado con lo que tiene una historia',
         body: [
-          'A lo largo de una vida se acumulan objetos que no son solo cosas: la vajilla de las fiestas familiares, los cuadros, los libros, los muebles heredados. Cada uno de esos objetos recibe de nuestro equipo el embalaje reforzado y el manejo delicado que merece.',
+          'A lo largo de una vida se acumulan objetos que no son solo cosas: la vajilla de las fiestas familiares, los cuadros, los libros, los muebles heredados. Cada uno de esos objetos recibe de nuestro equipo el [embalaje reforzado](/es/servicios/servicio-de-embalaje-profesional/) y el manejo delicado que merece.',
           'Nos tomamos el tiempo de hacerlo bien, explicando el proceso con amabilidad y respetando el valor —muchas veces incalculable— de lo que trasladamos.',
         ],
       },
@@ -1672,14 +1672,14 @@ export const services: Service[] = [
       {
         heading: 'Crates a medida y materiales especiales',
         body: [
-          'Construimos cajas de madera diseñadas para cada obra, con acolchados internos, esquineros y sistemas anti-vibración. Para piezas sensibles usamos materiales libres de ácido y, si es necesario, embalaje con control de humedad.',
+          'Construimos [cajas de madera diseñadas para cada obra](/es/servicios/servicio-de-embalaje-profesional/), con acolchados internos, esquineros y sistemas anti-vibración. Para piezas sensibles usamos materiales libres de ácido y, si es necesario, embalaje con control de humedad.',
         ],
         image: IMG.containers,
       },
       {
         heading: 'Documentación y seguro especializado',
         body: [
-          'Fotografiamos y documentamos el estado de cada pieza antes del embalaje, y coordinamos un seguro a valor declarado —idealmente con avalúo— apropiado para obras de arte y antigüedades.',
+          'Fotografiamos y documentamos el estado de cada pieza antes del embalaje, y coordinamos un [seguro a valor declarado](/es/servicios/seguros-de-mudanza-internacional/) —idealmente con avalúo— apropiado para obras de arte y antigüedades.',
         ],
       },
       {
@@ -1694,7 +1694,7 @@ export const services: Service[] = [
         heading: 'Coleccionistas, galerías y herencias familiares',
         body: [
           'Atendemos por igual al coleccionista que traslada su patrimonio, a la galería que mueve una exposición y a la familia que hereda piezas de valor y quiere reunirlas en un nuevo hogar. En todos los casos, el principio es el mismo: cada objeto es irremplazable y se trata como tal.',
-          'Le acompañamos también en la parte administrativa —documentación, avalúo, seguro— para que el traslado de sus obras sea tan seguro en lo legal como en lo físico.',
+          'Le acompañamos también en la parte administrativa —documentación, avalúo, seguro— para que el traslado de sus obras sea tan seguro en lo legal como en lo físico, viajen a [Italia](/es/destinos/mudanzas-de-panama-a-italia/), a [Francia](/es/destinos/mudanzas-de-panama-a-francia/) o a cualquier otro destino.',
         ],
       },
     ],
@@ -1736,7 +1736,7 @@ export const services: Service[] = [
       {
         heading: 'Otros instrumentos',
         body: [
-          'Guitarras, violines, vientos y equipos electrónicos musicales reciben estuches y embalaje que amortiguan golpes y controlan la humedad, protegiendo tanto la estructura como el sonido.',
+          'Guitarras, violines, vientos y equipos electrónicos musicales reciben estuches y [embalaje](/es/servicios/servicio-de-embalaje-profesional/) que amortiguan golpes y controlan la humedad, protegiendo tanto la estructura como el sonido.',
         ],
       },
       {
@@ -1751,7 +1751,7 @@ export const services: Service[] = [
         heading: 'La afinación y el clima del destino',
         body: [
           'Es normal que un piano requiera afinación tras una mudanza: el cambio de ubicación, de humedad y de temperatura afecta las cuerdas y la madera. Recomendamos dejar que el instrumento se aclimate unos días en su nuevo entorno antes de afinarlo.',
-          'Le orientamos sobre estos cuidados posteriores para que su piano recupere pronto su mejor sonido en su nuevo hogar.',
+          'Le orientamos sobre estos cuidados posteriores, sea cual sea su destino —[Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/), [Alemania](/es/destinos/mudanzas-de-panama-a-alemania/) o cualquier otro corredor—, para que su piano recupere pronto su mejor sonido en su nuevo hogar.',
         ],
       },
     ],
@@ -1786,14 +1786,14 @@ export const services: Service[] = [
       {
         heading: 'Embalaje y clima',
         body: [
-          'Usamos separadores y cajas diseñadas para botellas, que amortiguan la vibración y mantienen las botellas estables. Para colecciones sensibles evaluamos opciones con control térmico durante el trayecto.',
+          'Usamos separadores y [cajas diseñadas para botellas](/es/servicios/servicio-de-embalaje-profesional/), que amortiguan la vibración y mantienen las botellas estables. Para colecciones sensibles evaluamos opciones con control térmico durante el trayecto.',
         ],
         image: IMG.containers,
       },
       {
         heading: 'Consideraciones aduaneras',
         body: [
-          'El transporte internacional de alcohol puede estar sujeto a permisos e impuestos específicos según el país. Le orientamos sobre los requisitos del destino antes de mover su colección.',
+          'El transporte internacional de alcohol puede estar sujeto a [permisos e impuestos específicos](/es/servicios/gestion-aduanera-desaduanizacion/) según el país. Le orientamos sobre los requisitos del destino antes de mover su colección.',
         ],
       },
       {
@@ -1808,7 +1808,7 @@ export const services: Service[] = [
         heading: 'Permisos e impuestos: no improvise con el alcohol',
         body: [
           'El alcohol es una de las categorías más reguladas en el comercio internacional. Muchos países exigen permisos específicos y aplican impuestos particulares a la importación de vino, incluso cuando forma parte de una mudanza. Ignorar esto puede significar retenciones o multas.',
-          'Antes de mover su colección, revisamos la normativa exacta de su destino y le explicamos qué se puede, qué requiere permiso y qué impuestos podrían aplicar, para que no haya sorpresas.',
+          'Antes de mover su colección, revisamos la normativa exacta de su destino —[España](/es/destinos/mudanzas-de-panama-a-espana/), [Reino Unido](/es/destinos/mudanzas-de-panama-a-reino-unido/) o cualquier otro corredor— y le explicamos qué se puede, qué requiere permiso y qué impuestos podrían aplicar, para que no haya sorpresas.',
         ],
       },
     ],
@@ -1850,7 +1850,7 @@ export const services: Service[] = [
       {
         heading: 'Envío individual o con su mudanza',
         body: [
-          'Puede enviar solo su equipo deportivo o incluirlo dentro de su mudanza de casa. Le recomendamos la opción más conveniente según volumen y destino.',
+          'Puede enviar solo su equipo deportivo o incluirlo dentro de su [mudanza de casa](/es/servicios/mudanzas-residenciales/). Le recomendamos la opción más conveniente según volumen y destino, sea [Chile](/es/destinos/mudanzas-de-panama-a-chile/) o cualquier otro corredor.',
         ],
       },
       {
@@ -1865,7 +1865,7 @@ export const services: Service[] = [
         heading: 'Para deportistas, viajeros y aficionados',
         body: [
           'No hace falta ser atleta profesional para necesitar este servicio. Familias que se mudan con las bicicletas de todos, aficionados que no quieren separarse de su tabla, deportistas que viajan con su equipo a una competencia: todos encuentran aquí una solución segura.',
-          'Y si su equipo es de alto valor, aplicamos el mismo cuidado y las mismas opciones de seguro que a cualquier artículo especial.',
+          'Y si su equipo es de alto valor, aplicamos el mismo cuidado y las mismas [opciones de seguro](/es/servicios/seguros-de-mudanza-internacional/) que a cualquier artículo especial.',
         ],
       },
     ],
@@ -1902,14 +1902,14 @@ export const services: Service[] = [
       {
         heading: 'Materiales y técnicas de exportación',
         body: [
-          'Cada objeto pide un método: vajilla en divisores, cuadros en cajas planas acolchadas, electrónicos en su embalaje original o equivalente, muebles envueltos y protegidos en esquinas. Para piezas críticas, crates de madera hechos a medida.',
+          'Cada objeto pide un método: vajilla en divisores, cuadros en cajas planas acolchadas, electrónicos en su embalaje original o equivalente, muebles envueltos y protegidos en esquinas. Para piezas críticas —[obras de arte y antigüedades](/es/servicios/transporte-de-obras-de-arte-antiguedades/), sobre todo—, crates de madera hechos a medida.',
         ],
         image: IMG.boxes,
       },
       {
         heading: 'Inventario y etiquetado',
         body: [
-          'Todo lo que empacamos se inventaría y etiqueta por área y contenido. Esto agiliza la aduana, respalda el seguro y hace que la reinstalación en destino sea ordenada y sin pérdidas.',
+          'Todo lo que empacamos se inventaría y etiqueta por área y contenido. Esto agiliza la [aduana](/es/servicios/gestion-aduanera-desaduanizacion/), respalda el [seguro](/es/servicios/seguros-de-mudanza-internacional/) y hace que la reinstalación en destino sea ordenada y sin pérdidas.',
         ],
       },
       {
@@ -1924,7 +1924,7 @@ export const services: Service[] = [
         heading: 'Empaque parcial o total, usted decide',
         body: [
           'Puede contratar el empaque profesional completo —lo hacemos todo— o solo el de los artículos frágiles y valiosos, empacando usted el resto. También le proveemos materiales de calidad si prefiere hacerlo por su cuenta con nuestra asesoría.',
-          'En mudanzas internacionales, sin embargo, el empaque profesional suele ser requisito de aduanas y aseguradoras, por lo que le indicamos qué es obligatorio en su corredor.',
+          'En mudanzas internacionales, sin embargo, el empaque profesional suele ser **requisito de aduanas y aseguradoras**, por lo que le indicamos qué es obligatorio en su corredor, sea [Panamá a Australia](/es/destinos/mudanzas-de-panama-a-australia/) o cualquier otro.',
         ],
       },
     ],
@@ -1959,7 +1959,7 @@ export const services: Service[] = [
       {
         heading: 'Cobertura a todo riesgo',
         body: [
-          'La póliza a todo riesgo cubre el trayecto completo, de su casa de origen a la de destino, incluyendo la manipulación en puertos y aeropuertos. Es la protección más completa para una mudanza internacional.',
+          'La póliza a todo riesgo cubre el trayecto completo, [de su casa de origen a la de destino](/es/servicios/mudanza-puerta-a-puerta/), incluyendo la manipulación en puertos y aeropuertos, en cualquier corredor: de [Panamá a Italia](/es/destinos/mudanzas-de-panama-a-italia/) a [Panamá a Singapur](/es/destinos/mudanzas-de-panama-a-singapur/). Es la protección más completa para una mudanza internacional.',
         ],
         image: IMG.containers,
       },
@@ -1973,7 +1973,7 @@ export const services: Service[] = [
         heading: 'Cómo elaborar un inventario valorado',
         body: [
           'La base de un buen seguro es un inventario valorado: la lista de sus bienes con un valor asignado a cada uno. No se trata de inflar cifras ni de subestimar por ahorrar prima; se trata de reflejar el valor real de reposición, para que la indemnización, si hace falta, le permita reponer lo perdido.',
-          'Le guiamos en este ejercicio, prestando atención especial a los artículos de mayor valor —electrónicos, obras de arte, joyas— que conviene declarar con detalle.',
+          'Le guiamos en este ejercicio, prestando atención especial a los artículos de mayor valor —electrónicos, [obras de arte](/es/servicios/transporte-de-obras-de-arte-antiguedades/), joyas— que conviene declarar con detalle.',
         ],
         image: IMG.containers,
       },
@@ -2023,21 +2023,21 @@ export const services: Service[] = [
       {
         heading: 'Depósito aduanero',
         body: [
-          'Para carga internacional en tránsito, el depósito aduanero permite mantener la mercancía bajo control aduanero hasta completar los trámites. Le orientamos si su caso lo requiere.',
+          'Para carga internacional en tránsito, el depósito aduanero permite mantener la mercancía bajo control aduanero hasta completar los [trámites aduaneros](/es/servicios/gestion-aduanera-desaduanizacion/). Le orientamos si su caso lo requiere.',
         ],
       },
       {
         heading: 'Cuándo necesitará almacenamiento',
         body: [
           'El almacenamiento resuelve uno de los problemas más comunes de las mudanzas: los tiempos que no calzan. La casa de destino aún no está lista, hay un lapso entre la salida de una vivienda y la entrada a otra, o parte del menaje debe esperar a una segunda etapa. En todos estos casos, un depósito seguro le da flexibilidad.',
-          'Adaptamos el plazo a su necesidad —unos días o varios meses— y guardamos su menaje embalado e inventariado, listo para entregarse cuando usted lo pida.',
+          'Adaptamos el plazo a su necesidad —unos días o varios meses— y guardamos su menaje embalado e inventariado, listo para entregarse cuando usted lo pida. Aplica igual si su menaje espera aquí antes de embarcar hacia [Australia](/es/destinos/mudanzas-de-panama-a-australia/) o cualquier otro destino.',
         ],
         image: IMG.warehouse,
       },
       {
         heading: 'Sus bienes, protegidos mientras esperan',
         body: [
-          'Almacenar no significa dejar sus cosas al azar. Sus bienes se guardan en instalaciones monitoreadas, correctamente embaladas para evitar daños durante el reposo, y con un inventario que le permite saber exactamente qué hay en depósito.',
+          'Almacenar no significa dejar sus cosas al azar. Sus bienes se guardan en instalaciones monitoreadas, correctamente [embaladas](/es/servicios/servicio-de-embalaje-profesional/) para evitar daños durante el reposo, y con un inventario que le permite saber exactamente qué hay en depósito.',
           'Si lo desea, incluimos cobertura de seguro para el período de almacenamiento, de modo que su tranquilidad no se interrumpa mientras su mudanza espera.',
         ],
       },
@@ -2086,7 +2086,7 @@ export const services: Service[] = [
       {
         heading: 'Por qué la aduana complica tantas mudanzas',
         body: [
-          'La aduana es el punto donde más mudanzas se atascan, y casi siempre por lo mismo: documentación incompleta o incorrecta, clasificación errónea de la mercancía o desconocimiento de los beneficios disponibles. El resultado son demoras, almacenaje no previsto y, a veces, pagos que podrían haberse evitado.',
+          'La aduana es el punto donde más mudanzas se atascan, y casi siempre por lo mismo: documentación incompleta o incorrecta, clasificación errónea de la mercancía o desconocimiento de los beneficios disponibles. El resultado son demoras, [almacenaje](/es/servicios/almacenamiento-storage-panama/) no previsto y, a veces, pagos que podrían haberse evitado.',
           'Nuestra gestión aduanera existe precisamente para eliminar ese riesgo: preparamos el papeleo con precisión y anticipamos los requisitos de cada país antes de que su carga llegue.',
         ],
         image: IMG.containers,
@@ -2094,7 +2094,7 @@ export const services: Service[] = [
       {
         heading: 'Un solo interlocutor para origen y destino',
         body: [
-          'En una mudanza internacional intervienen aduanas en el país de origen y en el de destino, cada una con sus reglas. En lugar de que usted lidie con agentes distintos en dos países, coordinamos ambos extremos a través de nuestra red, sirviendo de único interlocutor.',
+          'En una mudanza internacional intervienen aduanas en el país de origen y en el de destino —[España](/es/destinos/mudanzas-de-panama-a-espana/), [Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/) o el que sea—, cada una con sus reglas. En lugar de que usted lidie con agentes distintos en dos países, coordinamos ambos extremos a través de nuestra red, sirviendo de único interlocutor.',
           'Así, el despacho fluye de forma coordinada y usted siempre tiene una sola persona a quien preguntar por el estado de sus trámites.',
         ],
       },
@@ -2123,7 +2123,7 @@ export const services: Service[] = [
     heroTagline: 'Entregue su casa impecable, sin mover un dedo.',
     heroImage: IMG.packing,
     intro: [
-      'Después de una mudanza, la casa vacía casi siempre necesita una limpieza a fondo, ya sea para devolverla al propietario en buenas condiciones o para dejarla lista al nuevo dueño. Nuestro servicio de limpieza final (move-out cleaning) le ahorra ese último esfuerzo en un momento en que su energía está en otra parte.',
+      'Después de una [mudanza local](/es/servicios/mudanzas-locales-ciudad-de-panama/) o [internacional](/es/servicios/mudanzas-internacionales-maritimas/), la casa vacía casi siempre necesita una limpieza a fondo, ya sea para devolverla al propietario en buenas condiciones o para dejarla lista al nuevo dueño. Nuestro servicio de limpieza final (move-out cleaning) le ahorra ese último esfuerzo en un momento en que su energía está en otra parte.',
       'Un complemento pequeño que cierra su mudanza con broche de oro y le evita una tarea agotadora.',
     ],
     sections: [
@@ -2144,7 +2144,7 @@ export const services: Service[] = [
         heading: 'Ideal para recuperar su depósito de alquiler',
         body: [
           'Si sale de una vivienda alquilada, la limpieza final suele ser la condición para recuperar el depósito de garantía. Una entrega impecable evita descuentos y disputas con el propietario o la administración. Nuestro servicio deja la vivienda en condiciones de inspección.',
-          'Para quien vende o entrega una casa propia, una limpieza a fondo también mejora la primera impresión del nuevo dueño. Es el cierre profesional de su mudanza.',
+          'Para quien vende o entrega una casa propia, una limpieza a fondo también mejora la primera impresión del nuevo dueño. Es el cierre profesional de su mudanza, se quede en Panamá o se vaya a [España](/es/destinos/mudanzas-de-panama-a-espana/).',
         ],
         image: IMG.boxes,
       },
@@ -2190,7 +2190,7 @@ export const services: Service[] = [
         heading: '¿Cómo funciona el casillero?',
         body: [
           'El proceso es simple: al registrarse, le asignamos una dirección personal en Miami (con su nombre y un número de casillero). Cuando compra en cualquier tienda estadounidense, usa esa dirección como destino de envío. La tienda despacha a nuestra bodega en Miami, nosotros recibimos el paquete, lo registramos y le notificamos.',
-          'Desde ahí, usted decide: enviarlo de inmediato o esperar a acumular varias compras para consolidarlas en un solo envío y ahorrar. Nosotros lo trasladamos a Panamá y se lo entregamos.',
+          'Desde ahí, usted decide: enviarlo de inmediato o esperar a acumular varias compras para consolidarlas en un solo envío y ahorrar; si tiene prisa, la alternativa es nuestro [courier internacional](/es/servicios/courier-internacional/). Nosotros lo trasladamos a Panamá y se lo entregamos.',
         ],
         image: IMG.warehouse,
       },
@@ -2205,13 +2205,13 @@ export const services: Service[] = [
         heading: 'Compre en cualquier tienda de Estados Unidos',
         body: [
           'Amazon, eBay, tiendas de tecnología, ropa, repuestos, artículos que no se consiguen en Panamá o que allá cuestan mucho menos: con una dirección en USA, el catálogo de todo Estados Unidos queda a su alcance, incluso el de tiendas que no envían internacionalmente.',
-          'Ideal para compradores frecuentes, pequeños negocios que importan producto y expatriados acostumbrados a comprar en línea en USA.',
+          'Ideal para compradores frecuentes, pequeños negocios que importan producto y expatriados acostumbrados a comprar en línea en USA, incluidos quienes preparan su [mudanza de Panamá a Estados Unidos](/es/destinos/mudanzas-de-panama-a-estados-unidos/).',
         ],
       },
       {
         heading: 'Impuestos y desaduanización, resueltos',
         body: [
-          'La importación de compras está sujeta a las normas y los impuestos de aduana de Panamá. Nos encargamos de la desaduanización y le explicamos con transparencia los cargos aplicables según el valor y tipo de producto, para que no haya sorpresas al recibir.',
+          'La importación de compras está sujeta a las normas y los impuestos de aduana de Panamá. Nos encargamos de la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y le explicamos con transparencia los cargos aplicables según el valor y tipo de producto, para que no haya sorpresas al recibir.',
           'Con nuestra experiencia en logística internacional, su compra pasa por aduana de forma ágil y llega a sus manos sin complicaciones.',
         ],
       },
@@ -2248,7 +2248,7 @@ export const services: Service[] = [
       {
         heading: 'Envíos express puerta a puerta',
         body: [
-          'El courier está pensado para la rapidez: recogemos su envío y lo despachamos por vía aérea hacia su destino internacional, con entrega directa en la dirección del destinatario. Ideal para documentos legales, contratos, muestras comerciales, repuestos urgentes o paquetes personales.',
+          'El courier está pensado para la rapidez: recogemos su envío y lo despachamos por [vía aérea](/es/servicios/mudanzas-internacionales-aereas/) hacia su destino internacional, con entrega directa en la dirección del destinatario. Ideal para documentos legales, contratos, muestras comerciales, repuestos urgentes o paquetes personales.',
           'Usted no tiene que acudir a ninguna oficina ni gestionar trámites: coordinamos todo desde la recogida hasta la entrega final.',
         ],
         image: IMG.boxes,
@@ -2263,7 +2263,7 @@ export const services: Service[] = [
       {
         heading: 'Aduanas y documentación, sin complicaciones',
         body: [
-          'Los envíos internacionales pasan por aduana tanto en origen como en destino. Preparamos la documentación necesaria y gestionamos el despacho para que su courier fluya sin retenciones, informándole de cualquier requisito o cargo aplicable según el país de destino.',
+          'Los envíos internacionales pasan por aduana tanto en origen como en destino. Preparamos la documentación necesaria y gestionamos el [despacho aduanero](/es/servicios/gestion-aduanera-desaduanizacion/) para que su courier fluya sin retenciones, informándole de cualquier requisito o cargo aplicable según el país de destino, sea [España](/es/destinos/mudanzas-de-panama-a-espana/) o [China](/es/destinos/mudanzas-de-panama-a-china/).',
         ],
       },
     ],

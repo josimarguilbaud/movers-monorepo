@@ -4,6 +4,7 @@ description: "Qué llevar, qué pide la aduana española del menaje de casa y qu
 pubDate: 2026-09-02
 category: "Vida Expat"
 heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop"
+translation: "moving-to-spain-from-panama-complete-guide"
 ---
 
 España es el destino más consultado por quienes salen de Panamá: el idioma, los lazos históricos, una comunidad establecida y su posición como puerta de entrada a Europa. Madrid, Barcelona y Valencia concentran la mayoría de los traslados, pero el corredor sirve a cualquier ciudad española.

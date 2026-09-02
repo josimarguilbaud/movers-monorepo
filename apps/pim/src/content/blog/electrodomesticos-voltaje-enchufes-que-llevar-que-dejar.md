@@ -4,6 +4,7 @@ description: "Panamá usa 110V/60Hz con enchufes tipo A y B; buena parte de Euro
 pubDate: 2026-09-02
 category: "Consejos de Empaque"
 heroImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop"
+translation: "appliances-voltage-plugs-what-to-take-what-to-leave"
 ---
 
 Hay una decisión que se toma con demasiada ligereza en las mudanzas internacionales: **qué electrodomésticos se llevan**. Ocupan mucho volumen, y el volumen se paga. Si además no funcionan al llegar, usted pagó flete internacional por un objeto que va a terminar en la acera.

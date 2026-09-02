@@ -4,6 +4,7 @@ description: "Qué exige la salida desde Panamá y qué pide el país europeo de
 pubDate: 2026-09-02
 category: "Mascotas"
 heroImage: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop"
+translation: "moving-your-pet-from-panama-to-spain-or-europe"
 ---
 
 Trasladar a su perro o a su gato de Panamá a España u otro país europeo es perfectamente factible. No es un trámite improvisable. Es una **secuencia con orden obligatorio**: cada paso habilita al siguiente, y hacerlos fuera de orden obliga a repetirlos desde el principio.

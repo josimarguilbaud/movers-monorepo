@@ -4,6 +4,7 @@ description: "Contenedor exclusivo o compartido: dónde está el punto de equili
 pubDate: 2026-09-02
 category: "Aduanas y Logística"
 heroImage: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2000&auto=format&fit=crop"
+translation: "fcl-vs-lcl-which-one-by-cubic-meters"
 ---
 
 Es la decisión que más cambia la estructura de una mudanza marítima, y casi siempre se toma con la información equivocada. Mucha gente elige entre **contenedor exclusivo (FCL)** y **contenedor compartido (LCL)** por presupuesto, cuando en realidad la variable que manda es otra: **cuántos metros cúbicos tiene su carga**. Aquí explicamos dónde está el punto de equilibrio y por qué.

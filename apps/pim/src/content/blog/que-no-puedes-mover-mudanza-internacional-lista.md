@@ -4,6 +4,7 @@ description: "Lista completa y ordenada de lo que no puede viajar en un contened
 pubDate: 2026-09-02
 category: "Consejos de Empaque"
 heroImage: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=2000&auto=format&fit=crop"
+translation: "what-you-cannot-ship-international-move-list"
 ---
 
 Casi todas las guías de mudanza le dicen qué llevar. Muy pocas le dicen, con precisión, **qué no puede ir**. Y es justo esa lista la que evita los problemas caros: un contenedor retenido, una multa, una carga inspeccionada o un siniestro que el seguro no cubre. Aquí está, ordenada en cuatro categorías, porque no todo lo que "no va" está prohibido por la misma razón.

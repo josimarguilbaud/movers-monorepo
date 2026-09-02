@@ -12,15 +12,27 @@ const T = {
     subject: 'Nueva solicitud de cotización — Panamá International Movers',
     fromName: 'Sitio web PIM',
     name: 'Nombre Completo', namePh: 'Ej. Juan Pérez',
-    type: 'Tipo de Mudanza', local: 'Local', intl: 'Internacional',
+    type: '¿Qué necesita mover?',
+    types: ['Mudanza local', 'Mudanza internacional', 'Oficina o empresa', 'Solo un vehículo', 'Solo mi mascota', 'Solo almacenaje'],
     email: 'Correo electrónico', emailPh: 'correo@ejemplo.com',
-    date: 'Fecha Aproximada de Mudanza',
+    /* El volumen es lo único que decide el precio de una mudanza y antes se
+       pedía como texto libre dentro de "Detalles". Preguntarlo por recámaras es
+       más fácil de contestar y llega como dato utilizable al coordinador. */
+    volume: '¿Cuánto hay que mover?',
+    volumeHelp: 'Una referencia basta. El volumen exacto sale en la evaluación.',
+    volumes: ['Unas pocas cajas', 'Apartamento de 1 recámara', 'Apartamento de 2 recámaras', 'Casa de 3 recámaras', 'Casa de 4 o más', 'Oficina o local', 'Todavía no lo sé'],
+    date: '¿Para cuándo?',
+    /* Antes era un campo de fecha obligatorio. Quien pide cotización a menudo
+       está decidiendo todavía, y exigir un día exacto era fricción de más. */
+    dates: ['En las próximas 4 semanas', 'En 1 a 3 meses', 'En 3 a 6 meses', 'Más adelante', 'Todavía no tengo fecha'],
     phone: 'Teléfono (WhatsApp)', phonePh: '+507 0000-0000',
-    packing: '¿Necesita Servicio de Empaque?', yes: 'Sí', no: 'No',
-    origin: 'Ciudad y País de Origen', originPh: 'Ej. Ciudad de Panamá, Panamá',
-    dest: 'Ciudad y País de Destino', destPh: 'Ej. Madrid, España',
-    details: 'Detalles', detailsPh: 'Háganos cualquier consulta… Volumen aproximado (casa de X recámaras), si incluye vehículo, etc.',
-    send: 'Enviar Solicitud', sending: 'Enviando…',
+    packing: '¿Necesita servicio de empaque?', yes: 'Sí', no: 'No', maybe: 'No estoy seguro',
+    origin: 'Desde', originPh: 'Ej. Ciudad de Panamá, Panamá',
+    dest: 'Hacia', destPh: 'Ej. Madrid, España',
+    details: 'Algo más que debamos saber', detailsPh: 'Piso sin ascensor, piano, obras de arte, un carro que va con la mudanza, fechas críticas…',
+    contactTitle: 'Y por último, ¿a dónde le enviamos la cotización?',
+    send: 'Recibir mi cotización gratis', sending: 'Enviando…',
+    promise: 'Respuesta en menos de 24 horas. La evaluación es gratis y no compromete a nada.',
     /* Decía "No compartimos sus datos", y no era exacto: el lead pasa por el
        webhook de automatización y por el CRM. No los vendemos, que es lo que de
        verdad le importa a quien lo lee, y eso sí se puede afirmar. */
@@ -36,15 +48,22 @@ const T = {
     subject: 'New quote request — Panamá International Movers',
     fromName: 'PIM website',
     name: 'Full Name', namePh: 'e.g. John Smith',
-    type: 'Type of Move', local: 'Local', intl: 'International',
+    type: 'What do you need to move?',
+    types: ['Local move', 'International move', 'Office or business', 'A vehicle only', 'My pet only', 'Storage only'],
     email: 'Email address', emailPh: 'you@example.com',
-    date: 'Approximate Moving Date',
+    volume: 'How much is there to move?',
+    volumeHelp: 'A rough idea is enough. The exact volume comes out of the survey.',
+    volumes: ['Just a few boxes', '1-bedroom apartment', '2-bedroom apartment', '3-bedroom house', '4 bedrooms or more', 'Office or commercial space', 'Not sure yet'],
+    date: 'When?',
+    dates: ['Within the next 4 weeks', 'In 1 to 3 months', 'In 3 to 6 months', 'Further out', 'No date yet'],
     phone: 'Phone (WhatsApp)', phonePh: '+507 0000-0000',
-    packing: 'Do you need packing service?', yes: 'Yes', no: 'No',
-    origin: 'Origin City and Country', originPh: 'e.g. Panama City, Panama',
-    dest: 'Destination City and Country', destPh: 'e.g. Madrid, Spain',
-    details: 'Details', detailsPh: 'Ask us anything… approximate volume (X-bedroom home), whether a vehicle is included, etc.',
-    send: 'Send Request', sending: 'Sending…',
+    packing: 'Do you need packing service?', yes: 'Yes', no: 'No', maybe: 'Not sure',
+    origin: 'From', originPh: 'e.g. Panama City, Panama',
+    dest: 'To', destPh: 'e.g. Madrid, Spain',
+    details: 'Anything else we should know', detailsPh: 'No elevator, a piano, artwork, a car travelling with the move, critical dates…',
+    contactTitle: 'Last thing: where do we send the quote?',
+    send: 'Get my free quote', sending: 'Sending…',
+    promise: 'A reply within 24 hours. The survey is free and commits you to nothing.',
     consent: 'By submitting you agree to be contacted by PIM. We never sell your data.',
     okTitle: 'Request Received!',
     okText: 'Thank you for trusting PIM. Our team will review your request and get back to you within 24 hours.',
@@ -80,85 +99,95 @@ const optCls =
     <input type="hidden" name="lang" value={locale} />
     <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-    <!-- Nombre -->
-    <div>
-      <label class={labelCls}>{T.name} <span class="text-accent-500">*</span></label>
-      <input name="Nombre" type="text" class={inputCls} placeholder={T.namePh} required />
-    </div>
-
-    <!-- Tipo de Mudanza -->
+    <!-- 1. Qué mueve. Empieza por lo fácil y sin datos personales. -->
     <div>
       <label class={labelCls}>{T.type} <span class="text-accent-500">*</span></label>
-      <div class="flex gap-3">
-        <label class="flex-1 cursor-pointer">
-          <input type="radio" name="Tipo de Mudanza" value="Local" class="peer sr-only" required />
-          <span class={optCls}>{T.local}</span>
-        </label>
-        <label class="flex-1 cursor-pointer">
-          <input type="radio" name="Tipo de Mudanza" value="Internacional" class="peer sr-only" />
-          <span class={optCls}>{T.intl}</span>
-        </label>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+        {T.types.map((label, i) => (
+          <label class="cursor-pointer">
+            <input type="radio" name="Tipo de Mudanza" value={label} class="peer sr-only" required={i === 0} />
+            <span class={optCls}>{label}</span>
+          </label>
+        ))}
       </div>
     </div>
 
+    <!-- 2. De dónde a dónde -->
     <div class="grid md:grid-cols-2 gap-5">
-      <!-- Correo -->
       <div>
-        <label class={labelCls}>{T.email} <span class="text-accent-500">*</span></label>
-        <input name="email" type="email" class={inputCls} placeholder={T.emailPh} required />
+        <label class={labelCls} for="pim-origen">{T.origin} <span class="text-accent-500">*</span></label>
+        <input id="pim-origen" name="Origen" type="text" class={inputCls} placeholder={T.originPh} required />
       </div>
-      <!-- Fecha -->
       <div>
-        <label class={labelCls}>{T.date} <span class="text-accent-500">*</span></label>
-        <input name="Fecha aproximada" type="date" class={inputCls} required />
+        <label class={labelCls} for="pim-destino">{T.dest} <span class="text-accent-500">*</span></label>
+        <input id="pim-destino" name="Destino" type="text" class={inputCls} placeholder={T.destPh} required />
       </div>
     </div>
 
+    <!-- 3. Volumen y fecha, los dos como opción y no como dato exacto -->
     <div class="grid md:grid-cols-2 gap-5">
-      <!-- Teléfono -->
       <div>
-        <label class={labelCls}>{T.phone} <span class="text-accent-500">*</span></label>
-        <input name="Teléfono" type="tel" class={inputCls} placeholder={T.phonePh} required />
+        <label class={labelCls} for="pim-volumen">{T.volume} <span class="text-accent-500">*</span></label>
+        <select id="pim-volumen" name="Volumen" class={inputCls} required>
+          <option value="" disabled selected>—</option>
+          {T.volumes.map((v) => <option value={v}>{v}</option>)}
+        </select>
+        <p class="text-[11px] text-brand-400 mt-1.5">{T.volumeHelp}</p>
       </div>
-      <!-- Empaque -->
       <div>
-        <label class={labelCls}>{T.packing}</label>
-        <div class="flex gap-3">
-          <label class="flex-1 cursor-pointer">
-            <input type="radio" name="Servicio de empaque" value="Sí" class="peer sr-only" />
-            <span class={optCls}>{T.yes}</span>
+        <label class={labelCls} for="pim-fecha">{T.date} <span class="text-accent-500">*</span></label>
+        <select id="pim-fecha" name="Fecha aproximada" class={inputCls} required>
+          <option value="" disabled selected>—</option>
+          {T.dates.map((d) => <option value={d}>{d}</option>)}
+        </select>
+      </div>
+    </div>
+
+    <!-- 4. Empaque -->
+    <div>
+      <label class={labelCls}>{T.packing}</label>
+      <div class="grid grid-cols-3 gap-2.5">
+        {[T.yes, T.no, T.maybe].map((label) => (
+          <label class="cursor-pointer">
+            <input type="radio" name="Servicio de empaque" value={label} class="peer sr-only" />
+            <span class={optCls}>{label}</span>
           </label>
-          <label class="flex-1 cursor-pointer">
-            <input type="radio" name="Servicio de empaque" value="No" class="peer sr-only" />
-            <span class={optCls}>{T.no}</span>
-          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- 5. Lo que no cabe en un campo -->
+    <div>
+      <label class={labelCls} for="pim-detalles">{T.details}</label>
+      <textarea id="pim-detalles" name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder={T.detailsPh}></textarea>
+    </div>
+
+    <!-- 6. Contacto al final: para entonces ya invirtió tiempo en el formulario -->
+    <div class="pt-5 border-t border-brand-100">
+      <p class="text-sm font-bold text-brand-900 mb-4">{T.contactTitle}</p>
+      <div class="space-y-5">
+        <div>
+          <label class={labelCls} for="pim-nombre">{T.name} <span class="text-accent-500">*</span></label>
+          <input id="pim-nombre" name="Nombre" type="text" class={inputCls} placeholder={T.namePh} required />
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class={labelCls} for="pim-email">{T.email} <span class="text-accent-500">*</span></label>
+            <input id="pim-email" name="email" type="email" class={inputCls} placeholder={T.emailPh} required />
+          </div>
+          <div>
+            <label class={labelCls} for="pim-tel">{T.phone} <span class="text-accent-500">*</span></label>
+            <input id="pim-tel" name="Teléfono" type="tel" class={inputCls} placeholder={T.phonePh} required />
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-5">
-      <!-- Origen -->
-      <div>
-        <label class={labelCls}>{T.origin} <span class="text-accent-500">*</span></label>
-        <input name="Origen" type="text" class={inputCls} placeholder={T.originPh} required />
-      </div>
-      <!-- Destino -->
-      <div>
-        <label class={labelCls}>{T.dest} <span class="text-accent-500">*</span></label>
-        <input name="Destino" type="text" class={inputCls} placeholder={T.destPh} required />
-      </div>
-    </div>
-
-    <!-- Detalles -->
-    <div>
-      <label class={labelCls}>{T.details}</label>
-      <textarea name="Detalles" rows="3" class={`${inputCls} resize-none`} placeholder={T.detailsPh}></textarea>
     </div>
 
     <button type="submit" id="quote-submit" class="w-full bg-accent-500 text-brand-900 font-bold py-4 rounded-xl shadow-lg hover:bg-accent-400 transition-colors flex justify-center items-center gap-2 mt-2 text-lg disabled:opacity-70">
       {T.send} <Icon name="fa6-solid:paper-plane" />
     </button>
     <p id="form-error" class="hidden text-sm text-red-600 text-center"></p>
+    <p class="text-xs text-brand-500 text-center font-medium">{T.promise}</p>
     <p class="text-[11px] text-brand-400 text-center">{T.consent}</p>
   </form>
 

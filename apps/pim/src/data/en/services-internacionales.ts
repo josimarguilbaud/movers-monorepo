@@ -163,50 +163,77 @@ export const svcInternacionales: Service[] = [
     heroTagline: `Pay only for the space you use — perfect for small shipments.`,
     heroImage: IMG.warehouse,
     intro: [
-      `LCL (Less than Container Load), also called groupage or consolidated cargo, lets you share a single container with other clients' shipments. You pay only for the volume you use, measured in cubic meters, which makes it the most economical option for small moves.`,
+      `LCL (Less than Container Load), also called groupage or consolidated cargo, lets you share a single container with other clients' shipments. **You pay only for the volume you use**, measured in cubic meters, which makes it the most economical option for small moves.`,
       `It's the ideal choice for students, people moving with just a few pieces of furniture, top-up shipments for a previous move, or anyone relocating only personal belongings and boxes. At Panama International Movers, we consolidate your cargo securely and with a full inventory inside the shared container.`,
     ],
     sections: [
       {
-        heading: `How is LCL priced?`,
-        body: [
-          `Unlike an exclusive container, LCL is billed by volume (cubic meters) or by weight, whichever is greater. That's why good packing and efficient loading directly affect your cost: the better we make use of the space in your boxes, the less you pay.`,
-          `When you share a container, transit time can be somewhat longer than with FCL, because the cargo waits for the groupage load to fill up and goes through consolidation and deconsolidation at port. In exchange, the savings on small volumes are significant.`,
-        ],
-        image: IMG.packing,
-      },
-      {
-        heading: `Who is it ideal for?`,
-        body: [
-          `LCL shines when the volume doesn't justify an entire container: a student heading abroad for a year of study, someone shipping just their bedroom's contents, or anyone topping up a previous move with a few extra boxes.`,
-          `As your volume grows, at some point an exclusive container becomes more cost-effective per cubic meter. During the survey, we calculate both scenarios and show you which one genuinely works out better for you.`,
-        ],
-      },
-      {
         heading: `How consolidation (groupage) works`,
         body: [
-          `In an LCL shipment, your cargo is grouped with other clients' shipments inside the same container at a consolidation warehouse. Each lot is carefully packed, labeled, inventoried, and identified by client, so it's never mixed up with the rest. Upon arrival, the container is deconsolidated and each shipment continues on to its owner.`,
-          `This consolidation and deconsolidation process is what makes the savings possible, but it's also why LCL typically takes a bit longer than FCL: the cargo waits for the groupage load to fill up and goes through an extra step at each port. For small volumes, that extra time is more than made up for in price.`,
+          `In an LCL shipment, your cargo is grouped with other clients' shipments inside the same container, at a consolidation warehouse. Every lot is packed, labeled, inventoried and identified by client, so it never gets mixed up with the rest. On arrival the container is deconsolidated — opened, with each lot separated out — and your shipment carries on its way.`,
+          `That container doesn't sail because you are ready. It sails when the consolidation toward your destination is complete. That is the underlying logic of LCL: **you are not renting space, you are joining space that is already going**. The savings come from there, and so do the timing quirks we explain below.`,
         ],
         image: IMG.warehouse,
       },
       {
-        heading: `Tips for optimizing a shared shipment`,
+        heading: `How LCL is billed: volume, weight and fixed charges`,
         body: [
-          `Since LCL is billed by volume, good packing translates directly into savings: well-assembled boxes with no dead space and standard dimensions make the most efficient use of room. Disassembling bulky furniture also reduces cubic meters.`,
-          `Our team advises you on what's worth shipping this way and how to pack to minimize billable volume without compromising the protection of your belongings. It's the difference between an efficient shipment and one that pays for empty air.`,
+          `Unlike an [exclusive container](/en/services/exclusive-container-fcl-shipping/), LCL is billed by volume (cubic meters) or by weight, whichever is greater. The rule exists because a container fills up either by space or by tonnage, whichever comes first: a box of books weighs a lot in very little volume, a sofa takes up a lot of volume and weighs almost nothing. That is why good packing has a direct effect on what you pay.`,
+          `There is a second component worth understanding from the outset: **the fixed charges**. Terminal handling, deconsolidation at destination, documentation and customs clearance cost practically the same whether you ship two cubic meters or eight. On very small shipments those charges can weigh more than the freight itself. We tell you that before, not after.`,
+        ],
+        image: IMG.packing,
+      },
+      {
+        heading: `Timing: why groupage usually takes longer`,
+        body: [
+          `LCL almost always takes longer than an exclusive container, and it isn't the ship's fault. It takes longer because of two extra steps: at origin the cargo waits for the consolidation toward your destination to be completed, and at destination it has to be deconsolidated before your lot is released. Neither step exists in an FCL, which travels sealed from door to door.`,
+          `Total time combines the ocean transit with the origin and destination processes (packing, customs, and delivery). We confirm the exact estimate for your corridor in your quote. If your date is rigid — the start of a school year, a handover on a lease — say so from the beginning: it can change what we recommend.`,
+        ],
+      },
+      {
+        heading: `LCL or FCL: where the break-even point sits`,
+        body: [
+          `There is a volume above which an exclusive container costs less per cubic meter than a shared one. That break-even point is not fixed: it moves with the route, the season and each country's destination charges. Which is why we are not going to hand you a magic number here that later fails to hold.`,
+          `What we do instead is run both scenarios with your real volume and your specific corridor, and put them side by side in the quote. Sometimes the surprise is a pleasant one: there are cases where a 20-foot container costs almost the same as an overgrown LCL, and on top of that it arrives sooner and gets handled less.`,
+        ],
+      },
+      {
+        heading: `Who is a shared container ideal for?`,
+        body: [
+          `LCL shines when the volume doesn't justify an entire container: a [student heading abroad for the academic year](/en/services/student-moving-services/), someone taking only the contents of their bedroom, or anyone topping up an earlier move with a few extra boxes.`,
+          `It is also the natural route for people who move light on purpose — they take what's personal and buy the furniture at destination — and for the top-up shipment: that box of books, tools or keepsakes that didn't fit the first time and doesn't justify air freight either.`,
+        ],
+      },
+      {
+        heading: `How to pack so you pay less`,
+        body: [
+          `Because LCL is billed by volume, **good packing turns straight into savings**: well-built boxes, no dead space, standard dimensions that stack cleanly. Taking bulky furniture apart also cuts cubic meters, and it is often the line item where the most comes off.`,
+          `The other half of the advice is what to leave behind. Low-value, high-volume furniture, appliances with the wrong voltage for your destination, and things that are cheap to replace over there usually cost more to ship than to buy again. Our team advises you on what's worth sending and how to pack it, without compromising protection. That is the difference between an efficient shipment and one that pays to ship air.`,
+        ],
+      },
+      {
+        heading: `The cheapest quote isn't always the cheapest move`,
+        body: [
+          `When you're hunting for a cheap move it's easy to stop at the lowest number on the list. The problem is that the number is usually just the freight. The destination charges — deconsolidation, terminal, [customs clearance](/en/services/customs-clearance-management/), final delivery — turn up later, are billed at the other end, and are what blows up a lot of people's budgets.`,
+          `When you compare, always ask for the estimated total door-to-door cost and for what is left out. That is how we present it from the first proposal, with the line items separated. We would rather our quote look higher at the start and be the real one at the end.`,
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:coins', title: `Pay only for your space`, text: `Billed by cubic meter — ideal for small volumes.` },
       { icon: 'fa6-solid:graduation-cap', title: `Perfect for students`, text: `The most common option for anyone moving with just a few boxes.` },
-      { icon: 'fa6-solid:list-check', title: `Fully inventoried cargo`, text: `Every item is labeled and inventoried within the groupage load.` },
+      { icon: 'fa6-solid:list-check', title: `Fully inventoried cargo`, text: `Every lot is labeled and identified inside the groupage load.` },
       { icon: 'fa6-solid:earth-americas', title: `Same global routes`, text: `Frequent consolidations to all major destinations.` },
+      { icon: 'fa6-solid:ruler-combined', title: `Packing guidance`, text: `We help you bring billable volume down without losing protection.` },
+      { icon: 'fa6-solid:receipt', title: `Total cost in plain view`, text: `Freight and destination charges itemized from the first proposal.` },
     ],
     faqs: [
-      { q: `Is LCL cheaper than FCL?`, a: `For small volumes, yes: you pay only for the space you use. As volume grows, an exclusive container becomes more efficient per cubic meter. We'll calculate both options for you.` },
-      { q: `Does my cargo get mixed in with everyone else's?`, a: `You share a container, but your cargo is carefully packed, labeled, and inventoried, kept separate and clearly identified from the rest of the groupage load.` },
+      { q: `Is LCL cheaper than FCL?`, a: `For small volumes, yes: you pay only for the space you use. As the volume grows, an exclusive container becomes more efficient per cubic meter, and exactly where the two cross depends on the route and on the destination charges. We calculate both options with your real volume.` },
+      { q: `Does my cargo get mixed in with everyone else's?`, a: `It shares a container, but your cargo travels packed, labeled and inventoried, separated and identified from the rest of the groupage. At the consolidation warehouse each lot is handled as a unit of its own, and that is how it is delivered at destination.` },
+      { q: `Is there a minimum volume for LCL?`, a: `In practice there is almost always a billable minimum, because below a certain size the fixed charges make the shipment stop being economically sensible. If your volume is very small, we'll tell you frankly whether [air freight](/en/services/international-air-freight-moving/) or an [international courier](/en/services/international-courier-service/) suits you better.` },
+      { q: `Can I ship my car or motorcycle in a shared container?`, a: `A vehicle doesn't travel in standard groupage: it needs a setup of its own, either inside a container or on a Ro-Ro vessel, with its own documentation and customs process. If you need to move household goods and a vehicle, we'll propose the combination that works out best.` },
+      { q: `Is shared cargo handled more? Should I insure it?`, a: `Yes, it is handled more: there's consolidation at origin and deconsolidation at destination, steps an FCL doesn't have. That's why professional packing matters even more here, and why we always recommend taking [insurance](/en/services/international-moving-insurance/) on the declared value. It's quoted separately and we advise you on how to declare.` },
+      { q: `When does air freight beat LCL?`, a: `When the volume is genuinely small and the urgency is high. On very small shipments the price gap between sea and air narrows, and air arrives in a fraction of the time. We compare both routes in the same quote so you can decide with the numbers in front of you.` },
     ],
     related: ['maritimas', 'fcl', 'aereas'],
   },
@@ -286,30 +313,57 @@ export const svcInternacionales: Service[] = [
       {
         heading: `What's included in the door-to-door service?`,
         body: [
-          `Door-to-door covers the survey and quote, supply of packing materials, professional export packing, inventory, loading, international freight (sea or air), all documentation and customs at origin and destination, last-mile transport, and delivery with basic unpacking. It's, quite literally, a turnkey move.`,
-          `This is the preferred option for families and expats who value their time and peace of mind, because it eliminates logistical complexity and puts all the responsibility in the hands of a single trusted provider.`,
+          `Door-to-door covers the survey and quote, the supply of materials, [professional export packing](/en/services/professional-packing-services/), the inventory, loading, the international freight (sea or air), all documentation and customs at origin and destination, last-mile transport, and delivery with basic unpacking. It is, quite literally, a turnkey move.`,
+          `It's worth being precise about what **basic unpacking** means, because the term gets used loosely in this industry. We open the boxes, place the furniture where you tell us, reassemble what we took apart at origin, and take away the leftover material. It does not include putting your clothes away or mounting the television on the wall: that kind of help exists and is quoted separately.`,
+          `It's the option families and expats prefer when they value their time, because it removes the logistical complexity and concentrates the responsibility in a single provider.`,
         ],
         image: IMG.packing,
       },
       {
-        heading: `Door-to-Port and Port-to-Port: alternatives to save money`,
+        heading: `Door-to-door, door-to-port and port-to-port: where responsibility ends`,
         body: [
-          `If you'd like to lower the cost and are willing to handle part of the process, door-to-port ends our responsibility at the destination port, where you (or an agent you designate) take care of customs clearance and final transport. Port-to-port, meanwhile, covers only the leg between ports.`,
-          `These options are common among clients with import experience or those who have support in the destination country. Your coordinator will explain transparently which steps you take on under each option, so you can choose with full knowledge.`,
+          `The three options differ on one criterion only: the point at which the carrier stops answering and you start. Door-to-door answers all the way to the door of your new home. Door-to-port reaches the destination port, and from there you take on clearance and final transport. Port-to-port covers only the leg between ports: packing at origin and everything at destination is on you.`,
+          `That "on you" means hiring a local customs broker, presenting a valued inventory in the language of the country, paying whatever duties apply, arranging deconsolidation of the cargo at the terminal and finding a truck for the last mile. None of it is impossible. But you do it in a country you have just arrived in.`,
+          `Hence a warning: when you compare quotes, check where each one ends. **A noticeably cheaper proposal usually covers less of the journey, not a better freight rate**, and the difference comes back as destination costs nobody warned you about. We give you all three options with their scope in writing.`,
         ],
       },
       {
         heading: `One point of contact, from start to finish`,
         body: [
           `The biggest advantage of door-to-door isn't just logistical — it's human. Instead of coordinating on your own with the packing company, the shipping line, the customs agent at origin, the one at destination, and the last-mile carrier — each with its own timeline and its own language — you have a single personal coordinator responsible for the entire chain.`,
-          `That coordinator knows your case, anticipates the next steps, resolves the unexpected, and keeps you informed. When a family's home is moving thousands of miles away, having one trusted person in charge completely changes the experience.`,
+          `The difference shows most clearly when something goes off script, which on an international move happens more often than the industry admits: a shipping line reschedules a sailing, a random inspection comes up, a local holiday nobody had on the calendar. With one point of contact, you get a call telling you what happened and what the plan is. Without one, you get the silence of five suppliers passing the responsibility between them.`,
         ],
         image: IMG.team,
       },
       {
+        heading: `How a door-to-door move moves forward`,
+        body: [
+          `The first phase is the survey. We walk through your home — in person or by video call — and measure the real volume of the shipment in cubic meters (CBM), the unit the whole industry quotes in. Out of that come the recommended route, the [container type](/en/services/exclusive-container-fcl-shipping/) and a closed quote. It's free and commits you to nothing.`,
+          `The second is origin. Our crew packs to export standard, builds the inventory piece by piece, and stows the cargo: arranges and immobilizes it inside the container so nothing shifts in transit. It is closed with a numbered seal, the security seal that is only legitimately broken at customs. In parallel we file the export documentation.`,
+          `The third is destination: our network receives the cargo, handles customs clearance, coordinates the last mile and delivers at your new home. Total time combines the ocean transit with the origin and destination processes (packing, customs, and delivery). We confirm the exact estimate for your corridor in your quote.`,
+        ],
+      },
+      {
+        heading: `Destination customs: the leg you'll be gladdest to delegate`,
+        body: [
+          `Of the whole chain, customs is where a door-to-door service pays for itself. Every country has its own household goods regime, and the cost of getting it wrong is charged as daily storage while the shipment sits held at the terminal.`,
+          `Panama illustrates the point. Panama recognizes a one-time household goods exemption of B/.25,000 in customs value for a foreign national who can prove they are coming to take up residence, and for a Panamanian who has lived abroad for two years or more (Article 216 of Cabinet Decree No. 41 of 2002). It's a real benefit, but it requires proving you qualify and declaring the household goods correctly. Anything above the exemption has no flat rate: it is assessed by tariff heading, plus ITBMS. And the law requires a licensed customs broker to intervene.`,
+          `That kind of detail changes the outcome of a move and can't be improvised from another country. In door-to-door it's already included and it already has someone answering for it — the same [customs clearance work](/en/services/customs-clearance-management/) we handle as a standalone service.`,
+        ],
+        image: IMG.port,
+      },
+      {
+        heading: `What door-to-door can't promise you`,
+        body: [
+          `A turnkey service covers the whole chain, but it doesn't suspend the rules of international trade. There are three things no serious company can guarantee. The first is the exact delivery date: we commit to a solid estimate and tell you about any change, but a vessel's departure and the pace of a customs office are not ours to control.`,
+          `The second is that your container won't be inspected; random checks are a normal part of the system. What we do control is turning up prepared, with an inventory that adds up and paperwork in order: that turns an inspection into a matter of hours rather than a problem of weeks.`,
+          `The third is that we can take everything. Every country keeps its own list of prohibited and restricted items: perishables, plants, certain liquids and aerosols, weapons, flammables. During the survey we go through your inventory with that list in hand.`,
+        ],
+      },
+      {
         heading: `Who is the turnkey service ideal for?`,
         body: [
-          `Door-to-door is the natural choice for families, professionals, and executives who value their time and peace of mind over the marginal savings of managing part of the process themselves. If this is your first international move, if you don't speak the language at your destination, or if you'd simply rather focus on your new life, this is the option for you.`,
+          `Door-to-door is the natural choice for families, professionals and executives who value their time and peace of mind above the marginal saving of handling part of the process themselves. Whether you're moving [to the United States](/en/destinations/moving-from-panama-to-united-states/) or [to Spain](/en/destinations/moving-from-panama-to-spain/), if this is your first international move, if you don't speak the language at your destination, or if you'd simply rather focus on your new life, this is the option for you.`,
           `Door-to-port and port-to-port, on the other hand, fit better with those who have import experience or local support at destination. In your quote, we show you all three options with their costs and responsibilities, so you can decide with complete clarity.`,
         ],
       },
@@ -319,10 +373,16 @@ export const svcInternacionales: Service[] = [
       { icon: 'fa6-solid:user-tie', title: `One point of contact`, text: `Your coordinator is responsible for the entire chain, from start to finish.` },
       { icon: 'fa6-solid:scale-balanced', title: `Options tailored to you`, text: `Door-to-port and port-to-port to fine-tune cost and control.` },
       { icon: 'fa6-solid:boxes-packing', title: `Unpacking included`, text: `We deliver, unpack the basics, and remove the packing material.` },
+      { icon: 'fa6-solid:file-signature', title: `Customs handled`, text: `Clearance at origin and destination managed by our own network.` },
+      { icon: 'fa6-solid:receipt', title: `Scope in writing`, text: `You know exactly where each option ends before you sign.` },
     ],
     faqs: [
-      { q: `What's the difference from port-to-port?`, a: `Door-to-door covers everything, from your current home to your new one. Port-to-port covers only the leg between ports: you handle the packing, destination customs, and final transport. Door-to-port falls somewhere in between.` },
-      { q: `Is door-to-door much more expensive?`, a: `It includes more services, so it costs more than port-to-port, but in exchange it eliminates all the complexity and time you'd otherwise spend managing ports and customs. For most families, the peace of mind is worth it.` },
+      { q: `What's the difference from port-to-port?`, a: `Door-to-door covers everything, from your current home to your new one. Port-to-port covers only the leg between ports: you handle the packing, destination customs and final transport. Door-to-port is the middle ground: we take the cargo to the destination port and you take on clearance and the last mile.` },
+      { q: `Is door-to-door much more expensive?`, a: `It includes more services, so its price is higher than port-to-port. But a good part of that difference doesn't disappear in the other options: it comes back at destination as the customs broker, local transport and storage you pay for separately.` },
+      { q: `Do I have to be there on packing day?`, a: `It's strongly advisable that you or someone you trust is there at the start and at the close. The inventory is built piece by piece and it's worth reviewing and signing it yourself. It's also the moment to set aside what travels with you: documents, medication, jewelry and anything irreplaceable.` },
+      { q: `Can I include my vehicle?`, a: `Yes. It can travel inside the same container along with your household goods or separately, depending on the volume and the destination. It needs documentation and a customs process of its own, which we also handle, and we quote it [as part of the same project](/en/services/car-shipping-in-container/).` },
+      { q: `What if my new home isn't ready when the cargo arrives?`, a: `It happens often and it has a solution: [temporary storage](/en/services/storage-solutions-panama/) at destination until you can receive. Tell us as soon as you suspect it, because planned storage costs a good deal less than cargo held at the terminal running up demurrage.` },
+      { q: `How do I know where my move is?`, a: `Your coordinator reports at every milestone: inventory closed, container sailed, arrival at destination, customs clearance started, delivery being scheduled. You don't have to chase anyone to find out where your home is.` },
     ],
     related: ['maritimas', 'fcl', 'aereas'],
   },

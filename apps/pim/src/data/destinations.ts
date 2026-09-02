@@ -79,8 +79,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Contenedor exclusivo, contenedor compartido o avión',
         body: [
-          'En contenedor exclusivo (FCL, full container load) su menaje viaja solo. El contenedor se carga y se sella en su casa, y no se vuelve a abrir hasta el destino salvo que la aduana lo pida. Es la opción natural para una casa completa.',
-          'En contenedor compartido (LCL, o groupage) su carga comparte espacio con la de otros clientes. Se consolida en origen —se agrupa en un almacén antes de embarcar— y se desconsolida en destino, es decir, se separa en otro almacén al llegar. Sale más económico para volúmenes pequeños, a cambio de depender del calendario de consolidación y de sumar dos manipulaciones adicionales.',
+          'En [contenedor exclusivo (FCL, full container load)](/es/servicios/contenedor-exclusivo-fcl/) su menaje viaja solo. El contenedor se carga y se sella en su casa, y no se vuelve a abrir hasta el destino salvo que la aduana lo pida. Es la opción natural para una casa completa.',
+          'En [contenedor compartido (LCL, o groupage)](/es/servicios/contenedor-compartido-lcl/) su carga comparte espacio con la de otros clientes. Se consolida en origen —se agrupa en un almacén antes de embarcar— y se desconsolida en destino, es decir, se separa en otro almacén al llegar. Sale más económico para volúmenes pequeños, a cambio de depender del calendario de consolidación y de sumar dos manipulaciones adicionales.',
           'La vía aérea se reserva para lo urgente y lo poco voluminoso: documentos, ropa, lo que necesita tener en la mano la primera semana. Rara vez es una alternativa al contenedor; suele ser un complemento. Muchas familias combinan las dos: lo esencial por aire, la casa por mar.',
         ],
       },
@@ -96,7 +96,7 @@ export const destinations: Destination[] = [
       {
         heading: 'La documentación que suele pedir la aduana española',
         body: [
-          'Lo que más retrasa una mudanza a España no es el barco. Es un papel que falta.',
+          'Lo que más retrasa una mudanza a España no es el barco. **Es un papel que falta.**',
           'El expediente típico de un traslado de residencia desde Panamá se apoya en tres piezas. La primera acredita que usted vivía fuera de la Unión: habitualmente el certificado de baja consular, que expide el consulado de España en Panamá a quien estaba inscrito allí, o la documentación equivalente que demuestre la residencia previa. La segunda acredita que ahora vive en España: el empadronamiento en el ayuntamiento del municipio de destino, un contrato de arrendamiento o la escritura de la vivienda. La tercera describe lo que entra: el inventario valorado, redactado en español y firmado por usted.',
           'A eso se suman su pasaporte y, según su situación, el NIE o la tarjeta de residencia, el visado o la autorización que ampara su estancia, y los documentos de transporte (conocimiento de embarque o guía aérea). Su coordinador le arma la lista concreta al abrir el expediente y le señala cuáles conviene tramitar antes de embarcar, porque algunos no se consiguen a distancia.',
         ],
@@ -112,9 +112,9 @@ export const destinations: Destination[] = [
       {
         heading: 'Vehículos, mascotas y lo que va por su propia vía',
         body: [
-          'Un auto no es menaje. Importar un vehículo a España es un procedimiento aparte, con su propio despacho, su homologación técnica y su matriculación en destino, y con tributos que no dependen del régimen de traslado de residencia. Existen supuestos en los que puede acogerse a beneficios por cambio de residencia, sujetos a sus propias condiciones. Se evalúa caso por caso antes de embarcar, no después.',
+          '**Un auto no es menaje.** [Importar un vehículo a España](/es/servicios/envio-de-autos-en-contenedor/) es un procedimiento aparte, con su propio despacho, su homologación técnica y su matriculación en destino, y con tributos que no dependen del régimen de traslado de residencia. Existen supuestos en los que puede acogerse a beneficios por cambio de residencia, sujetos a sus propias condiciones. Se evalúa caso por caso antes de embarcar, no después.',
           'Las mascotas no viajan en el contenedor. Nunca. Van por vía aérea y con su propio expediente sanitario. Del lado panameño la salida se tramita ante las autoridades nacionales de sanidad animal y salud —MIDA y MINSA—; del lado europeo, la entrada exige identificación por microchip, vacunación antirrábica vigente y certificado sanitario oficial, y en ciertos casos una prueba serológica previa. La secuencia entre microchip, vacuna, prueba y viaje es la parte que casi todo el mundo descubre tarde.',
-          'Obras de arte, antigüedades, pianos, cavas de vino y objetos de valor declarado tienen su propio tratamiento de embalaje, de seguro y a veces de permisos. Menciónelos en la inspección, no el día del empaque.',
+          '[Obras de arte, antigüedades](/es/servicios/transporte-de-obras-de-arte-antiguedades/), pianos, cavas de vino y objetos de valor declarado tienen su propio tratamiento de embalaje, de seguro y a veces de permisos. Menciónelos en la inspección, no el día del empaque.',
         ],
       },
       {
@@ -170,15 +170,15 @@ export const destinations: Destination[] = [
       {
         heading: 'Un corredor ágil y frecuente',
         body: [
-          'Gracias a la cercanía y a las conexiones marítimas regulares, las mudanzas de Panamá a EE. UU. suelen tener buenas frecuencias de salida. Le asesoramos entre contenedor exclusivo, compartido o vía aérea según su volumen y urgencia.',
-          'Nuestra red de agentes en las principales ciudades estadounidenses gestiona la desaduanización y la entrega final en su nuevo hogar.',
+          'Gracias a la cercanía y a las conexiones marítimas regulares, las mudanzas de Panamá a EE. UU. suelen tener buenas frecuencias de salida. Le asesoramos entre [contenedor exclusivo](/es/servicios/contenedor-exclusivo-fcl/), [contenedor compartido](/es/servicios/contenedor-compartido-lcl/) o vía aérea según su volumen y urgencia.',
+          'Nuestra red de agentes en las principales ciudades estadounidenses gestiona la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final en su nuevo hogar.',
         ],
         image: DIMG.containers,
       },
       {
         heading: 'Aduana de Estados Unidos',
         body: [
-          'La importación de menaje de casa a EE. UU. exige documentación específica y el cumplimiento de las normas de la CBP (Customs and Border Protection). Ciertos artículos están restringidos. Le orientamos sobre los requisitos y la documentación para un despacho fluido.',
+          'La importación de menaje de casa a EE. UU. exige documentación específica y el cumplimiento de las normas de la CBP (Customs and Border Protection). **Ciertos artículos están restringidos.** Le orientamos sobre los requisitos y la documentación para un despacho fluido.',
         ],
       },
       {
@@ -192,7 +192,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a Estados Unidos',
         body: [
-          'Familiarícese con las restricciones de la CBP: ciertos alimentos, productos vegetales y artículos están prohibidos o regulados. Si piensa enviar un vehículo, tenga presente que EE. UU. aplica normas estrictas de importación (EPA y DOT) que no todos los autos cumplen.',
+          'Familiarícese con las restricciones de la CBP: ciertos alimentos, productos vegetales y artículos están prohibidos o regulados. Si piensa [enviar un vehículo](/es/servicios/envio-de-autos-en-contenedor/), tenga presente que EE. UU. aplica normas estrictas de importación (EPA y DOT) que no todos los autos cumplen.',
           'Como el corredor es tan activo, con buena planificación es posible optimizar tiempos y costos. Le asesoramos sobre la mejor vía y ventana para su traslado.',
         ],
       },
@@ -228,8 +228,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Su mudanza a Canadá, paso a paso',
         body: [
-          'Tras la inspección de volumen, le recomendamos la vía óptima y preparamos su menaje con embalaje de exportación e inventario. Gestionamos el flete, la documentación y la desaduanización con nuestra red canadiense.',
-          'El servicio puerta a puerta entrega, desembala lo básico y retira el material en su nuevo hogar.',
+          'Tras la inspección de volumen, le recomendamos la vía óptima y preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/) e inventario. Gestionamos el flete, la documentación y la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) con nuestra red canadiense.',
+          'El [servicio puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) entrega, desembala lo básico y retira el material en su nuevo hogar.',
         ],
         image: DIMG.containers,
       },
@@ -250,7 +250,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a Canadá',
         body: [
-          'Prepare con cuidado el listado detallado de bienes que exige la CBSA, incluido el formulario de "goods to follow" para lo que llegará después. Considere el clima: si se muda en invierno, planifique tener a mano ropa y artículos de temporada, ya que el contenedor puede tardar semanas.',
+          'Prepare con cuidado el listado detallado de bienes que exige la CBSA, incluido el formulario de "goods to follow" para lo que llegará después. **Considere el clima**: si se muda en invierno, planifique tener a mano ropa y artículos de temporada, ya que el contenedor puede tardar semanas.',
           'Nuestro equipo le ayuda a preparar la documentación correctamente y coordina con agentes canadienses para un despacho e ingreso sin sobresaltos.',
         ],
       },
@@ -279,14 +279,14 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Ciudad de México, Guadalajara o Monterrey.',
     heroImage: DIMG.port,
     intro: [
-      'México es un destino habitual dentro del corredor latinoamericano, con fuertes lazos comerciales y culturales con Panamá. Coordinamos mudanzas a Ciudad de México, Guadalajara, Monterrey y otras ciudades por vía marítima o aérea.',
+      'México es un destino habitual dentro del corredor latinoamericano, con fuertes lazos comerciales y culturales con Panamá. Coordinamos mudanzas a Ciudad de México, Guadalajara, Monterrey y otras ciudades por [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/) o aérea.',
       'Nos ocupamos de todo el proceso —empaque, flete, aduana y entrega— para que su traslado sea ordenado y sin sorpresas.',
     ],
     sections: [
       {
         heading: 'Cómo lo hacemos',
         body: [
-          'Calculamos su volumen, recomendamos la vía adecuada y preparamos su menaje con embalaje de exportación. Gestionamos la documentación y coordinamos con agentes en México la desaduanización y la última milla.',
+          'Calculamos su volumen, recomendamos la vía adecuada y preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/). Gestionamos la documentación y coordinamos con agentes en México la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la última milla.',
         ],
         image: DIMG.containers,
       },
@@ -307,7 +307,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a México',
         body: [
-          'Infórmese sobre el tratamiento del menaje de casa usado, que en ciertos supuestos recibe beneficios para quienes cambian de residencia. Reúna la documentación con antelación para evitar demoras en el despacho.',
+          'Infórmese sobre el tratamiento del menaje de casa usado, que en ciertos supuestos recibe beneficios para quienes cambian de residencia. **Reúna la documentación con antelación** para evitar demoras en el despacho.',
           'Le orientamos sobre los requisitos aplicables a su situación y coordinamos con nuestros agentes en México la desaduanización y la entrega en su nueva dirección.',
         ],
       },
@@ -336,27 +336,27 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Londres y todo el Reino Unido, con aduanas post-Brexit resueltas.',
     heroImage: DIMG.port,
     intro: [
-      'El Reino Unido sigue siendo un destino atractivo para estudios, trabajo y vida familiar. Coordinamos mudanzas desde Panamá a Londres y otras ciudades británicas por vía marítima o aérea, prestando especial atención a los trámites aduaneros, que cambiaron tras la salida del Reino Unido de la Unión Europea (Brexit).',
+      'El Reino Unido sigue siendo un destino atractivo para estudios, trabajo y vida familiar. Coordinamos mudanzas desde Panamá a Londres y otras ciudades británicas por [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/) o aérea, prestando especial atención a los trámites aduaneros, que cambiaron tras la salida del Reino Unido de la Unión Europea (Brexit).',
       'Nuestra experiencia con este corredor ayuda a evitar los errores de documentación que hoy causan retrasos frecuentes.',
     ],
     sections: [
       {
         heading: 'Atención especial a la aduana post-Brexit',
         body: [
-          'Desde el Brexit, la importación de efectos personales al Reino Unido sigue procedimientos aduaneros propios, con formularios y requisitos específicos (como el proceso ToR, Transfer of Residence, para exención de menaje). Un error puede significar demoras o cargos inesperados; por eso gestionamos la documentación con cuidado.',
+          'Desde el Brexit, la importación de efectos personales al Reino Unido sigue procedimientos aduaneros propios, con formularios y requisitos específicos (como el proceso ToR, Transfer of Residence, para exención de menaje). **Un error puede significar demoras o cargos inesperados**; por eso gestionamos la documentación con cuidado.',
         ],
         image: DIMG.containers,
       },
       {
         heading: 'Su mudanza puerta a puerta',
         body: [
-          'Empacamos, gestionamos el flete internacional y coordinamos con agentes en el Reino Unido la desaduanización y la entrega final en su domicilio, con el respaldo de un coordinador único.',
+          'Empacamos, gestionamos el flete internacional y coordinamos con agentes en el Reino Unido la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final en su domicilio, con el respaldo de un coordinador único.',
         ],
       },
       {
         heading: 'Londres y más allá',
         body: [
-          'El Reino Unido sigue atrayendo a profesionales, estudiantes y familias por sus universidades de prestigio, su mercado laboral y su riqueza cultural. Londres es el gran imán, pero ciudades como Manchester, Edimburgo o Birmingham también reciben a nuevos residentes de todo el mundo.',
+          'El Reino Unido sigue atrayendo a profesionales, [estudiantes](/es/servicios/mudanzas-para-estudiantes/) y familias por sus universidades de prestigio, su mercado laboral y su riqueza cultural. Londres es el gran imán, pero ciudades como Manchester, Edimburgo o Birmingham también reciben a nuevos residentes de todo el mundo.',
           'Mudarse al Reino Unido desde Panamá es un proyecto ilusionante que hoy exige, además, un manejo aduanero cuidadoso por los cambios post-Brexit. Ahí es donde nuestra experiencia marca la diferencia.',
         ],
         image: DIMG.port,
@@ -393,14 +393,14 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Berlín, Múnich o Frankfurt, con precisión alemana.',
     heroImage: DIMG.port,
     intro: [
-      'Alemania, motor económico de Europa, recibe a profesionales y familias de todo el mundo. Coordinamos mudanzas desde Panamá a Berlín, Múnich, Frankfurt y otras ciudades, por vía marítima o aérea, con la documentación en regla para un despacho ordenado.',
+      'Alemania, motor económico de Europa, recibe a profesionales y familias de todo el mundo. Coordinamos mudanzas desde Panamá a Berlín, Múnich, Frankfurt y otras ciudades, por [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/) o aérea, con la documentación en regla para un despacho ordenado.',
       'Como país de la Unión Europea, comparte el marco aduanero común, con requisitos específicos para la importación de menaje.',
     ],
     sections: [
       {
         heading: 'Su traslado a Alemania',
         body: [
-          'Tras la inspección, recomendamos la vía adecuada y preparamos su menaje con embalaje de exportación e inventario detallado —muy valorado en los despachos alemanes—. Gestionamos flete, documentación y entrega con nuestra red local.',
+          'Tras la inspección, recomendamos la vía adecuada y preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/) e inventario detallado —muy valorado en los despachos alemanes—. Gestionamos flete, [documentación aduanera](/es/servicios/gestion-aduanera-desaduanizacion/) y entrega con nuestra red local.',
         ],
         image: DIMG.containers,
       },
@@ -421,7 +421,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a Alemania',
         body: [
-          'Prepare un inventario valorado y detallado: los despachos alemanes lo agradecen y agilizan. Aproveche, si aplica, las exenciones de menaje por cambio de residencia dentro de la UE, que exigen acreditar el traslado.',
+          '**Prepare un inventario valorado y detallado**: los despachos alemanes lo agradecen y agilizan. Aproveche, si aplica, las exenciones de menaje por cambio de residencia dentro de la UE, que exigen acreditar el traslado.',
           'Nuestro empaque profesional genera ese inventario como parte del servicio, y coordinamos con agentes locales para un ingreso ordenado y sin fricciones.',
         ],
       },
@@ -457,7 +457,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Cómo trasladamos su hogar a Italia',
         body: [
-          'Calculamos volumen, recomendamos la vía y empacamos con materiales de exportación. Gestionamos el flete y la documentación, y coordinamos con agentes italianos la desaduanización y la entrega final.',
+          'Calculamos volumen, recomendamos la vía y empacamos con materiales de exportación. Gestionamos el flete y la documentación, y coordinamos con agentes italianos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final.',
         ],
         image: DIMG.containers,
       },
@@ -478,7 +478,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a Italia',
         body: [
-          'Aproveche las exenciones de menaje por cambio de residencia dentro de la UE, que requieren documentación específica. Si traslada antigüedades, obras de arte o muebles de valor —tan comunes en los hogares que van a Italia—, considere nuestro embalaje especializado y el seguro a valor declarado.',
+          'Aproveche las exenciones de menaje por cambio de residencia dentro de la UE, que requieren documentación específica. Si traslada [antigüedades, obras de arte](/es/servicios/transporte-de-obras-de-arte-antiguedades/) o muebles de valor —tan comunes en los hogares que van a Italia—, considere nuestro embalaje especializado y el [seguro a valor declarado](/es/servicios/seguros-de-mudanza-internacional/).',
           'Coordinamos con agentes italianos la desaduanización y la entrega, para que su llegada sea tan placentera como el destino.',
         ],
       },
@@ -507,7 +507,7 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Sídney o Melbourne, con la bioseguridad australiana bajo control.',
     heroImage: DIMG.port,
     intro: [
-      'Australia es un destino soñado por su calidad de vida, pero también uno de los más exigentes del mundo en materia de bioseguridad. Coordinamos mudanzas desde Panamá a Sídney, Melbourne, Brisbane y otras ciudades, principalmente por vía marítima, prestando máxima atención a los estrictos controles de cuarentena e inspección.',
+      'Australia es un destino soñado por su calidad de vida, pero también uno de los más exigentes del mundo en materia de bioseguridad. Coordinamos mudanzas desde Panamá a Sídney, Melbourne, Brisbane y otras ciudades, principalmente por [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/), prestando máxima atención a los estrictos controles de cuarentena e inspección.',
       'La experiencia en este corredor es clave: un empaque o una declaración inadecuados pueden derivar en inspecciones, tratamientos o rechazos costosos.',
     ],
     sections: [
@@ -521,7 +521,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Su mudanza, gestionada por expertos',
         body: [
-          'Empacamos con criterio de bioseguridad, documentamos correctamente y coordinamos con agentes australianos la inspección, la desaduanización y la entrega. Le explicamos qué conviene y qué no conviene enviar a este destino.',
+          'Empacamos con criterio de bioseguridad, documentamos correctamente y coordinamos con agentes australianos la inspección, la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega. Le explicamos qué conviene y qué no conviene enviar a este destino.',
         ],
       },
       {
@@ -535,7 +535,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Consejos para su mudanza a Australia',
         body: [
-          'Evite por completo enviar artículos con tierra, madera sin tratar, semillas, plantas, alimentos o material orgánico: son el foco de la inspección australiana y pueden derivar en tratamientos, retenciones o destrucción. Limpie a fondo calzado, herramientas de jardín, bicicletas y equipo deportivo antes de empacarlos.',
+          '**Evite por completo** enviar artículos con tierra, madera sin tratar, semillas, plantas, alimentos o material orgánico: son el foco de la inspección australiana y pueden derivar en tratamientos, retenciones o destrucción. Limpie a fondo calzado, herramientas de jardín, bicicletas y [equipo deportivo](/es/servicios/transporte-equipaje-deportivo/) antes de empacarlos.',
           'Le entregamos una guía clara de qué conviene y qué no conviene enviar, y preparamos y declaramos su menaje conforme a las normas para minimizar riesgos en la inspección.',
         ],
       },
@@ -568,8 +568,8 @@ export const destinations: Destination[] = [
         heading: 'Su mudanza a Francia, paso a paso',
         body: [
           'Calculamos su volumen, recomendamos la vía adecuada y empacamos con materiales de exportación. Gestionamos el flete y la documentación, y coordinamos con agentes en Francia la desaduanización y la entrega final en su domicilio.',
-          'El volumen se mide en metros cúbicos (CBM). De ese número dependen la vía y el costo: en contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Es más económico para volúmenes pequeños, a cambio de sumar manipulaciones y depender de un calendario de consolidación.',
-          'Con el servicio puerta a puerta usted no trata con puertos ni con la aduana: su coordinador responde por toda la cadena.',
+          'El volumen se mide en metros cúbicos (CBM). De ese número dependen la vía y el costo: en [contenedor exclusivo (FCL)](/es/servicios/contenedor-exclusivo-fcl/) su menaje viaja solo y se sella en su casa; en [contenedor compartido (LCL o groupage)](/es/servicios/contenedor-compartido-lcl/) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Es más económico para volúmenes pequeños, a cambio de sumar manipulaciones y depender de un calendario de consolidación.',
+          'Con el [servicio puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) usted no trata con puertos ni con la aduana: su coordinador responde por toda la cadena.',
         ],
         image: DIMG.containers,
       },
@@ -595,7 +595,7 @@ export const destinations: Destination[] = [
           'Tramite en Panamá lo que solo se consigue en Panamá: certificados consulares, documentación sanitaria de mascotas y cualquier constancia que dependa de una autoridad panameña. A distancia todo eso se vuelve lento.',
           'Revise el voltaje. La red francesa funciona a 230 voltios y 50 hercios; la panameña, a 110 voltios y 60 hercios, y los enchufes son distintos. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero un electrodoméstico grande con motor o resistencia normalmente no.',
           'Piense en el acceso. Muchos edificios franceses de casco antiguo tienen escaleras estrechas y ascensores diminutos, y en no pocas calles el camión necesita una autorización municipal para estacionarse. La solución habitual es el monte-meubles, una plataforma elevadora que sube los bultos por la fachada. Se contrata con antelación.',
-          'El auto no es menaje: se importa por un procedimiento propio, con homologación y matriculación en destino. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Europa con microchip, vacunación antirrábica vigente y certificado sanitario oficial, y en ciertos casos una prueba serológica previa.',
+          'El auto no es menaje: se importa por un procedimiento propio, con homologación y matriculación en destino. [La mascota nunca viaja en el contenedor](/es/servicios/transporte-de-mascotas-internacional/): sale de Panamá con el trámite ante MIDA y MINSA y entra a Europa con microchip, vacunación antirrábica vigente y certificado sanitario oficial, y en ciertos casos una prueba serológica previa.',
         ],
       },
     ],
@@ -623,8 +623,8 @@ export const destinations: Destination[] = [
         heading: 'Cómo trasladamos su hogar a Portugal',
         body: [
           'Tras la inspección de volumen, recomendamos la vía óptima y preparamos su menaje con embalaje de exportación e inventario. Gestionamos flete, documentación y entrega con nuestra red local en Portugal.',
-          'El volumen se mide en metros cúbicos (CBM) y define el resto. En contenedor exclusivo (FCL) su menaje viaja solo, sellado desde su casa. En contenedor compartido (LCL o groupage) comparte espacio con otras cargas: se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Para un apartamento pequeño suele ser la opción sensata, a cambio de depender del calendario de consolidación.',
-          'Con el servicio puerta a puerta usted no gestiona nada con el puerto ni con la aduana. Su coordinador responde por toda la cadena hasta la entrada de su casa.',
+          'El volumen se mide en metros cúbicos (CBM) y define el resto. En contenedor exclusivo (FCL) su menaje viaja solo, sellado desde su casa. En [contenedor compartido (LCL o groupage)](/es/servicios/contenedor-compartido-lcl/) comparte espacio con otras cargas: se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Para un apartamento pequeño suele ser la opción sensata, a cambio de depender del calendario de consolidación.',
+          'Con el [servicio puerta a puerta](/es/servicios/mudanza-puerta-a-puerta/) usted no gestiona nada con el puerto ni con la aduana. Su coordinador responde por toda la cadena hasta la entrada de su casa.',
         ],
         image: DIMG.containers,
       },
@@ -639,8 +639,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Lisboa, Oporto y el resto del país',
         body: [
-          'Portugal atrae por una combinación difícil de repetir: clima templado, seguridad, ciudades a escala humana y una comunidad internacional grande que hace fácil llegar. Lisboa y Oporto concentran la mayoría de las llegadas; el Algarve recibe sobre todo a quienes se retiran; Coímbra y Braga, a estudiantes y familias.',
-          'Para quien viene de Panamá hay una ventaja que no es menor: el idioma no es el mismo, pero se parece lo suficiente como para que el primer mes no sea un muro. La parte difícil de instalarse en Portugal casi nunca es la lengua; es el papeleo.',
+          'Portugal atrae por una combinación difícil de repetir: clima templado, seguridad, ciudades a escala humana y una comunidad internacional grande que hace fácil llegar. Lisboa y Oporto concentran la mayoría de las llegadas; el Algarve recibe sobre todo a [quienes se retiran](/es/servicios/mudanzas-para-jubilados-retirados/); Coímbra y Braga, a estudiantes y familias.',
+          'Para quien viene de Panamá hay una ventaja que no es menor: el idioma no es el mismo, pero se parece lo suficiente como para que el primer mes no sea un muro. La parte difícil de instalarse en Portugal casi nunca es la lengua; **es el papeleo**.',
         ],
         image: DIMG.port,
       },
@@ -678,8 +678,8 @@ export const destinations: Destination[] = [
         heading: 'Un país sin mar: cómo llega su contenedor a Suiza',
         body: [
           'Ningún barco atraca en Suiza. El tramo marítimo termina en un puerto europeo —del norte o del Mediterráneo, según el servicio— y desde ahí la carga sigue por vía terrestre o ferroviaria hasta su ciudad. Ese tramo interior es parte del costo y del calendario, no un extra improvisado al final.',
-          'El volumen se mide en metros cúbicos (CBM) y define la vía. En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa. En contenedor compartido (LCL o groupage) comparte espacio con otras cargas: se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar, antes del tramo terrestre.',
-          'Preparamos su menaje con embalaje de exportación e inventario detallado, y coordinamos el flete, el despacho y la entrega con agentes locales. La precisión documental es especialmente importante en el despacho suizo.',
+          'El volumen se mide en metros cúbicos (CBM) y define la vía. En [contenedor exclusivo (FCL)](/es/servicios/contenedor-exclusivo-fcl/) su menaje viaja solo y se sella en su casa. En contenedor compartido (LCL o groupage) comparte espacio con otras cargas: se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar, antes del tramo terrestre.',
+          'Preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/) e inventario detallado, y coordinamos el flete, el despacho y la entrega con agentes locales. **La precisión documental es especialmente importante en el despacho suizo.**',
         ],
         image: DIMG.containers,
       },
@@ -705,7 +705,7 @@ export const destinations: Destination[] = [
           'Tenga listo el documento que justifica su traslado —permiso de residencia, contrato de trabajo o la constancia que corresponda— antes de embarcar. En Suiza el despacho de mudanza se apoya en él, y sin ese papel la carga espera.',
           'Revise el voltaje y los enchufes. La red suiza funciona a 230 voltios y 50 hercios, frente a los 110 voltios y 60 hercios de Panamá, y Suiza usa además un tipo de toma propio, distinto del que encontrará en Francia o Alemania. La electrónica moderna suele aceptar ambos rangos de voltaje, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
           'Piense en el acceso. Muchos edificios de los cascos antiguos suizos tienen escaleras estrechas y ascensores pequeños, y las calles del centro suelen exigir autorización para estacionar el camión. La solución habitual es una plataforma elevadora exterior, contratada con antelación.',
-          'El auto no es menaje: se importa por un procedimiento propio, con homologación y matriculación en Suiza, y se evalúa caso por caso antes de embarcar. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra con microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
+          '[El auto no es menaje](/es/servicios/envio-de-autos-en-contenedor/): se importa por un procedimiento propio, con homologación y matriculación en Suiza, y se evalúa caso por caso antes de embarcar. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra con microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
         ],
       },
     ],
@@ -732,8 +732,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Róterdam, la puerta de entrada',
         body: [
-          'Calculamos su volumen, recomendamos la vía y empacamos con materiales de exportación. Gestionamos la documentación y coordinamos con agentes neerlandeses la desaduanización y la última milla.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. La densidad de servicios que toca los puertos neerlandeses hace que el compartido sea aquí una opción especialmente razonable para volúmenes pequeños.',
+          'Calculamos su volumen, recomendamos la vía y empacamos con materiales de exportación. Gestionamos la documentación y coordinamos con agentes neerlandeses la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la última milla.',
+          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. La densidad de servicios que toca los puertos neerlandeses hace que el [contenedor compartido](/es/servicios/contenedor-compartido-lcl/) sea aquí una opción especialmente razonable para volúmenes pequeños.',
           'Róterdam concentra una parte enorme del tráfico de contenedores de Europa, con la infraestructura y las conexiones interiores que eso supone. No promete milagros de calendario, pero sí reduce los cuellos de botella que aparecen en puertos más pequeños.',
         ],
         image: DIMG.containers,
@@ -759,8 +759,8 @@ export const destinations: Destination[] = [
         body: [
           'Adelante los certificados que dependen de una autoridad panameña o de un consulado, y toda la documentación sanitaria de sus mascotas. A distancia, cada uno de esos papeles cuesta semanas.',
           'Revise el voltaje. La red neerlandesa funciona a 230 voltios y 50 hercios; la panameña, a 110 voltios y 60 hercios, y los enchufes son distintos. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
-          'Y ahora la parte que nadie anticipa: las casas de canal de Ámsterdam, Utrecht o Leiden tienen escaleras estrechísimas y empinadas, pensadas para subir personas y no sofás. Por eso muchas fachadas conservan una viga de izado en el tejado y por eso la entrega se hace, muy a menudo, con una plataforma elevadora exterior que sube los bultos por la ventana. Requiere reserva previa y, en varias ciudades, un permiso municipal para ocupar la calle. Si nos da la dirección exacta al cotizar, lo dejamos contratado desde el principio.',
-          'El auto no es menaje: se importa por un procedimiento propio, con homologación y matriculación en destino. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Europa con microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
+          '**Y ahora la parte que nadie anticipa**: las casas de canal de Ámsterdam, Utrecht o Leiden tienen escaleras estrechísimas y empinadas, pensadas para subir personas y no sofás. Por eso muchas fachadas conservan una viga de izado en el tejado y por eso la entrega se hace, muy a menudo, con una plataforma elevadora exterior que sube los bultos por la ventana. Requiere reserva previa y, en varias ciudades, un permiso municipal para ocupar la calle. Si nos da la dirección exacta al cotizar, lo dejamos contratado desde el principio.',
+          '[El auto no es menaje](/es/servicios/envio-de-autos-en-contenedor/): se importa por un procedimiento propio, con homologación y matriculación en destino. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Europa con microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
         ],
       },
     ],
@@ -776,7 +776,9 @@ export const destinations: Destination[] = [
   {
     id: 'colombia', regionId: 'america', country: 'Colombia', slug: 'mudanzas-de-panama-a-colombia', flag: '🇨🇴',
     metaTitle: 'Mudanzas de Panamá a Colombia (Bogotá, Medellín) | PIM',
-    metaDescription: 'Mudanzas de Panamá a Colombia: Bogotá, Medellín, Cali, Cartagena. Marítimo, aéreo o terrestre con aduana y entrega puerta a puerta. Cotiza con PIM Panamá.',
+    /* Sin "terrestre": el Tapón del Darién corta la carretera entre Panamá y
+       Colombia, y es justamente el punto que explica el cuerpo de la página. */
+    metaDescription: 'Mudanzas de Panamá a Colombia: Bogotá, Medellín, Cali, Cartagena. Marítimo o aéreo con aduana y entrega puerta a puerta. Cotiza con PIM Panamá.',
     heroTagline: 'De Panamá a Bogotá, Medellín o Cartagena, países vecinos y conectados.',
     heroImage: DIMG.port,
     intro: [
@@ -787,9 +789,9 @@ export const destinations: Destination[] = [
       {
         heading: 'Vecinos sin carretera: por qué su mudanza viaja por mar o por aire',
         body: [
-          'Panamá y Colombia comparten frontera, pero no hay ruta terrestre entre los dos países: el Tapón del Darién interrumpe la carretera Panamericana. No existe un camión que salga de Ciudad de Panamá y llegue a Bogotá. Toda mudanza a Colombia sale por mar o por aire.',
-          'La buena noticia es que la cercanía juega a favor de todos modos. Los servicios marítimos hacia los puertos colombianos son frecuentes, y la vía aérea es una alternativa realista aquí —no solo un recurso de emergencia— cuando el volumen es moderado y el tiempo importa.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Le asesoramos entre una y otra según su volumen, y coordinamos con agentes en Colombia la desaduanización y la entrega.',
+          'Panamá y Colombia comparten frontera, pero no hay ruta terrestre entre los dos países: el Tapón del Darién interrumpe la carretera Panamericana. No existe un camión que salga de Ciudad de Panamá y llegue a Bogotá. **Toda mudanza a Colombia sale por mar o por aire.**',
+          'La buena noticia es que la cercanía juega a favor de todos modos. Los servicios marítimos hacia los puertos colombianos son frecuentes, y la [vía aérea](/es/servicios/mudanzas-internacionales-aereas/) es una alternativa realista aquí —no solo un recurso de emergencia— cuando el volumen es moderado y el tiempo importa.',
+          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Le asesoramos entre una y otra según su volumen, y coordinamos con agentes en Colombia la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega.',
         ],
         image: DIMG.containers,
       },
@@ -814,7 +816,7 @@ export const destinations: Destination[] = [
         body: [
           'Tenga clara su condición migratoria antes de mover una caja. El régimen de menaje colombiano se apoya en ella, y un expediente que llega con la visa en trámite se queda esperando en el puerto, generando costos de almacenaje que no estaban en el presupuesto.',
           'Aquí tiene una ventaja poco conocida: la red eléctrica colombiana funciona a 110 voltios y 60 hercios, igual que la panameña, y los enchufes son los mismos. Sus electrodomésticos funcionan tal cual. Es uno de los pocos destinos donde no hay que hacer esa cuenta.',
-          'El auto es un caso aparte y difícil. La importación de vehículos a Colombia está fuertemente regulada y no se resuelve dentro del menaje. Se evalúa caso por caso, antes de embarcar, y en muchas situaciones la recomendación honesta es venderlo en Panamá.',
+          'El auto es un caso aparte y difícil. [La importación de vehículos a Colombia](/es/servicios/envio-de-autos-en-contenedor/) está fuertemente regulada y no se resuelve dentro del menaje. Se evalúa caso por caso, antes de embarcar, y en muchas situaciones la recomendación honesta es venderlo en Panamá.',
           'La mascota nunca viaja en el contenedor. Sale de Panamá con el trámite ante MIDA y MINSA, y entra a Colombia con el certificado sanitario oficial y las vacunas vigentes que exige la autoridad sanitaria agropecuaria colombiana. Se empieza mucho antes que el resto de la mudanza.',
         ],
       },
@@ -843,7 +845,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Cómo trasladamos su hogar a Argentina',
         body: [
-          'Calculamos su volumen, empacamos con materiales de exportación y gestionamos el flete y la documentación. Coordinamos con agentes argentinos la desaduanización y la entrega final.',
+          'Calculamos su volumen, empacamos con [materiales de exportación](/es/servicios/servicio-de-embalaje-profesional/) y gestionamos el flete y la documentación. Coordinamos con agentes argentinos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final.',
           'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo, sellado desde su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Para una casa completa, el exclusivo casi siempre resulta más simple de despachar.',
           'La carga entra normalmente por el área portuaria de Buenos Aires y, si su destino es Córdoba, Rosario, Mendoza o cualquier punto del interior, continúa por carretera. Ese tramo terrestre está contemplado en el servicio puerta a puerta.',
         ],
@@ -868,9 +870,9 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Empiece por el consulado. Si su caso va por franquicia de radicación, el trámite consular del inventario se hace en Panamá y condiciona la fecha de embarque. Intentar resolverlo ya instalado en Argentina es el error más caro de este corredor.',
+          '**Empiece por el consulado.** Si su caso va por franquicia de radicación, el trámite consular del inventario se hace en Panamá y condiciona la fecha de embarque. Intentar resolverlo ya instalado en Argentina es el error más caro de este corredor.',
           'Revise el voltaje. La red argentina funciona a 220 voltios y 50 hercios; la panameña, a 110 voltios y 60 hercios, y los enchufes son distintos. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
-          'El auto no entra en el menaje. La importación de vehículos a Argentina está fuertemente regulada y se evalúa caso por caso antes de embarcar; en muchas situaciones la recomendación honesta es venderlo en Panamá.',
+          'El auto no entra en el menaje. [La importación de vehículos a Argentina](/es/servicios/envio-de-autos-en-contenedor/) está fuertemente regulada y se evalúa caso por caso antes de embarcar; en muchas situaciones la recomendación honesta es venderlo en Panamá.',
           'La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra con el certificado sanitario oficial y las vacunas vigentes que exige la autoridad sanitaria argentina. Es un expediente aparte y se empieza mucho antes.',
         ],
       },
@@ -898,7 +900,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Su mudanza a Chile, paso a paso',
         body: [
-          'Preparamos su menaje con embalaje de exportación e inventario, gestionamos el flete y coordinamos con agentes chilenos la desaduanización y la entrega en su nueva dirección.',
+          'Preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/) e inventario, gestionamos el flete y coordinamos con agentes chilenos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega en su nueva dirección.',
           'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. La elección depende de su volumen y de su calendario.',
           'La carga entra por los puertos del Pacífico —Valparaíso y San Antonio son los que más sirven a Santiago— y desde ahí sigue por carretera. Chile es un país largo y estrecho: la última milla hacia el norte o hacia el sur puede ser un tramo terrestre considerable, y está contemplado en el puerta a puerta.',
         ],
@@ -909,7 +911,7 @@ export const destinations: Destination[] = [
         body: [
           'Chile contempla un tratamiento para el menaje de casa de quien traslada su residencia al país, condicionado a acreditar la residencia previa en el exterior, a que los bienes sean usados y de uso doméstico y a que la importación se haga dentro de la ventana asociada a su llegada y a su condición migratoria. Los plazos exactos los confirmamos con el agente en destino.',
           'Pero el filtro que más sorprende a quien se muda a Chile no es el aduanero, es el sanitario. Chile es un país agrícola protegido por barreras naturales —desierto, cordillera y océano— y defiende esa condición con un control fitosanitario y zoosanitario riguroso, a cargo del Servicio Agrícola y Ganadero (SAG). Se inspeccionan los efectos personales buscando tierra, madera sin tratar, semillas, plantas, alimentos y material orgánico.',
-          'Eso cambia cómo se empaca. Las plantas y los alimentos quedan fuera. Las herramientas de jardín, las bicicletas, las botas de montaña, el equipo deportivo y de camping se limpian a fondo antes de entrar en la caja. Los muebles de madera y los embalajes de madera deben cumplir los tratamientos exigidos. Un artículo con tierra pegada puede provocar el tratamiento, la retención o la destrucción de lo que lo rodea.',
+          'Eso cambia cómo se empaca. Las plantas y los alimentos quedan fuera. Las herramientas de jardín, las bicicletas, las botas de montaña, el [equipo deportivo y de camping](/es/servicios/transporte-equipaje-deportivo/) se limpian a fondo antes de entrar en la caja. Los muebles de madera y los embalajes de madera deben cumplir los tratamientos exigidos. Un artículo con tierra pegada puede provocar el tratamiento, la retención o la destrucción de lo que lo rodea.',
         ],
       },
       {
@@ -923,7 +925,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Limpie antes de empacar. Es el consejo más útil de este destino y el más ignorado: calzado, herramientas, muebles de jardín, bicicletas y equipo deportivo pasan por una revisión que busca exactamente lo que quedó pegado en la suela.',
+          '**Limpie antes de empacar.** Es el consejo más útil de este destino y el más ignorado: calzado, herramientas, muebles de jardín, bicicletas y equipo deportivo pasan por una revisión que busca exactamente lo que quedó pegado en la suela.',
           'Tenga resuelta su condición migratoria. El tratamiento del menaje chileno se apoya en ella, y una carga que llega antes que la visa espera en el puerto acumulando almacenaje.',
           'Revise el voltaje. La red chilena funciona a 220 voltios y 50 hercios; la panameña, a 110 voltios y 60 hercios, y los enchufes son distintos. La electrónica moderna suele aceptar ambos rangos, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
           'El auto va por su propia vía, con normas de importación estrictas, y se evalúa caso por caso antes de embarcar. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Chile con el certificado sanitario oficial que exige el SAG.',
@@ -953,8 +955,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Cómo trasladamos su hogar a Perú',
         body: [
-          'Calculamos volumen, empacamos con materiales de exportación y gestionamos flete y documentación. Coordinamos con agentes peruanos la desaduanización y la entrega final.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Para un apartamento suele convenir el compartido; para una casa completa, el exclusivo.',
+          'Calculamos volumen, empacamos con materiales de exportación y gestionamos flete y documentación. Coordinamos con agentes peruanos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final.',
+          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Para un apartamento suele convenir el [contenedor compartido](/es/servicios/contenedor-compartido-lcl/); para una casa completa, el [contenedor exclusivo](/es/servicios/contenedor-exclusivo-fcl/).',
           'La carga marítima entra normalmente por el Callao, el puerto que sirve a Lima, y desde ahí sigue por carretera si su destino es Arequipa, Trujillo, Cusco o cualquier otra ciudad. Ese tramo terrestre está contemplado en el servicio puerta a puerta.',
         ],
         image: DIMG.containers,
@@ -978,9 +980,9 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Coordine la fecha de embarque con la fecha en que usted llega al Perú. Es el punto donde este corredor se gana o se pierde, y se decide en la cotización, no en el puerto.',
+          '**Coordine la fecha de embarque con la fecha en que usted llega al Perú.** Es el punto donde este corredor se gana o se pierde, y se decide en la cotización, no en el puerto.',
           'Buena noticia con la corriente: la red eléctrica peruana funciona a 220 voltios, pero a 60 hercios, igual que la frecuencia panameña. La diferencia está en el voltaje, no en la frecuencia, así que sus equipos con fuente conmutada suelen funcionar con solo cambiar el enchufe, mientras que los electrodomésticos grandes con motor o resistencia normalmente necesitan reemplazo. Revise la etiqueta de cada aparato antes de decidir.',
-          'El auto es un caso aparte: la importación de vehículos al Perú está regulada y no se resuelve dentro del menaje. Se evalúa antes de embarcar.',
+          'El auto es un caso aparte: [la importación de vehículos al Perú](/es/servicios/envio-de-autos-en-contenedor/) está regulada y no se resuelve dentro del menaje. Se evalúa antes de embarcar.',
           'La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra al Perú con el certificado sanitario oficial y las vacunas vigentes que exige la autoridad sanitaria agraria peruana.',
         ],
       },
@@ -1008,8 +1010,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Su mudanza a Ecuador, paso a paso',
         body: [
-          'Preparamos su menaje con embalaje de exportación e inventario, gestionamos el flete y coordinamos con agentes ecuatorianos la desaduanización y la entrega final.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Por la cercanía, ambas vías funcionan bien en este corredor.',
+          'Preparamos su menaje con embalaje de exportación e inventario, gestionamos el flete y coordinamos con agentes ecuatorianos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final.',
+          'El volumen se mide en metros cúbicos (CBM). En [contenedor exclusivo (FCL)](/es/servicios/contenedor-exclusivo-fcl/) su menaje viaja solo y se sella en su casa; en [contenedor compartido (LCL o groupage)](/es/servicios/contenedor-compartido-lcl/) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Por la cercanía, ambas vías funcionan bien en este corredor.',
           'La carga marítima entra habitualmente por Guayaquil, el gran puerto del país, y desde ahí sube por carretera a Quito, Cuenca o Loja. Ese tramo terrestre —que en el caso de Quito significa ganar altura de forma considerable— está contemplado en el servicio puerta a puerta.',
         ],
         image: DIMG.containers,
@@ -1025,7 +1027,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Quito, Guayaquil, Cuenca',
         body: [
-          'Ecuador se ha convertido en uno de los destinos de retiro más elegidos del continente, y no solo por el costo de vida. Cuenca atrae por su casco colonial, su clima templado y su comunidad internacional; Quito, por ser la capital y por la altura que define su ritmo; Guayaquil, por el puerto, el calor y la actividad comercial.',
+          'Ecuador se ha convertido en uno de los [destinos de retiro](/es/servicios/mudanzas-para-jubilados-retirados/) más elegidos del continente, y no solo por el costo de vida. Cuenca atrae por su casco colonial, su clima templado y su comunidad internacional; Quito, por ser la capital y por la altura que define su ritmo; Guayaquil, por el puerto, el calor y la actividad comercial.',
           'La altura de Quito y Cuenca es un factor práctico, no anecdótico: cambia cómo se siente el primer mes, y también cómo se planifica una entrega con escaleras. Vale la pena tenerlo en cuenta al decidir qué se lleva.',
         ],
         image: DIMG.port,
@@ -1033,7 +1035,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Tenga la visa resuelta antes de embarcar. En Ecuador el régimen de menaje se apoya en el tipo de visa y en la fecha de su llegada; una carga que se adelanta al trámite migratorio termina esperando en el puerto y acumulando almacenaje.',
+          '**Tenga la visa resuelta antes de embarcar.** En Ecuador el régimen de menaje se apoya en el tipo de visa y en la fecha de su llegada; una carga que se adelanta al trámite migratorio termina esperando en el puerto y acumulando almacenaje.',
           'Aquí no tiene que cambiar nada eléctrico: la red ecuatoriana funciona a 110 voltios y 60 hercios, igual que la panameña, y los enchufes son los mismos. Sus electrodomésticos funcionan tal cual. Ecuador también usa el dólar estadounidense, así que tampoco hay conversión de moneda que calcular.',
           'El auto no entra en el menaje. La importación de vehículos a Ecuador está regulada y se evalúa caso por caso antes de embarcar.',
           'La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Ecuador con el certificado sanitario oficial y las vacunas vigentes que exige la autoridad sanitaria ecuatoriana.',
@@ -1057,7 +1059,7 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Auckland o Wellington, con la bioseguridad bajo control.',
     heroImage: DIMG.port,
     intro: [
-      'Nueva Zelanda ofrece una calidad de vida excepcional, pero comparte con Australia uno de los regímenes de bioseguridad más estrictos del mundo. Coordinamos mudanzas desde Panamá a Auckland, Wellington y otras ciudades, principalmente por vía marítima, con máxima atención a la inspección y la cuarentena.',
+      'Nueva Zelanda ofrece una calidad de vida excepcional, pero comparte con [Australia](/es/destinos/mudanzas-de-panama-a-australia/) uno de los regímenes de bioseguridad más estrictos del mundo. Coordinamos mudanzas desde Panamá a Auckland, Wellington y otras ciudades, principalmente por vía marítima, con máxima atención a la inspección y la cuarentena.',
       'Es uno de los corredores más largos que operamos y también uno de los menos indulgentes. La diferencia entre una llegada fluida y una factura inesperada casi nunca está en el barco: está en cómo se empacó y se declaró la carga en Panamá.',
     ],
     sections: [
@@ -1066,7 +1068,7 @@ export const destinations: Destination[] = [
         body: [
           'Nueva Zelanda inspecciona rigurosamente los efectos personales para proteger un ecosistema insular que no tiene defensas naturales frente a plagas importadas. El control lo ejerce la autoridad de industrias primarias, y su criterio es simple: lo que pueda traer un organismo vivo, no entra.',
           'Artículos con tierra, madera sin tratar, semillas, plantas, alimentos o material orgánico pueden ser tratados, retenidos, devueltos o destruidos, y el costo del tratamiento recae en el dueño de la carga. Un solo objeto mal preparado puede provocar la inspección completa del contenedor, con el gasto y la demora que eso arrastra.',
-          'Por eso empacamos con criterio de bioseguridad desde el origen: se limpian a fondo el calzado de montaña, las herramientas de jardín, las bicicletas, el equipo de camping, deportivo y de pesca; se descartan plantas, semillas y alimentos; y se verifica el tratamiento de los embalajes y muebles de madera. Preparamos y declaramos su menaje conforme a estas normas para minimizar riesgos.',
+          'Por eso empacamos con criterio de bioseguridad desde el origen: se limpian a fondo el calzado de montaña, las herramientas de jardín, las bicicletas, el [equipo de camping, deportivo y de pesca](/es/servicios/transporte-equipaje-deportivo/); se descartan plantas, semillas y alimentos; y se verifica el tratamiento de los embalajes y muebles de madera. Preparamos y declaramos su menaje conforme a estas normas para minimizar riesgos.',
         ],
         image: DIMG.containers,
       },
@@ -1089,9 +1091,9 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Limpie, y después limpie otra vez. Suela de zapato, ruedas de bicicleta, palas, macetas vacías, sillas de jardín, equipo de camping. Es el trabajo más aburrido de la mudanza y el que más dinero ahorra en este destino.',
+          '**Limpie, y después limpie otra vez.** Suela de zapato, ruedas de bicicleta, palas, macetas vacías, sillas de jardín, equipo de camping. Es el trabajo más aburrido de la mudanza y el que más dinero ahorra en este destino.',
           'Revise el voltaje. La red neozelandesa funciona a 230 voltios y 50 hercios, con un tipo de enchufe propio de Oceanía; la panameña, a 110 voltios y 60 hercios. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
-          'El auto va por su propia vía, con normas de importación y de emisiones propias, y se evalúa caso por caso antes de embarcar. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Nueva Zelanda bajo un régimen sanitario estricto que puede incluir cuarentena. Es un expediente aparte y se empieza con mucha antelación.',
+          'El auto va por su propia vía, con normas de importación y de emisiones propias, y se evalúa caso por caso antes de embarcar. [La mascota nunca viaja en el contenedor](/es/servicios/transporte-de-mascotas-internacional/): sale de Panamá con el trámite ante MIDA y MINSA y entra a Nueva Zelanda bajo un régimen sanitario estricto que puede incluir cuarentena. Es un expediente aparte y se empieza con mucha antelación.',
           'Y decida qué no se lleva. En un corredor tan largo, cada metro cúbico pesa en el presupuesto. La mudanza más barata a Nueva Zelanda siempre es la que va más liviana.',
         ],
       },
@@ -1112,7 +1114,7 @@ export const destinations: Destination[] = [
     heroTagline: 'De Panamá a Tokio u Osaka, al otro lado del mundo con precisión.',
     heroImage: DIMG.plane,
     intro: [
-      'Japón, destino de profesionales y familias por su cultura y oportunidades, está entre los corredores más lejanos que operamos. Coordinamos mudanzas desde Panamá a Tokio, Osaka, Yokohama y otras ciudades, por vía marítima o aérea, con la meticulosidad que exige este destino.',
+      'Japón, destino de profesionales y familias por su cultura y oportunidades, está entre los corredores más lejanos que operamos. Coordinamos mudanzas desde Panamá a Tokio, Osaka, Yokohama y otras ciudades, por [vía marítima](/es/servicios/mudanzas-internacionales-maritimas/) o aérea, con la meticulosidad que exige este destino.',
       'Hay una pregunta que en Japón se hace antes que cualquier otra, y no es cuánto cuesta el flete: es si sus muebles caben. Ese es el verdadero filtro de este corredor.',
     ],
     sections: [
@@ -1144,10 +1146,10 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Mida su vivienda de destino antes de decidir qué se lleva. Puerta de entrada, ancho de pasillos, curva de la escalera, medidas del ascensor. Con esos números en la mano, la decisión de qué embarcar deja de ser una apuesta.',
+          '**Mida su vivienda de destino antes de decidir qué se lleva.** Puerta de entrada, ancho de pasillos, curva de la escalera, medidas del ascensor. Con esos números en la mano, la decisión de qué embarcar deja de ser una apuesta.',
           'Revise el voltaje, que en Japón es un caso particular: la red funciona a 100 voltios —más bajo que en cualquier otro destino que operamos— y la frecuencia se divide en dos, 50 hercios en la zona de Tokio y 60 en la de Osaka. Sus equipos panameños de 110 voltios suelen tolerarlo, pero algunos aparatos con motor o temporizador se comportan distinto según la región. Revise la etiqueta de cada aparato.',
           'Revise el botiquín. Es la advertencia menos intuitiva y la que más problemas evita: hay medicamentos comunes en Panamá cuya composición no está permitida en Japón.',
-          'El auto va por su propia vía, con homologación y matriculación japonesas, y se evalúa caso por caso. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a Japón bajo un régimen sanitario estricto que puede incluir cuarentena, con una secuencia de vacunas y pruebas que se empieza con mucha antelación.',
+          '[El auto va por su propia vía](/es/servicios/envio-de-autos-en-contenedor/), con homologación y matriculación japonesas, y se evalúa caso por caso. [La mascota nunca viaja en el contenedor](/es/servicios/transporte-de-mascotas-internacional/): sale de Panamá con el trámite ante MIDA y MINSA y entra a Japón bajo un régimen sanitario estricto que puede incluir cuarentena, con una secuencia de vacunas y pruebas que se empieza con mucha antelación.',
         ],
       },
     ],
@@ -1174,8 +1176,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Cómo trasladamos su hogar a China',
         body: [
-          'Calculamos volumen, empacamos con materiales de exportación y gestionamos el flete de largo recorrido. Coordinamos con agentes en China la desaduanización y la entrega final en su ciudad de destino.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Siendo un corredor largo, el volumen que decide dejar en Panamá es dinero que no gasta.',
+          'Calculamos volumen, empacamos con [materiales de exportación](/es/servicios/servicio-de-embalaje-profesional/) y gestionamos el flete de largo recorrido. Coordinamos con agentes en China la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega final en su ciudad de destino.',
+          'El volumen se mide en metros cúbicos (CBM). En [contenedor exclusivo (FCL)](/es/servicios/contenedor-exclusivo-fcl/) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. Siendo un corredor largo, el volumen que decide dejar en Panamá es dinero que no gasta.',
           'La carga entra por uno de los grandes puertos chinos —Shanghái, Ningbo, Shenzhen o Tianjin, según su destino— y desde ahí sigue por vía terrestre. El puerto exacto depende del servicio contratado y se lo confirmamos en la cotización.',
         ],
         image: DIMG.containers,
@@ -1199,7 +1201,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'No embarque antes de tener el permiso de residencia o el visado resuelto. Es la regla número uno de este corredor y la causa más común de cargas detenidas.',
+          '**No embarque antes de tener el permiso de residencia o el visado resuelto.** Es la regla número uno de este corredor y la causa más común de cargas detenidas.',
           'Revise qué mete en las cajas. China regula el ingreso de material impreso, audiovisual y digital, así como de artículos religiosos, equipos de comunicaciones y drones, entre otras categorías. No es una cuestión de cantidad, es de contenido. Si tiene dudas sobre algo, pregúntenos antes de empacarlo, no después.',
           'Revise el voltaje. La red china funciona a 220 voltios y 50 hercios; la panameña, a 110 voltios y 60 hercios. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
           'El auto va por su propia vía, con una importación fuertemente regulada, y se evalúa caso por caso. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a China bajo un régimen sanitario que puede incluir cuarentena, con reglas que además varían por ciudad.',
@@ -1229,7 +1231,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Su mudanza a los Emiratos, paso a paso',
         body: [
-          'Preparamos su menaje con embalaje de exportación e inventario, gestionamos el flete y coordinamos con agentes en los Emiratos la desaduanización y la entrega. El manejo de la documentación es clave en este destino.',
+          'Preparamos su menaje con [embalaje de exportación](/es/servicios/servicio-de-embalaje-profesional/) e inventario, gestionamos el flete y coordinamos con agentes en los Emiratos la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega. **El manejo de la documentación es clave en este destino.**',
           'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar.',
           'La carga entra por el sistema portuario emiratí, uno de los más eficientes del mundo, y desde ahí sigue por carretera hasta su domicilio. La infraestructura no suele ser el cuello de botella en este corredor; la documentación sí.',
         ],
@@ -1257,7 +1259,7 @@ export const destinations: Destination[] = [
           'Repase el contenido de su casa con nuestra lista antes de empacar. Es el paso que más problemas evita en este destino, y hay que hacerlo en Panamá: una vez sellado el contenedor, ya no hay marcha atrás.',
           'Tenga su visado de residencia resuelto o en trámite documentado antes de embarcar. El despacho emiratí se apoya en él.',
           'Revise el voltaje. La red emiratí funciona a 230 voltios y 50 hercios, con enchufes de tipo británico; la panameña, a 110 voltios y 60 hercios. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
-          'El auto va por su propia vía, con matriculación y homologación locales, y se evalúa caso por caso. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a los Emiratos con permiso de importación previo, microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
+          '[El auto va por su propia vía](/es/servicios/envio-de-autos-en-contenedor/), con matriculación y homologación locales, y se evalúa caso por caso. La mascota nunca viaja en el contenedor: sale de Panamá con el trámite ante MIDA y MINSA y entra a los Emiratos con permiso de importación previo, microchip, vacunación antirrábica vigente y certificado sanitario oficial.',
         ],
       },
     ],
@@ -1284,8 +1286,8 @@ export const destinations: Destination[] = [
       {
         heading: 'Hub a hub',
         body: [
-          'Tanto Panamá como Singapur son nodos logísticos de primer nivel, lo que se traduce en buenas conexiones. Preparamos su menaje con embalaje de exportación, gestionamos el flete y coordinamos con agentes locales la desaduanización y la entrega.',
-          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. En este corredor el compartido tiene buenas frecuencias por el propio volumen de tráfico del destino.',
+          'Tanto Panamá como Singapur son nodos logísticos de primer nivel, lo que se traduce en buenas conexiones. Preparamos su menaje con embalaje de exportación, gestionamos el flete y coordinamos con agentes locales la [desaduanización](/es/servicios/gestion-aduanera-desaduanizacion/) y la entrega.',
+          'El volumen se mide en metros cúbicos (CBM). En contenedor exclusivo (FCL) su menaje viaja solo y se sella en su casa; en contenedor compartido (LCL o groupage) comparte espacio con otras cargas, se consolida en un almacén antes de embarcar y se desconsolida en otro al llegar. En este corredor el [contenedor compartido](/es/servicios/contenedor-compartido-lcl/) tiene buenas frecuencias por el propio volumen de tráfico del destino.',
           'La vivienda singapurense es, en general, más compacta que la panameña y con mucho almacenamiento ya integrado. Conviene tenerlo presente al decidir qué muebles vale la pena mover a la otra punta del mundo.',
         ],
         image: DIMG.containers,
@@ -1301,7 +1303,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Vivir en Singapur',
         body: [
-          'Singapur recibe a profesionales de banca, tecnología, logística y comercio internacional, y a sus familias. Es una ciudad-estado ordenada, segura y multicultural, con inglés como lengua de trabajo y una comunidad internacional que hace el aterrizaje relativamente fácil.',
+          'Singapur recibe a [profesionales de banca, tecnología, logística y comercio internacional](/es/servicios/relocacion-de-ejecutivos-expatriados/), y a sus familias. Es una ciudad-estado ordenada, segura y multicultural, con inglés como lengua de trabajo y una comunidad internacional que hace el aterrizaje relativamente fácil.',
           'La entrega en destino es previsible y muy reglamentada. Los condominios y bloques residenciales exigen reserva del ascensor de servicio, permisos de acceso y ventanas horarias definidas, y a veces un depósito de garantía por posibles daños en áreas comunes. Se coordina con antelación; improvisar el día de la entrega no funciona en este destino.',
         ],
         image: DIMG.port,
@@ -1309,7 +1311,7 @@ export const destinations: Destination[] = [
       {
         heading: 'Antes de embarcar: lo que conviene resolver en Panamá',
         body: [
-          'Repase la lista de artículos prohibidos antes de empacar, con calma. Es el consejo más importante de este destino: no se trata de que le retengan una caja, sino de que ciertos artículos constituyen una infracción sancionable por su sola presencia en la carga.',
+          '**Repase la lista de artículos prohibidos antes de empacar, con calma.** Es el consejo más importante de este destino: no se trata de que le retengan una caja, sino de que ciertos artículos constituyen una infracción sancionable por su sola presencia en la carga.',
           'Tenga resuelto el pase de empleo o el permiso de residencia. El tratamiento de bienes personales se apoya en él.',
           'Revise el voltaje. La red singapurense funciona a 230 voltios y 50 hercios, con enchufes de tipo británico; la panameña, a 110 voltios y 60 hercios. La electrónica moderna suele aceptar ambos rangos —lo dice la etiqueta de la fuente—, pero los electrodomésticos grandes con motor o resistencia normalmente no.',
           'El auto es un caso aparte y particularmente difícil: Singapur regula la circulación de vehículos con un sistema de cuotas y costos de titularidad que hacen que importar un auto rara vez tenga sentido. Se evalúa antes de embarcar, y la recomendación honesta suele ser venderlo en Panamá. La mascota nunca viaja en el contenedor: sale con el trámite ante MIDA y MINSA y entra con permiso de importación previo, microchip, vacunación vigente y un régimen sanitario que puede incluir cuarentena.',

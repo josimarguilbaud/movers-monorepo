@@ -5,7 +5,8 @@ import Footer from '../../components/Footer.astro';
 import { Icon } from 'astro-icon/components';
 import { site, wa, yearsInBusiness } from '../../data/site';
 import { imgFor } from '../../data/images';
-import { breadcrumb } from '@movers/core/schema';
+import { breadcrumb, faqPage } from '@movers/core/schema';
+import { inline, plain } from '@movers/core/text';
 
 const crumbs = breadcrumb([
   { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
@@ -26,7 +27,52 @@ const stats = [
   { value: '100%', label: 'Compromiso familiar' },
 ];
 
-// ⚠️ Reemplazar por certificaciones/afiliaciones REALES de PIM (con sus logos).
+/* Las cuatro etapas son las mismas que describe la home y las fichas de
+   servicio: es el proceso que el sitio ya publica, no uno nuevo. */
+const process = [
+  { n: '01', icon: 'fa6-solid:clipboard-list', title: 'Inspección y asesoría', text: 'Vemos el volumen real en su casa u oficina, o por videollamada si prefiere. De ahí sale la cotización, no de una estimación por teléfono.' },
+  { n: '02', icon: 'fa6-solid:box', title: 'Embalaje e inventario', text: 'Empacamos con material de exportación y anotamos cada bulto. Ese inventario es después la base del despacho aduanero y del seguro.' },
+  { n: '03', icon: 'fa6-solid:ship', title: 'Tránsito y aduanas', text: 'Coordinamos el transporte y la documentación en origen y en destino. La parte donde una mudanza se atasca semanas si se hace mal.' },
+  { n: '04', icon: 'fa6-solid:house-chimney-window', title: 'Entrega e instalación', text: 'Descargamos, desembalamos, colocamos donde nos diga y nos llevamos el material de embalaje. No dejamos una montaña de cartón.' },
+];
+
+/* Corredores destacados. Los slugs salen de destinations.ts: si se renombra
+   alguno, hay que actualizarlo aquí. */
+const corridors = [
+  { slug: 'mudanzas-de-panama-a-espana', flag: '🇪🇸', name: 'España' },
+  { slug: 'mudanzas-de-panama-a-estados-unidos', flag: '🇺🇸', name: 'Estados Unidos' },
+  { slug: 'mudanzas-de-panama-a-canada', flag: '🇨🇦', name: 'Canadá' },
+  { slug: 'mudanzas-de-panama-a-mexico', flag: '🇲🇽', name: 'México' },
+  { slug: 'mudanzas-de-panama-a-reino-unido', flag: '🇬🇧', name: 'Reino Unido' },
+  { slug: 'mudanzas-de-panama-a-colombia', flag: '🇨🇴', name: 'Colombia' },
+];
+
+/* Solo compromisos que el sitio ya hace en otras páginas. Nada nuevo. */
+const promises = [
+  'La **evaluación es gratuita** y no compromete a nada.',
+  'La cotización llega **en menos de 24 horas** después de ver el volumen.',
+  'Un **coordinador personal** lleva su caso de principio a fin.',
+  'Nos encargamos de la **gestión aduanera** en origen y en destino.',
+  'Todo lo que se empaca queda **inventariado y etiquetado**.',
+  'En destino **desembalamos y retiramos el material** de embalaje.',
+];
+
+const limits = [
+  'No cotizamos **por teléfono sin ver el volumen**. Un precio dado a ciegas termina en cargos extra el día de la carga.',
+  'Los tiempos de tránsito son **estimados del sector, no fechas garantizadas**: dependen de la naviera, la ruta y la aduana de destino.',
+  'No damos **asesoría legal ni migratoria**. Le decimos qué pide la aduana; su visa la tramita usted o su abogado.',
+  'No transportamos **artículos prohibidos**: inflamables, perecederos, plantas, armas ni efectivo.',
+  'No prometemos que **quepa todo**. A veces la recomendación honesta es dejar o vender parte.',
+];
+
+const faqs = [
+  { q: '¿Trabajan solo con mudanzas internacionales?', a: 'No. Movemos también dentro de Ciudad de Panamá y hacia el interior del país, y hacemos traslados de oficinas y empresas. Puede ver el catálogo completo en [servicios](/es/servicios/).' },
+  { q: '¿Puedo contratar solo una parte del servicio?', a: 'Sí. Hay quien quiere el paquete completo puerta a puerta y quien solo necesita el [embalaje profesional](/es/servicios/servicio-de-embalaje-profesional/) o el [trámite aduanero](/es/servicios/gestion-aduanera-desaduanizacion/). Se cotiza por separado.' },
+  { q: '¿Con cuánta anticipación debo contactarlos?', a: 'Entre cuatro y seis semanas antes de la fecha deseada es lo cómodo: da tiempo a coordinar la inspección, tramitar el seguro y reservar espacio con buenas tarifas. Si su plazo es más corto, avísenos igual y le decimos con franqueza qué es posible.' },
+  { q: '¿Qué pasa si cambio la fecha después de contratar?', a: 'Se reprograma. Conviene avisar cuanto antes, porque el espacio en naviera o aerolínea se reserva con anticipación y mover la fecha puede cambiar la ruta disponible.' },
+  { q: '¿Atienden a empresas?', a: 'Sí. Las [mudanzas corporativas](/es/servicios/mudanzas-corporativas-de-oficinas/) se planifican por fases para que el corte de operación sea el menor posible, normalmente cargando en fin de semana.' },
+  { q: '¿Puedo mover mi carro y mi mascota en la misma mudanza?', a: 'Sí, y es lo habitual. El [transporte de vehículos](/es/servicios/envio-de-autos-en-contenedor/) y el [traslado de mascotas](/es/servicios/transporte-de-mascotas-internacional/) se coordinan junto al resto para que no tenga que cuadrar fechas con varios proveedores.' },
+];
 ---
 
 <Base
@@ -34,7 +80,7 @@ const stats = [
   description={`Conozca a Panamá International Movers: empresa familiar panameña fundada en ${site.foundingYear}, con más de ${yearsInBusiness} años moviendo hogares por el mundo. Nuestra historia, valores y compromiso.`}
   lang="es"
   altPaths={{ es: '/es/nosotros/', en: '/en/about/' }}
-  jsonld={crumbs}
+  jsonld={[crumbs, faqPage(faqs.map((f) => ({ question: plain(f.q), answer: plain(f.a) })))]}
 >
   <Header locale="es" />
 
@@ -121,24 +167,110 @@ const stats = [
     </div>
   </div>
 
-  <!-- EQUIPO (placeholder para fotos reales) -->
+  <!-- CÓMO TRABAJAMOS -->
   <section class="py-24 bg-brand-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-2">Nuestro Equipo</h2>
-        <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">Las personas detrás de cada mudanza</h3>
-        <p class="text-brand-500">Coordinadores, embaladores y agentes aduanales que hacen posible su tranquilidad.</p>
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Cómo trabajamos</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-3">De la primera llamada a la última caja</h3>
+        <p class="text-brand-500">Cuatro etapas. En cada una sabe quién responde y qué sigue.</p>
       </div>
-      {/* ⚠️ Reemplazar por fotos reales del equipo/coordinadores/flota de PIM */}
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[1, 2, 3, 4].map(() => (
-          <div class="bg-white rounded-3xl overflow-hidden border border-dashed border-brand-200 text-center">
-            <div class="h-56 bg-brand-100 flex items-center justify-center text-brand-300 text-5xl"><Icon name="fa6-solid:user" /></div>
-            <div class="p-5"><h4 class="font-bold text-brand-400">[Nombre]</h4><p class="text-xs text-brand-300">[Cargo]</p></div>
+        {process.map((step) => (
+          <div class="bg-white rounded-3xl p-8 border border-brand-100">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="w-11 h-11 rounded-2xl bg-brand-900 text-accent-400 grid place-items-center text-lg"><Icon name={step.icon} /></span>
+              <span class="text-2xl font-black text-brand-200">{step.n}</span>
+            </div>
+            <h4 class="text-lg font-bold text-brand-900 mb-2">{step.title}</h4>
+            <p class="text-brand-500 text-sm leading-relaxed">{step.text}</p>
           </div>
         ))}
       </div>
-      <p class="text-center text-xs text-brand-400 mt-6">Fotos reales del equipo pendientes.</p>
+    </div>
+  </section>
+
+  <!-- QUÉ SIGNIFICA GLOBAL -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Nuestra cobertura</h2></div>
+          <h3 class="text-3xl md:text-4xl font-black text-brand-900 mb-6 leading-tight">Qué significa, en concreto, que trabajemos global</h3>
+          <p class="text-brand-600 mb-5 leading-relaxed">«Cobertura mundial» es fácil de escribir y difícil de sostener. Para nosotros significa una cosa muy específica: que en el país al que usted se muda hay un agente que responde por la entrega, y que ese agente conoce lo que su aduana pide para el menaje usado.</p>
+          <p class="text-brand-600 mb-5 leading-relaxed">Sin esa pieza, una mudanza internacional termina en el puerto de destino y el cliente se queda resolviendo solo la parte más incómoda. Por eso el trabajo en destino se coordina desde aquí, no se subcontrata y se olvida.</p>
+          <p class="text-brand-600 mb-8 leading-relaxed">Panamá ayuda: el país es punto de conexión marítima entre el Atlántico y el Pacífico, y eso se traduce en más frecuencias y más rutas disponibles que las que tendría una mudadora en un país sin esa posición.</p>
+          <a href="/es/destinos/" class="inline-flex items-center gap-2 text-accent-600 font-bold hover:text-accent-500 transition-colors">Ver los 22 destinos que documentamos <Icon name="fa6-solid:arrow-right" class="text-xs" /></a>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {corridors.map((c) => (
+            <a href={`/es/destinos/${c.slug}/`} class="group bg-brand-50 hover:bg-brand-900 rounded-2xl px-4 py-4 border border-brand-100 transition-colors">
+              <span class="block text-2xl mb-1">{c.flag}</span>
+              <span class="block text-sm font-bold text-brand-900 group-hover:text-white transition-colors leading-tight">{c.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LO QUE PROMETEMOS Y LO QUE NO -->
+  <section class="py-24 bg-brand-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-500 uppercase tracking-widest">Sin letra pequeña</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-4xl font-black text-white mb-3">Lo que sí prometemos, y lo que no</h3>
+        <p class="text-brand-300">Preferimos decirlo antes de firmar y no el día de la carga.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-xl bg-accent-500 text-brand-900 grid place-items-center"><Icon name="fa6-solid:check" /></span>
+            <h4 class="text-lg font-bold text-white">Esto sí</h4>
+          </div>
+          <ul class="space-y-4">
+            {promises.map((p) => (
+              <li class="flex gap-3 text-brand-200 text-sm leading-relaxed">
+                <Icon name="fa6-solid:check" class="text-accent-500 mt-1 shrink-0 text-xs" /><span set:html={inline(p)}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-xl bg-brand-700 text-brand-300 grid place-items-center"><Icon name="fa6-solid:xmark" /></span>
+            <h4 class="text-lg font-bold text-white">Esto no</h4>
+          </div>
+          <ul class="space-y-4">
+            {limits.map((l) => (
+              <li class="flex gap-3 text-brand-300 text-sm leading-relaxed">
+                <Icon name="fa6-solid:minus" class="text-brand-500 mt-1 shrink-0 text-xs" /><span set:html={inline(l)}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS SOBRE LA EMPRESA -->
+  <section class="py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="flex justify-center items-center gap-3 mb-4"><div class="h-px w-12 bg-accent-500"></div><h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest">Antes de contratar</h2><div class="h-px w-12 bg-accent-500"></div></div>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-900">Lo que más nos preguntan</h3>
+      </div>
+      <div class="divide-y divide-brand-100 border-y border-brand-100">
+        {faqs.map((f) => (
+          <details class="group py-5">
+            <summary class="flex justify-between items-start gap-4 cursor-pointer list-none font-bold text-brand-900">
+              {f.q}
+              <Icon name="fa6-solid:plus" class="text-accent-500 shrink-0 mt-1 text-sm group-open:rotate-45 transition-transform" />
+            </summary>
+            <p class="text-brand-600 leading-relaxed mt-3 text-[15px]" set:html={inline(f.a)}></p>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 

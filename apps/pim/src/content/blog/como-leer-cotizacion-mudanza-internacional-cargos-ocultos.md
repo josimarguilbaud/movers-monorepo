@@ -4,6 +4,7 @@ description: "Guía para leer una cotización de mudanza internacional línea po
 pubDate: 2026-09-02
 category: "Aduanas y Logística"
 heroImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop"
+translation: "how-to-read-international-moving-quote-hidden-charges"
 ---
 
 Ya explicamos [cuánto cuesta una mudanza internacional](/es/blog/cuanto-cuesta-mudanza-internacional/) y de qué depende el precio. Esta es la continuación práctica: usted ya tiene dos o tres cotizaciones sobre la mesa, y ahora tiene que compararlas. El problema es que **no vienen en el mismo formato**, y la más barata a primera vista es, con frecuencia, la más incompleta.

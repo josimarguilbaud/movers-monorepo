@@ -4,6 +4,7 @@ description: "Las franquicias del pensionado en Panamá vienen de la Ley 9 de 19
 pubDate: 2026-09-02
 category: "Vida Expat"
 heroImage: "https://images.unsplash.com/photo-1512757776214-26d36777b513?q=80&w=2000&auto=format&fit=crop"
+translation: "moving-to-panama-as-a-retiree-logistics-guide"
 ---
 
 Panamá lleva décadas siendo destino de retiro, y casi todo lo que se escribe al respecto habla de lo mismo: descuentos, clima y costo de vida. Muy poco se escribe sobre la parte que realmente da trabajo, que es **mover una casa entera al final de una vida**. Esta guía se ocupa de esa parte: las franquicias reales que le corresponden, con la norma citada, y las decisiones logísticas que conviene tomar temprano.

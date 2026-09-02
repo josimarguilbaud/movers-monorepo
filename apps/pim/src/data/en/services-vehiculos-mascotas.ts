@@ -252,44 +252,73 @@ export const svcVehiculosMascotas: Service[] = [
     ],
     sections: [
       {
-        heading: 'General requirements',
+        heading: 'General requirements: the baseline list',
         body: [
           `Most countries require a microchip for identification, an up-to-date rabies vaccination (often applied a set amount of time in advance), a health certificate issued by a licensed veterinarian, and, in some cases, antibody titer tests or specific import permits.`,
+          `On top of that come internal and external parasite treatments applied within a set window before the flight, and the official endorsement of the certificate by the health authority in the country of origin. That endorsement is a separate errand, with its own office and its own opening hours, and it's where most people discover too late that a paper is missing.`,
           `Each destination has its own list; our team checks it against your move's exact corridor so nothing gets missed.`,
         ],
         image: IMG.packing,
       },
       {
+        heading: 'The order matters as much as the list',
+        body: [
+          `Here's the mistake that delays the most trips: treating the requirements as a shopping list you can work through in any order. They aren't. They're a chained sequence, and each link governs the next.`,
+          `The microchip has to be implanted **before** the rabies vaccination for that vaccination to be valid; the antibody test is only drawn once a set time has passed since the vaccination; some countries also require a waiting period between the sample and the date of entry. The health certificate, by contrast, has a short validity, so it's issued almost last. Doing a step too early can invalidate it just as thoroughly as doing it too late. Which is why the first thing we build isn't the file: **it's the calendar**.`,
+        ],
+      },
+      {
         heading: 'IATA-approved crate and animal welfare',
         body: [
-          `Air transport requires a crate that meets IATA standards: the right size so your pet can stand and turn around comfortably, proper ventilation, and secure construction. We help you choose and prepare it to reduce travel stress.`,
+          `Air transport requires a crate that meets IATA standards: big enough for the animal to stand, turn around and lie down naturally, ventilation on several sides, secure fastenings and an absorbent floor. A crate that comes up short is grounds for refusal at the counter, even with every document in order.`,
+          `We advise you on the choice and on something that matters just as much: the preparation. An animal that has known its crate for weeks, that has eaten and slept inside it at home, travels far better than one that sees it for the first time on flight day. That gradual habituation is the most effective way there is to reduce stress, and it costs nothing.`,
         ],
+      },
+      {
+        heading: 'How pets travel: cabin, pressurized hold or cargo',
+        body: [
+          `There are three ways to travel, and you can't always choose. In the cabin, only small animals that fit in a carrier under the seat, according to each airline's policy. In the **pressurized, climate-controlled hold**, as accompanied baggage on the same flight as you. As cargo (air manifest), traveling independently — the usual route for international relocations, especially with a large animal or a route with connections.`,
+          `There are restrictions worth knowing before you buy the ticket. Many airlines limit the carriage of brachycephalic breeds — short-nosed, like bulldogs or Persians — because of the higher respiratory risk, apply temperature embargoes at certain times of year, and cap the number of animals per flight. We confirm those conditions with the airline before fixing the date, not after.`,
+        ],
+        image: IMG.plane,
       },
       {
         heading: 'Quarantine: what to expect by country',
         body: [
-          `One of the factors that varies most between destinations is quarantine. Some countries don't require it if the documentation is complete and correct; others, like Australia or New Zealand, apply very strict controls that can include mandatory quarantine periods. Anticipating this is key to planning ahead and avoiding surprises.`,
-          `We review your destination's exact regime and explain clearly what to expect, so you can make informed decisions about timing and your pet's well-being.`,
+          `One of the factors that varies most between destinations is quarantine. Some countries don't require it if the documentation is complete and correct; others, like [Australia](/en/destinations/moving-from-panama-to-australia/) or [New Zealand](/en/destinations/moving-from-panama-to-new-zealand/), apply very strict controls that can include mandatory quarantine periods. Anticipating this is key to planning ahead and avoiding surprises.`,
+          `We review your destination's exact regime and explain clearly what to expect, so you can make informed decisions about timing and your pet's well-being. And if your destination is one of the demanding ones, we say so up front: it's better to rearrange the family calendar than to find out with the animal already in transit.`,
         ],
-        image: IMG.packing,
       },
       {
         heading: 'Travel day, step by step',
         body: [
           `We coordinate the day's logistics: delivering your pet to the cargo terminal within the appropriate window, its last feeding and hydration, and having the documentation ready to present. At destination, our network handles receiving your pet, the health inspection, and the reunion with your family.`,
-          `Our goal is to make the journey as short and calm as possible, with your pet cared for at every point along the way.`,
+          `Our goal is to make the journey as short and calm as possible, with your pet cared for at every point along the way. When the route forces a connection, we favor short layovers and airports that handle live animals properly, even if the itinerary ends up a little less direct.`,
+        ],
+      },
+      {
+        heading: 'Dogs, cats and exotic species: every case is different',
+        body: [
+          `The general framework is the same, but the details change a great deal from one species to another. A large dog is mainly a crate and airline-restriction problem; a cat usually travels more easily but is far more sensitive to stress and to changes of environment; and exotic species add an entire layer of regulation, including the CITES convention when a protected species is involved.`,
+          `That's why we treat each case on its own rather than from a single template. If you already know which animal is traveling, it's worth reading the page for that species: [dogs](/en/services/international-dog-relocation/), [cats](/en/services/international-cat-relocation/) and [exotic birds and animals](/en/services/exotic-bird-and-animal-relocation/) each carry the details we only touch on in general here.`,
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:clipboard-check', title: 'Requirements by country', text: `We check every document against the exact destination.` },
+      { icon: 'fa6-solid:calendar-days', title: 'Calendar first', text: `We sequence the paperwork so nothing gets invalidated.` },
       { icon: 'fa6-solid:box', title: 'IATA-approved crate', text: `Guidance on the right crate and its preparation.` },
       { icon: 'fa6-solid:stethoscope', title: 'Veterinary coordination', text: `Managing certificates, microchip, and vaccines.` },
+      { icon: 'fa6-solid:plane', title: 'Route and airline', text: `We confirm restrictions and layovers before fixing the date.` },
       { icon: 'fa6-solid:heart', title: 'Welfare first', text: `Everything designed to reduce your pet's stress.` },
     ],
     faqs: [
-      { q: 'How far in advance should I start?', a: `Ideally several weeks or months, since some vaccines and antibody tests must be given a minimum amount of time before travel. The earlier we start, the safer the process.` },
-      { q: 'Will there be quarantine at the destination?', a: `It depends on the country. Some destinations (like Australia) are very strict; others don't require quarantine if the documentation is complete. We'll confirm this for your route.` },
+      { q: 'How far in advance should I start?', a: `Ideally several weeks or months, since some vaccines and antibody tests have to be done a minimum amount of time before travel and several of them carry chained waiting periods. The earlier we start, the safer the process and the less likely you are to have to move the date.` },
+      { q: 'Will there be quarantine at the destination?', a: `It depends on the country. Some destinations (like Australia) are very strict; others don't require quarantine if the documentation is complete. We confirm it for your route before you commit to any dates.` },
+      { q: 'Can my pet travel with me in the cabin?', a: `Only if it's small, fits in a carrier under the seat and the airline allows it on that route. Each airline sets its own weight and size limits, and the number of animals per flight is capped. For medium or large animals, the route is the pressurized hold or cargo.` },
+      { q: 'Is it safe to travel in the hold?', a: `The hold used for live animals is pressurized and climate-controlled — it holds conditions similar to the cabin. What most affects safety isn't the hold itself but the right crate, a well-chosen route and a healthy, well-prepared animal. Those three things we can work on.` },
+      { q: 'Should I sedate my pet for the flight?', a: `The general recommendation from veterinary practice and from the airline industry is not to sedate for air travel: sedation can affect breathing and temperature regulation at altitude, and it leaves the animal less able to keep itself steady inside the crate. The final call is your veterinarian's, but it's worth going into that conversation knowing this.` },
+      { q: 'What if my dog is a brachycephalic or restricted breed?', a: `It isn't a lost cause, but it does take more planning. Many airlines restrict short-nosed breeds and some ban certain breeds under the destination country's rules. We review the route, look for the airline that will take your pet, and tell you frankly if the trip isn't advisable.` },
     ],
     related: ['mascotas-perros', 'mascotas-gatos', 'mascotas-exoticos'],
   },

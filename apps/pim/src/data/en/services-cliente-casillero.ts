@@ -72,47 +72,76 @@ export const svcClienteCasillero: Service[] = [
     heroImage: IMG.team,
     intro: [
       `Moving an office is a logistics project where every hour of downtime has a cost. We plan corporate moves so your operation is interrupted as little as possible: we work in phases, on low-impact schedules, with a rigorous inventory of furniture, equipment and confidential documentation.`,
-      `From a small office to an entire floor, we coordinate the move with the discretion and precision your company needs.`,
+      `From a small office to an entire floor, we coordinate the move with the discretion and precision your company needs. A single coordinator sits down with your operations, IT or HR team and answers for the whole project, from the first visit to the last workstation reassembled.`,
     ],
     sections: [
       {
-        heading: `Phased planning`,
+        heading: `A project, not just a move`,
         body: [
-          `We design a schedule that respects your operation: labeling by department, disassembly and reassembly of workstations, and a sequence that lets you get back to work at the new location as soon as possible.`,
+          `Moving an office means running a project with several variables at once: people, furniture, technology, deadlines and business continuity. We assign a coordinator who works with your team to build a detailed plan: inventory by area, a phased schedule, and a map of the new premises so every workstation has its place before anything is loaded.`,
+          `That upfront planning is what lets moving day flow and gets your company producing again as soon as possible. **The difference between an orderly corporate move and a lost weekend is almost never the truck: it's the plan made three weeks earlier.**`,
         ],
         image: IMG.packing,
       },
       {
-        heading: `Equipment and sensitive documentation`,
+        heading: `The schedule rules: how a phased move works`,
         body: [
-          `Servers, electronic equipment and confidential files receive specialized packing and a documented chain of custody. Everything is inventoried so that nothing gets misplaced during the move.`,
+          `We design a schedule that respects your operation. The usual approach is to move by area rather than all at once: first archives and storage, which nobody uses daily; then the support areas; and last the critical operation and the executives, in the lowest-impact window. That way no part of the company is unable to work for longer than planned.`,
+          `The schedule also accounts for what isn't ours to control: the real handover date of the premises, the state of the fit-out, the cabling and network install. If those pieces move, the plan is adjusted beforehand and not on the day itself. That's why we insist on setting verifiable milestones with your contractor and your IT provider.`,
         ],
-      },
-      {
-        heading: `A project, not just a move`,
-        body: [
-          `Moving an office means managing a project with multiple moving parts: people, furniture, technology, deadlines and business continuity. We assign a coordinator who works with your operations or HR team to build a detailed plan — inventory by department, a phased schedule, and a floor map of the new location to place every workstation.`,
-          `That upfront planning is what lets everything flow smoothly on moving day, so your company gets back to full productivity as soon as possible.`,
-        ],
-        image: IMG.team,
       },
       {
         heading: `Smart labeling for a fast setup`,
         body: [
-          `Every box, piece of furniture and piece of equipment is labeled for its destination in the new office — department, desk, floor. So instead of a chaotic pile of boxes, your team finds everything exactly where it belongs and can resume work almost immediately.`,
-          `We coordinate workstation assembly and the orderly reconnection of equipment, minimizing the time your staff spends unable to work.`,
+          `Every box, piece of furniture and piece of equipment is labeled for its destination in the new office: area, desk and floor. So instead of a chaotic pile of boxes, your team finds each thing where it belongs and can resume work almost immediately.`,
+          `The labeling is built on the floor plan of the new premises, which we map with you before anything moves. Each employee also gets a set of boxes marked with their name and their destination desk, which avoids the classic Monday-morning scene: twenty people hunting for their monitor among anonymous boxes.`,
+        ],
+      },
+      {
+        heading: `Servers, IT equipment and technical continuity`,
+        body: [
+          `Technology gets [specialized packing](/en/services/professional-packing-services/): antistatic protection, cushioning and boxes sized so nothing shifts along the way. Each unit travels inventoried by serial number, so the handover is verified one by one against the list and not from memory.`,
+          `Here it's worth being clear about scope. **We disconnect, pack, transport and physically reinstall the equipment at its new position. The logical disconnection, the network configuration and bringing servers back up belong to your IT team or your provider, and we work alongside them inside the same schedule.** Be wary of anyone who promises to take care of all of it without asking about your infrastructure.`,
+        ],
+        image: IMG.team,
+      },
+      {
+        heading: `Confidential documentation and chain of custody`,
+        body: [
+          `Contracts, personnel files, financial and client information: in many companies this is the most sensitive asset in the whole move. That material travels in sealed, numbered boxes, with a record of what each one holds, who handed it over and who received it. That is what a chain of custody is: a documented trail of who was responsible, not a verbal promise.`,
+          `Where your sector requires it, we arrange for someone you designate to accompany the critical material and sign for it on arrival. If your company has an internal information-handling policy, we review it beforehand and fit the procedure to it.`,
+        ],
+      },
+      {
+        heading: `Furniture, partitions and what usually catches people out`,
+        body: [
+          `A good share of the surprises in an office move aren't in the boxes but in the fixed furniture: modular partitions that come apart panel by panel, mobile shelving, safes, boardroom tables that won't fit through the lift door. All of it is spotted during the on-site survey and quoted from the start.`,
+          `**The building is the other front. Booking the freight lift, the hours the building management allows, floor and wall protection, dock access and equipment exit permits usually have rules of their own at origin and at destination. We handle those arrangements with both building managements ahead of the appointed day.**`,
+        ],
+      },
+      {
+        heading: `What we need in order to quote you properly`,
+        body: [
+          `A corporate move isn't quoted over the phone or by square meters. We need a visit to the current premises and, if possible, to the new one: it's the only way to count workstations, measure furniture, look at access and find what nobody mentioned. The survey is free and commits you to nothing.`,
+          `It helps a great deal to have the floor plan of the new site with the intended layout, the headcount per area, an approximate equipment inventory and the committed handover date. With that we give you a proposal with the scope and schedule in writing, which is what your management needs in order to approve without later surprises. If the project also involves bringing people in from abroad, we coordinate it with their [executive and expat relocations](/en/services/executive-expat-relocation/).`,
         ],
       },
     ],
     benefits: [
       { icon: 'fa6-solid:business-time', title: 'Minimal downtime', text: 'Phased planning and low-impact scheduling.' },
-      { icon: 'fa6-solid:server', title: 'Protected equipment', text: 'Specialized packing for IT and electronics.' },
-      { icon: 'fa6-solid:file-shield', title: 'Secure documents', text: 'Chain of custody for confidential material.' },
-      { icon: 'fa6-solid:clipboard-list', title: 'Rigorous inventory', text: 'Labeled by department for an organized setup.' },
+      { icon: 'fa6-solid:server', title: 'Protected equipment', text: 'Antistatic packing and inventory by serial number.' },
+      { icon: 'fa6-solid:file-shield', title: 'Secure documents', text: 'Sealed boxes and a documented chain of custody.' },
+      { icon: 'fa6-solid:clipboard-list', title: 'Rigorous inventory', text: 'Labeled by area, desk and floor against the floor plan.' },
+      { icon: 'fa6-solid:user-tie', title: 'A single coordinator', text: 'One contact for operations, IT and facilities.' },
+      { icon: 'fa6-solid:building-shield', title: 'Building coordination', text: 'Lifts, permitted hours and permits at origin and destination.' },
     ],
     faqs: [
-      { q: `Can you move an office over the weekend?`, a: `Yes. We work on low-impact schedules — nights or weekends — so your team finds everything ready when they resume work.` },
-      { q: `How do you handle confidential information?`, a: `With inventory, labeling and chain of custody. Sensitive material travels identified and under control at all times.` },
+      { q: `Can you move an office over the weekend?`, a: `Yes. We work on low-impact schedules — nights or weekends — so your team finds everything ready when they resume work. It's worth deciding early, because it also drives the permits and hours the building management will authorize.` },
+      { q: `How do you handle confidential information?`, a: `With sealed, numbered boxes, a record of contents and of who was responsible, and a documented chain of custody end to end. If your company has an internal information-handling policy, we fit the procedure to it, and the person you designate can accompany the material and sign for it on arrival.` },
+      { q: `Do you disconnect and reconnect the servers?`, a: `We disconnect, pack, transport and physically reinstall the equipment at its new position. The logical configuration, the network and bringing servers back up belong to your IT team or your provider; we work alongside them inside the same schedule.` },
+      { q: `Can you move us in stages if the new premises aren't ready?`, a: `Yes, and it's a common situation when the fit-out runs late. We can move first whatever doesn't interrupt the operation and keep the rest in [temporary storage](/en/services/storage-solutions-panama/) until the space is usable. Planning that costs considerably less than improvising it.` },
+      { q: `Do you dismantle and reassemble workstations and partitions?`, a: `Yes. Dismantling and reassembling desks, modular partitions and office furniture is part of the service and is measured during the on-site survey. It's precisely the line item that rushed quotes tend to leave out and then bill separately.` },
+      { q: `How far in advance should we start?`, a: `The sooner the better: the planning is the part that actually protects your operation. Ideally, contact us as soon as you've settled on the new premises, even if the date isn't fixed yet, so we can build the inventory and the schedule without rushing. We answer every request in under 24 hours.` },
     ],
     related: ['cliente-expatriados', 'especiales-arte', 'complementarios-almacenaje'],
   },
