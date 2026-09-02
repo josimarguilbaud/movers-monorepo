@@ -8,26 +8,24 @@ import { site, wa } from '../../../data/site';
 import { breadcrumb } from '@movers/core/schema';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getCollection('blogEn', ({ data }) => !data.draft);
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 const { post } = Astro.props;
 const { Content } = await render(post);
-const fmt = (d: Date) => d.toLocaleDateString('es-PA', { year: 'numeric', month: 'long', day: 'numeric' });
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-const url = `${site.domain}/es/blog/${post.id}/`;
+const url = `${site.domain}/en/blog/${post.id}/`;
 const crumbs = breadcrumb([
-  { name: 'Inicio', url: `${site.domain}/es/` },
-  { name: 'Blog', url: `${site.domain}/es/blog/` },
+  { name: 'Home', url: `${site.domain}/en/` },
+  { name: 'Blog', url: `${site.domain}/en/blog/` },
   { name: post.data.title, url },
 ]);
 /* `heroImage` viene relativo ("/img/pim-ship.jpg") y Google no resuelve rutas
    relativas dentro del JSON-LD: hay que darle la URL absoluta. */
-/* El par de hreflang se emite SOLO si el artículo declara su gemelo traducido.
-   Sin gemelo no hay alterna: anunciar una URL que no existe fue exactamente el
-   bug que tenía este blog. */
+/* Igual que en español: sin gemelo declarado, no se emite alterna. */
 const altPaths = post.data.translation
-  ? { es: `/es/blog/${post.id}/`, en: `/en/blog/${post.data.translation}/` }
+  ? { es: `/es/blog/${post.data.translation}/`, en: `/en/blog/${post.id}/` }
   : undefined;
 
 const article = {
@@ -44,21 +42,21 @@ const article = {
 ---
 
 <Base
-  title={`${post.data.title} | Blog PIM`}
+  title={`${post.data.title} | PIM Blog`}
   description={post.data.description}
-  lang="es"
+  lang="en"
   image={post.data.heroImage}
   altPaths={altPaths}
   jsonld={[crumbs, article]}
 >
-  <Header locale="es" />
+  <Header locale="en" />
 
   <article>
     <section class="relative pt-40 pb-20 bg-brand-900 overflow-hidden">
       <img src={post.data.heroImage} alt={post.data.title} class="absolute inset-0 w-full h-full object-cover opacity-25" />
       <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.9), rgba(10,25,47,0.97));"></div>
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/es/" class="hover:text-accent-400">Inicio</a><span>/</span><a href="/es/blog/" class="hover:text-accent-400">Blog</a><span>/</span><span class="text-accent-400">Artículo</span></nav>
+        <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap"><a href="/en/" class="hover:text-accent-400">Home</a><span>/</span><a href="/en/blog/" class="hover:text-accent-400">Blog</a><span>/</span><span class="text-accent-400">Article</span></nav>
         <span class="text-xs font-bold text-accent-500 uppercase tracking-widest">{post.data.category}</span>
         <h1 class="text-3xl md:text-5xl font-black text-white my-5 leading-tight">{post.data.title}</h1>
         <p class="text-brand-300 text-sm flex items-center gap-2"><Icon name="fa6-solid:calendar" /> {fmt(post.data.pubDate)} · {post.data.author}</p>
@@ -74,14 +72,14 @@ const article = {
         <h3 class="text-2xl font-black text-white mb-3">¿Planeando su mudanza internacional?</h3>
         <p class="text-brand-300 mb-6">Solicite una cotización gratuita y sin compromiso. Le respondemos en menos de 24 horas.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/es/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Cotizar mi Mudanza</a>
+          <a href="/en/#contacto" class="bg-accent-500 text-brand-900 px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold hover:bg-accent-400 transition-all">Cotizar mi Mudanza</a>
           <a href={wa()} target="_blank" rel="noopener" class="px-8 py-4 rounded-tr-2xl rounded-bl-2xl font-bold text-white border-2 border-white/30 hover:bg-white/10 transition-all flex items-center justify-center gap-2"><Icon name="fa6-brands:whatsapp" class="text-green-400 text-xl" /> WhatsApp</a>
         </div>
       </div>
     </div>
   </article>
 
-  <Footer locale="es" />
+  <Footer locale="en" />
   <a href={wa()} target="_blank" rel="noopener" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 grid place-items-center shadow-lg" aria-label="WhatsApp"><Icon name="fa6-brands:whatsapp" class="text-white text-3xl" /></a>
 </Base>
 

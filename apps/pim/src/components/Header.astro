@@ -154,9 +154,7 @@ const menuShort: Record<string, string> = {
         </div>
 
         <a href={rec} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.recursos}</a>
-        {locale === 'es' && (
-          <a href={blog} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.blog}</a>
-        )}
+        <a href={blog} class="nav-link px-3 py-2 text-white hover:text-accent-500 font-semibold text-sm uppercase tracking-wide transition-colors">{L.blog}</a>
         <a href={other.href} class="nav-link px-2 py-1 text-white hover:text-accent-500 font-bold text-sm uppercase transition-colors border border-white/30 rounded-md ml-1">{other.label}</a>
 
         <a href={`${base}${seg.contacto}/`} class="ml-2 bg-accent-500 text-brand-900 px-6 py-3 rounded-tr-xl rounded-bl-xl font-bold text-sm uppercase tracking-wide shadow-lg hover:bg-accent-400 transition-all transform hover:-translate-y-0.5">{L.cotizar}</a>
@@ -181,9 +179,7 @@ const menuShort: Record<string, string> = {
       <a href={svc} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.servicios}</a>
       <a href={dest} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.destinos}</a>
       <a href={rec} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.recursos}</a>
-      {locale === 'es' && (
-        <a href={blog} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.blog}</a>
-      )}
+      <a href={blog} class="mobile-link text-xl font-bold text-white hover:text-accent-500">{L.blog}</a>
       <a href={other.href} class="text-xl font-bold text-accent-500">{other.label}</a>
     </div>
     <div class="mt-auto flex flex-col gap-4 pt-8">

@@ -8,6 +8,7 @@ import { servicesEn } from '../../../data/en/services';
 import { site, wa } from '../../../data/site';
 import { imgFor } from '../../../data/images';
 import { faqPage, breadcrumb } from '@movers/core/schema';
+import { inline, plain } from '@movers/core/text';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -34,7 +35,7 @@ const crumbs = breadcrumb([
   lang="es"
   image={hero}
   altPaths={{ es: `/es/servicios/${service.slug}/`, en: `/en/services/${enSlug}/` }}
-  jsonld={[crumbs, faqPage(service.faqs.map((f) => ({ question: f.q, answer: f.a })))]}
+  jsonld={[crumbs, faqPage(service.faqs.map((f) => ({ question: plain(f.q), answer: plain(f.a) })))]}
 >
   <Header locale="es" />
 
@@ -64,7 +65,7 @@ const crumbs = breadcrumb([
   <!-- INTRO -->
   <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      {service.intro.map((p) => <p class="text-brand-600 text-lg leading-relaxed mb-6">{p}</p>)}
+      {service.intro.map((p) => <p class="text-brand-600 text-lg leading-relaxed mb-6" set:html={inline(p)}></p>)}
     </div>
   </section>
 
@@ -75,7 +76,7 @@ const crumbs = breadcrumb([
         <div class={`grid ${sec.image ? 'lg:grid-cols-2' : ''} gap-12 items-center`}>
           <div class={sec.image && i % 2 === 1 ? 'lg:order-2' : ''}>
             <h2 class="text-3xl md:text-4xl font-black text-brand-900 mb-6 leading-tight">{sec.heading}</h2>
-            {sec.body.map((p) => <p class="text-brand-600 leading-relaxed mb-4">{p}</p>)}
+            {sec.body.map((p) => <p class="text-brand-600 leading-relaxed mb-4" set:html={inline(p)}></p>)}
           </div>
           {sec.image && (
             <div class={`rounded-3xl overflow-hidden shadow-xl h-80 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
@@ -120,7 +121,7 @@ const crumbs = breadcrumb([
               <span class="font-bold text-brand-900">{f.q}</span>
               <Icon name="fa6-solid:chevron-down" class="text-brand-400 accordion-icon transition-transform" />
             </button>
-            <div class="accordion-content px-6 bg-white"><p class="text-brand-600 py-4 text-sm leading-relaxed">{f.a}</p></div>
+            <div class="accordion-content px-6 bg-white"><p class="text-brand-600 py-4 text-sm leading-relaxed" set:html={inline(f.a)}></p></div>
           </div>
         ))}
       </div>
