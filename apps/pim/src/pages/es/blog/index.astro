@@ -16,13 +16,17 @@ const crumbs = breadcrumb([
   { name: 'Inicio', url: 'https://panamainternationalmovers.com/es/' },
   { name: 'Blog', url: 'https://panamainternationalmovers.com/es/blog/' },
 ]);
+
+/* Esta página va sin `altPaths` a propósito: el blog todavía no existe en
+   inglés. Antes declaraba un hreflang a /en/blog/, que devuelve 404, o sea que
+   le anunciábamos a Google una URL rota. Reponer el par cuando se monte el
+   blog EN. */
 ---
 
 <Base
   title="Blog de Mudanzas Internacionales | Consejos y Guías | PIM"
   description="Consejos de empaque, guías de aduanas, vida expatriada y traslado de mascotas. El blog de Panamá International Movers para que tu mudanza sea un éxito."
   lang="es"
-  altPaths={{ es: '/es/blog/', en: '/en/blog/' }}
   jsonld={crumbs}
 >
   <Header locale="es" />

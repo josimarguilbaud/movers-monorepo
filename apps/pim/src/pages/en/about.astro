@@ -26,13 +26,11 @@ const stats = [
   { value: '100%', label: 'Family Commitment' },
 ];
 
-// ⚠️ Replace with PIM's REAL certifications/affiliations (with their logos).
-const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
 ---
 
 <Base
   title="About Us | Panamá International Movers S.A. — Since 1990"
-  description="Meet Panamá International Movers: a Panamanian family business founded in 1990, with over 30 years moving homes around the world. Our history, values and commitment."
+  description={`Meet Panamá International Movers: a Panamanian family business founded in ${site.foundingYear}, with over ${yearsInBusiness} years moving homes around the world. Our history, values and commitment.`}
   lang="en"
   altPaths={{ es: '/es/nosotros/', en: '/en/about/' }}
   jsonld={crumbs}
@@ -143,17 +141,6 @@ const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
-  <section class="py-20 bg-white border-t border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-3">Certifications & Affiliations</h2>
-      <h3 class="text-2xl md:text-3xl font-black text-brand-900 mb-8">Backed by the industry's standards</h3>
-      {/* ⚠️ Replace with PIM's real certification/affiliation logos */}
-      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5">
-        {certifications.map((c) => <span class="text-xl font-black text-brand-300 tracking-wide">{c}</span>)}
-      </div>
-    </div>
-  </section>
 
   <!-- CTA -->
   <section class="py-20 bg-brand-900 text-center">

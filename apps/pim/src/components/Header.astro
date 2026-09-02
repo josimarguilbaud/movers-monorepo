@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { site, wa } from '../data/site';
+import { site, wa, socialLinks } from '../data/site';
 import { categories, servicesByCategory } from '../data/services';
 import { regions, destinationsByRegion } from '../data/destinations';
 import { categoriesEn, servicesByCategoryEn } from '../data/en/services';
@@ -72,12 +72,16 @@ const menuShort: Record<string, string> = {
     </div>
     <div class="flex items-center space-x-6">
       <a href={`mailto:${site.email}`} class="hover:text-white transition-colors flex items-center gap-2"><Icon name="fa6-solid:envelope" class="text-accent-500" /> {site.email}</a>
-      <div class="h-3 w-px bg-brand-800"></div>
-      <div class="flex gap-3">
-        <a href={site.socials.linkedin} class="hover:text-accent-500 transition-colors" aria-label="LinkedIn"><Icon name="fa6-brands:linkedin-in" /></a>
-        <a href={site.socials.instagram} class="hover:text-accent-500 transition-colors" aria-label="Instagram"><Icon name="fa6-brands:instagram" /></a>
-        <a href={site.socials.facebook} class="hover:text-accent-500 transition-colors" aria-label="Facebook"><Icon name="fa6-brands:facebook-f" /></a>
-      </div>
+      {socialLinks.length > 0 && (
+        <>
+          <div class="h-3 w-px bg-brand-800"></div>
+          <div class="flex gap-3">
+            {socialLinks.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener" class="hover:text-accent-500 transition-colors" aria-label={s.label}><Icon name={s.icon} /></a>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   </div>
 </div>

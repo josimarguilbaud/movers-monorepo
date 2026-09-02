@@ -27,12 +27,11 @@ const stats = [
 ];
 
 // ⚠️ Reemplazar por certificaciones/afiliaciones REALES de PIM (con sus logos).
-const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
 ---
 
 <Base
   title="Nosotros | Panamá International Movers S.A. — Desde 1990"
-  description="Conozca a Panamá International Movers: empresa familiar panameña fundada en 1990, con más de 30 años moviendo hogares por el mundo. Nuestra historia, valores y compromiso."
+  description={`Conozca a Panamá International Movers: empresa familiar panameña fundada en ${site.foundingYear}, con más de ${yearsInBusiness} años moviendo hogares por el mundo. Nuestra historia, valores y compromiso.`}
   lang="es"
   altPaths={{ es: '/es/nosotros/', en: '/en/about/' }}
   jsonld={crumbs}
@@ -140,18 +139,6 @@ const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
         ))}
       </div>
       <p class="text-center text-xs text-brand-400 mt-6">Fotos reales del equipo pendientes.</p>
-    </div>
-  </section>
-
-  <!-- CERTIFICACIONES -->
-  <section class="py-20 bg-white border-t border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-sm font-bold text-accent-600 uppercase tracking-widest mb-3">Certificaciones y Afiliaciones</h2>
-      <h3 class="text-2xl md:text-3xl font-black text-brand-900 mb-8">Respaldados por los estándares de la industria</h3>
-      {/* ⚠️ Reemplazar por los logos reales de las certificaciones/afiliaciones de PIM */}
-      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-5">
-        {certifications.map((c) => <span class="text-xl font-black text-brand-300 tracking-wide">{c}</span>)}
-      </div>
     </div>
   </section>
 

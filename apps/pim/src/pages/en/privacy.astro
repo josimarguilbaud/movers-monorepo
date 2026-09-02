@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LegalBody from '../../components/LegalBody.astro';
+import { privacy } from '../../data/legal';
+import { breadcrumb } from '@movers/core/schema';
+
+const doc = privacy.en;
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Privacy Policy', url: 'https://panamainternationalmovers.com/en/privacy/' },
+]);
+---
+
+<Base
+  title={doc.metaTitle}
+  description={doc.metaDescription}
+  lang="en"
+  altPaths={{ es: '/es/privacidad/', en: '/en/privacy/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+  <LegalBody locale="en" doc={doc} crumb="Privacy" />
+  <Footer locale="en" />
+</Base>

@@ -21,7 +21,10 @@ const T = {
     dest: 'Ciudad y País de Destino', destPh: 'Ej. Madrid, España',
     details: 'Detalles', detailsPh: 'Háganos cualquier consulta… Volumen aproximado (casa de X recámaras), si incluye vehículo, etc.',
     send: 'Enviar Solicitud', sending: 'Enviando…',
-    consent: 'Al enviar acepta ser contactado por PIM. No compartimos sus datos.',
+    /* Decía "No compartimos sus datos", y no era exacto: el lead pasa por el
+       webhook de automatización y por el CRM. No los vendemos, que es lo que de
+       verdad le importa a quien lo lee, y eso sí se puede afirmar. */
+    consent: 'Al enviar acepta ser contactado por PIM. Nunca vendemos sus datos.',
     okTitle: '¡Solicitud Recibida!',
     okText: 'Gracias por confiar en PIM. Nuestro equipo revisará su solicitud y le contactaremos en menos de 24 horas.',
     another: 'Enviar otra solicitud',
@@ -42,7 +45,7 @@ const T = {
     dest: 'Destination City and Country', destPh: 'e.g. Madrid, Spain',
     details: 'Details', detailsPh: 'Ask us anything… approximate volume (X-bedroom home), whether a vehicle is included, etc.',
     send: 'Send Request', sending: 'Sending…',
-    consent: 'By submitting you agree to be contacted by PIM. We never share your data.',
+    consent: 'By submitting you agree to be contacted by PIM. We never sell your data.',
     okTitle: 'Request Received!',
     okText: 'Thank you for trusting PIM. Our team will review your request and get back to you within 24 hours.',
     another: 'Send another request',

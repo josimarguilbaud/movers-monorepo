@@ -1,0 +1,62 @@
+---
+/* Cuerpo compartido de las páginas legales (privacidad y términos), en los dos
+   idiomas. El contenido vive en data/legal.ts. */
+import type { LegalDoc } from '../data/legal';
+
+interface Props {
+  locale: 'es' | 'en';
+  doc: LegalDoc;
+  /** Migas de pan: etiqueta de la página actual */
+  crumb: string;
+}
+const { locale, doc, crumb } = Astro.props;
+const home = locale === 'es' ? '/es/' : '/en/';
+const contact = locale === 'es' ? '/es/contacto/' : '/en/contact/';
+
+const L = {
+  es: { inicio: 'Inicio', updated: 'Última revisión:', ctaTitle: '¿Alguna duda sobre esto?', ctaText: 'Si algo no le queda claro, escríbanos y se lo explicamos.', ctaBtn: 'Contactar' },
+  en: { inicio: 'Home', updated: 'Last reviewed:', ctaTitle: 'Any questions about this?', ctaText: 'If something is unclear, write to us and we will explain it.', ctaBtn: 'Contact us' },
+}[locale];
+---
+
+<section class="relative pt-40 pb-16 bg-brand-900 overflow-hidden">
+  <div class="absolute inset-0" style="background:linear-gradient(160deg, rgba(10,25,47,0.92), rgba(10,25,47,0.98));"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <nav class="text-sm text-brand-300 mb-6 flex gap-2 flex-wrap">
+      <a href={home} class="hover:text-accent-400">{L.inicio}</a><span>/</span><span class="text-accent-400">{crumb}</span>
+    </nav>
+    <h1 class="text-4xl md:text-5xl font-black text-white mb-5 leading-tight">{doc.h1}</h1>
+    <p class="text-brand-200 text-lg">{doc.lead}</p>
+    <p class="text-brand-400 text-sm mt-6">{L.updated} {doc.updated}</p>
+  </div>
+</section>
+
+<section class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-10">
+      {doc.sections.map((s) => (
+        <div>
+          <h2 class="text-2xl font-black text-brand-900 mb-4 tracking-tight">{s.t}</h2>
+          {s.p?.map((par) => <p class="text-brand-600 leading-relaxed mb-4">{par}</p>)}
+          {s.items && (
+            <ul class="space-y-2.5 mt-4">
+              {s.items.map((i) => (
+                <li class="flex gap-3 text-brand-600 leading-relaxed">
+                  <span class="text-accent-500 font-black shrink-0">·</span>{i}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-brand-50 border-t border-brand-100">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-2xl md:text-3xl font-black text-brand-900 mb-3">{L.ctaTitle}</h2>
+    <p class="text-brand-600 mb-7">{L.ctaText}</p>
+    <a href={contact} class="inline-block bg-accent-500 hover:bg-accent-600 text-white font-bold px-8 py-4 rounded-lg transition-colors">{L.ctaBtn}</a>
+  </div>
+</section>

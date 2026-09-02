@@ -26,9 +26,6 @@ const stats = [
   { value: '100%', label: 'Seguro a Todo Riesgo' },
 ];
 
-// ⚠️ Placeholder — reemplazar por certificaciones/afiliaciones REALES de PIM (con sus logos).
-const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
-
 const steps = [
   { n: '01.', icon: 'fa6-solid:clipboard-list', title: 'Inspección y Asesoría', desc: 'Evaluamos el volumen de su carga en su domicilio o por videollamada para una cotización exacta.' },
   { n: '02.', icon: 'fa6-solid:box', title: 'Embalaje Profesional', desc: 'Empacamos con materiales de calidad de exportación e inventariamos todo con detalle.' },
@@ -46,7 +43,7 @@ const faqs = [
 
 <Base
   title="Mudanzas Internacionales en Panamá | Panamá International Movers S.A."
-  description="Panamá International Movers S.A.: empresa familiar con más de 30 años de experiencia en mudanzas internacionales, locales y corporativas desde Panamá. Puerta a puerta, aduanas y seguro. Cotiza gratis."
+  description={`Panamá International Movers S.A.: empresa familiar con más de ${yearsInBusiness} años de experiencia en mudanzas internacionales, locales y corporativas desde Panamá. Puerta a puerta, aduanas y seguro. Cotiza gratis.`}
   lang="es"
   altPaths={{ es: '/es/', en: '/en/' }}
   jsonld={faqPage(faqs.map((f) => ({ question: f.q, answer: f.a })))}
@@ -125,19 +122,6 @@ const faqs = [
       </div>
     </div>
   </div>
-
-  <!-- CERTIFICACIONES (ready para logos reales) -->
-  <section class="bg-white border-b border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <p class="text-center text-xs font-bold text-brand-400 uppercase tracking-widest mb-5">Respaldados por los estándares de la industria</p>
-      <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-        {/* ⚠️ Reemplazar por los logos reales de las certificaciones/afiliaciones de PIM */}
-        {certifications.map((c) => (
-          <span class="text-lg font-black text-brand-300 tracking-wide">{c}</span>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- SERVICIOS DESTACADOS -->
   <section id="servicios" class="py-24 bg-brand-50">

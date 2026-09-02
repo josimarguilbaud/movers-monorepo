@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LegalBody from '../../components/LegalBody.astro';
+import { terms } from '../../data/legal';
+import { breadcrumb } from '@movers/core/schema';
+
+const doc = terms.en;
+const crumbs = breadcrumb([
+  { name: 'Home', url: 'https://panamainternationalmovers.com/en/' },
+  { name: 'Terms of Service', url: 'https://panamainternationalmovers.com/en/terms/' },
+]);
+---
+
+<Base
+  title={doc.metaTitle}
+  description={doc.metaDescription}
+  lang="en"
+  altPaths={{ es: '/es/terminos/', en: '/en/terms/' }}
+  jsonld={crumbs}
+>
+  <Header locale="en" />
+  <LegalBody locale="en" doc={doc} crumb="Terms" />
+  <Footer locale="en" />
+</Base>

@@ -26,8 +26,6 @@ const stats = [
   { value: '100%', label: 'All-Risk Insurance' },
 ];
 
-// ⚠️ Placeholder — replace with PIM's REAL certifications/affiliations (with their logos).
-const certifications = ['IAM', 'FIDI · FAIM', 'LACMA', 'BASC', 'ISO 9001'];
 
 const steps = [
   { n: '01.', icon: 'fa6-solid:clipboard-list', title: 'Survey & Consultation', desc: 'We assess your shipment volume at your home or by video call for an accurate, no-surprise quote.' },
@@ -46,7 +44,7 @@ const faqs = [
 
 <Base
   title="International Movers in Panama | Panama International Movers S.A."
-  description="Panama International Movers S.A.: a family-owned company with over 30 years of experience in international, local, and corporate moving from Panama. Door-to-door, customs, and insurance. Get a free quote."
+  description={`Panama International Movers S.A.: a family-owned company with over ${yearsInBusiness} years of experience in international, local, and corporate moving from Panama. Door-to-door, customs, and insurance. Get a free quote.`}
   lang="en"
   altPaths={{ es: '/es/', en: '/en/' }}
   jsonld={faqPage(faqs.map((f) => ({ question: f.q, answer: f.a })))}
@@ -125,19 +123,6 @@ const faqs = [
       </div>
     </div>
   </div>
-
-  <!-- CERTIFICATIONS (ready for real logos) -->
-  <section class="bg-white border-b border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <p class="text-center text-xs font-bold text-brand-400 uppercase tracking-widest mb-5">Backed by industry standards</p>
-      <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-        {/* ⚠️ Replace with PIM's real certification/affiliation logos */}
-        {certifications.map((c) => (
-          <span class="text-lg font-black text-brand-300 tracking-wide">{c}</span>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- FEATURED SERVICES -->
   <section id="servicios" class="py-24 bg-brand-50">

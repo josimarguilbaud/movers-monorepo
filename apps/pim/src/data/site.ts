@@ -14,13 +14,24 @@ export const site = {
     country: 'PA',
   },
   foundingYear: 1990,
-  // ⚠️ Reemplazar '#' por las URLs reales de redes.
+  /* Pega aquí la URL real de cada red y el icono aparece solo en el header y el
+     footer. Lo que quede en blanco no se renderiza: antes estaban en '#' y eso
+     eran seis enlaces muertos en cada una de las ~147 páginas del sitio. */
   socials: {
-    facebook: '#',
-    instagram: '#',
-    linkedin: '#',
+    facebook: '',
+    instagram: '',
+    linkedin: '',
   },
 } as const;
+
+/** Solo las redes que tienen una URL real, listas para pintar. */
+export const socialLinks = (
+  [
+    { key: 'facebook', label: 'Facebook', icon: 'fa6-brands:facebook-f', href: site.socials.facebook },
+    { key: 'instagram', label: 'Instagram', icon: 'fa6-brands:instagram', href: site.socials.instagram },
+    { key: 'linkedin', label: 'LinkedIn', icon: 'fa6-brands:linkedin-in', href: site.socials.linkedin },
+  ] as const
+).filter((s) => s.href.length > 0);
 
 export const yearsInBusiness = new Date().getFullYear() - site.foundingYear;
 

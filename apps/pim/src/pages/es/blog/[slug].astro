@@ -21,12 +21,14 @@ const crumbs = breadcrumb([
   { name: 'Blog', url: `${site.domain}/es/blog/` },
   { name: post.data.title, url },
 ]);
+/* `heroImage` viene relativo ("/img/pim-ship.jpg") y Google no resuelve rutas
+   relativas dentro del JSON-LD: hay que darle la URL absoluta. */
 const article = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: post.data.title,
   description: post.data.description,
-  image: post.data.heroImage,
+  image: new URL(post.data.heroImage, site.domain).href,
   datePublished: post.data.pubDate.toISOString(),
   author: { '@type': 'Organization', name: post.data.author },
   publisher: { '@type': 'Organization', name: site.name },

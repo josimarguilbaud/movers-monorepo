@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { site, wa, yearsInBusiness } from '../data/site';
+import { site, wa, yearsInBusiness, socialLinks } from '../data/site';
 import { services } from '../data/services';
 import { destinations } from '../data/destinations';
 import { servicesEn } from '../data/en/services';
@@ -12,8 +12,8 @@ interface Props {
 const { locale } = Astro.props;
 const base = `/${locale}/`;
 const seg = locale === 'es'
-  ? { servicios: 'servicios', destinos: 'destinos', recursos: 'recursos', nosotros: 'nosotros', contacto: 'contacto' }
-  : { servicios: 'services', destinos: 'destinations', recursos: 'resources', nosotros: 'about', contacto: 'contact' };
+  ? { servicios: 'servicios', destinos: 'destinos', recursos: 'recursos', nosotros: 'nosotros', contacto: 'contacto', privacidad: 'privacidad', terminos: 'terminos' }
+  : { servicios: 'services', destinos: 'destinations', recursos: 'resources', nosotros: 'about', contacto: 'contact', privacidad: 'privacy', terminos: 'terms' };
 
 const L = {
   es: {
@@ -108,11 +108,13 @@ const recursos = locale === 'es'
           <li class="flex items-center gap-3"><Icon name="fa6-solid:envelope" class="text-accent-500" /><a href={`mailto:${site.email}`} class="hover:text-white transition-colors break-all">{site.email}</a></li>
           <li class="flex items-center gap-3"><Icon name="fa6-solid:clock" class="text-accent-500" /><span>{L.hours}</span></li>
         </ul>
-        <div class="flex gap-3 mt-6">
-          <a href={site.socials.facebook} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="Facebook"><Icon name="fa6-brands:facebook-f" /></a>
-          <a href={site.socials.instagram} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="Instagram"><Icon name="fa6-brands:instagram" /></a>
-          <a href={site.socials.linkedin} class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label="LinkedIn"><Icon name="fa6-brands:linkedin-in" /></a>
-        </div>
+        {socialLinks.length > 0 && (
+          <div class="flex gap-3 mt-6">
+            {socialLinks.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-brand-900 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-all" aria-label={s.label}><Icon name={s.icon} /></a>
+            ))}
+          </div>
+        )}
       </div>
 
       <!-- Servicios -->
@@ -154,8 +156,8 @@ const recursos = locale === 'es'
     <div class="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs gap-3">
       <p>&copy; 2026 {site.name} · {L.rights}</p>
       <div class="flex gap-5">
-        <a href="#" class="hover:text-white transition-colors">{L.privacy}</a>
-        <a href="#" class="hover:text-white transition-colors">{L.terms}</a>
+        <a href={`${base}${seg.privacidad}/`} class="hover:text-white transition-colors">{L.privacy}</a>
+        <a href={`${base}${seg.terminos}/`} class="hover:text-white transition-colors">{L.terms}</a>
       </div>
     </div>
 
